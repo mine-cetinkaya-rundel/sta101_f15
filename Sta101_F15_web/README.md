@@ -1,7 +1,23 @@
 ## Instructor customization:
 
-* Replace instructor name
-* Replace ...
+#### Makefile
+
+Update REMOTEUSER and REMOTEDIR
+
+#### In config.yml
+
+* Update baseurl
+* Update author name and url
+* Update Sakai url
+
+#### In index.md
+
+Update dates for classes and exams (this file will be updated more later)
+
+#### In info/index.md
+
+* Update instructor and TA related info
+* Update holidays and exams
 
 ## Colors:
 
