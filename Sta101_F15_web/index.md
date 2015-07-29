@@ -171,6 +171,8 @@ Nov 9, Mon - MIDTERM 2
 
 * * *
 
-### Review
+### Review & Final Exam
 
 Dec 2, Wed - Review / synthesis
+
+Dec 10, Thur 2-5pm - FINAL EXAM

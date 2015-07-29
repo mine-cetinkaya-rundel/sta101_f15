@@ -1,5 +1,5 @@
 REMOTEUSER ?= mc301
-REMOTEHOST ?= nighthawk.stat.duke.edu
+REMOTEHOST ?= bravo.stat.duke.edu
 REMOTEDIR ?= /web/isds/docs/courses/Fall15/sta101.002
 REMOTE ?= $(REMOTEUSER)@$(REMOTEHOST):$(REMOTEDIR)
 
