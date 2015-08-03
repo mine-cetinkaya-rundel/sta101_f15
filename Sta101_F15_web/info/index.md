@@ -19,11 +19,11 @@ title: Course Information
 ### Required materials:
 
 * Textbook: [OpenIntro Statistics](http://www.openintro.org/stat/textbook.php?stat_book=os) - Diez, Barr, Çetinkaya-Rundel \\
-   CreateSpace, 3rd Edition, 2015 (ISBN: TBA) \\
-The textbook is freely [available online](http://www.openintro.org/stat/textbook.php). You're welcomed to read on screen or print it out. If you prefer a paperback version you can buy it at the cost of printing (under $10) [onamazon](TBA). The textbook store will not carry copies of this text.
+   CreateSpace, 3rd Edition, 2015 (ISBN: 978-1943450039) \\
+The textbook is freely [available online](http://www.openintro.org/stat/textbook.php). You're welcomed to read on screen or print it out. If you prefer a paperback version you can buy it at the cost of printing (around $10) [on Amazon](https://www.openintro.org/redirect.php?go=amazon_os3&referrer=/stat/textbook.php). The textbook store will not carry copies of this text.
 
 * Clicker: [i>clicker2](http://www.amazon.com/I-Clicker-2-I-Clicker/dp/1429280476) (ISBN: 1429280476) \\
-If you would like to purchase a used clicker from a former student, see the list of students selling their clickers [at this Google Doc](https://docs.google.com/spreadsheet/ccc?key=0AkY2lFgS9uiDdE1fMkZUZnp6alJDSG9tYlIwTFJWdnc#gid=0). You can contact them directly, or leave your name on the list under "Wants to buy clicker". The clickers will also be available at the Duke textbook store, or you can get them for slightly cheaper [onamazon](http://www.amazon.com/I-Clicker-2-I-Clicker/dp/1429280476). Note that this is i>clicker2, and not i>clicker+.
+If you would like to purchase a used clicker from a former student, see the list of students selling their clickers [at this Google Doc](https://docs.google.com/spreadsheet/ccc?key=0AkY2lFgS9uiDdE1fMkZUZnp6alJDSG9tYlIwTFJWdnc#gid=0). You can contact them directly, or leave your name on the list under "Wants to buy clicker". The clickers will also be available at the Duke textbook store, or you can get them for slightly cheaper [on Amazon](http://www.amazon.com/I-Clicker-2-I-Clicker/dp/1429280476). Note that this is i>clicker2, and not i>clicker+.
 
 * Calculator (optional): You will be allowed to use a calculator in this class. There is no restrictions on the type of calculator. A simple calculator that can take square roots should be sufficient.
 
@@ -53,10 +53,9 @@ If you would like to purchase a used clicker from a former student, see the list
     * Where: Old Chemistry 213
     * When: Tuesdays and Thursdays 4:30pm - 6pm or by appointment
 * Teaching Assistants
-    * Where: Old Chemistry 211A (TA help room)
+    * Where: Old Chemistry 211A
     * When: 
         * TBA
-* [SEC](https://stat.duke.edu/courses/sec-schedule) - Sunday to Thursday, 4:00pm - 9:00pm, Old Chemistry 211A. You should be able to seek help from any TA, but you might want to start with our TAs or the TAs for the other Sta 101 section (both sections cover the same material roughly around the same time).
 
 * * *
 
@@ -64,6 +63,7 @@ If you would like to purchase a used clicker from a former student, see the list
 
 * Monday, Oct 12 - Fall break
 * Wednesday, Nov 25 - Thanksgiving break
+* Thursday, Nov 26 - Thanksgiving break
 
 * * *
 

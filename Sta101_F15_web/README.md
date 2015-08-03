@@ -9,6 +9,7 @@ Update REMOTEUSER and REMOTEDIR
 * Update baseurl
 * Update author name and url
 * Update Sakai url
+* Update other urls defined on top
 
 #### In index.md
 
@@ -21,4 +22,7 @@ Update dates for classes and exams (this file will be updated more later)
 
 ## Colors:
 
-Each semester change the theme color with one of Pantone's colors for that season in noita/foundation/css/foundation.min.css. Fall 2015: #58646D.
+* Each semester change the theme color, often with one of Pantone's colors 
+for that season.
+* Color goes in the following file: noita/foundation/css/foundation.min.css. 
+* Fall 2015: #0E5277.

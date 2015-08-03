@@ -180,7 +180,7 @@ Note that it is more efficient to answer most statistical questions ``in person"
 
 ### Other learning resources:
 
-Aside from the [SECC, your TAs and the professor's office hours](/info/#oh), you can also make use of the [Academic Resource Center](http://web.duke.edu/arc). 
+Aside from the [your TAs' and the professor's office hours](/info/#oh), you can also make use of the [Academic Resource Center](http://web.duke.edu/arc). 
 
 * * *
 

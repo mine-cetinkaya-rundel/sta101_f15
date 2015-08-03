@@ -5,19 +5,19 @@ title: Links
 
 ### Links to most frequently used resources for this course:
 
-* [Sakai](https://sakai.duke.edu/portal/site/22299c5a-2e30-49a7-b46d-289ae3e0d739/page/f473d807-e64b-47bc-9a27-4e3ebb48496e)
+* [Sakai]({{ site.sakai }})
     * Go here for submitting problem sets, labs, performance assessments, and viewing your grades
-* [Piazza](https://sakai.duke.edu/portal/site/22299c5a-2e30-49a7-b46d-289ae3e0d739/page/f473d807-e64b-47bc-9a27-4e3ebb48496e): To post and answer questions related to course materials
-* [Videos](https://duke.coursera.org/duke-statistics-001/lecture): For viewing videos on the Duke Coursera page (NetID login required)
-* [Learning objectives](https://duke.coursera.org/duke-statistics-001/wiki/learning): For viewing the learning objectives on the Duke Coursera page (NetID login required)
+* [Piazza]({{ site.piazza }}): To post and answer questions related to course materials
+* [Videos]({{ site.videos }}): For viewing videos on the Duke Coursera page (NetID login required)
+* [Learning objectives]({{ site.learn_obj }}/learning): For viewing the learning objectives on the Duke Coursera page (NetID login required)
     * [Answers to Test Yourself questions](https://drive.google.com/?ddrp=1#folders/0B0Y2lFgS9uiDNWhyQjRTei1GbjA): Crowd-sourced answers to Test Yourself questions from the learning objectives. Feel free to add / edit.
-* [OpenIntro Statistics](http://www.openintro.org/stat/textbook.php?stat_book=os): Textbook
+* [OpenIntro Statistics]({{ site.openintro }}): Textbook
 * Probability calculations:
     * [Probability tables](https://www.openintro.org/download.php?file=os2_prob_tables&referrer=/stat/textbook.php)
     * [Distribution calculator applet](https://bitly.com/dist_calc)
-* [Class recordings](TBA) via DukeCapture
+* [Class recordings]({{ site.duke_capture }}) via DukeCapture
 * [R commands](https://stat.duke.edu/~mc301/R/Rcommands.html): List of R commands commonly used in this course
-* [Teams & lab authors](TBA)
+* [Teams & lab authors]({{ site.teams }})
 
 
 * * *
@@ -38,8 +38,8 @@ You will see these in the course videos, and you're encouraged to play with / us
 You might find the following resources useful as you navigate through this course.  
 
 * [Additional videos accompanying OpenIntro Statistics](http://www.openintro.org/stat/videos.php "Link: http://www.openintro.org/stat/videos.php"): These can be used as supplementary videos, they are basically book-on-tape versions of the textbook.
-* [Textbook errata](https://docs.google.com/spreadsheet/ccc?key=0AuDHaDEbiOGkdDhLbXVsZHR4U0RDaUsxR2dQMEJpOFE#gid=0 "Link: https://docs.google.com/spreadsheet/ccc?key=0AuDHaDEbiOGkdDhLbXVsZHR4U0RDaUsxR2dQMEJpOFE#gid=0"): If you read something that doesn't make sense first check to see if it's been corrected already. If not, submit typos at [http://www.openintro.org/stat/textbook.php](http://www.openintro.org/stat/textbook.php "Link: http://www.openintro.org/stat/textbook.php"). The OpenIntro team very much appreciates your feedback!
-* [Probability tables](http://www.openintro.org/stat/down/probTables.pdf "Link: http://www.openintro.org/stat/down/probTables.pdf")
+* [Textbook errata](https://docs.google.com/spreadsheets/d/12GQ8HE-h-4N3Uh8SgvhhDd4hEMUN-T8gX5uszM1tWs8/edit): If you read something that doesn't make sense first check the [textbook errata](https://docs.google.com/spreadsheets/d/12GQ8HE-h-4N3Uh8SgvhhDd4hEMUN-T8gX5uszM1tWs8/edit) to see if it's been corrected already. If not, submit typos [here]({{ site.openintro }}). The OpenIntro team very much appreciates your feedback!
+* [Probability tables](https://www.openintro.org/download.php?file=os2_prob_tables&referrer=/stat/textbook.php)
 
 * * *
 
