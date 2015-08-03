@@ -1,0 +1,64 @@
+---
+title: "Lab 1"
+author: "jdjdjd"
+date: "djdjd"
+output:
+  html_document:
+    fig_height: 4
+    fig_width: 6
+---
+
+**Author:**jdjd
+
+**Discussants:** djjd
+
+* * *
+
+**Load Arbuthnot's data:**
+```{r}
+source("http://www.openintro.org/stat/data/arbuthnot.R")
+```
+
+#### Exercise 1: 
+
+```{r}
+# code for Exercise 1 is already entered below as an example
+arbuthnot$girls
+x = 2
+x
+```
+
+#### Exercise 2:
+
+jdjdjdjd
+
+```{r}
+plot(arbuthnot$girls)
+```
+
+#### Exercise 3:
+
+```{r}
+# enter your code for Exercise 3 here
+```
+
+* * *
+
+### On your own:
+
+**Load present day data:**
+```{r}
+source("http://www.openintro.org/stat/data/present.R")
+```
+
+#### 1:
+
+
+#### 2:
+
+
+#### 3:
+
+
+#### 4:
+
