@@ -1,0 +1,56 @@
+\frametitle{Labs}
+
+\red{Objective:} Give you hands on experience with data analysis using statistical
+software and provide you with tools for the projects.
+
+\begin{itemize}
+
+\item Work in teams: author / discussants
+
+\item Must be present in lab session to get credit
+
+\item Lowest lab score will be dropped
+
+\end{itemize}
+
+\vfill
+
+\pause
+
+\activity{Get started with R/RStudio}{
+\begin{itemize}
+    \setlength{\itemsep}{0pt}
+    \setlength{\parskip}{0pt}
+\item Go to the course website, \webURL{\CourseSite}, click on the RStudio link (top
+right)
+\begin{itemize}
+\item {\footnotesize Make sure you're on the Duke network, not visitor}
+\end{itemize}
+\item Log in using your Net ID and password
+\item In the Console, generate a random number between 1 and 5, and introduce yourself
+to that many people sitting around you:
+\Rcode{sample(1:5, size = 1)}
+\end{itemize}
+}
+
+%---Note---%
+\note{
+  \begin{itemize}
+  \item Reiterate that you MUST be in lab to get credit.
+  \end{itemize}
+
+  \begin{itemize}
+  \item Go to course website (create a clicker question?)
+  \item Click on Rstudio.
+  \item We may crash the system.  Post on Piazza if this ever occurs and I will try to take care of it.
+  \item Explain what is going on in Rstudio a bit.
+  \item You tell R what to do.  It will yell at your crypticall if you get it wrong. (CASE/spelling).
+  \item Sample: %\texttt{sample(1:5, size=1)}
+    \begin{itemize}
+    \item Does everyone get the same answer?
+    \item No? Why not?  (Because it is random)
+    \end{itemize}
+  \item Take 2 minutes to introduce yourself.
+  \end{itemize}
+}
+
