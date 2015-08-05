@@ -184,6 +184,10 @@ and/or Dr. Monod ahead of time.
 
 ## Part 2: Additional responsibilities of head TAs
 
+- The head TAs for Fall 2015 are
+    + David Clancy for Dr. Çetinkaya-Rundel's section
+    + Andrew Wong for Dr. Monod's section
+
 - Ensure that grading is completed by the due date (check a couple days prior 
 and send timely reminders if need be). You will report on this at the weekly
 meeting.
