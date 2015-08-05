@@ -4,6 +4,9 @@ Sta 101 TA Responsibilities
 #### Dr. Çetinkaya-Rundel & Dr. Monod
 #### Fall 2015
 
+Welcome Sta 101 TAs! We're looking forward to working with you
+this semester.
+
 This document contains information for Sta 101 TAs regarding the course
 format and their responsibilities. The document is comprised of two parts:
 
@@ -76,8 +79,12 @@ you're missing.
     gently ask them to do so
     + Suggest a better seating arrangement if you observe that it could be helpful
     + Collect submissions at the end and enter 0 / 1 for submitted / not submitted
+- TAs assigned to attend classes in this capacity will also be responsible for helping
+proctor midterm exams since they're available during class time.
 
 ### Grading:
+
+#### Assignment grading:
 
 - Lab grading:
     + TAs leading lab sections will also grade lab reports of their students.
@@ -107,6 +114,22 @@ so that expectations are communicated early on.
     to the head TA. 
     + If a student emails you about a regrade, forward the email to the head TA, 
     and cc the student letting them know this is what you're doing.
+
+#### Project grading:
+
+- TAs are responsible for grading Project 1 (detailed rubric will be provided).
+- TAs are also responsible for attending poster sessions for Project 2 (for their
+lab section), and tallying evaluations from students and the professor.
+
+#### Exam grading / proctoring:
+
+- TAs who regularly attend class are responsible for helping proctor midterms.
+- Each section will also need 2 TAs to help proctor the final exam. Assignments
+for these will be done based on availability towards the end of the semester.
+- Exams must be graded promptly after class on the day of the exam. All TAs assigned
+to a class are responsible for attending the grading session. Grading session time
+will be determined after Week 2 of classes after everyone's schedules have solidified.
+- There will be pizza at the grading session!
 
 ### Office hours:
 
