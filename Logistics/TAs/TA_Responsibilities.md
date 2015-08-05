@@ -10,6 +10,11 @@ format and their responsibilities. The document is comprised of two parts:
 - Part 1: Responsibilities of all TAs
 - Part 2: Additional responsibilities of head TAs
 
+Before reading this document, first review the course syllabus at 
+https://stat.duke.edu/courses/Fall15/sta101.002/syllabus/ to familiarize
+yourself with course components and policies.
+
+
 ## Part 1: Responsibilities of all TAs
 
 Some TAs are assigned to lead lab sections and others are responsible for 
@@ -46,12 +51,31 @@ teamwork:
     - If any students are unengaged explicitly ask them to work with their teams.
     - Ask students to change their seating order each week so that each student 
     gets a chance to be in the "middle".
-    - Ensure that teams follow the author assignments, and the authors rotate each week.
-+ If you must miss a lab, make arrangements for another TA to fill in for you well 
+    - Ensure that teams follow the author assignments, and tha t the authors 
+    rotate each week.
+- If you must miss a lab, make arrangements for another TA to fill in for you well 
 in advance, and notify the professor of this change prior to the lab session 
 you're missing.
 
 ### Facilitating active learning in the classroom:
+
+- Readiness assessments:
+    + Each unit starts with a readiness assessment that students first take
+    individually using their clickers, and then take as a team on scratch off
+    sheets.
+    + During the individual portion walk around to ensure no cheating and
+    answer any questions (some might be about how to use the clickers).
+    + During the team portion distribute scratch off sheets one / team, 
+    and collect these and readiness assessments when time is called.
+    + When the professor is reviewing the readiness assessment, enter grades on
+    team portion to Sakai (1 pt for question right on the first try, 0.5 pts
+    for right on the second try, 0 pts for 3rd try onwards).
+- Application exercises:
+    + Pass out blank sheets for teams to use
+    + Walk around and ensure all team members are contributing, if not interrupt and
+    gently ask them to do so
+    + Suggest a better seating arrangement if you observe that it could be helpful
+    + Collect submissions at the end and enter 0 / 1 for submitted / not submitted
 
 ### Grading:
 
@@ -143,7 +167,7 @@ meeting.
 - Prepare peer evaluations on Teammates and compile peer evaluation data 
 (more on this later).
 - Review exams and other course material as needed.
-- Handle regrade requests on a weekly bases.
+- Handle regrade requests on a weekly basis:
     + If there is an overarching problem, notify the professor.
     + Be strict, but fair.
     + "I wrote X but I meant Y" is not a good justification for earning
@@ -152,7 +176,6 @@ meeting.
     + Be cognizant of potential academic dishonesty issues. Bring up to the
     professor's attention immediately if you suspect any such issue.
 - Create lab assignments on Sakai for each lab and section. Instructions below:
-<small>
     + Title: Lab X - [section time]
         * 8:30 - 9:45am
         * 10:05 - 11:20am
@@ -185,4 +208,3 @@ meeting.
     emails for any student submissions
     + Released Grade Notification Email Options: (choose) Do not send notification 
     email to student when the grade is released 
-</small>
