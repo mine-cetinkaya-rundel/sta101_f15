@@ -137,6 +137,11 @@ will be determined after Week 2 of classes after everyone's schedules have solid
 
 - All TAs are expected to hold office 2 hours of office hours / week.
 - Students from either of the Sta 101 sections might attend the office hours.
+- Determining the exam time of your office hours will be a mix of your preference
+and coverage to make sure at least one Sta 101 TA is available every day between
+Sunday and Thursday.
+- Please try to schedule your office hours in the afternoon to evening to be accessible
+to as many students as possible (most students are in classes during the day).
 
 ### Piazza:
 
