@@ -17,38 +17,40 @@ assessments, application exercises, etc.).
 
 ### Grading
 
+- Lab grading:
+    + TAs leading lab sections will also grade lab reports of their students.
+    + Labs are completed in teams.
+    + Lab grading is due one week from the due date, at the beginning of the
+    following lab session.
+    + Only students who were present in the lab session are listed as 
+    author / discussant and receive points for the labs.
 
-Lead lab section and/or attend "lecture" 
+- Problem set (PS) grading:
+    + All TAs will split problem set grading, divided amongst them based on
+    hours they have available.
+    + PSs are completed individually.
+    + PS grading is due 9am on the Friday following the due date of the PS,
+    no exceptions.
 
-- Grading:
-    - Lab grading:
-        + TAs leading lab sections will also grade lab reports of their students.
-        + Labs are completed in teams.
-        + Lab grading is due one week from the due date, at the beginning of the
-        following lab session.
-        + Only students who were present in the lab session are listed as 
-        author / discussant and receive points for the labs.
-    - Problem set (PS) grading:
-        + All TAs will split problem set grading, divided amongst them based on
-        hours they have available.
-        + PSs are completed individually.
-        + PS grading is due 9am on the Friday following the due date of the PS,
-        no exceptions.
-    - If you anticipate not being able to complete the grading by the deadline, 
-    you must let the professor know ahead of time so that arrangements can be made.
-    - Stick closely to the answer key. If you catch an error on the key, or if 
-    something is not clear, email the professor and all TAs immediately to resolve 
-    the issue. This will save everyone time. If the error is minor, feel free to go 
-    in and edit the key directly.
-    - Note where you take off points, and provide ample *constructive* feedback.
-    - Take off points for formatting issues, especially in the first couple assignments
-    so that expectations are communicated early on.
-    - **Regrades:**
-        + We only consider regrade requests in the case of errors in tallying points. 
-        + All regrade requests must go through the head TA -- simply direct the students 
-        to the head TA. 
-        + If a student emails you about a regrade, forward the email to the head TA, 
-        and cc the student letting them know this is what you're doing.
+- If you anticipate not being able to complete the grading by the deadline, 
+you must let the professor know ahead of time so that arrangements can be made.
+
+- Stick closely to the answer key. If you catch an error on the key, or if 
+something is not clear, email the professor and all TAs immediately to resolve 
+the issue. This will save everyone time. If the error is minor, feel free to go 
+in and edit the key directly.
+
+- Note where you take off points, and provide ample *constructive* feedback.
+
+- Take off points for formatting issues, especially in the first couple assignments
+so that expectations are communicated early on.
+
+- **Regrades:**
+    + We only consider regrade requests in the case of errors in tallying points. 
+    + All regrade requests must go through the head TA -- simply direct the students 
+    to the head TA. 
+    + If a student emails you about a regrade, forward the email to the head TA, 
+    and cc the student letting them know this is what you're doing.
 
 - Office hours:
     - All TAs are expected to hold office 2 hours of office hours / week.
@@ -115,8 +117,8 @@ Lead lab section and/or attend "lecture"
 
 
 
+## Additional responsibilities of all head TAs:
 
-    <br><br>
 
 ### Responsibilities of the head TAs:
 - Ensure that grading is completed by the due date (check a couple days prior and send timely reminders if need be).
