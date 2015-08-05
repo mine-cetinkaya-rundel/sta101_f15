@@ -142,6 +142,8 @@ and coverage to make sure at least one Sta 101 TA is available every day between
 Sunday and Thursday.
 - Please try to schedule your office hours in the afternoon to evening to be accessible
 to as many students as possible (most students are in classes during the day).
+- Always invite the students to work with you as you answer their questions,
+not just watch you.
 
 ### Piazza:
 
