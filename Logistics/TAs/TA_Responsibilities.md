@@ -1,21 +1,21 @@
 Sta 101 TA Responsibilities
 ===========================
 
-#### Dr. Cetinkaya-Rundel & Dr. Monod
+#### Dr. Çetinkaya-Rundel & Dr. Monod
 #### Fall 2015
 
-<br>
 
-### Main responsibilities of all TAs:
+## Main responsibilities of all TAs:
 
 Some TAs are assigned to lead lab sections and others are responsible for attending
 lectures to to help out with active learning portions of the course (readiness 
 assessments, application exercises, etc.).
 
-##### Leading a lab section:
+### Leading a lab section:
 
-##### Facilitating active learning in the classroom:
+### Facilitating active learning in the classroom:
 
+### Grading
 
 
 Lead lab section and/or attend "lecture" 
