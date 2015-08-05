@@ -17,7 +17,7 @@ Before reading this document, first review the course syllabus at
 https://stat.duke.edu/courses/Fall15/sta101.002/syllabus/ to familiarize
 yourself with course components and policies.
 
-**Note:** If you catch any mistakes on this document submit a pull request/issue,
+**Note:** If you catch any erros on this document submit a pull request/issue,
 or just email Dr. Çetinkaya-Rundel.
 
 ## Part 1: Responsibilities of all TAs
