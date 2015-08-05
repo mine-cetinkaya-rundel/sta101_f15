@@ -152,6 +152,7 @@ meeting.
     + Be cognizant of potential academic dishonesty issues. Bring up to the
     professor's attention immediately if you suspect any such issue.
 - Create lab assignments on Sakai for each lab and section. Instructions below:
+<small>
     + Title: Lab X - [section time]
         * 8:30 - 9:45am
         * 10:05 - 11:20am
@@ -184,3 +185,4 @@ meeting.
     emails for any student submissions
     + Released Grade Notification Email Options: (choose) Do not send notification 
     email to student when the grade is released 
+</small>
