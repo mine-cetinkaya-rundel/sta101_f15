@@ -18,6 +18,39 @@ attending lectures to to help out with active learning portions of the course
 
 ### Leading a lab section:
 
+- This course uses R/RStudio. For purposes of this course access RStudio at 
+https://vm-manage.oit.duke.edu/containers using your NetID.
+- Students are expected to create completely reproducible lab reports and 
+projects using RMarkdown/knitr. Prior to the first lab make sure that you 
+are familiar with these tools / packages.
+- Get to lab a few minutes earlier to make sure the instructor computer and 
+projector are working. 
+- Take attendance during the lab sections. You can do this informally 
+(as opposed to calling out names) and use it as an opportunity to get to 
+know your students' names. Print out the team roster for your section and 
+check of names as you interact with each team. (Attendance information will 
+be useful when grading the lab reports.)
+- Flow of lab sections: 
+    + 5-10 minutes of introduction to lab and the data set. Make sure students 
+    are engaged (not going ahead with the lab on their computers). This 
+    introduction should convey the main ideas / skills of the lab.
+    + Let students continue with the lab (in teams) while you spend a little bit 
+    of time with each team and answer any questions. You should *never* be just 
+    sitting behind the instructor computer.
+    + From time-to-time address the whole class, making sure teams are progressing 
+    roughly at the same rate, and go over any challenging exercises.
+    + At the end of the lab for the first few weeks remind the students the 
+    deadline and submission instructions.
+- During the lab sections you're also tasked with ensuring smooth and efficient 
+teamwork:
+    - If any students are unengaged explicitly ask them to work with their teams.
+    - Ask students to change their seating order each week so that each student 
+    gets a chance to be in the "middle".
+    - Ensure that teams follow the author assignments, and the authors rotate each week.
++ If you must miss a lab, make arrangements for another TA to fill in for you well 
+in advance, and notify the professor of this change prior to the lab session 
+you're missing.
+
 ### Facilitating active learning in the classroom:
 
 ### Grading:
@@ -99,61 +132,55 @@ and/or Dr. Monod ahead of time.
         come to the meeting with suggestions / questions regarding how best to 
         present it in class.
 
-### Lab sections:
 
-- As a TA your main duty is to lead lab sections. 
-    + This course uses R/RStudio. For purposes of this course access RStudio at https://vm-manage.oit.duke.edu/containers using your NetID.
-    + Students are expected to create completely reproducible lab reports and projects using RMarkdown/knitr. Prior to the first lab make sure that you are familiar with these tools/packages.
-    + Get to lab a few minutes earlier to make sure the instructor computer and projector are working. 
-    + Take attendance during the lab sections. You can do this informally (as opposed to calling out names) and use it as an opportunity to get to know your students' names. Print out the team roster for your section and check of names as you interact with each team. (Attendance information will be useful when grading the lab reports.)
-    + Flow of lab sections: 
-        - 5-10 minutes of introduction to lab and the data set. Make sure students are engaged (not going ahead with the lab on their computers). This introduction should convey the main ideas/skills of the lab.
-        - Let students continue with the lab (in teams) while you spend a little bit of time with each team and answer any questions. You should *never* be just sitting behind the instructor computer.
-        - From time-to-time address the whole class, making sure teams are progressing roughly at the same rate, and go over any challenging exercises.
-        - At the end of the lab for the first few weeks remind the students the deadline and submission instructions.
-    + During the lab sections you're also tasked with ensuring smooth and efficient teamwork:
-        - If any students are unengaged explicitly ask them to work with their teams.
-        - Ask students to change their seating order each week so that each student gets a chance to be in the "middle".
-        - Ensure that teams follow the author assignments, and the authors rotate each week.
-    + If you must miss a lab, make arrangements for another TA to fill in for you well in advance. <br><br>
+## Part 2: Additional responsibilities of head TAs
 
-
-
-
-
-## Additional responsibilities of all head TAs:
-
-
-### Responsibilities of the head TAs:
-- Ensure that grading is completed by the due date (check a couple days prior and send timely reminders if need be).
+- Ensure that grading is completed by the due date (check a couple days prior 
+and send timely reminders if need be). You will report on this at the weekly
+meeting.
 - Ensure that answer keys are ready when an assignment is *assigned*.
-- Prepare peer evaluations on Qualtrics and compile peer evaluation data (more on this later).
+    + If not, send an email to Dr. Çetinkaya-Rundel.
+- Prepare peer evaluations on Teammates and compile peer evaluation data 
+(more on this later).
 - Review exams and other course material as needed.
+- Handle regrade requests on a weekly bases.
+    + If there is an overarching problem, notify the professor.
+    + Be strict, but fair.
+    + "I wrote X but I meant Y" is not a good justification for earning
+    points. Only give points where the grader clearly missed a correct 
+    answer.
+    + Be cognizant of potential academic dishonesty issues. Bring up to the
+    professor's attention immediately if you suspect any such issue.
 - Create lab assignments on Sakai for each lab and section. Instructions below:
     + Title: Lab X - [section time]
+        * 8:30 - 9:45am
         * 10:05 - 11:20am
         * 11:45am - 1pm
         * 1:25 - 2:40pm
         * 3:05 - 4:20pm
-        * 4:40 - 5:55pm
-    + Open date: day&time of lab
-    + Due date: day&time of due date (beginning of that lab section)
+    + Open date: day & time of lab
+    + Due date: day & time of due date (beginning of the following lab section)
     + Accept date: due date + 1 day
     + Student submissions: Inline and Attachments
     + Number of resubmissions allowed: Unlimited
     + Resubmission accept until: same date&time as Accept Until
-    + Released Resubmission notification email options: Do not send notification email to student when the grade is released and resubmission is availabl
+    + Released Resubmission notification email options: Do not send notification 
+    email to student when the grade is released and resubmission is available
     + Grade Scale: Points / 20 points
-    + Assignment Instructions: See the course website at [link to course website] for instructions for the relevant Lab.
-        * Mine: https://bitly.com/sta101sp15
-        * Jesse: https://bitly.com/windle2
+    + Assignment Instructions: See the course website at [link to course website] 
+    for instructions for the relevant lab.
+        * Dr. Cetinkaya-Rundel: https://bitly.com/sta101_f15
+        * Dr. Monod: https://stat.duke.edu/courses/Fall15/sta101.001/
     + (check) Add due date to Schedule
     + (don't check) Add an announcement about the open date to Announcements
     + (check) Add honor pledge
-    + Grading: Add to gradebook for the first section (10:05), associate with existing Gradebook entry for the later sections for that lab -- this way in the gradebook they appear in one column
+    + Grading: Add to gradebook
     + Peer assessment: (don't check) Use peer assessment
     + Access:
         * (check) Are submissions for a group
-        * (choose) Display to selected groups: check the names for the teams in that section
-    + Submission Notification Email Options: (choose) Do not send me notification emails for any student submissions
-    + Released Grade Notification Email Options: (choose) Do not send notification email to student when the grade is released 
+        * (choose) Display to selected groups: check the names for the teams in 
+        that lab section
+    + Submission Notification Email Options: (choose) Do not send me notification 
+    emails for any student submissions
+    + Released Grade Notification Email Options: (choose) Do not send notification 
+    email to student when the grade is released 
