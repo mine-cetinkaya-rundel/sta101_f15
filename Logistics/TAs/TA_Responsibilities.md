@@ -10,17 +10,17 @@ format and their responsibilities. The document is comprised of two parts:
 - Part 1: Responsibilities of all TAs
 - Part 2: Additional responsibilities of head TAs
 
-## Main responsibilities of all TAs:
+## Part 1: Responsibilities of all TAs
 
-Some TAs are assigned to lead lab sections and others are responsible for attending
-lectures to to help out with active learning portions of the course (readiness 
-assessments, application exercises, etc.).
+Some TAs are assigned to lead lab sections and others are responsible for 
+attending lectures to to help out with active learning portions of the course 
+(readiness assessments, application exercises, etc.).
 
 ### Leading a lab section:
 
 ### Facilitating active learning in the classroom:
 
-### Grading
+### Grading:
 
 - Lab grading:
     + TAs leading lab sections will also grade lab reports of their students.
@@ -57,48 +57,53 @@ so that expectations are communicated early on.
     + If a student emails you about a regrade, forward the email to the head TA, 
     and cc the student letting them know this is what you're doing.
 
-- Office hours:
-    - All TAs are expected to hold office 2 hours of office hours / week.
-    - Students from either of the Sta 101 sections might attend the office hours.
+### Office hours:
 
-- Answering questions on Piazza:
-    - Piazza is the online discussion forum, and can be accessed via the Sakai site.
-    - Periodically, and any time you don't have a student with you during office
-    hours, answer questions on Piazza.
-    - You will be assigned a TA role on Piazza, which means that your responses will be 
-    tagged as such.
-    - Adjust your settings so that you're notified when a note is posted on Piazza.
-    Respond to student questions periodically. Do not just give away the answers, instead 
-    respond in a way that enables the students to get to the right answer. Don't hesitate 
-    to answer a question with a question that helps the student think through the problem. 
-    - If it says "anon to students" do not use the student's name in your response, as it 
-    means the student wanted to keep their name anonymous to other students in the class.
-    - Always first invite the students to start the discussion / provide their thoughts if 
-    they haven't done so in their original question.
+- All TAs are expected to hold office 2 hours of office hours / week.
+- Students from either of the Sta 101 sections might attend the office hours.
 
-- Weekly meetings:
-    - We will hold weekly teaching staff meetings on Fridays 10-11am.
-    - All TAs must attend these meetings. Be punctual so that we can get started
-    and finish on time.
-    - If you cannot attend a TA meeting, you must notify Dr. Cetinkaya-Rundel
-    and/or Dr. Monod ahead of time.
-    - Format of meetings:
-        1. Recap of the past week: TAs provide feedback on the past week: what seems to 
-        be challenging for students, commonly missed questions on the assignments, 
-        questions that commonly come up during office hours, team dynamics, etc.
-        2. Head TAs give a report on grading tasks completed / to be completed.
-        2. Faculty introduces topics to be discussed in the following week, and 
-        any upcoming deadlines to watch out for.
-        3. Discussion of upcoming lab:
-            + Each week one TA presents the upcoming lab. This presentation should take 
-            roughly 10 minutes and should be a **complete rehearsal** of how you plan on 
-            presenting the lab to the students. You should also spend a few minutes to 
-            discussing any potential difficulties that might arise during the lab. 
-            + The presenter is be responsible for either creating or reviewing the
-            key for the week's lab.
-            + All TAs must also review the lab (i.e. actually do the entire lab) and 
-            come to the meeting with suggestions / questions regarding how best to present it
-            in class.
+### Piazza:
+
+- Piazza is the online discussion forum, and can be accessed via the Sakai site.
+- Periodically, and any time you don't have a student with you during office
+hours, answer questions on Piazza.
+- You will be assigned a TA role on Piazza, which means that your responses will 
+be tagged as such.
+- Adjust your settings so that you're notified when a note is posted on Piazza.
+Respond to student questions periodically. Do not just give away the answers, 
+instead respond in a way that enables the students to get to the right answer. 
+Don't hesitate to answer a question with a question that helps the student think 
+through the problem. 
+- If it says "anon to students" do not use the student's name in your response, 
+as it means the student wanted to keep their name anonymous to other students 
+in the class.
+- Always first invite the students to start the discussion / provide their thoughts 
+if they haven't done so in their original question.
+
+### Weekly meetings:
+
+- We will hold weekly teaching staff meetings on Fridays 10-11am.
+- All TAs must attend these meetings. Be punctual so that we can get started
+and finish on time.
+- If you cannot attend a TA meeting, you must notify Dr. Cetinkaya-Rundel
+and/or Dr. Monod ahead of time.
+- Format of meetings:
+    1. Recap of the past week: TAs provide feedback on the past week: what seems to 
+    be challenging for students, commonly missed questions on the assignments, 
+    questions that commonly come up during office hours, team dynamics, etc.
+    2. Head TAs give a report on grading tasks completed / to be completed.
+    2. Faculty introduces topics to be discussed in the following week, and 
+    any upcoming deadlines to watch out for.
+    3. Discussion of upcoming lab:
+        + Each week one TA presents the upcoming lab. This presentation should take 
+        roughly 10 minutes and should be a **complete rehearsal** of how you plan on 
+        presenting the lab to the students. You should also spend a few minutes to 
+        discussing any potential difficulties that might arise during the lab. 
+        + The presenter is be responsible for either creating or reviewing the
+        key for the week's lab.
+        + All TAs must also review the lab (i.e. actually do the entire lab) and 
+        come to the meeting with suggestions / questions regarding how best to 
+        present it in class.
 
 ### Lab sections:
 
