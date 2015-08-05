@@ -4,6 +4,11 @@ Sta 101 TA Responsibilities
 #### Dr. Çetinkaya-Rundel & Dr. Monod
 #### Fall 2015
 
+This document contains information for Sta 101 TAs regarding the course
+format and their responsibilities. The document is comprised of two parts:
+
+- Part 1: Responsibilities of all TAs
+- Part 2: Additional responsibilities of head TAs
 
 ## Main responsibilities of all TAs:
 
