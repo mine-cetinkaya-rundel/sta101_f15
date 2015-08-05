@@ -17,6 +17,8 @@ Before reading this document, first review the course syllabus at
 https://stat.duke.edu/courses/Fall15/sta101.002/syllabus/ to familiarize
 yourself with course components and policies.
 
+**Note:** If you catch any issues on this document submit a pull request/issue,
+or just email Dr. Çetinkaya-Rundel.
 
 ## Part 1: Responsibilities of all TAs
 
@@ -156,10 +158,10 @@ if they haven't done so in their original question.
 
 ### Weekly meetings:
 
-- We will hold weekly teaching staff meetings on Fridays 10-11am.
+- We will hold weekly teaching staff meetings on **Fridays 10-11am**, location TBA.
 - All TAs must attend these meetings. Be punctual so that we can get started
 and finish on time.
-- If you cannot attend a TA meeting, you must notify Dr. Cetinkaya-Rundel
+- If you cannot attend a TA meeting, you must notify Dr. Çetinkaya-Rundel
 and/or Dr. Monod ahead of time.
 - Format of meetings:
     1. Recap of the past week: TAs provide feedback on the past week: what seems to 
@@ -216,7 +218,7 @@ meeting.
     + Grade Scale: Points / 20 points
     + Assignment Instructions: See the course website at [link to course website] 
     for instructions for the relevant lab.
-        * Dr. Cetinkaya-Rundel: https://bitly.com/sta101_f15
+        * Dr. Çetinkaya-Rundel: https://bitly.com/sta101_f15
         * Dr. Monod: https://stat.duke.edu/courses/Fall15/sta101.001/
     + (check) Add due date to Schedule
     + (don't check) Add an announcement about the open date to Announcements
