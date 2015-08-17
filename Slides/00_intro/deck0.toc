@@ -2,13 +2,10 @@
 \select@language {english}
 \beamer@sectionintoc {1}{Course info}{2}{0}{1}
 \beamer@subsectionintoc {1}{1}{General info}{3}{0}{1}
-\beamer@subsectionintoc {1}{2}{Goals}{8}{0}{1}
-\beamer@subsectionintoc {1}{3}{Course structure and components}{27}{0}{1}
-\beamer@subsectionintoc {1}{4}{Support}{44}{0}{1}
-\beamer@subsectionintoc {1}{5}{Policies}{48}{0}{1}
-\beamer@subsectionintoc {1}{6}{Tips for success}{54}{0}{1}
-\beamer@subsectionintoc {1}{7}{To do}{62}{0}{1}
-\beamer@sectionintoc {2}{Example: Baby names}{64}{0}{2}
-\beamer@sectionintoc {3}{Example: Geotagged data}{73}{0}{3}
-\beamer@sectionintoc {4}{Why study statistics?}{76}{0}{4}
-\beamer@sectionintoc {5}{Class survey [time permitting]}{79}{0}{5}
+\beamer@subsectionintoc {1}{2}{Goals}{7}{0}{1}
+\beamer@subsectionintoc {1}{3}{Course structure and components}{26}{0}{1}
+\beamer@subsectionintoc {1}{4}{Support}{43}{0}{1}
+\beamer@subsectionintoc {1}{5}{Grading}{47}{0}{1}
+\beamer@subsectionintoc {1}{6}{Policies}{49}{0}{1}
+\beamer@subsectionintoc {1}{7}{Tips for success}{55}{0}{1}
+\beamer@subsectionintoc {1}{8}{To do}{64}{0}{1}
