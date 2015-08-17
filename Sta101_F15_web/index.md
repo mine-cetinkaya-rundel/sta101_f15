@@ -11,19 +11,32 @@ title: Schedule
 
 ##### Class / lab
 
-| Aug 24, Mon  |  Intro [[slides]](post/slides/intro.pdf) [[handout]](post/slides/introH.pdf)  |
-| Aug 26, Wed  |  Lesson 1.1 [[slides]](post/slides/u1_deck1.pdf) [[handout]](post/slides/u1_deck1H.pdf) + RA 1 in class (not graded) |
-| Aug 27, Thu  |  [Lab 0: Introduction](post/labs/lab0.html)        |
-| Aug 31, Mon  |  Lesson 1.2 [[slides]](post/slides/u1_deck2.pdf) [[handout]](post/slides/u1_deck2H.pdf)                              |
-| Sep 2, Wed   |  Lesson 1.3 [[slides]](post/slides/u1_deck3.pdf) [[handout]](post/slides/u1_deck3H.pdf)                              |
-| Sep 3, Thu   |  [Lab 1: Intro to R and RStudio](post/labs/lab1.html) |
+| Aug 24, Mon  | [Introduction to Sta 101](post/slides/deck0.pdf) &nbsp;&nbsp;&nbsp;[<i class="fa fa-print"></i>](post/slides/deck0H.pdf)  |
+|              | [Lesson 1.1: Data Collection, observational studies & experiments](post/slides/u1_deck1.pdf) &nbsp;&nbsp;&nbsp;[<i class="fa fa-print"></i>](post/slides/u1_deck1H.pdf) |
+| Aug 26, Wed  | **RA 1** in class (not graded) |
+|              | [Lesson 1.2: Exploratory data analysis](post/slides/u1_deck2.pdf) &nbsp;&nbsp;&nbsp;[<i class="fa fa-print"></i>](post/slides/u1_deck2H.pdf) |
+|              | [App Ex 1.1: Distributions of numerical variables](post/app/app_Dist_num_var.pdf) |
+| Aug 27, Thu  | [Lab 0: Introduction](post/labs/lab0.html) |
+| Aug 31, Mon  | [Lesson 1.3: Introduction to statistical inference](post/slides/u1_deck2.pdf) &nbsp;&nbsp;&nbsp;[<i class="fa fa-print"></i>](post/slides/u1_deck3H.pdf) |
+| Sep 2, Wed   | [Lesson 1.4: Review of Unit 1](post/slides/u1_deck4.pdf) &nbsp;&nbsp;&nbsp;[<i class="fa fa-print"></i>](post/slides/u1_deck4H.pdf)|
+|              | [App Ex 1.2: Scientific studies in the press](post/app/app_Scientific_studies_press.pdf) |
+|              | [App Ex 1.3: Histogram to boxplot](post/app/app_Hist_to_box.pdf) |
+|              | [App Ex 1.4: Randomization testing](post/app/app_Rand_test.pdf)
+| Sep 3, Thu   | [Lab 1: Intro to R and RStudio](post/labs/lab1.html) |
 
 ##### Due dates
 
-* [PS 1]({{ site.sakai_ps }}): Sep 4, Fri 
-  * Practice questions:
-  * Graded questions: 
+* [PS 1]({{ site.sakai_ps }}): Sep 4, Fri
+  * End of chapter exercises from **Chp 1**. Only turn in answers to graded questions,
+  use the back of the book to check your work on the practice questions. Must show 
+  **all** work to get credit. Click [here]({{ site.sakai_ps }}) to submit.
+  * Graded questions: 1.2, 1.6, 1.12, 1.20, 1.32, 1.34, 1.44, 1.52, 1.56, 1.60, 
+                      1.64, 1.66, 1.68, 1.70
+  * Practice questions: 1.1, 1.3, 1.5, 1.11, 1.13, 1.17, 1.19, 1.25, 1.27, 1.31, 
+                        1.47, 1.43, 1.51, 1.55, 1.59, 1.63, 1.65, 1.67, 1.69
 * [PA 1]({{ site.sakai_pa }}): Sep 6, Sun
+  * Take between Sep 2, Wed and Sep 6, Sun. 
+  * You have 30 minutes to complete. Only one attempt allowed. Click [here]({{ site.sakai_pa }}) to take.
 
 * * *
 
@@ -35,11 +48,12 @@ title: Schedule
 
 ##### In class / lab
 
-| Sep 7, Mon  | Lesson 2.1 [[slides]](post/slides/u2_deck1.pdf) [[handout]](post/slides/u2_deck1H.pdf) + RA 2 in class |
-| Sep 9, Wed  | Lesson 2.2 [[slides]](post/slides/u2_deck2.pdf) [[handout]](post/slides/u2_deck2H.pdf)                 |
+| Sep 7, Mon  | **RA 2** in class |
+|             | [Lesson 2.1](post/slides/u2_deck1.pdf) &nbsp;&nbsp;&nbsp;[<i class="fa fa-print"></i>](post/slides/u2_deck1H.pdf) |
+| Sep 9, Wed  | [Lesson 2.2](post/slides/u2_deck2.pdf) &nbsp;&nbsp;&nbsp;[<i class="fa fa-print"></i>](post/slides/u2_deck2H.pdf)               |
 | Sep 10, Thu | [Lab 2: Introduction to data](post/labs/lab2.html)          |
-| Sep 14, Mon | Lesson 2.3 [[slides]](post/slides/u2_deck3.pdf) [[handout]](post/slides/u2_deck23.pdf)                 |
-| Sep 16, Wed | Lesson 2.4 [[slides]](post/slides/u2_deck4.pdf) [[handout]](post/slides/u2_deck4H.pdf)                 |
+| Sep 14, Mon | [Lesson 2.3](post/slides/u2_deck3.pdf) &nbsp;&nbsp;&nbsp;[<i class="fa fa-print"></i>](post/slides/u2_deck3H.pdf)               |
+| Sep 16, Wed | [Lesson 2.4](post/slides/u2_deck4.pdf) &nbsp;&nbsp;&nbsp;[<i class="fa fa-print"></i>](post/slides/u2_deck4H.pdf)               |
 | Sep 17, Thu | [Lab 3: Probability](post/labs/lab3.html)                   |
 
 ##### Due dates
@@ -57,12 +71,13 @@ title: Schedule
 
 ##### In class / lab
 
-| Sep 21, Mon | Lesson 3.1 [[slides]](post/slides/u3_deck1.pdf) [[handout]](post/slides/u3_deck1H.pdf) + RA 3 in class |
-| Sep 23, Wed | Lesson 3.2 [[slides]](post/slides/u3_deck2.pdf) [[handout]](post/slides/u3_deck2H.pdf)                 |
-| Sep 24, Thu | [Lab 4: Sampling distributions](post/labs/lab4.html)        |
-| Sep 28, Mon | Lesson 3.3 [[slides]](post/slides/u3_deck3.pdf) [[handout]](post/slides/u3_deck3H.pdf)                 |
-| Sep 30, Wed | Lesson 3.4 [[slides]](post/slides/u3_deck4.pdf) [[handout]](post/slides/u3_deck4H.pdf)                 |
-| Oct 2, Thu  | [Lab 5: Confidence intervals](post/labs/lab5.html)          |
+| Sep 21, Mon | **RA 3** in class |
+|             | [Lesson 3.1](post/slides/u3_deck1.pdf) &nbsp;&nbsp;&nbsp;[<i class="fa fa-print"></i>](post/slides/u3_deck1H.pdf) |
+| Sep 23, Wed | [Lesson 3.2](post/slides/u3_deck2.pdf) &nbsp;&nbsp;&nbsp;[<i class="fa fa-print"></i>](post/slides/u3_deck2H.pdf)|
+| Sep 24, Thu | [Lab 4: Sampling distributions](post/labs/lab4.html) |
+| Sep 28, Mon | [Lesson 3.3](post/slides/u3_deck3.pdf) &nbsp;&nbsp;&nbsp;[<i class="fa fa-print"></i>](post/slides/u3_deck3H.pdf)|
+| Sep 30, Wed | [Lesson 3.4](post/slides/u3_deck4.pdf) &nbsp;&nbsp;&nbsp;[<i class="fa fa-print"></i>](post/slides/u3_deck4H.pdf)|
+| Oct 2, Thu  | [Lab 5: Confidence intervals](post/labs/lab5.html)   |
 
 ##### Due dates
 
@@ -87,13 +102,14 @@ title: Schedule
 
 ##### In class / lab
 
-| Oct 7, Wed  | Lesson 4.1 [[slides]](post/slides/u4_deck1.pdf) [[handout]](post/slides/u4_deck1H.pdf)                       |
+| Oct 7, Wed  | [Lesson 4.1](post/slides/u4_deck1.pdf) &nbsp;&nbsp;&nbsp;[<i class="fa fa-print"></i>](post/slides/u4_deck1H.pdf) |
 | Oct 8, Thu  | [Lab 6: Inference for numerical data](post/labs/lab6.html)        |
-| Oct 12, Mon | *Fall Break - no class*                    |     
-| Oct 14, Wed | Lesson 4.2 [[slides]](post/slides/u4_deck2.pdf) [[handout]](post/slides/u4_deck2H.pdf) + RA 4 in class       |
-| Oct 15, Thu | Work on project proposal                   |
-| Oct 19, Mon | Lesson 4.3 [[slides]](post/slides/u4_deck3.pdf) [[handout]](post/slides/u4_deck3H.pdf)                       |
-| Oct 21, Wed | Lesson 4.4 [[slides]](post/slides/u4_deck4.pdf) [[handout]](post/slides/u4_deck4H.pdf)                       |
+| Oct 12, Mon | *Fall Break - no class*                |     
+| Oct 14, Wed | **RA 4** in class |
+|             | [Lesson 4.2](post/slides/u4_deck2.pdf) &nbsp;&nbsp;&nbsp;[<i class="fa fa-print"></i>](post/slides/u4_deck2H.pdf) |
+| Oct 15, Thu | Work on project proposal               |
+| Oct 19, Mon | [Lesson 4.3](post/slides/u4_deck3.pdf) &nbsp;&nbsp;&nbsp;[<i class="fa fa-print"></i>](post/slides/u4_deck3H.pdf) |
+| Oct 21, Wed | [Lesson 4.4](post/slides/u4_deck4.pdf) &nbsp;&nbsp;&nbsp;[<i class="fa fa-print"></i>](post/slides/u4_deck4H.pdf) |
 | Oct 22, Thu | [Lab 7: (More) inference for numerical data](post/labs/lab7.html) |
 
 ##### Due dates
@@ -112,11 +128,12 @@ title: Schedule
 
 ##### In class / lab
 
-| Oct 26, Mon | Lesson 5.1 [[slides]](post/slides/u5_deck1.pdf) [[handout]](post/slides/u5_deck1H.pdf) + RA 5 in class  |
-| Oct 28, Wed | Lesson 5.2 [[slides]](post/slides/u5_deck2.pdf) [[handout]](post/slides/u5_deck2H.pdf)                  |
+| Oct 26, Mon | **RA 5** in class |
+|             | [Lesson 5.1](post/slides/u5_deck1.pdf) &nbsp;&nbsp;&nbsp;[<i class="fa fa-print"></i>](post/slides/u5_deck1H.pdf) |
+| Oct 28, Wed | [Lesson 5.2](post/slides/u5_deck2.pdf) &nbsp;&nbsp;&nbsp;[<i class="fa fa-print"></i>](post/slides/u5_deck2H.pdf)                  |
 | Oct 29, Thu | [Lab 8: Inference for categorical data](post/labs/lab8.html) |
-| Nov 2, Mon  | Lesson 5.3 [[slides]](post/slides/u5_deck3.pdf) [[handout]](post/slides/u5_deck3H.pdf)                  |
-| Nov 4, Wed  | Lesson 5.4 [[slides]](post/slides/u5_deck4.pdf) [[handout]](post/slides/u5_deck4H.pdf)                  |
+| Nov 2, Mon  | [Lesson 5.3](post/slides/u5_deck3.pdf) &nbsp;&nbsp;&nbsp;[<i class="fa fa-print"></i>](post/slides/u5_deck3H.pdf)                  |
+| Nov 4, Wed  | [Lesson 5.4](post/slides/u5_deck4.pdf) &nbsp;&nbsp;&nbsp;[<i class="fa fa-print"></i>](post/slides/u5_deck4H.pdf)                  |
 | Nov 5, Thu  | Work on Project 1                     |
 
 ##### Due dates
@@ -127,7 +144,7 @@ title: Schedule
 
 * * *
 
-### Midterm 2 - Nov 9 (in class)
+### Midterm 2 - Nov 9, Mon (in class)
 
 * Covers Units 4 and 5 + fundamentals from Units 1 - 3
 * Practice problems for Midterm 2: [handout] + [solutions]
@@ -143,8 +160,9 @@ title: Schedule
 
 ##### In class / lab
 
-| Nov 11, Wed | Lesson 6.1 [[slides]](post/slides/u6_deck1.pdf) [[handout]](post/slides/u6_deck1H.pdf) + RA 6 in class     |
-| Nov 16, Mon | Lesson 6.2 [[slides]](post/slides/u6_deck2.pdf) [[handout]](post/slides/u6_deck2H.pdf)                     |
+| Nov 11, Wed | **RA 6** in class |
+|             | [Lesson 6.1](post/slides/u6_deck1.pdf) &nbsp;&nbsp;&nbsp;[<i class="fa fa-print"></i>](post/slides/u6_deck1H.pdf)     |
+| Nov 16, Mon | [Lesson 6.2](post/slides/u6_deck2.pdf) &nbsp;&nbsp;&nbsp;[<i class="fa fa-print"></i>](post/slides/u6_deck2H.pdf)                     |
 | Nov 17, Thu | [Lab 9: Introduction to linear regression](post/labs/lab9.html) |
 
 
@@ -163,12 +181,13 @@ title: Schedule
 
 ##### In class / lab
 
-| Nov 18, Wed | Lesson [[slides]](post/slides/u7_deck1.pdf) [[handout]](post/slides/u7_deck1H.pdf) + RA 7 in class |
+| Nov 18, Wed | **RA 7** in class |
+|             | [Lesson 7.1](post/slides/u7_deck1.pdf) &nbsp;&nbsp;&nbsp;[<i class="fa fa-print"></i>](post/slides/u7_deck1H.pdf) |
 | Nov 19, Thu | [Lab 10: Multiple linear regression](post/labs/lab10.html)   |
-| Nov 23, Mon | Lesson 7.2 [[slides]](post/slides/u7_deck2.pdf) [[handout]](post/slides/u7_deck2H.pdf)                 |
+| Nov 23, Mon | [Lesson 7.2](post/slides/u7_deck2.pdf) &nbsp;&nbsp;&nbsp;[<i class="fa fa-print"></i>](post/slides/u7_deck2H.pdf)                 |
 | Nov 25, Wed | *Thanksgiving break - no class*      |
 | Nov 26, Thu | *Thanksgiving break - no lab*        |
-| Nov 30, Mon | Lesson 7.3 [[slides]](post/slides/u7_deck3.pdf) [[handout]](post/slides/u7_deck3H.pdf)                 |
+| Nov 30, Mon | [Lesson 7.3](post/slides/u7_deck3.pdf) &nbsp;&nbsp;&nbsp;[<i class="fa fa-print"></i>](post/slides/u7_deck3H.pdf)                 |
 
 ##### Due dates
 

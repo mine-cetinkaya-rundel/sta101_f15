@@ -171,8 +171,7 @@ You are allowed to use one sheet of notes (``cheat sheet") to the midterm and th
 
 I will regularly send announcements by email, please make sure to check your email  daily.
 
-Any non-personal questions related to the material covered in class, problem sets, labs, projects, etc. should be posted on Piazza.
-Before posting a new question please make sure to check if your question has already been answered. The TAs and myself will be answering questions on the forum daily and all students are expected to answer questions as well. Please use informative titles for your posts.
+Any non-personal questions related to the material covered in class, problem sets, labs, projects, etc. should be posted on Piazza. Before posting a new question please make sure to check if your question has already been answered. The TAs and myself will be answering questions on the forum daily and all students are expected to answer questions as well. Please use informative titles for your posts.
 
 Note that it is more efficient to answer most statistical questions ``in person" so make use of OH.
 
@@ -192,13 +191,17 @@ Students with disabilities who believe they may need accommodations in this clas
 
 ### Academic integrity:
 
-Duke University is a community dedicated to scholarship, leadership, and service and to the principles of honesty, fairness, respect, and accountability. Citizens of this community commit to reflect upon and uphold these principles in all academic and non-academic endeavors, and to protect and promote a culture of integrity. Cheating on exams and quizzes, plagiarism on homework assignments and projects, lying about an illness or absence and other forms of academic dishonesty are a breach of trust with classmates and faculty, violate the [Duke Community Standard](http://www.studentaffairs.duke.edu/conduct/resources/dcs), and will not be tolerated. Such incidences will result in a 0 grade for all parties involved as well as being reported to the [Office of Student Conduct](http://www.studentaffairs.duke.edu/conduct). Additionally, there may be penalties to your final class grade. Please review the [Duke's Academic Dishonesty policies](http://www.studentaffairs.duke.edu/conduct/resources/academicdishonesty).
+Duke University is a community dedicated to scholarship, leadership, and service and to the principles of honesty, fairness, respect, and accountability. Citizens of this community commit to reflect upon and uphold these principles in all academic and non-academic endeavors, and to protect and promote a culture of integrity. Cheating on exams and quizzes, plagiarism on homework assignments and projects, lying about an illness or absence and other forms of academic dishonesty are a breach of trust with classmates and faculty, violate the [Duke Community Standard](https://studentaffairs.duke.edu/conduct/about-us/duke-community-standard), and will not be tolerated. Such incidences will result in a 0 grade for all parties involved as well as being reported to the [Office of Student Conduct](http://www.studentaffairs.duke.edu/conduct). Additionally, there may be penalties to your final class grade. Please review the [Duke's Academic Dishonesty policies](https://studentaffairs.duke.edu/conduct/z-policies/academic-dishonesty).
 
 * * *
 
 ### Excused Absences:
 
-Students who miss graded work due to a scheduled varsity trip, religious holiday or short-term illness should fill out an online [NOVAP](http://trinity.duke.edu/academic-requirements?p=notification-of-varsity-athletic-participation-novap), [RHoliday](http://trinity.duke.edu/academic-requirements?p=religious-observance) or [short-term illness](http://trinity.duke.edu/academic-requirements?p=policy-short-term-illness-notification) form respectively. If you cannot complete an assignment on the due date due to a short-term illness, you have **until noon the following day** to complete it at no penalty. Then the regular late work policy will kick in. Those with a personal emergency or bereavement should seek a Dean's Excuse; check with your academic dean for details. 
+Students who miss graded work due to a scheduled varsity trip, religious holiday or short-term illness should fill out an online [NOVAP](https://trinity.duke.edu/undergraduate/academic-policies/athletic-varsity-participation), [religious observance notification](https://trinity.duke.edu/undergraduate/academic-policies/religious-holidays), or [short-term illness notification](http://trinity.duke.edu/academic-requirements?p=policy-short-term-illness-notification) form respectively. 
+
+If you cannot complete an assignment on the due date due to a short-term illness, you have **until noon the following day** to complete it at no penalty. Then the regular late work policy will kick in.
+
+If you are faced with a personal or family emergency or a long-range or chronic health condition that interferes with your ability to attend or complete classes, you should contact your academic dean's office. See more information on policies surrounding these conditions [here](https://trinity.duke.edu/undergraduate/academic-policies/personal-emergencies). Your academic dean can also provide more information.
 
 * * *
 

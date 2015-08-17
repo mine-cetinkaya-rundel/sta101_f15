@@ -25,4 +25,4 @@ Update dates for classes and exams (this file will be updated more later)
 * Each semester change the theme color, often with one of Pantone's colors 
 for that season.
 * Color goes in the following file: noita/foundation/css/foundation.min.css. 
-* Fall 2015: #0E5277.
+* Fall 2015: #085279.
