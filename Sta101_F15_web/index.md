@@ -3,7 +3,7 @@ layout: page
 title: Schedule
 ---
 
-### Unit 1 - Introduction to data
+### <a name="unit1"></a> Unit 1 - Introduction to data 
 
 ##### Resources
 
@@ -29,18 +29,18 @@ title: Schedule
 * [PS 1]({{ site.sakai_ps }}): Sep 4, Fri
   * End of chapter exercises from **Chp 1**. Only turn in answers to graded questions,
   use the back of the book to check your work on the practice questions. Must show 
-  **all** work to get credit. Click [here]({{ site.sakai_ps }}) to submit.
+  **all** work to get credit. Click [here]({{ site.sakai_ps }}) to submit the problem set.
   * Graded questions: 1.2, 1.6, 1.12, 1.20, 1.32, 1.34, 1.44, 1.52, 1.56, 1.60, 
                       1.64, 1.66, 1.68, 1.70
   * Practice questions: 1.1, 1.3, 1.5, 1.11, 1.13, 1.17, 1.19, 1.25, 1.27, 1.31, 
                         1.47, 1.43, 1.51, 1.55, 1.59, 1.63, 1.65, 1.67, 1.69
 * [PA 1]({{ site.sakai_pa }}): Sep 6, Sun
   * Take between Sep 2, Wed and Sep 6, Sun. 
-  * You have 30 minutes to complete. Only one attempt allowed. Click [here]({{ site.sakai_pa }}) to take.
+  * You have 30 minutes to complete. Only one attempt allowed. Click [here]({{ site.sakai_pa }}) to take the performance assessment.
 
 * * *
 
-### Unit 2 - Probability and distributions
+### <a name="unit2"></a> Unit 2 - Probability and distributions
 
 ##### Resources
 
@@ -59,11 +59,19 @@ title: Schedule
 ##### Due dates
 
 * [PS 2]({{ site.sakai_ps }}): Sep 18, Fri
+  * End of chapter exercises from **Chp 2** and **Chp 3**. Only turn in answers to 
+  graded questions, use the back of the book to check your work on the practice questions.
+  Must show **all** work to get credit. Click [here]({{ site.sakai_ps }}) to submit the 
+  problem set.
+  * Graded questions: TBA
+  * Practice questions: TBA
 * [PA 2]({{ site.sakai_pa }}): Sep 20, Sun
+  * Take between Sep 16, Wed and Sep 20, Sun. 
+  * You have 30 minutes to complete. Only one attempt allowed. Click [here]({{ site.sakai_pa }}) to take the performance assessment.
 
 * * *
 
-### Unit 3 - Foundations for inference
+### <a name="unit3"></a> Unit 3 - Foundations for inference
 
 ##### Resources
 
@@ -82,11 +90,19 @@ title: Schedule
 ##### Due dates
 
 * [PS 3]({{ site.sakai_ps }}): Oct 2, Fri
+  * End of chapter exercises from **Chp 4**. Only turn in answers to 
+  graded questions, use the back of the book to check your work on the practice questions.
+  Must show **all** work to get credit. Click [here]({{ site.sakai_ps }}) to submit the 
+  problem set.
+  * Graded questions: TBA
+  * Practice questions: TBA
 * [PA 3]({{ site.sakai_pa }}): Oct 4, Sun
+  * Take between Sep 30, Wed and Sep 4, Sun. 
+  * You have 30 minutes to complete. Only one attempt allowed. Click [here]({{ site.sakai_pa }}) to take the performance assessment.
 
 * * *
 
-### Midterm 1 - Oct 5, Mon (in class)
+### <a name="mt1"></a> Midterm 1 - Oct 5, Mon (in class)
 
 * Covers Units 1 - 3
 * Practice problems for Midterm 1: [handout] + [solutions]
@@ -94,7 +110,7 @@ title: Schedule
 
 * * *
 
-### Unit 4 - Inference for numerical variables
+### <a name="unit4"></a> Unit 4 - Inference for numerical variables
 
 ##### Resources
 
@@ -116,11 +132,19 @@ title: Schedule
 
 * Project 1 Proposal: Oct 19, Mon
 * [PS 4]({{ site.sakai_ps }}): Oct 23, Fri
+  * End of chapter exercises from **Chp 5**. Only turn in answers to 
+  graded questions, use the back of the book to check your work on the practice questions.
+  Must show **all** work to get credit. Click [here]({{ site.sakai_ps }}) to submit the 
+  problem set.
+  * Graded questions: TBA
+  * Practice questions: TBA
 * [PA 4]({{ site.sakai_pa }}): Oct 25, Sun
+  * Take between Oct 21, Wed and Oct 25, Sun. 
+  * You have 30 minutes to complete. Only one attempt allowed. Click [here]({{ site.sakai_pa }}) to take the performance assessment.
 
 * * *
 
-### Unit 5 - Inference for categorical variables
+### <a name="unit5"></a> Unit 5 - Inference for categorical variables
 
 ##### Resources
 
@@ -140,11 +164,19 @@ title: Schedule
 
 * Project 1: Nov 6, Fri
 * [PS 5]({{ site.sakai_ps }}): Nov 6, Fri
+  * End of chapter exercises from **Chp 6**. Only turn in answers to 
+  graded questions, use the back of the book to check your work on the practice questions.
+  Must show **all** work to get credit. Click [here]({{ site.sakai_ps }}) to submit the 
+  problem set.
+  * Graded questions: TBA
+  * Practice questions: TBA
 * [PA 5]({{ site.sakai_pa }}): Nov 7, Sat (Note day change to allow for reviewing answers before the midterm)
+  * Take between Nov 4, Wed and Nov 7, Sat. 
+  * You have 30 minutes to complete. Only one attempt allowed. Click [here]({{ site.sakai_pa }}) to take the performance assessment.
 
 * * *
 
-### Midterm 2 - Nov 9, Mon (in class)
+### <a name="mt2"></a> Midterm 2 - Nov 9, Mon (in class)
 
 * Covers Units 4 and 5 + fundamentals from Units 1 - 3
 * Practice problems for Midterm 2: [handout] + [solutions]
@@ -152,7 +184,7 @@ title: Schedule
 
 * * *
 
-### Unit 6 - Introduction to linear regression
+### <a name="unit6"></a> Unit 6 - Introduction to linear regression
 
 ##### Resources
 
@@ -162,18 +194,26 @@ title: Schedule
 
 | Nov 11, Wed | **RA 6** in class |
 |             | [Lesson 6.1](post/slides/u6_deck1.pdf) &nbsp;&nbsp;&nbsp;[<i class="fa fa-print"></i>](post/slides/u6_deck1H.pdf)     |
+| Nov 12, Thu | [Lab 9: Introduction to linear regression](post/labs/lab9.html) |
 | Nov 16, Mon | [Lesson 6.2](post/slides/u6_deck2.pdf) &nbsp;&nbsp;&nbsp;[<i class="fa fa-print"></i>](post/slides/u6_deck2H.pdf)                     |
-| Nov 17, Thu | [Lab 9: Introduction to linear regression](post/labs/lab9.html) |
 
 
 ##### Due dates
 
 * [PS 6]({{ site.sakai_ps }}): Nov 20, Fri
+  * End of chapter exercises from **Chp 7**. Only turn in answers to 
+  graded questions, use the back of the book to check your work on the practice questions.
+  Must show **all** work to get credit. Click [here]({{ site.sakai_ps }}) to submit the 
+  problem set.
+  * Graded questions: TBA
+  * Practice questions: TBA
 * [PA 6]({{ site.sakai_pa }}): Nov 22, Sun
+  * Take between Nov 16, Mon and Nov 22, Sun. 
+  * You have 30 minutes to complete. Only one attempt allowed. Click [here]({{ site.sakai_pa }}) to take the performance assessment.
 
 * * *
 
-### Unit 7 - Multiple linear regression
+### <a name="unit7"></a> Unit 7 - Multiple linear regression
 
 ##### Resources
 
@@ -192,11 +232,19 @@ title: Schedule
 ##### Due dates
 
 * [PS 7]({{ site.sakai_ps }}): Dec 4, Fri
+  * End of chapter exercises from **Chp 8**. Only turn in answers to 
+  graded questions, use the back of the book to check your work on the practice questions.
+  Must show **all** work to get credit. Click [here]({{ site.sakai_ps }}) to submit the 
+  problem set.
+  * Graded questions: TBA
+  * Practice questions: TBA
 * [PA 7]({{ site.sakai_pa }}): Dec 6, Sun
+  * Take between Nov 30, Mon and Dec 6, Sun. 
+  * You have 30 minutes to complete. Only one attempt allowed. Click [here]({{ site.sakai_pa }}) to take the performance assessment.
 
 * * *
 
-### Wrap up
+### <a name="wrapup"></a> Wrap up
 
 ##### In class / lab
 
@@ -205,7 +253,7 @@ title: Schedule
 
 * * *
 
-### Final Exam - Dec 10, Thu (2-5pm)
+### <a name="final"></a> Final Exam - Dec 10, Thu (2-5pm)
 
 * Cumulative, covers Units 1 - 7
 * Practice problems for Final: [handout] + [solutions]
