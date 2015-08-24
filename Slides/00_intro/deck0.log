@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99991 (TeX Live 2014) (preloaded format=xelatex 2014.5.25)  14 AUG 2015 14:04
+This is XeTeX, Version 3.14159265-2.6-0.99991 (TeX Live 2014) (preloaded format=xelatex 2014.5.25)  24 AUG 2015 01:04
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2141,6 +2141,11 @@ Overfull \hbox (5.0pt too wide) has occurred while \output is active
 [5
 
 ]
+File: figures/course_webpage1.png Graphic file (type QTm)
+ <use  "figures/course_webpage1.png" >
+File: figures/course_webpage2.png Graphic file (type QTm)
+
+<use  "figures/course_webpage2.png" >
 .................................................
 . fontspec info: "no-scripts"
 . 
@@ -2167,6 +2172,10 @@ Overfull \hbox (5.0pt too wide) has occurred while \output is active
 . 
 . This font family consists of the following shapes:
 .................................................
+
+Overfull \vbox (24.13895pt too high) detected at line 238
+ []
+
 .................................................
 . fontspec info: "no-scripts"
 . 
@@ -2375,7 +2384,7 @@ Overfull \hbox (5.0pt too wide) has occurred while \output is active
 . This font family consists of the following shapes:
 .................................................
 
-Overfull \vbox (17.73767pt too high) detected at line 265
+Overfull \vbox (17.73767pt too high) detected at line 269
  []
 
 .................................................
@@ -2426,7 +2435,7 @@ Overfull \hbox (5.0pt too wide) has occurred while \output is active
 . This font family consists of the following shapes:
 .................................................
 
-Overfull \vbox (17.73767pt too high) detected at line 265
+Overfull \vbox (17.73767pt too high) detected at line 269
  []
 
 .................................................
@@ -2477,7 +2486,7 @@ Overfull \hbox (5.0pt too wide) has occurred while \output is active
 . This font family consists of the following shapes:
 .................................................
 
-Overfull \vbox (17.73767pt too high) detected at line 265
+Overfull \vbox (17.73767pt too high) detected at line 269
  []
 
 .................................................
@@ -2528,7 +2537,7 @@ Overfull \hbox (5.0pt too wide) has occurred while \output is active
 . This font family consists of the following shapes:
 .................................................
 
-Overfull \vbox (17.73767pt too high) detected at line 265
+Overfull \vbox (17.73767pt too high) detected at line 269
  []
 
 .................................................
@@ -2579,7 +2588,7 @@ Overfull \hbox (5.0pt too wide) has occurred while \output is active
 . This font family consists of the following shapes:
 .................................................
 
-Overfull \vbox (17.73767pt too high) detected at line 265
+Overfull \vbox (17.73767pt too high) detected at line 269
  []
 
 .................................................
@@ -2630,7 +2639,7 @@ Overfull \hbox (5.0pt too wide) has occurred while \output is active
 . This font family consists of the following shapes:
 .................................................
 
-Overfull \vbox (17.73767pt too high) detected at line 265
+Overfull \vbox (17.73767pt too high) detected at line 269
  []
 
 .................................................
@@ -2681,7 +2690,7 @@ Overfull \hbox (5.0pt too wide) has occurred while \output is active
 . This font family consists of the following shapes:
 .................................................
 
-Overfull \vbox (17.73767pt too high) detected at line 265
+Overfull \vbox (17.73767pt too high) detected at line 269
  []
 
 .................................................
@@ -2732,7 +2741,7 @@ Overfull \hbox (5.0pt too wide) has occurred while \output is active
 . This font family consists of the following shapes:
 .................................................
 
-Overfull \vbox (17.73767pt too high) detected at line 265
+Overfull \vbox (17.73767pt too high) detected at line 269
  []
 
 .................................................
@@ -2783,7 +2792,7 @@ Overfull \hbox (5.0pt too wide) has occurred while \output is active
 . This font family consists of the following shapes:
 .................................................
 
-Overfull \vbox (19.58766pt too high) detected at line 312
+Overfull \vbox (19.58766pt too high) detected at line 316
  []
 
 .................................................
@@ -2834,7 +2843,7 @@ Overfull \hbox (5.0pt too wide) has occurred while \output is active
 . This font family consists of the following shapes:
 .................................................
 
-Overfull \vbox (19.58766pt too high) detected at line 312
+Overfull \vbox (19.58766pt too high) detected at line 316
  []
 
 .................................................
@@ -2885,7 +2894,7 @@ Overfull \hbox (5.0pt too wide) has occurred while \output is active
 . This font family consists of the following shapes:
 .................................................
 
-Overfull \vbox (19.58766pt too high) detected at line 312
+Overfull \vbox (19.58766pt too high) detected at line 316
  []
 
 .................................................
@@ -2936,7 +2945,7 @@ Overfull \hbox (5.0pt too wide) has occurred while \output is active
 . This font family consists of the following shapes:
 .................................................
 
-Overfull \vbox (19.58766pt too high) detected at line 312
+Overfull \vbox (19.58766pt too high) detected at line 316
  []
 
 .................................................
@@ -2987,7 +2996,7 @@ Overfull \hbox (5.0pt too wide) has occurred while \output is active
 . This font family consists of the following shapes:
 .................................................
 
-Overfull \vbox (19.58766pt too high) detected at line 312
+Overfull \vbox (19.58766pt too high) detected at line 316
  []
 
 .................................................
@@ -3038,7 +3047,7 @@ Overfull \hbox (5.0pt too wide) has occurred while \output is active
 . This font family consists of the following shapes:
 .................................................
 
-Overfull \vbox (19.58766pt too high) detected at line 312
+Overfull \vbox (19.58766pt too high) detected at line 316
  []
 
 .................................................
@@ -3089,7 +3098,7 @@ Overfull \hbox (5.0pt too wide) has occurred while \output is active
 . This font family consists of the following shapes:
 .................................................
 
-Overfull \vbox (19.58766pt too high) detected at line 312
+Overfull \vbox (19.58766pt too high) detected at line 316
  []
 
 .................................................
@@ -3140,7 +3149,7 @@ Overfull \hbox (5.0pt too wide) has occurred while \output is active
 . This font family consists of the following shapes:
 .................................................
 
-Overfull \vbox (19.58766pt too high) detected at line 312
+Overfull \vbox (19.58766pt too high) detected at line 316
  []
 
 .................................................
@@ -3191,7 +3200,7 @@ Overfull \hbox (5.0pt too wide) has occurred while \output is active
 . This font family consists of the following shapes:
 .................................................
 
-Overfull \vbox (19.58766pt too high) detected at line 312
+Overfull \vbox (19.58766pt too high) detected at line 316
  []
 
 .................................................
@@ -3242,7 +3251,7 @@ Overfull \hbox (5.0pt too wide) has occurred while \output is active
 . This font family consists of the following shapes:
 .................................................
 
-Overfull \vbox (19.58766pt too high) detected at line 312
+Overfull \vbox (19.58766pt too high) detected at line 316
  []
 
 .................................................
@@ -3940,7 +3949,7 @@ Overfull \hbox (5.0pt too wide) has occurred while \output is active
 . This font family consists of the following shapes:
 .................................................
 
-Overfull \vbox (16.57643pt too high) detected at line 542
+Overfull \vbox (16.57643pt too high) detected at line 546
  []
 
 .................................................
@@ -4005,7 +4014,7 @@ Overfull \hbox (5.0pt too wide) has occurred while \output is active
 . This font family consists of the following shapes:
 .................................................
 
-Overfull \vbox (16.57643pt too high) detected at line 542
+Overfull \vbox (16.57643pt too high) detected at line 546
  []
 
 .................................................
@@ -4424,6 +4433,10 @@ Overfull \hbox (5.0pt too wide) has occurred while \output is active
 [44
 
 ]
+Overfull \hbox (5.48419pt too wide) in paragraph at lines 747--747
+[] 
+ []
+
 .................................................
 . fontspec info: "no-scripts"
 . 
@@ -4705,7 +4718,7 @@ Overfull \hbox (5.0pt too wide) has occurred while \output is active
 . This font family consists of the following shapes:
 .................................................
 
-Overfull \vbox (17.52034pt too high) detected at line 793
+Overfull \vbox (17.52034pt too high) detected at line 815
  []
 
 .................................................
@@ -5311,7 +5324,7 @@ Overfull \hbox (5.0pt too wide) has occurred while \output is active
 . This font family consists of the following shapes:
 .................................................
 
-Overfull \vbox (15.82767pt too high) detected at line 945
+Overfull \vbox (15.82767pt too high) detected at line 967
  []
 
 .................................................
@@ -5362,7 +5375,7 @@ Overfull \hbox (5.0pt too wide) has occurred while \output is active
 . This font family consists of the following shapes:
 .................................................
 
-Overfull \vbox (15.82767pt too high) detected at line 945
+Overfull \vbox (15.82767pt too high) detected at line 967
  []
 
 .................................................
@@ -5413,7 +5426,7 @@ Overfull \hbox (5.0pt too wide) has occurred while \output is active
 . This font family consists of the following shapes:
 .................................................
 
-Overfull \vbox (15.82767pt too high) detected at line 945
+Overfull \vbox (15.82767pt too high) detected at line 967
  []
 
 .................................................
@@ -5464,7 +5477,7 @@ Overfull \hbox (5.0pt too wide) has occurred while \output is active
 . This font family consists of the following shapes:
 .................................................
 
-Overfull \vbox (15.82767pt too high) detected at line 945
+Overfull \vbox (15.82767pt too high) detected at line 967
  []
 
 .................................................
@@ -5515,7 +5528,7 @@ Overfull \hbox (5.0pt too wide) has occurred while \output is active
 . This font family consists of the following shapes:
 .................................................
 
-Overfull \vbox (15.82767pt too high) detected at line 945
+Overfull \vbox (15.82767pt too high) detected at line 967
  []
 
 .................................................
@@ -5566,7 +5579,7 @@ Overfull \hbox (5.0pt too wide) has occurred while \output is active
 . This font family consists of the following shapes:
 .................................................
 
-Overfull \vbox (15.82767pt too high) detected at line 945
+Overfull \vbox (15.82767pt too high) detected at line 967
  []
 
 .................................................
@@ -5617,7 +5630,7 @@ Overfull \hbox (5.0pt too wide) has occurred while \output is active
 . This font family consists of the following shapes:
 .................................................
 
-Overfull \vbox (15.82767pt too high) detected at line 945
+Overfull \vbox (15.82767pt too high) detected at line 967
  []
 
 .................................................
@@ -5668,7 +5681,7 @@ Overfull \hbox (5.0pt too wide) has occurred while \output is active
 . This font family consists of the following shapes:
 .................................................
 
-Overfull \vbox (15.82767pt too high) detected at line 945
+Overfull \vbox (15.82767pt too high) detected at line 967
  []
 
 .................................................
@@ -5908,18 +5921,18 @@ Overfull \hbox (5.0pt too wide) has occurred while \output is active
 \tf@snm=\write9
 \openout9 = `deck0.snm'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1283.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 1283.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1311.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1311.
  (./deck0.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 1283.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 1283.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1283.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 1311.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 1311.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1311.
  ) 
 Here is how much of TeX's memory you used:
- 36961 strings out of 493734
- 724123 string characters out of 6146348
- 769809 words of memory out of 5000000
- 39591 multiletter control sequences out of 15000+600000
+ 36968 strings out of 493734
+ 724230 string characters out of 6146348
+ 769808 words of memory out of 5000000
+ 39593 multiletter control sequences out of 15000+600000
  14315 words of font info for 113 fonts, out of 8000000 for 9000
  1328 hyphenation exceptions out of 8191
  55i,14n,54p,10415b,674s stack positions out of 5000i,500n,10000p,200000b,80000s
