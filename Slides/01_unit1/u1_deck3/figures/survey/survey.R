@@ -32,8 +32,11 @@ par(mar = c(0.2,0,2,0.5), mgp = c(2,1,0))
 mosaicplot(table(d$class_year, d$relationship_status), las = 1, main = "Relationship status vs. class year", cex.axis = 1, col = COL[1])
 dev.off()
 
-# drinks vs. vegetarian
-pdf("box_drinks_veg.pdf", width = 5, height = 3)
-par(mar = c(2.2,2,2,0.5), mgp = c(2,1,0))
-boxplot(d$nights_drinking ~ d$vegetarian, main = "nights drinking/week vs. vegetarianism", cex.main = 1)
-dev.off()
+# drinks vs. vegetarian ---------------------------------------------
+
+box_drinks_veg <- qplot(x = factor(vegetarian), y = nights_drinking, data = d, 
+                        geom = "boxplot",
+                        main = "Nights drinking/week vs. vegetarianism",
+                        xlab = "vegetarian", ylab = "nights drinking")
+
+ggsave("box_drinks_veg.pdf", box_drinks_veg, width = 5, height = 3)
