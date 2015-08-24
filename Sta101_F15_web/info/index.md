@@ -8,19 +8,20 @@ title: Course Information
 |------------+---------------------+---------------------|
 |Professor   | [Dr. Çetinkaya-Rundel](http://stat.duke.edu/~mc301) | [mine@stat.duke.edu](mailto:mine@stat.duke.edu)
 |:-----------|:--------------------|:-------------------|
-|**TAs**     |                     |                    |
-|            |                     |                    |
-|            |                     |                    |
-|            |                     |                    |
+|**TAs**     | Erika Ball          | [erika.ball@duke.edu](mailto:erika.ball@duke.edu) |
+|            | David Clancy        | [djc37@duke.edu](mailto:djc37@duke.edu) |
+|            | Reuben McCreanor    | [reuben.mccreanor@duke.edu](mailto:reuben.mccreanor@duke.edu) |
+|            | Anne Driscoll       | [anne.driscoll@duke.edu](mailto:anne.driscoll@duke.edu) |
+|            | Megan Robertson     | [megan.robertson@duke.edu](mailto:megan.robertson@duke.edu) |
 |------------+---------------------+--------------------|
 
 * * *
 
 ### Required materials:
 
-* Textbook: [OpenIntro Statistics](http://www.openintro.org/stat/textbook.php?stat_book=os) - Diez, Barr, Çetinkaya-Rundel \\
+* Textbook: [OpenIntro Statistics](http://openintro.org/os) - Diez, Barr, Çetinkaya-Rundel \\
    CreateSpace, 3rd Edition, 2015 (ISBN: 978-1943450039) \\
-The textbook is freely [available online](http://www.openintro.org/stat/textbook.php). You're welcomed to read on screen or print it out. If you prefer a paperback version you can buy it at the cost of printing (around $10) [on Amazon](https://www.openintro.org/redirect.php?go=amazon_os3&referrer=/stat/textbook.php). The textbook store will not carry copies of this text.
+The textbook is freely [available online](http://openintro.org/os). You're welcomed to read on screen or print it out. If you prefer a paperback version you can buy it at the cost of printing (around $10) [on Amazon](http://openintro.org/os). The textbook store will not carry copies of this text.
 
 * Clicker: [i>clicker2](http://www.amazon.com/I-Clicker-2-I-Clicker/dp/1429280476) (ISBN: 1429280476) \\
 If you would like to purchase a used clicker from a former student, see the list of students selling their clickers [at this Google Doc](https://docs.google.com/spreadsheet/ccc?key=0AkY2lFgS9uiDdE1fMkZUZnp6alJDSG9tYlIwTFJWdnc#gid=0). You can contact them directly, or leave your name on the list under "Wants to buy clicker". The clickers will also be available at the Duke textbook store, or you can get them for slightly cheaper [on Amazon](http://www.amazon.com/I-Clicker-2-I-Clicker/dp/1429280476). Note that this is i>clicker2, and not i>clicker+.
@@ -32,11 +33,11 @@ If you would like to purchase a used clicker from a former student, see the list
 ### Class meetings:
 * Lectures: Mondays and Wednesdays, 10:05am - 11:20am, Gross 107
 * Labs: Tuesdays, Old Chem 101
-    * 8:30am - 9:45am - TA: 
-    * 10:05am - 11:20am - TA:
-    * 11:45am - 1:00pm - TA: 
-    * 1:25pm - 2:40pm - TA: 
-    * 3:05pm - 4:20pm - TA: 
+    * 8:30am - 9:45am - TA: David Clancy
+    * 10:05am - 11:20am - TA: David Clancy
+    * 11:45am - 1:00pm - TA: Erika Ball
+    * 1:25pm - 2:40pm - TA: Erika Ball
+    * 3:05pm - 4:20pm - TA: Megan Robertson
 
 * * *
 
@@ -49,13 +50,26 @@ If you would like to purchase a used clicker from a former student, see the list
 * * *
 
 ### <a name="oh"></a>Office Hours:
-* Professor Cetinkaya-Rundel
-    * Where: Old Chemistry 213
-    * When: Tuesdays and Thursdays 4:30pm - 6pm or by appointment
-* Teaching Assistants
-    * Where: Old Chemistry 211A
-    * When: 
-        * TBA
+* Professor Cetinkaya-Rundel:
+    * Day / time: Tuesdays and Thursdays 4:30pm - 6pm or by appointment
+    * Location: Old Chemistry 213
+* Teaching Assistants:
+
+|---------------------+---------------------+--------------------|
+| TA                  | Day / time          | Location           |
+|:--------------------|:--------------------|:-------------------|
+| Erika Ball          | Monday & Tuesday 4:30 - 5:30 pm | Old Chem 211A |
+| David Clancy        | Sunday 7 - 9 pm                 | Old Chem 211A |
+| Anne Driscoll       | Tuesday 5:30 - 7:30 pm          | Old Chem 211A |
+| Ilan Man            | Thursday 3 - 5 pm               | Old Chem 211A |
+| Jialiang Mao        | Thursday 8 - 9pm & TBA          | Old Chem 211A |
+| Reuben McCreanor    | Wednesday 6 - 8 pm              | Old Chem 123 |
+| Megan Robertson     | Wednesday 7 - 9 pm              | Old Chem 211A |
+| Nicole Solomon      | Tuesday 11:30 - 12:30 pm & Thursday 5 - 6 pm | Old Chem 211A |
+| Andrew Wong         | Thursday 6 - 8 pm               | Old Chem 025 |
+| Anna Yanchenko      | Wednesday 12 - 2 pm             | Old Chem 211A |
+|---------------------+--------------------+-------------------|
+
 
 * * *
 
