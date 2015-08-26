@@ -32,7 +32,7 @@ If you would like to purchase a used clicker from a former student, see the list
 
 ### Class meetings:
 * Lectures: Mondays and Wednesdays, 10:05am - 11:20am, Gross 107
-* Labs: Tuesdays, Old Chem 101
+* Labs: Thursdays, Old Chem 101
     * 8:30am - 9:45am - TA: David Clancy
     * 10:05am - 11:20am - TA: David Clancy
     * 11:45am - 1:00pm - TA: Erika Ball
@@ -58,14 +58,14 @@ If you would like to purchase a used clicker from a former student, see the list
 |---------------------+---------------------+--------------------|
 | TA                  | Day / time          | Location           |
 |:--------------------|:--------------------|:-------------------|
-| Erika Ball          | Monday & Tuesday 4:30 - 5:30 pm | Old Chem 211A |
+| Erika Ball          | Monday 4:30 - 5:30 pm & Friday 9:00-10:00 am | Old Chem 211A |
 | David Clancy        | Sunday 7 - 9 pm                 | Old Chem 211A |
 | Anne Driscoll       | Tuesday 5:30 - 7:30 pm          | Old Chem 211A |
 | Ilan Man            | Thursday 3 - 5 pm               | Old Chem 211A |
-| Jialiang Mao        | Thursday 8 - 9pm & TBA          | Old Chem 211A |
+| Jialiang Mao        | Monday 7-9 pm                   | Old Chem 211A |
 | Reuben McCreanor    | Wednesday 6 - 8 pm              | Old Chem 123 |
-| Megan Robertson     | Wednesday 7 - 9 pm              | Old Chem 211A |
-| Nicole Solomon      | Tuesday 11:30 - 12:30 pm & Thursday 5 - 6 pm | Old Chem 211A |
+| Megan Robertson     | Thursday 11 am - 1 pm              | Old Chem 211A |
+| Nicole Solomon      | Tuesday 11:30 am - 12:30 pm & Thursday 5 - 6 pm | Old Chem 211A |
 | Andrew Wong         | Thursday 6 - 8 pm               | Old Chem 025 |
 | Anna Yanchenko      | Wednesday 12 - 2 pm             | Old Chem 211A |
 |---------------------+--------------------+-------------------|
