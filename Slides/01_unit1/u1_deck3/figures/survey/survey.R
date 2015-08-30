@@ -3,7 +3,7 @@ library(openintro)  # for colors
 library(ggplot2)
 
 # load data
-d <- read.csv("~/Desktop/Teaching/Sta101_S15/Class survey/surveyS15_1_13.csv")
+d <- read.csv("surveyS15_1_13.csv")
 
 # view data
 str(d)
