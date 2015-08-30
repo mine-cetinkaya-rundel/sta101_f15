@@ -131,7 +131,13 @@
 
 \begin{itemize}
 
-\item TBA
+\item I don't have OH this week, but I will be available on Piazza to answer any questions
+
+\item Problem set (PS) 1 is due Friday night (11:55pm)
+
+\item Performance assessment (PA) 1 is due Sunday night (11:55pm)
+
+\item Readiness assessment (RA) 2 is next Monday, so start reviewing resources for Unit 2 later this week
 
 \end{itemize}
 
@@ -143,13 +149,28 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\subsection{Use mosaic plots for visualizing relationships between two categorical variables}
+\subsection{Use segmented bar plots or mosaic plots for visualizing relationships between two categorical variables}
 \label{mi1}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}
-\frametitle{1. Use mosaic plots for visualizing relationships between two categorical variables}
+\frametitle{1. Use segmented bar plots for visualizing relationships bet. 2 categorical variables}
+
+\disc{What do the heights of the segments represent? Is there a relationship between
+class year and relationship status? What descriptive statistics can we use to summarize these
+data? Do the widths of the bars represent anything?}
+
+\begin{center}
+\includegraphics[width=0.85\textwidth]{figures/survey/seg_bar_relstat_year.pdf}
+\end{center}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{... or use mosaicplots}
 
 \disc{What do the widths of the bars represent? What about the heights of the boxes? 
 Is there a relationship between class year and relationship status? What other tools 
@@ -158,11 +179,6 @@ could we use to summarize these data?}
 \begin{center}
 \includegraphics[width=0.9\textwidth]{figures/survey/mosaic_relstatus_class.pdf}
 \end{center}
-
-%---Note---%
-\note{
-
-}
 
 \end{frame}
 
@@ -268,14 +284,14 @@ An experiment conducted by the MythBusters tested if a person can be subconsciou
 \begin{center}
 \renewcommand\arraystretch{1.5}
 \begin{tabular}{ l | c | c | c }
-			& Treatment			& Control			& Total \\
+      & Treatment     & Control     & Total \\
 \hline
-Yawn		& 10				& 4				& 14 \\
-Not Yawn		& 24				& 12				& 36 \\
+Yawn    & 10        & 4       & 14 \\
+Not Yawn    & 24        & 12        & 36 \\
 \hline
-Total			& 34				& 16				& 50 \\
+Total     & 34        & 16        & 50 \\
 \hline
-\% Yawners	& \soln{\onslide<2->{$\frac{10}{34} = 0.29$}}	& \soln{\onslide<3->{$\frac{4}{16} = 0.25$}}	& 
+\% Yawners  & \soln{\onslide<2->{$\frac{10}{34} = 0.29$}} & \soln{\onslide<3->{$\frac{4}{16} = 0.25$}}  & 
 \end{tabular}
 \end{center}
 
@@ -403,32 +419,12 @@ Seeing someone yawn and yawning are \hl{dependent}, observed difference in propo
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}
-\frametitle{Simulating the experiment...}
-
-... under the assumption of independence, i.e. leaving things up to chance: \\
-
-\pause
-
-\begin{itemize}
-
-\item Results from the simulations based on the \hl{null hypothesis} look like the data $\rightarrow$ difference between the proportions of yawners in the treatment and control groups was simply \hl{due to chance} (yawning is not contagious) \\
-
-\pause
-
-\item Results from the simulations based on the chance model do not look like the data $\rightarrow$ difference between the proportions of yawners in the treatment and control groups was not due to chance, but \hl{due to an actual effect of seeding} (yawning is contagious)
-
-\end{itemize}
-
-\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\begin{frame}
 \frametitle{Simulation setup}
 
 \begin{itemize}
 
-\item A regular deck of cards is comprised of 52 cards: 4 aces, 4 of numbers 2-10, 4 jacks, 4 queens, and 4 kings.
+\item A regular deck of cards is comprised of 52 cards: 4 aces, 4 of numbers 2-10, 4 jacks, 
+4 queens, and 4 kings.
 
 \item Take out two aces from the deck of cards and set them aside.
 
@@ -439,6 +435,10 @@ Seeing someone yawn and yawning are \hl{dependent}, observed difference in propo
 \end{itemize}
 
 \end{itemize}
+
+\vfill
+
+[DEMO: Watch me go through the activity before you start it in your teams.]
 
 \end{frame}
 
@@ -567,12 +567,12 @@ $\cdots$ && \\
 {\small
 \begin{tabular}{l | c | c | c}
 \hline
-		& Caffeine	& No Caffeine	& Difference \\
+    & Caffeine  & No Caffeine & Difference \\
 \hline
-mean	&  248.3		& 244.8 		& 3.5 \\
-SD		& 2.21		& 2.39 		& -0.18 \\
-median	& 248		& 245 		& 3 \\
-IQR		& 3.5			& 4.25		& -0.75 \\
+mean  &  248.3    & 244.8     & 3.5 \\
+SD    & 2.21    & 2.39    & -0.18 \\
+median  & 248   & 245     & 3 \\
+IQR   & 3.5     & 4.25    & -0.75 \\
 \hline
 \end{tabular}
 }
@@ -646,9 +646,9 @@ $H_A: \mu_{caff} \ne \mu_{no~caff}$
 {\footnotesize
 \begin{tabular}{l | c | c | c}
 \hline
-		& Caffeine	& No Caffeine	& Difference \\
+    & Caffeine  & No Caffeine & Difference \\
 \hline
-mean	&  248.3		& 244.8 		& 3.5 \\
+mean  &  248.3    & 244.8     & 3.5 \\
 \hline
 \end{tabular}
 }
@@ -689,9 +689,9 @@ mean	&  248.3		& 244.8 		& 3.5 \\
 {\footnotesize
 \begin{tabular}{l | c | c | c}
 \hline
-		& Caffeine	& No Caffeine	& Difference \\
+    & Caffeine  & No Caffeine & Difference \\
 \hline
-median	& 248		& 245 		& 3 \\
+median  & 248   & 245     & 3 \\
 \hline
 \end{tabular}
 }
