@@ -311,7 +311,7 @@ The data are stored in a data frame called `present`.
 
 -   How do these counts compare to Arbuthnot's? Are they on a similar scale?
 
--   Make a plot that displays the boy-to-girl ratio for every year in the data 
+-   Make a plot that displays the proportion of boys for every year in the data 
     set. What do you see? Does Arbuthnot's observation about boys being born in
     greater proportion than girls hold up in the U.S.? Include the plot in your 
     response.
