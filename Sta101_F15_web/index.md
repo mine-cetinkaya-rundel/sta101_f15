@@ -22,7 +22,7 @@ title: Schedule
 |              | [App Ex 1.2: Scientific studies in the press](post/app/app_Scientific_studies_press.pdf) |
 |              | [App Ex 1.3: Histogram to boxplot](post/app/app_Hist_to_box.pdf) |
 |              | [App Ex 1.4: Randomization testing](post/app/app_Rand_test.pdf)
-| Sep 3, Thu   | [Lab 1: Intro to R and RStudio](post/labs/lab1.html) |
+| Sep 3, Thu   | [Lab 1: Intro to R and RStudio](post/labs/intro_to_r.html) |
 
 ##### Due dates
 
