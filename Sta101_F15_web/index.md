@@ -17,7 +17,7 @@ title: Schedule
 |              | [Lesson 1.2: Exploratory data analysis](post/slides/u1_deck2.pdf) &nbsp;&nbsp;&nbsp;[<i class="fa fa-print"></i>](post/slides/u1_deck2H.pdf) |
 |              | [App Ex 1.1: Distributions of numerical variables](post/app/app_Dist_num_var.pdf) |
 | Aug 27, Thu  | [Lab 0: Introduction](post/labs/lab0.html) |
-| Aug 31, Mon  | [Lesson 1.3: Introduction to statistical inference](post/slides/u1_deck2.pdf) &nbsp;&nbsp;&nbsp;[<i class="fa fa-print"></i>](post/slides/u1_deck3H.pdf) |
+| Aug 31, Mon  | [Lesson 1.3: Introduction to statistical inference](post/slides/u1_deck3.pdf) &nbsp;&nbsp;&nbsp;[<i class="fa fa-print"></i>](post/slides/u1_deck3H.pdf) |
 | Sep 2, Wed   | [Lesson 1.4: Review of Unit 1](post/slides/u1_deck4.pdf) &nbsp;&nbsp;&nbsp;[<i class="fa fa-print"></i>](post/slides/u1_deck4H.pdf)|
 |              | [App Ex 1.2: Scientific studies in the press](post/app/app_Scientific_studies_press.pdf) |
 |              | [App Ex 1.3: Histogram to boxplot](post/app/app_Hist_to_box.pdf) |
