@@ -301,7 +301,7 @@ steps, but for present day birth records in the United States.  Load up the
 present day data with the following command.
 
 ```{r load-present-data, eval=FALSE}
-data(present)
+source("http://www.openintro.org/stat/data/present.R")
 ```
 
 The data are stored in a data frame called `present`.
