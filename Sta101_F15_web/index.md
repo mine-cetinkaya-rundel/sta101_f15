@@ -51,7 +51,7 @@ title: Schedule
 | Sep 7, Mon  | **RA 2** in class |
 |             | [Lesson 2.1](post/slides/u2_deck1.pdf) &nbsp;&nbsp;&nbsp;[<i class="fa fa-print"></i>](post/slides/u2_deck1H.pdf) |
 | Sep 9, Wed  | [Lesson 2.2](post/slides/u2_deck2.pdf) &nbsp;&nbsp;&nbsp;[<i class="fa fa-print"></i>](post/slides/u2_deck2H.pdf)               |
-| Sep 10, Thu | [Lab 2: Introduction to data](post/labs/lab2.html)          |
+| Sep 10, Thu | [Lab 2: Introduction to data](post/labs/intro_to_data.html)          |
 | Sep 14, Mon | [Lesson 2.3](post/slides/u2_deck3.pdf) &nbsp;&nbsp;&nbsp;[<i class="fa fa-print"></i>](post/slides/u2_deck3H.pdf)               |
 | Sep 16, Wed | [Lesson 2.4](post/slides/u2_deck4.pdf) &nbsp;&nbsp;&nbsp;[<i class="fa fa-print"></i>](post/slides/u2_deck4H.pdf)               |
 | Sep 17, Thu | [Lab 3: Probability](post/labs/lab3.html)                   |
