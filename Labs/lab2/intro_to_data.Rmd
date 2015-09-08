@@ -130,8 +130,8 @@ distribution, but that shape can change depending on how the data is split
 between the different bins. You can easily define the binwidth you want to use:
 
 ```{r hist-bmi}
-qplot(x = age, data = cdc, binwidth = 1)
-qplot(x = age, data = cdc, binwidth = 20)
+qplot(x = age, data = cdc, geom = "histogram", binwidth = 1)
+qplot(x = age, data = cdc, geom = "histogram", binwidth = 20)
 ```
 
 How do these histograms with the various binwidths compare?
