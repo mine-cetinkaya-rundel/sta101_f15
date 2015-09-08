@@ -64,8 +64,12 @@ title: Schedule
   graded questions, use the back of the book to check your work on the practice questions.
   Must show **all** work to get credit. Click [here]({{ site.sakai_ps }}) to submit the 
   problem set.
-  * Graded questions: TBA
-  * Practice questions: TBA
+  * Graded questions: 
+      + Chp 2: 2.2, 2.8, 2.18, 2.20, 2.22, 2.26
+      + Chp 3: 3.4, 3.6, 3.12, 3.18, 3.26, 3.28, 3.30, 3.36
+  * Practice questions: 
+      + Chp 2: 2.1, 2.3, 2.5, 2.7, 2.13, 2.15, 2.19, 2.21, 2.23, 3.3
+      + Chp 3: 3.3, 3.5, 3.9, 3.11, 3.17, 3.25, 3.27, 3.29, 3.33
 * [PA 2]({{ site.sakai_pa }}): Sep 20, Sun
   * Take between Sep 16, Wed and Sep 20, Sun. 
   * You have 30 minutes to complete. Only one attempt allowed. Click [here]({{ site.sakai_pa }}) to take the performance assessment.
