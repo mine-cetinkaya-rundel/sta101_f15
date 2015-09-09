@@ -60,6 +60,8 @@ title: Schedule
 
 ##### Due dates
 
+* Lab 1: Sep 10, Thu
+* Lab 2: Sep 17, Thu
 * [PS 2]({{ site.sakai_ps }}): Sep 18, Fri
   * End of chapter exercises from **Chp 2** and **Chp 3**. Only turn in answers to 
   graded questions, use the back of the book to check your work on the practice questions.
@@ -91,10 +93,12 @@ title: Schedule
 | Sep 24, Thu | [Lab 4: Sampling distributions](post/labs/lab4.html) |
 | Sep 28, Mon | [Lesson 3.3](post/slides/u3_deck3.pdf) &nbsp;&nbsp;&nbsp;[<i class="fa fa-print"></i>](post/slides/u3_deck3H.pdf)|
 | Sep 30, Wed | [Lesson 3.4](post/slides/u3_deck4.pdf) &nbsp;&nbsp;&nbsp;[<i class="fa fa-print"></i>](post/slides/u3_deck4H.pdf)|
-| Oct 2, Thu  | [Lab 5: Confidence intervals](post/labs/lab5.html)   |
+| Oct 1, Thu  | [Lab 5: Confidence intervals](post/labs/lab5.html)   |
 
 ##### Due dates
 
+* Lab 3: Sep 24, Thu
+* Lab 4: Oct 1, Thu 
 * [PS 3]({{ site.sakai_ps }}): Oct 2, Fri
   * End of chapter exercises from **Chp 4**. Only turn in answers to 
   graded questions, use the back of the book to check your work on the practice questions.
@@ -136,6 +140,8 @@ title: Schedule
 
 ##### Due dates
 
+* Lab 5: Oct 8, Thu 
+* Lab 6: Oct 15, Thu 
 * Project 1 Proposal: Oct 19, Mon
 * [PS 4]({{ site.sakai_ps }}): Oct 23, Fri
   * End of chapter exercises from **Chp 5**. Only turn in answers to 
@@ -168,6 +174,8 @@ title: Schedule
 
 ##### Due dates
 
+* Lab 7: Oct 29, Thu
+* Lab 8: Nov 5, Thu
 * Project 1: Nov 6, Fri
 * [PS 5]({{ site.sakai_ps }}): Nov 6, Fri
   * End of chapter exercises from **Chp 6**. Only turn in answers to 
@@ -237,6 +245,8 @@ title: Schedule
 
 ##### Due dates
 
+* Lab 8: Nov 19, Thu
+* Lab 10: Nov 26, Thu
 * [PS 7]({{ site.sakai_ps }}): Dec 4, Fri
   * End of chapter exercises from **Chp 8**. Only turn in answers to 
   graded questions, use the back of the book to check your work on the practice questions.
