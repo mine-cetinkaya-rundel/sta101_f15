@@ -51,10 +51,11 @@ title: Schedule
 | Sep 7, Mon  | **RA 2** in class |
 |             | [Lesson 2.1: Probability and conditional probability](post/slides/u2_deck1.pdf) &nbsp;&nbsp;&nbsp;[<i class="fa fa-print"></i>](post/slides/u2_deck1H.pdf) |
 |             | [App Ex 2.1: Voting probabilities of college students](post/app/app_Prob_cond_prob.pdf) |
-| Sep 9, Wed  | [Lesson 2.2](post/slides/u2_deck2.pdf) &nbsp;&nbsp;&nbsp;[<i class="fa fa-print"></i>](post/slides/u2_deck2H.pdf)               |
+| Sep 9, Wed  | [Lesson 2.2: Bayes' theorem and Bayesian inference](post/slides/u2_deck2.pdf) &nbsp;&nbsp;&nbsp;[<i class="fa fa-print"></i>](post/slides/u2_deck2H.pdf)               |
+|             | [App Ex 2.2: Bayesian drug testing](post/app/app_Bayes_inf.pdf) |
 | Sep 10, Thu | [Lab 2: Introduction to data](post/labs/intro_to_data.html)          |
-| Sep 14, Mon | [Lesson 2.3](post/slides/u2_deck3.pdf) &nbsp;&nbsp;&nbsp;[<i class="fa fa-print"></i>](post/slides/u2_deck3H.pdf)               |
-| Sep 16, Wed | [Lesson 2.4](post/slides/u2_deck4.pdf) &nbsp;&nbsp;&nbsp;[<i class="fa fa-print"></i>](post/slides/u2_deck4H.pdf)               |
+| Sep 14, Mon | [Lesson 2.3: Normal distribution](post/slides/u2_deck3.pdf) &nbsp;&nbsp;&nbsp;[<i class="fa fa-print"></i>](post/slides/u2_deck3H.pdf)               |
+| Sep 16, Wed | [Lesson 2.4: Binomial distribution](post/slides/u2_deck4.pdf) &nbsp;&nbsp;&nbsp;[<i class="fa fa-print"></i>](post/slides/u2_deck4H.pdf)               |
 | Sep 17, Thu | [Lab 3: Probability](post/labs/lab3.html)                   |
 
 ##### Due dates
