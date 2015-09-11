@@ -1,6 +1,9 @@
 markdown: kramdown
 exclude:
   - LICENSE
+  - Makefile
+  - README
+  - 'lab3.Rmd'
 
 layouts: ./_noita
 baseurl: /courses/Fall15/sta101.002
