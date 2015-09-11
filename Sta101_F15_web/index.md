@@ -56,7 +56,7 @@ title: Schedule
 | Sep 10, Thu | [Lab 2: Introduction to data](post/labs/intro_to_data.html)          |
 | Sep 14, Mon | [Lesson 2.3: Normal distribution](post/slides/u2_deck3.pdf) &nbsp;&nbsp;&nbsp;[<i class="fa fa-print"></i>](post/slides/u2_deck3H.pdf)               |
 | Sep 16, Wed | [Lesson 2.4: Binomial distribution](post/slides/u2_deck4.pdf) &nbsp;&nbsp;&nbsp;[<i class="fa fa-print"></i>](post/slides/u2_deck4H.pdf)               |
-| Sep 17, Thu | [Lab 3: Probability](post/labs/lab3.html)                   |
+| Sep 17, Thu | [Lab 3: Probability](post/labs/probability.html)                   |
 
 ##### Due dates
 
