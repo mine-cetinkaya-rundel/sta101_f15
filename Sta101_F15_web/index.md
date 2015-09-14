@@ -30,10 +30,14 @@ title: Schedule
   * End of chapter exercises from **Chp 1**. Only turn in answers to graded questions,
   use the back of the book to check your work on the practice questions. Must show 
   **all** work to get credit. Click [here]({{ site.sakai_ps }}) to submit the problem set.
-  * Graded questions: 1.2, 1.6, 1.12, 1.20, 1.32, 1.34, 1.44, 1.52, 1.56, 1.60, 
-                      1.64, 1.66, 1.68, 1.70
-  * Practice questions: 1.1, 1.3, 1.5, 1.11, 1.13, 1.17, 1.19, 1.25, 1.27, 1.31, 
-                        1.47, 1.43, 1.51, 1.55, 1.59, 1.63, 1.65, 1.67, 1.69
+  * **Graded questions:** 1.2, 1.6, 1.12, 1.20, 1.32, 1.34, 1.44, 1.52, 1.56, 
+  1.60, 1.64, 1.66, 1.68, 1.70 (see [errata](https://docs.google.com/spreadsheets/d/12GQ8HE-h-4N3Uh8SgvhhDd4hEMUN-T8gX5uszM1tWs8/edit))
+  * Practice questions: 
+      + Part 1 – Designing studies: 1.1, 1.3, 1.11, 1.13, 1.17, 1.19, 1.25, 
+      1.27, 1.31
+      + Part 2 – Exploratory data analysis: 1.39, 1.41, 1.45, 1.49, 1.51, 1.55, 
+      1.59, 1.63, 1.65
+      + Part 3 – Introduction to inference via simulation: 1.67, 1.69
 * [PA 1]({{ site.sakai_pa }}): Sep 6, Sun
   * Take between Sep 2, Wed and Sep 6, Sun. 
   * You have 30 minutes to complete. Only one attempt allowed. Click [here]({{ site.sakai_pa }}) to take the performance assessment.
@@ -67,12 +71,14 @@ title: Schedule
   graded questions, use the back of the book to check your work on the practice questions.
   Must show **all** work to get credit. Click [here]({{ site.sakai_ps }}) to submit the 
   problem set.
-  * Graded questions: 
+  * **Graded questions:** 
       + Chp 2: 2.2, 2.8, 2.18, 2.20, 2.22, 2.26
       + Chp 3: 3.4, 3.6, 3.12, 3.18, 3.26, 3.28, 3.30, 3.36
   * Practice questions: 
-      + Chp 2: 2.1, 2.3, 2.5, 2.7, 2.13, 2.15, 2.19, 2.21, 2.23, 3.3
-      + Chp 3: 3.3, 3.5, 3.9, 3.11, 3.17, 3.25, 3.27, 3.29, 3.33
+      + Part 1 – Defining probability: 2.1, 2.3, 2.5, 2.7, 2.13
+      + Part 2 – Conditional probability: 2.15, 2.19, 2.21, 2.23
+      + Part 3 – Normal distribution: 3.3, 3.5, 3.9, 3.11, 3.17
+      + Part 4 – Binomial distribution: 3.25, 3.27, 3.29, 3.33
 * [PA 2]({{ site.sakai_pa }}): Sep 20, Sun
   * Take between Sep 16, Wed and Sep 20, Sun. 
   * You have 30 minutes to complete. Only one attempt allowed. Click [here]({{ site.sakai_pa }}) to take the performance assessment.
@@ -104,8 +110,14 @@ title: Schedule
   graded questions, use the back of the book to check your work on the practice questions.
   Must show **all** work to get credit. Click [here]({{ site.sakai_ps }}) to submit the 
   problem set.
-  * Graded questions: TBA
-  * Practice questions: TBA
+  * **Graded questions:** 4.2, 4.6, 4.8, 4.10, 4.12, 4.16, 4.20, 4.24,
+  4.28, 4.30, 4.32, 4.36, 4.38, 4.44, 4.48
+  * Practice questions: 
+      + Part 1 – Variability in estimates and the Central Limit Theorem: 4.1, 4.3, 4.5, 4.33, 4. 35, 4.37, 4.41
+      + Part 2 – Confidence intervals: 4.9, 4.11, 4.13, 4.15
+      + Part 3 – Hypothesis tests: 4.17, 4.19, 4.23, 4.25, 4.27
+      + Part 4 – Inference for other estimators: 4.43, 4.45
+      + Part 5 - Decision errors, significance, and confidence: 4.29, 4.31, 4.47
 * [PA 3]({{ site.sakai_pa }}): Oct 4, Sun
   * Take between Sep 30, Wed and Sep 4, Sun. 
   * You have 30 minutes to complete. Only one attempt allowed. Click [here]({{ site.sakai_pa }}) to take the performance assessment.
@@ -133,7 +145,7 @@ title: Schedule
 | Oct 12, Mon | *Fall Break - no class*                |     
 | Oct 14, Wed | **RA 4** in class |
 |             | [Lesson 4.2](post/slides/u4_deck2.pdf) &nbsp;&nbsp;&nbsp;[<i class="fa fa-print"></i>](post/slides/u4_deck2H.pdf) |
-| Oct 15, Thu | Work on project proposal               |
+| Oct 15, Thu | Work on [Project 1](post/projects/project1.html) proposal               |
 | Oct 19, Mon | [Lesson 4.3](post/slides/u4_deck3.pdf) &nbsp;&nbsp;&nbsp;[<i class="fa fa-print"></i>](post/slides/u4_deck3H.pdf) |
 | Oct 21, Wed | [Lesson 4.4](post/slides/u4_deck4.pdf) &nbsp;&nbsp;&nbsp;[<i class="fa fa-print"></i>](post/slides/u4_deck4H.pdf) |
 | Oct 22, Thu | [Lab 7: (More) inference for numerical data](post/labs/lab7.html) |
@@ -142,14 +154,19 @@ title: Schedule
 
 * Lab 5: Oct 8, Thu 
 * Lab 6: Oct 15, Thu 
-* Project 1 Proposal: Oct 19, Mon
+* [Project 1](post/projects/project1.html) Proposal: Oct 19, Mon
 * [PS 4]({{ site.sakai_ps }}): Oct 23, Fri
   * End of chapter exercises from **Chp 5**. Only turn in answers to 
   graded questions, use the back of the book to check your work on the practice questions.
   Must show **all** work to get credit. Click [here]({{ site.sakai_ps }}) to submit the 
   problem set.
-  * Graded questions: TBA
-  * Practice questions: TBA
+  * **Graded questions:** TBA
+  * Practice questions: 
+      + Part 1 – t-inference: 5.1, 5.3, 5.5, 5.13, 5.17, 5.19, 5.21, 5.23, 
+      5.27, 5.31, 5.35, 5.37
+      + Part 2 – Power: 5.39
+      + Part 3 – Comparing three or more means (ANOVA): 5.41, 5.43, 5.45, 5.47, 5.49, 5.51
+      + Part 4 – Simulation based inference for means 
 * [PA 4]({{ site.sakai_pa }}): Oct 25, Sun
   * Take between Oct 21, Wed and Oct 25, Sun. 
   * You have 30 minutes to complete. Only one attempt allowed. Click [here]({{ site.sakai_pa }}) to take the performance assessment.
@@ -170,19 +187,19 @@ title: Schedule
 | Oct 29, Thu | [Lab 8: Inference for categorical data](post/labs/lab8.html) |
 | Nov 2, Mon  | [Lesson 5.3](post/slides/u5_deck3.pdf) &nbsp;&nbsp;&nbsp;[<i class="fa fa-print"></i>](post/slides/u5_deck3H.pdf)                  |
 | Nov 4, Wed  | [Lesson 5.4](post/slides/u5_deck4.pdf) &nbsp;&nbsp;&nbsp;[<i class="fa fa-print"></i>](post/slides/u5_deck4H.pdf)                  |
-| Nov 5, Thu  | Work on Project 1                     |
+| Nov 5, Thu  | Work on [Project 1](post/projects/project1.html)                     |
 
 ##### Due dates
 
 * Lab 7: Oct 29, Thu
 * Lab 8: Nov 5, Thu
-* Project 1: Nov 6, Fri
+* [Project 1](post/projects/project1.html): Nov 6, Fri
 * [PS 5]({{ site.sakai_ps }}): Nov 6, Fri
   * End of chapter exercises from **Chp 6**. Only turn in answers to 
   graded questions, use the back of the book to check your work on the practice questions.
   Must show **all** work to get credit. Click [here]({{ site.sakai_ps }}) to submit the 
   problem set.
-  * Graded questions: TBA
+  * **Graded questions:** TBA
   * Practice questions: TBA
 * [PA 5]({{ site.sakai_pa }}): Nov 7, Sat (Note day change to allow for reviewing answers before the midterm)
   * Take between Nov 4, Wed and Nov 7, Sat. 
@@ -219,7 +236,7 @@ title: Schedule
   graded questions, use the back of the book to check your work on the practice questions.
   Must show **all** work to get credit. Click [here]({{ site.sakai_ps }}) to submit the 
   problem set.
-  * Graded questions: TBA
+  * **Graded questions:** TBA
   * Practice questions: TBA
 * [PA 6]({{ site.sakai_pa }}): Nov 22, Sun
   * Take between Nov 16, Mon and Nov 22, Sun. 
@@ -252,7 +269,7 @@ title: Schedule
   graded questions, use the back of the book to check your work on the practice questions.
   Must show **all** work to get credit. Click [here]({{ site.sakai_ps }}) to submit the 
   problem set.
-  * Graded questions: TBA
+  * **Graded questions:** TBA
   * Practice questions: TBA
 * [PA 7]({{ site.sakai_pa }}): Dec 6, Sun
   * Take between Nov 30, Mon and Dec 6, Sun. 

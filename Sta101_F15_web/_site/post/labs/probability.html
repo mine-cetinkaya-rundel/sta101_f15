@@ -76,6 +76,15 @@ img {
 </div>
 
 
+<div id="boxedtext">
+<p><strong>A note on workspaces:</strong> Before we get started with the lab, let’s take a moment to review our R Markdown workflow and remind ourselves about workspaces in R. The workspaces of the console and the workspaces of your R Markdown document are not the same. Therefore, if you define a variable only in the Console and then try to use that variable in your R Markdown document, you’ll get an error. This might seem frustrating at first, but it is actually a feature that helps you in the long run. In order to ensure that your report is fully reproducible, everything that is used in the report must be defined in the report, and not somewhere else.</p>
+<p>It is your responsibility, and an important learning goal of this course, that you master the skills for creating fully reproducible data analysis reports. Below are some tips for achieving this goal:</p>
+<ul>
+<li>Always work in your R Markdown document, and not in the Console.</li>
+<li>Knit early, and often, always checking that the resulting document contains everything you expected it to contain.</li>
+</ul>
+</div>
+<hr />
 <div id="template">
 <p><strong>Your reproducible lab report:</strong> Before you get started, download the R Markdown template for this lab. Remember all of your code and answers go in this document:</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">download</span>(<span class="st">&quot;http://stat.duke.edu/courses/Fall15/sta101.002/post/labs/lab3.Rmd&quot;</span>, 
@@ -83,7 +92,7 @@ img {
 </div>
 <div id="hot-hands" class="section level2">
 <h2>Hot Hands</h2>
-<p>Basketball players who make several baskets in succession are described as having a <em>hot hand</em>. Fans and players have long believed in the hot hand phenomenon, which refutes the assumption that each shot is independent of the next. However, a 1985 paper by Gilovich, Vallone, and Tversky collected evidence that contradicted this belief and showed that successive shots are independent events (<a href="http://psych.cornell.edu/sites/default/files/Gilo.Vallone.Tversky.pdf"><a href="http://psych.cornell.edu/sites/default/files/Gilo.Vallone.Tversky.pdf" class="uri">http://psych.cornell.edu/sites/default/files/Gilo.Vallone.Tversky.pdf</a></a>). This paper started a great controversy that continues to this day, as you can see by Googling <em>hot hand basketball</em>.</p>
+<p>Basketball players who make several baskets in succession are described as having a <em>hot hand</em>. Fans and players have long believed in the hot hand phenomenon, which refutes the assumption that each shot is independent of the next. However, <a href="http://www.sciencedirect.com/science/article/pii/0010028585900106">a 1985 paper</a> by Gilovich, Vallone, and Tversky collected evidence that contradicted this belief and showed that successive shots are independent events. This paper started a great controversy that continues to this day, as you can see by Googling <em>hot hand basketball</em>.</p>
 <p>We do not expect to resolve this controversy today. However, in this lab we’ll apply one approach to answering questions like this. The goals for this lab are to (1) think about the effects of independent and dependent events, (2) learn how to simulate shooting streaks in R, and (3) to compare a simulation to actual data in order to determine if the hot hand phenomenon appears to be real.</p>
 </div>
 <div id="getting-started" class="section level2">

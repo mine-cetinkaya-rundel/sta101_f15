@@ -14,8 +14,7 @@ title: Links
 * [OpenIntro Statistics]({{ site.openintro }}): Textbook
 * Probability calculations:
     * [Probability tables](https://www.openintro.org/download.php?file=os2_prob_tables&referrer=/stat/textbook.php)
-    * [Distribution calculator applet](https://bitly.com/dist_calc)
-* [Class recordings]({{ site.duke_capture }}) via DukeCapture
+    * [Distribution calculator applet](https://gallery.shinyapps.io/dist_calc/)
 * [R commands](https://stat.duke.edu/~mc301/R/Rcommands.html): List of R commands commonly used in this course
 * [Teams & lab authors]({{ site.teams }})
 
@@ -26,10 +25,10 @@ title: Links
 
 You will see these in the course videos, and you're encouraged to play with / use them for learning and doing.  
 
-* [Distribution calculator](https://bitly.com/dist_calc "Link: https://bitly.com/dist_calc"): For calculating probabilities for the binomial, normal, t, T, and $$\\chi^2$$ distributions.
-* [Central Limit Theorem (for means)](https://bitly.com/clt_mean "Link: https://bitly.com/clt_mean"): For exploring and visualizing the central limit theorem (for means). Especially illustrative if you're trying to grasp what we mean by "sampling many times from the population" or by the term "sampling distribution". Also great for illustrating shapes of sampling distributions given various population characteristics and sample sizes.
-* [Central Limit Theorem (for proportions)](http://bit.ly/clt_prop "Link: http://bit.ly/clt_prop"): For exploring and visualizing the central limit theorem (for proportions).
-* [Diagnostics for simple linear regression](http://bitly.com/slr_diag "Link: http://bitly.com/slr_diag"): For illustrating how diagnostics plots for simple (one-predictor) linear regression look for various forms of relationship between the explanatory and response variables.
+* [Distribution calculator](https://gallery.shinyapps.io/dist_calc/ "Link: https://gallery.shinyapps.io/dist_calc/"): For calculating probabilities for the binomial, normal, t, T, and $$\\chi^2$$ distributions.
+* [Central Limit Theorem (for means)](https://gallery.shinyapps.io/CLT_mean/ "Link: https://gallery.shinyapps.io/CLT_mean/"): For exploring and visualizing the central limit theorem (for means). Especially illustrative if you're trying to grasp what we mean by "sampling many times from the population" or by the term "sampling distribution". Also great for illustrating shapes of sampling distributions given various population characteristics and sample sizes.
+* [Central Limit Theorem (for proportions)](https://gallery.shinyapps.io/CLT_prop/ "Link: https://gallery.shinyapps.io/CLT_prop/"): For exploring and visualizing the central limit theorem (for proportions).
+* [Diagnostics for simple linear regression](https://gallery.shinyapps.io/slr_diag/ "Link: https://gallery.shinyapps.io/slr_diag/"): For illustrating how diagnostics plots for simple (one-predictor) linear regression look for various forms of relationship between the explanatory and response variables.
 
 * * *
 

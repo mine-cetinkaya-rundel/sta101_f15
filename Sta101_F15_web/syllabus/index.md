@@ -156,7 +156,7 @@ The objective of the projects is to give you independent applied research experi
 
 Further details on the projects will be provided as due dates approach.
 
-Note that you **must complete both projects and score at least 30% of the points on each project in order to pass this class**.
+Note that you **must complete both projects and score at least 30% of total possible points on each project in order to pass this class**.
 
 * * *
 
@@ -208,7 +208,7 @@ If you are faced with a personal or family emergency or a long-range or chronic 
 ### Policies:
 
 * Late work policy for problem sets and labs reports:
-    * next day: lose 30% of points
+    * next day: lose 30% of total possible points
     * later than next day: lose all points
 
 * Late work policy for projects: 10% off for each day late.
