@@ -22,7 +22,7 @@ library(ggplot2)
 
 **Load Arbuthnot's data:**
 ```{r}
-load(url("https://stat.duke.edu/~mc301/data/cdc.RData")) 
+load(url("https://stat.duke.edu/~mc301/data/cdc.RData"))
 ```
 
 ## Exercises:
