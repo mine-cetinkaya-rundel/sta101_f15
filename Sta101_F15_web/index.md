@@ -61,6 +61,7 @@ title: Schedule
 | Sep 14, Mon | [Lesson 2.3: Normal distribution](post/slides/u2_deck3.pdf) &nbsp;&nbsp;&nbsp;[<i class="fa fa-print"></i>](post/slides/u2_deck3H.pdf)               |
 |             | [App Ex 2.3: Normal distribution](post/app/app_Normal_dist.pdf) |
 | Sep 16, Wed | [Lesson 2.4: Binomial distribution](post/slides/u2_deck4.pdf) &nbsp;&nbsp;&nbsp;[<i class="fa fa-print"></i>](post/slides/u2_deck4H.pdf)               |
+|             | [App Ex 2.4: Binomial distribution](post/app/app_Binomial_dist.pdf) |
 | Sep 17, Thu | [Lab 3: Probability](post/labs/probability.html)                   |
 
 ##### Due dates
@@ -97,7 +98,7 @@ title: Schedule
 | Sep 21, Mon | **RA 3** in class |
 |             | [Lesson 3.1](post/slides/u3_deck1.pdf) &nbsp;&nbsp;&nbsp;[<i class="fa fa-print"></i>](post/slides/u3_deck1H.pdf) |
 | Sep 23, Wed | [Lesson 3.2](post/slides/u3_deck2.pdf) &nbsp;&nbsp;&nbsp;[<i class="fa fa-print"></i>](post/slides/u3_deck2H.pdf)|
-| Sep 24, Thu | [Lab 4: Sampling distributions](post/labs/lab4.html) |
+| Sep 24, Thu | [Lab 4: Sampling distributions](post/labs/sampling_distributions.html) |
 | Sep 28, Mon | [Lesson 3.3](post/slides/u3_deck3.pdf) &nbsp;&nbsp;&nbsp;[<i class="fa fa-print"></i>](post/slides/u3_deck3H.pdf)|
 | Sep 30, Wed | [Lesson 3.4](post/slides/u3_deck4.pdf) &nbsp;&nbsp;&nbsp;[<i class="fa fa-print"></i>](post/slides/u3_deck4H.pdf)|
 | Oct 1, Thu  | [Lab 5: Confidence intervals](post/labs/lab5.html)   |
