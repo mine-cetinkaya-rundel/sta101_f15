@@ -10,6 +10,7 @@ output:
 ```{r setup, include=FALSE}
 # DO NOT ALTER CODE IN THIS CHUNK
 knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(cache = TRUE)
 library(dplyr)
 library(ggplot2)
 library(mosaic)
@@ -21,10 +22,17 @@ library(mosaic)
 
 * * *
 
-**Load Hot Hand files:**
+**Load Ames dataset:**
 ```{r}
 load(url("https://stat.duke.edu/~mc301/data/ames.RData"))
 ```
+
+**Set a seed:**
+```{r}
+set.seed()
+```
+
+
 
 ## Exercises:
 
@@ -44,6 +52,9 @@ load(url("https://stat.duke.edu/~mc301/data/ames.RData"))
 
 
 #### Exercise 6:
+
+
+#### Exercise 7:
 
 
 * * *
