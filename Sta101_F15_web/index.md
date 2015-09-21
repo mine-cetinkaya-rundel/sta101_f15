@@ -96,11 +96,13 @@ title: Schedule
 ##### In class / lab
 
 | Sep 21, Mon | **RA 3** in class |
-|             | [Lesson 3.1](post/slides/u3_deck1.pdf) &nbsp;&nbsp;&nbsp;[<i class="fa fa-print"></i>](post/slides/u3_deck1H.pdf) |
-| Sep 23, Wed | [Lesson 3.2](post/slides/u3_deck2.pdf) &nbsp;&nbsp;&nbsp;[<i class="fa fa-print"></i>](post/slides/u3_deck2H.pdf)|
+|             | [Lesson 3.1: Variability in estimates and CLT](post/slides/u3_deck1.pdf) &nbsp;&nbsp;&nbsp;[<i class="fa fa-print"></i>](post/slides/u3_deck1H.pdf) |
+| Sep 23, Wed | [Lesson 3.2: Confidence intervals](post/slides/u3_deck2.pdf) &nbsp;&nbsp;&nbsp;[<i class="fa fa-print"></i>](post/slides/u3_deck2H.pdf)|
+|              | [App Ex 3.1: Relaxing after work](post/app/app_Relaxing_after_work.pdf) |
 | Sep 24, Thu | [Lab 4: Sampling distributions](post/labs/sampling_distributions.html) |
-| Sep 28, Mon | [Lesson 3.3](post/slides/u3_deck3.pdf) &nbsp;&nbsp;&nbsp;[<i class="fa fa-print"></i>](post/slides/u3_deck3H.pdf)|
-| Sep 30, Wed | [Lesson 3.4](post/slides/u3_deck4.pdf) &nbsp;&nbsp;&nbsp;[<i class="fa fa-print"></i>](post/slides/u3_deck4H.pdf)|
+| Sep 28, Mon | [Lesson 3.3: Hypothesis tests](post/slides/u3_deck3.pdf) &nbsp;&nbsp;&nbsp;[<i class="fa fa-print"></i>](post/slides/u3_deck3H.pdf)|
+|              | [App Ex 3.2: Grade inflation](post/app/app_Grade_inflation.pdf) |
+| Sep 30, Wed | [Lesson 3.4: Review](post/slides/u3_deck4.pdf) &nbsp;&nbsp;&nbsp;[<i class="fa fa-print"></i>](post/slides/u3_deck4H.pdf)|
 | Oct 1, Thu  | [Lab 5: Confidence intervals](post/labs/lab5.html)   |
 
 ##### Due dates

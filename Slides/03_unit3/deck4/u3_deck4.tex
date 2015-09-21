@@ -1,0 +1,491 @@
+ % -*- TeX-engine: xetex; eval: (auto-fill-mode 0); eval: (visual-line-mode 1); -*-
+% Compile with XeLaTeX
+
+%%%%%%%%%%%%%%%%%%%%%%%
+% To do before class
+%%%%%%%%%%%%%%%%%%%%%%%
+
+% Print off Readiness Assessment 1.
+% Send email about registering clicker.
+% Test run readiness assessment on iClicker.
+
+%%%%%%%%%%%%%%%%%%%%%%%
+% Option 1: Slides: (comment for handouts)   %
+%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[slidestop,compress,mathserif,12pt,t,professionalfonts,xcolor=table]{beamer}
+
+% solution stuff
+\newcommand{\solnMult}[1]{
+\only<1>{#1}
+\only<2->{\red{\textbf{#1}}}
+}
+\newcommand{\soln}[1]{\textit{#1}}
+
+%%%%%%%%%%%%%%%%%%%%%%%
+% Option 2: Slides: (to post)                          %
+%%%%%%%%%%%%%%%%%%%%%%%
+
+%\documentclass[slidestop,compress,mathserif,12pt,t,professionalfonts,xcolor=table]{beamer}
+%
+% % solution stuff
+% \newcommand{\solnMult}[1]{#1}
+% \newcommand{\soln}[1]{}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Option 3: Handouts, without solutions (post before class)    %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% \documentclass[11pt,containsverbatim,handout,xcolor=xelatex,dvipsnames,table]{beamer}
+
+% % handout layout
+% \usepackage{pgfpages}
+% \pgfpagesuselayout{4 on 1}[letterpaper,landscape,border shrink=5mm]
+
+% % solution stuff
+% \newcommand{\solnMult}[1]{#1}
+% \newcommand{\soln}[1]{}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Option 4: Handouts, with solutions (may post after class if need be)    %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% \documentclass[11pt,containsverbatim,handout,xcolor=xelatex,dvipsnames,table]{beamer}
+
+% % handout layout
+% \usepackage{pgfpages}
+% \pgfpagesuselayout{4 on 1}[letterpaper,landscape,border shrink=5mm]
+
+% % solution stuff
+% \newcommand{\solnMult}[1]{\red{\textbf{#1}}}
+% \newcommand{\soln}[1]{\textit{#1}}
+
+
+%%%%%%%%%%
+% Load style file, defaults  %
+%%%%%%%%%%
+
+\input{../../lec_style.tex}
+\input{../../definitions_default.tex}
+% ALT ALT
+% \input{../../definitions_custom.tex}
+
+%%%%%%%%%%%
+% Cover slide info    %
+%%%%%%%%%%%
+
+\title{Unit 3: Foundations for inference}
+\subtitle{4. Decision errors and significance levels}
+\author{\CourseName}
+\date{}
+\institute{\InstituteName}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+% Begin document and set Helvetica Neue font   %
+%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+\fontspec[Ligatures=TeX]{Helvetica Neue Light}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Title Page
+
+\begin{frame}[plain]
+
+\titlepage
+
+\vfill
+
+{\scriptsize \webLink{\PersonalSite}{Dr. \LastName{}} \hfill Slides posted at  \webURL{\CourseSite}}
+
+\addtocounter{framenumber}{-1} 
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Housekeeping}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Announcements}
+
+\begin{itemize}
+
+\item 
+
+\end{itemize}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Main ideas}
+
+\subsection{Statistical inference methods based on the CLT depend on the same conditions as the CLT}
+\label{mi1}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{1. Statistical inference methods based on the CLT depend on the same conditions as the CLT}
+
+
+\begin{enumerate}
+
+
+\item \hlGr{Independence:} Sampled observations must be independent. \\
+
+\item \hlGr{Sample size/skew:} Population must be normal or sample size must be
+  large.
+
+\end{enumerate}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Statistical inference methods based on the CLT depend on the same conditions as the CLT}
+\label{mi1}
+
+% ALT ALT Commented out subsection above and frame below.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{1. Statistical inference methods based on the CLT depend on the same conditions as the CLT}
+
+Always check these in context of the data and the research question!
+
+\begin{enumerate}
+
+\item \hlGr{Independence:} Sampled observations must be independent. \\
+* This is difficult to verify, but is more likely if
+\begin{itemize}
+\item random sampling/assignment is used, and,
+\item if sampling without replacement, $n$ $<$ 10\% of the population.
+\end{itemize}
+
+\item \hlGr{Sample size/skew:} Either the population distribution is normal or $n > 30$ and the population distribution is not extremely skewed (the more skewed the distribution, the higher $n$ necessary for the CLT to apply).\\
+* This is also difficult to verify for the population, but we can check it using the sample data, and assume that the sample mirrors the population.
+
+\end{enumerate}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Use confidence intervals to estimate population parameters}
+\label{mi2}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{2. Use confidence intervals to estimate population parameters}
+
+\vfill
+
+\[ CI: point~estimate \pm margin~of~error \]
+$\:$ \\
+
+\pause
+
+If the parameter of interest is the population mean, and the point estimate is the sample mean,
+\[ \bar{x} \pm Z^\star \frac{s}{\sqrt{n}} \]
+
+\vfill
+
+%---Note---%
+\note{
+
+1:36
+
+- This is standard error of sample mean.
+
+}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+
+\vfill
+
+\app{3.1 Confidence interval for a single mean}{See course website for details.}
+
+\vfill
+
+%---Note---%
+\note{
+
+- Give 10 minutes.
+
+- Take students about 15 to finish.
+
+- Popluation distribution, sample distribution, sampling distribution
+
+- Took about 15 minutes to discuss.
+
+}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Critical value depends on the confidence level}
+\label{mi3}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{3. Critical value depends on the confidence level}
+
+\clicker{What is the critical value ($Z^\star$) for a confidence interval at the 91\% confidence level?}
+
+\twocol{0.4}{0.6}{
+\begin{enumerate}[(a)]
+\item $Z^\star = 1.34$
+\item $Z^\star = 1.65$
+\item \solnMult{$Z^\star = 1.70$}
+\item $Z^\star = 1.96$
+\item $Z^\star = 2.33$
+\end{enumerate}
+}
+{
+\pause
+\soln{
+\includegraphics[width=\textwidth]{figures/conf_level/conf_level}
+}
+}
+
+%---Note---%
+\note{
+
+- Look up using back of the book.
+
+- People will mess this up.
+
+- Given them time to discuss.
+
+- People mess up again.
+
+- May need to go over a bit and give them one more try.
+
+}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Common misconceptions about confidence intervals}
+
+\begin{enumerate}
+
+\item \textcolor{gray}{The confidence level of a confidence interval is the
+probability that the true population parameter is in the confidence
+interval you construct for a single sample.} \\
+\textit{The confidence level is equal to the proportion of random samples that result
+in confidence intervals that contain the true pop.\ parameter.} \\
+
+\pause
+
+\item \textcolor{gray}{A narrower confidence interval is always better.}\\
+\textit{This is incorrect since the width is a function of both the confidence level and 
+the standard error.} \\
+
+\pause
+
+\item \textcolor{gray}{A wider interval means less confidence.} \\
+
+\textit{This is incorrect since it is possible to make very precise statements with very 
+little confidence.} \\
+
+\end{enumerate}
+ 
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Use hypothesis tests to make decisions about population parameters}
+\label{mi4}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{4. Use hypothesis tests to make decisions about population parameters}
+
+Hypothesis testing framework:
+
+\begin{enumerate}
+
+\item Set the hypotheses.
+
+\item Check assumptions and conditions.
+
+\item Calculate a \hl{test statistic} and a p-value.
+
+\item Make a decision, and interpret it in context of the research question.
+
+\end{enumerate}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Hypothesis testing for a population mean}
+
+\begin{enumerate}
+
+\item Set the hypotheses
+\begin{itemize}
+\item $H_0: \mu = null~value$
+\item $H_A: \mu <$ or $>$ or $\ne null~value$
+\end{itemize}
+
+\pause
+
+\item Check assumptions and conditions
+\begin{itemize}
+\item Independence: random sample/assignment, 10\% condition when sampling without replacement
+\item Sample size / skew: $n \ge 30$ (or larger if sample is skewed), no extreme skew
+\end{itemize}
+
+\pause
+
+\item Calculate a \hl{test statistic} and a p-value (draw a picture!)
+\[ Z = \frac{\bar{x} - \mu}{SE},~where~SE = \frac{s}{\sqrt{n}} \]
+
+\pause
+
+\item Make a decision, and interpret it in context of the research question
+\begin{itemize}
+\item If p-value $< \alpha$, reject $H_0$, data provide evidence for $H_A$
+\item If p-value $> \alpha$, do not reject $H_0$, data do not provide evidence for $H_A$
+\end{itemize}
+
+\end{enumerate}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{4. Use hypothesis tests to make decisions about population parameters}
+
+\vfill
+
+\app{3.2 Hypothesis testing for a single mean}{See course website for details.}
+
+\vfill
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+
+\clicker{Which of the following is the correct interpretation of the p-value
+  from App Ex 3.2?}
+
+\begin{enumerate}[(a)]
+\item The probability that average GPA of Duke students has changed since 2001.
+\item The probability that average GPA of Duke students has not changed since 2001.
+\item The probability that average GPA of Duke students has not changed since 2001, if in fact a random sample of 63 Duke students this year have an average GPA of 3.58 or higher.
+\item The probability that a random sample of 63 Duke students have an average GPA of 3.58 or higher, if in fact the average GPA has not changed since 2001.
+\item \solnMult{The probability that a random sample of 63 Duke students have an average GPA of 3.58 or higher or 3.16 or lower, if in fact the average GPA has not changed since 2001.}
+\end{enumerate}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Common misconceptions about hypothesis testing}
+
+\begin{enumerate}
+
+\item \textcolor{gray}{P-value is the probability that the null hypothesis is true} \\
+\textit{This is incorrect, p-value is the probability of the observed or more extreme outcome if in fact the null hypothesis is correct. It is the conditional probability of the observed data (or something more extreme), conditioned on the null hypothesis being correct.} \\
+$\:$ \\
+
+\pause
+
+\item  \textcolor{gray}{A high p-value confirms the null hypothesis.}\\
+\textit{This is incorrect, a high p-value means the data do not provide convincing evidence for the alternative hypothesis and hence that the null hypothesis can't be rejected.} \\
+$\:$ \\
+
+\pause
+
+\item   \textcolor{gray}{A low p-value confirms the alternative hypothesis.} \\
+\textit{This is incorrect, a low p-value means the data provide convincing evidence for the alternative hypothesis, but not necessarily that it is confirmed.} \\
+
+\end{enumerate}
+
+\end{frame}
+
+% ALT ALT
+
+% \begin{frame}
+% \frametitle{Common misconceptions about hypothesis testing}
+
+% \begin{enumerate}
+
+% \item \textcolor{gray}{P-value is the probability that the null hypothesis is true} \\
+%   \textit{\small A p-value is the probability of getting a sample that results in a
+%     test statistic as or more extreme than what you actually observed (and in
+%     favor of the null hypothesis) if in fact the null hypothesis is correct. It is a conditional probability, conditioned on the null hypothesis being correct.} \\
+%   $\:$ \\
+
+% \pause
+
+% \item  \textcolor{gray}{A high p-value confirms the null hypothesis.}\\
+% \textit{A high p-value means the data do not provide convincing evidence for the alternative hypothesis and hence that the null hypothesis can't be rejected.} \\
+% $\:$ \\
+
+% \pause
+
+% \item   \textcolor{gray}{A low p-value confirms the alternative hypothesis.} \\
+% \textit{A low p-value means the data provide convincing evidence for the alternative hypothesis, but not necessarily that it is confirmed.} \\
+
+% \end{enumerate}
+
+% \end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Summary}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Summary of main ideas}
+
+\vfill
+
+\begin{enumerate}
+
+\item \nameref{mi1}
+% ALT ALT
+
+\item \nameref{mi2}
+
+\item \nameref{mi3}
+
+\item \nameref{mi4}
+
+\end{enumerate}
+
+\vfill
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\end{document}
