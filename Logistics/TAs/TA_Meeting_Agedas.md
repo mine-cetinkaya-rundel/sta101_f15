@@ -35,11 +35,12 @@ TO DO for Mine:
 * Review EOCEs for inconsistencies with answer key or unclear wording:
   + 1.32 - Berkeley students: target population vs. everyone
   + 1.70 - "claims" might not be clear null and alternative
-* Going forward on the PS keys use the following type of wording: "1 pt for only 
-stating reject/not reject, 2 pts for in context discussion of results"
+* Going forward on the PS keys use the following type of wording: "1 pt for 
+only stating reject/not reject, 2 pts for in context discussion of results"
 
 
 ### Week 4: Sep 18, 2015
 
 * Exam proctoring and grading schedule
-
+    - MT 1: Mine on Tuesday starting at 4:30pm, Anthea on Wednesday evening
+* Lab late policy
