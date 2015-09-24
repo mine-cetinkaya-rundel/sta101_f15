@@ -1,12 +1,3 @@
----
-title: "Lab 3 - Probability"
-author: "Enter team name here"
-date: "Enter date here"
-output: 
-  html_document: 
-    highlight: pygments
----
-
 ```{r setup, include=FALSE}
 # DO NOT ALTER CODE IN THIS CHUNK
 knitr::opts_chunk$set(echo = TRUE)

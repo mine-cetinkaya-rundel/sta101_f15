@@ -103,7 +103,7 @@ title: Schedule
 | Sep 28, Mon | [Lesson 3.3: Hypothesis tests](post/slides/u3_deck3.pdf) &nbsp;&nbsp;&nbsp;[<i class="fa fa-print"></i>](post/slides/u3_deck3H.pdf)|
 |              | [App Ex 3.2: Grade inflation](post/app/app_Grade_inflation.pdf) |
 | Sep 30, Wed | [Lesson 3.4: Review](post/slides/u3_deck4.pdf) &nbsp;&nbsp;&nbsp;[<i class="fa fa-print"></i>](post/slides/u3_deck4H.pdf)|
-| Oct 1, Thu  | [Lab 5: Confidence intervals](post/labs/lab5.html)   |
+| Oct 1, Thu  | [Lab 5: Confidence intervals](post/labs/confidence_intervals.html)   |
 
 ##### Due dates
 

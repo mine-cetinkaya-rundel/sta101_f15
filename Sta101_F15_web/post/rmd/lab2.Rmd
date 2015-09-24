@@ -1,5 +1,5 @@
 ---
-title: "Lab 3 - Probability"
+title: "Lab 2 - Intro to data"
 author: "Enter team name here"
 date: "Enter date here"
 output: 
@@ -20,9 +20,9 @@ library(ggplot2)
 
 * * *
 
-**Load Hot Hand files:**
+**Load Arbuthnot's data:**
 ```{r}
-load(url("https://stat.duke.edu/~mc301/data/hot_hand.RData")) 
+load(url("https://stat.duke.edu/~mc301/data/cdc.RData"))
 ```
 
 ## Exercises:
@@ -38,6 +38,14 @@ load(url("https://stat.duke.edu/~mc301/data/hot_hand.RData"))
 
 #### Exercise 4: 
 
+
+#### Exercise 5: 
+
+
+#### Exercise 6:
+
+
+#### Exercise 7:
 
 
 * * *
@@ -56,4 +64,8 @@ load(url("https://stat.duke.edu/~mc301/data/hot_hand.RData"))
 #### 4: 
 
 
-#### 5:
+#### 5: 
+
+
+#### 6:
+
