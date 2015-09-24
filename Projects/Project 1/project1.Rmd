@@ -101,7 +101,7 @@ output, and plots will be automatically included in your write up. In order to d
 the template for the project type the following in RStudio:
 
 ```{r tidy=FALSE, eval=FALSE}
-download("http://stat.duke.edu/courses/Fall15/sta101.002/post/projects/sta101_prj1_proposal.Rmd", destfile = "sta101_prj1_proposal.Rmd")
+download("http://stat.duke.edu/courses/Fall15/sta101.002/rmd/sta101_prj1_proposal.Rmd", destfile = "sta101_prj1_proposal.Rmd")
 ```
 
 Your proposal should not exceed 3 pages (view a print preview to determined length).
@@ -196,7 +196,7 @@ and plots will be automatically included in your write up. In order to download 
 template for the project type the following in RStudio:
 
 ```{r tidy=FALSE, eval=FALSE}
-download("http://stat.duke.edu/courses/Fall15/sta101.002/post/projects/sta101_prj1.Rmd", destfile = "sta101_prj1.Rmd")
+download("http://stat.duke.edu/courses/Fall15/sta101.002/rmd/sta101_prj1.Rmd", destfile = "sta101_prj1.Rmd")
 ```
 
 Your write up should be **at most 7 pages (including figures and R code)**. This is not 

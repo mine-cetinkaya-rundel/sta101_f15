@@ -1,0 +1,13 @@
+base
+methods
+datasets
+utils
+grDevices
+graphics
+stats
+dplyr
+ggplot2
+car
+lattice
+mosaicData
+mosaic
