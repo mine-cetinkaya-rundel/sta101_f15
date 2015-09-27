@@ -114,7 +114,7 @@ title: Schedule
   graded questions, use the back of the book to check your work on the practice questions.
   Must show **all** work to get credit. Click [here]({{ site.sakai_ps }}) to submit the 
   problem set.
-  * **Graded questions:** 4.2, 4.6, 4.8, 4.10, 4.12, 4.16, 4.20, 4.24,
+  * **Graded questions:** 4.2, 4.8, 4.10, 4.12, 4.16, 4.20, 4.24,
   4.28, 4.30, 4.32, 4.36, 4.38, 4.44, 4.48
   * Practice questions: 
       + Part 1 – Variability in estimates and the Central Limit Theorem: 4.1, 4.3, 4.5, 4.33, 4. 35, 4.37, 4.41

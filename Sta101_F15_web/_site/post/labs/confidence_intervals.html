@@ -110,12 +110,10 @@ samp &lt;-<span class="st"> </span><span class="kw">sample_n</span>(ames, n)</co
 <pre class="sourceCode r"><code class="sourceCode r">z_star_95 &lt;-<span class="st"> </span><span class="kw">qnorm</span>(<span class="fl">0.975</span>)
 z_star_95</code></pre>
 <p>which is roughly equal to the value critical value 1.96 that you’re likely familiar with by now.</p>
-<p>Let’s calculate the confidence interval:</p>
-<pre class="sourceCode r"><code class="sourceCode r">ci &lt;-<span class="st"> </span>samp %&gt;%
+<p>Let’s finally calculate the confidence interval:</p>
+<pre class="sourceCode r"><code class="sourceCode r">samp %&gt;%
 <span class="st">  </span><span class="kw">summarise</span>(<span class="dt">lower =</span> <span class="kw">mean</span>(area) -<span class="st"> </span>z_star_95 *<span class="st"> </span>(<span class="kw">sd</span>(area) /<span class="st"> </span><span class="kw">sqrt</span>(n)),
             <span class="dt">upper =</span> <span class="kw">mean</span>(area) +<span class="st"> </span>z_star_95 *<span class="st"> </span>(<span class="kw">sd</span>(area) /<span class="st"> </span><span class="kw">sqrt</span>(n)))</code></pre>
-<p>and view it</p>
-<pre class="sourceCode r"><code class="sourceCode r">ci</code></pre>
 <p>To recap: even though we don’t know what the full population looks like, we’re 95% confident that the true average size of houses in Ames lies between the values <em>lower</em> and <em>upper</em>. There are a few conditions that must be met for this interval to be valid.</p>
 <ol style="list-style-type: decimal">
 <li>For the confidence interval to be valid, the sample mean must be normally distributed and have standard error <span class="math">\(s / \sqrt{n}\)</span>. What conditions must be met for this to be true?</li>
