@@ -178,16 +178,11 @@ z_star_95
 which is roughly equal to the value critical value 1.96 that you're likely
 familiar with by now.
 
-Let's calculate the confidence interval:
+Let's finally calculate the confidence interval:
 ```{r ci}
-ci <- samp %>%
+samp %>%
   summarise(lower = mean(area) - z_star_95 * (sd(area) / sqrt(n)),
             upper = mean(area) + z_star_95 * (sd(area) / sqrt(n)))
-```
-
-and view it
-```{r view-ci}
-ci
 ```
 
 To recap: even though we don't know what the full population looks like, we're 95% 

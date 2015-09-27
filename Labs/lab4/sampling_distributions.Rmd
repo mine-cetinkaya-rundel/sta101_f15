@@ -276,7 +276,7 @@ function to create new variables in data frames.
 
 ```{r samp-dist-labeled}
 sampling_dist <- sampling_dist %>%
-  mutate(sample_size = factor(rep(10, 2000), rep(50, 2000), rep(100, 2000)))
+  mutate(sample_size = factor(rep(c(10,50,100), each = 2000)))
 ```
 
 - **Step 2c:** Finally, draw three histograms representing these three sampling 
