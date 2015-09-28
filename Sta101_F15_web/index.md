@@ -131,8 +131,7 @@ title: Schedule
 ### <a name="mt1"></a> Midterm 1 - Oct 5, Mon (in class)
 
 * Covers Units 1 - 3
-* Practice problems for Midterm 1: [handout] + [solutions]
-* Sample Midterm 1: [handout] + [solutions] 
+* Sample Midterm 1: [handout](https://sakai.duke.edu/access/content/group/22299c5a-2e30-49a7-b46d-289ae3e0d739/Sample_MT1.pdf) + [solutions](https://sakai.duke.edu/access/content/group/22299c5a-2e30-49a7-b46d-289ae3e0d739/Sample_MT1_Key.pdf)
 
 * * *
 
@@ -215,7 +214,6 @@ title: Schedule
 
 * Covers Units 4 and 5 + fundamentals from Units 1 - 3
 * Practice problems for Midterm 2: [handout] + [solutions]
-* Sample Midterm 2: [handout] + [solutions] 
 
 * * *
 
