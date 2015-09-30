@@ -144,7 +144,7 @@ title: Schedule
 ##### In class / lab
 
 | Oct 7, Wed  | [Lesson 4.1](post/slides/u4_deck1.pdf) &nbsp;&nbsp;&nbsp;[<i class="fa fa-print"></i>](post/slides/u4_deck1H.pdf) |
-| Oct 8, Thu  | [Lab 6: Inference for numerical data](post/labs/lab6.html)        |
+| Oct 8, Thu  | [Lab 6: Inference for numerical data](post/labs/inf_for_numerical_data.html)        |
 | Oct 12, Mon | *Fall Break - no class*                |     
 | Oct 14, Wed | **RA 4** in class |
 |             | [Lesson 4.2](post/slides/u4_deck2.pdf) &nbsp;&nbsp;&nbsp;[<i class="fa fa-print"></i>](post/slides/u4_deck2H.pdf) |
