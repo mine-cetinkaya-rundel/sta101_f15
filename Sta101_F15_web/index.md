@@ -123,7 +123,7 @@ title: Schedule
       + Part 4 – Inference for other estimators: 4.43, 4.45
       + Part 5 - Decision errors, significance, and confidence: 4.29, 4.31, 4.47
 * [PA 3]({{ site.sakai_pa }}): Oct 4, Sun
-  * Take between Sep 30, Wed and Sep 4, Sun. 
+  * Take between Sep 30, Wed and Oct 4, Sun. 
   * You have 30 minutes to complete. Only one attempt allowed. Click [here]({{ site.sakai_pa }}) to take the performance assessment.
 
 * * *
