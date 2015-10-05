@@ -80,9 +80,9 @@ questions.
 highlight about the relationship between these two variables?
 
 The box plots show how the medians of the two distributions compare, but we can
-also compare the means of the distributions using the following function to 
-split the `weight` variable into the `habit` groups, then take the mean of each
-using the `mean` function.
+also compare the means of the distributions using the following to 
+first group the data by the `habit` variable, and then calculate the mean
+`weight` in these groups using the `mean` function.
 
 ```{r by-means, eval=FALSE}
 nc %>%
@@ -96,10 +96,9 @@ significant? In order to answer this question we will conduct a hypothesis test
 
 ## Inference
 
-3.  Check if the conditions necessary for inference are satisfied. Note that 
-you will need to obtain sample sizes to check the conditions. You can compute 
-the group size using the same `by` command above but replacing `mean` with 
-`length`.
+3.  Are all conditions necessary for inference satisfied? Comment on each. You can 
+compute the group sizes using the same `by` command above but replacing `mean(weight)` 
+with `n()`.
 
 4.  Write the hypotheses for testing if the average weights of babies born to 
 smoking and non-smoking mothers are different.
@@ -134,8 +133,8 @@ hypothesis can be `"less"`, `"greater"`, or `"twosided"`. Lastly, the `method`
 of inference can be `"theoretical"` or `"simulation"` based.
 
 5.  Change the `type` argument to `"ci"` to construct and record a confidence 
-interval for the difference between the weights of babies born to smoking and 
-non-smoking mothers.
+interval for the difference between the weights of babies born to nonsmoking and 
+smoking mothers, and interpret this interval in context of the data.
 
 By default the function reports an interval for ($\mu_{nonsmoker} - \mu_{smoker}$)
 . We can easily change this order by using the `order` argument:
@@ -158,7 +157,8 @@ omit the `x` variable from the function.
 
 -   Calculate a new confidence interval for the same parameter at the 90% 
 confidence level. You can change the confidence level by adding a new argument 
-to the function: `conflevel = 0.90`.
+to the function: `conflevel = 0.90`. Comment on the width of this interval versus 
+the one obtained in the the previous exercise.
 
 -   Conduct a hypothesis test evaluating whether the average weight gained by 
 younger mothers is different than the average weight gained by mature mothers.
@@ -171,7 +171,8 @@ Come up with a research question evaluating the relationship between these varia
 Formulate the question in a way that it can be answered using a hypothesis test
 and/or a confidence interval. Answer your question using the `inference` 
 function, report the statistical results, and also provide an explanation in 
-plain language. (Note: Picking your own variables, coming up with a research question,
+plain language. Be sure to check all assumptions,state your $\alpha$ level, and conclude 
+in context. (Note: Picking your own variables, coming up with a research question,
 and analyzing the data to answer this question is basically what you'll need to do for
 your project as well.)
 

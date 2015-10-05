@@ -55,5 +55,8 @@ ci_single_mean_sim <- function(y, conf_level = 0.95,
     
     # return
     return(list(x_bar = round(x_bar, 4), SE = round(se, 4), ME = round(me, 4), CI = round(ci, 4)))
+    
+    # plot
+    p <- 
   }  
 }

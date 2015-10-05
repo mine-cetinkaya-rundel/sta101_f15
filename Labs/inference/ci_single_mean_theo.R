@@ -1,5 +1,8 @@
 ci_single_mean_theo <- function(y, data = NULL, conf_level = 0.95){
   
+  # define x_lab, to be used in plotting
+  x_lab <- paste(substitute(y))
+  
   # assign y
   y <- eval(substitute(y), data, parent.frame())
 
@@ -26,13 +29,14 @@ ci_single_mean_theo <- function(y, data = NULL, conf_level = 0.95){
   
   # calculate CI
   ci <- x_bar + c(-1, 1)* me
-  
-  # plot
-  p <-  ggplot(data = data, aes(x = y),
-               environment = environment()) +
+
+    # plot
+  p <-  ggplot(data = data, aes(x = y), environment = environment()) +
     geom_histogram() +
-    #xlab(print(r))
-  suppressWarnings(print(p))
+    xlab(x_lab) +
+    ylab("") +
+    geom_vline(xintercept = mean(y), col = "#649EFC")
+  suppressMessages(print(p))
   
   # return
   return(list(x_bar = round(x_bar, 4), SE = round(se, 4), ME = round(me, 4), CI = round(ci, 4)))
