@@ -199,13 +199,25 @@
 % example
 \newcommand{\ex}[1]{\textcolor{blue}{{{\small (#1)}}}}
 
-% two col: two columns
+% twocol: two columns
 \newenvironment{twocol}[4]{
 \begin{columns}[c]
 \column{#1\textwidth}
 #3
 \column{#2\textwidth}
 #4
+\end{columns}
+}
+
+% threecol: three columns
+\newenvironment{threecol}[6]{
+\begin{columns}[c]
+\column{#1\textwidth}
+#4
+\column{#2\textwidth}
+#5
+\column{#3\textwidth}
+#6
 \end{columns}
 }
 

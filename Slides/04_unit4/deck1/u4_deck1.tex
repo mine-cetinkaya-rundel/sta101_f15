@@ -115,7 +115,13 @@
 
 \begin{itemize}
 
-\item 
+\item Exams returned at the end of lab tomorrow
+
+\item MT grades will be posted for everyone on ACES
+
+\item MT course eval -- anonymous, appreciate feedback
+
+\item RA 4 when you get back from fall break
 
 \end{itemize}
 
@@ -137,7 +143,7 @@
 
 \begin{itemize}
 
-\item CLT says $\bar{x} \sim N(mean = \mu, SE = \frac{\sigma}{\sqrt{n}}$, but, in practice, 
+\item CLT says $\bar{x} \sim N\left(mean = \mu, SE = \frac{\sigma}{\sqrt{n}}\right)$, but, in practice, 
 we use $s$ instead of $\sigma$.
 \begin{itemize}
 \item Plugging in an estimate introduces additional uncertainty.
@@ -146,15 +152,12 @@ we use $s$ instead of $\sigma$.
 
 \pause
 
-\item Also has a bell shape, but its tails are \hl{thicker} than the normal model's
+\item $t$-distribution also has a bell shape, but its tails are \hl{thicker} than the normal model's
 \begin{itemize}
 \item Observations are more likely to fall beyond two SDs from the mean than under the normal distribution.
-\end{itemize}
-
-\pause
-
-\item Extra thick tails are helpful for mitigating the effect of a less reliable estimate for the standard 
+\item Extra thick tails help mitigate the effect of a less reliable estimate for the standard 
 error of the sampling distribution.
+\end{itemize}
 
 \end{itemize}
 
@@ -167,7 +170,7 @@ error of the sampling distribution.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}
-\frametitle{T distribution}
+\frametitle{$t$-distribution}
 
 \begin{itemize}
 
@@ -175,7 +178,7 @@ error of the sampling distribution.
 
 \pause
 
-\item Has a single parameter: \hl{degrees of freedom} (\mathhl{df})
+\item Has a single parameter, \hl{degrees of freedom} (\mathhl{df}~), that is tied to sample size.
 \begin{itemize}
 \item one sample: $df = n - 1$
 \item two (independent) samples: $df = min(n_1 - 1, n_2 - 1)$
@@ -183,39 +186,26 @@ error of the sampling distribution.
 
 \end{itemize}
 
-\begin{center}
-\includegraphics[width=0.8\textwidth]{figures/tDistConvergeToNormalDist/tDistConvergeToNormalDist}
-\end{center}
-
 \pause
 
-\disc{What happens to shape of the T distribution as $df$ increases?}
-
+\disc{What happens to shape of the $t$-distribution as $df$ increases?}
+\twocol{0.75}{0.25}{
+\begin{center}
+\includegraphics[width=\textwidth]{figures/tDistConvergeToNormalDist/tDistConvergeToNormalDist}
+\end{center}
+}
+{
 \soln{\pause Approaches normal.}
+\pause
+\disc{Why?}
+}
 
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\subsection{When comparing means of two groups, ask if paired or independent}
+\subsection{When comparing means of two groups, details depend on paired or independent}
 \label{mi2}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\begin{frame}
-\frametitle{2. When comparing means of two groups, ask if paired or independent}
-
-\begin{itemize}
-
-\item dependent (paired) groups (e.g. pre/post weights of subjects in a weight loss study, twin studies, etc.)
-\[ SE_{\bar{x}_{diff}} = \frac{s_{diff}}{\sqrt{n_{diff}}} \]
-
-\item independent groups (e.g. grades of students across two sections)
-\[ SE_{\bar{x}_1 - \bar{x}_2} = \sqrt{ \frac{s_1^2}{n_1} + \frac{s_2^2}{n_2} } \]
-
-\end{itemize}
-
-\end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -258,6 +248,46 @@ Water samples collected at the same location, on the surface and in the bottom, 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}
+\frametitle{Example 2: Gender gap in salaries}
+
+\disc{{\small Since 2005, the American Community Survey\footnote{Aside: Surge of media attention in spring 2012 when the House 
+of Representatives voted to eliminate the survey. Daniel Webster, Republican congressman from Florida: ``in the end this is not a 
+scientific survey. It's a random survey."} polls $\sim$3.5 million households yearly. The following summarizes distribution of salaries of 
+males and females from a random sample of individuals who responded to the 2012 ACS:}}
+
+\begin{center}
+%
+{\footnotesize
+\begin{tabular}{lccc}
+\hline
+			& $\bar{x}$ 	& $s$	& $n$ \\
+\hline
+male			& 55,890		& 68,767.88	& 470 \\
+female		& 29,240		& 32,025.98	& 373 \\
+\hline
+\end{tabular}
+}
+%
+\includegraphics[width=0.8\textwidth]{figures/acs/sal_gen_box}
+\end{center}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+
+\vfill
+
+\disc{How are the two examples different from each other? How are they similar to each other?}
+
+\vfill
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
 \frametitle{Analyzing paired data}
 
 Suppose we want to compare the average zinc concentration levels in the bottom and surface:
@@ -266,15 +296,11 @@ Suppose we want to compare the average zinc concentration levels in the bottom a
 
 \begin{itemize}
 
-\item When two sets of observations have this special correspondence (not independent), they are said to be \hl{paired}.
+\item Two sets of observations with a special correspondence (not independent): \hl{paired}
 
 \pause
 
-\item To analyze paired data, it is often useful to look at the difference in outcomes of each pair of observations. 
-
-\pause
-
-\item It is important that we always subtract using a consistent order.
+\item Synthesize down to differences in outcomes of each pair of observations, subtract using a consistent order
 
 \end{itemize}
 
@@ -304,7 +330,7 @@ Location	& bottom	& surface & difference\\
 }
 {
 \begin{center}
-\includegraphics[width=\textwidth]{figures/zinc/zinc_diff_hist}
+\includegraphics[width=0.9\textwidth]{figures/zinc/zinc_diff_hist}
 \end{center}
 }
 
@@ -338,49 +364,101 @@ $\:$ \\
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}
-\frametitle{Example 2: Gender gap in salaries}
+\frametitle{Parameter and point estimate for independent data}
 
-\disc{{\small Since 2005, the American Community Survey polls $\sim$3.5 million households yearly. The following summarizes distribution of salaries of males and females from a random sample of individuals who responded to the 2012 ACS:}}
+For comparing average salaries in two independent groups
 
-\begin{center}
-%
-{\small
-\begin{tabular}{lccc}
-\hline
-			& $\bar{x}$ 	& $s$	& $n$ \\
-\hline
-male			& 55,890		& 68,767.88	& 470 \\
-female		& 29,240		& 32,025.98	& 373 \\
-\hline
-\end{tabular}
+\pause
+
+\begin{itemize}
+
+\item \hl{Parameter of interest:} Average difference between the average salaries of \red{all} males and females in the US.
+\[ \mu_m - \mu_f \]
+
+$\:$ \\
+
+\pause
+
+\item \hl{Point estimate:} Average difference between the average salaries of \red{sampled} males and females in the US.
+\[ \bar{x}_m - \bar{x}_f \]
+
+\end{itemize}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Standard errors}
+
+\begin{itemize}
+
+\item Dependent (paired) groups (e.g. pre/post weights of subjects in a weight loss study, twin studies, etc.)
+\[ SE_{\bar{x}_{diff}} = \frac{s_{diff}}{\sqrt{n_{diff}}} \]
+
+\item Independent groups (e.g. grades of students across two sections)
+\[ SE_{\bar{x}_1 - \bar{x}_2} = \sqrt{ \frac{s_1^2}{n_1} + \frac{s_2^2}{n_2} } \]
+
+\item For the same data, $SE_{paired} < SE_{independent}$, so be careful about calling data paired
+
+\end{itemize}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{All other details of the inferential framework is the same...}
+\label{mi3}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{3. All other details of the inferential framework is the same...}
+
+\[ HT: test~statistic = \frac{point~estimate - null}{SE} \]
+
+\pause
+
+\[ CI: point~estimate \pm critical~value \times SE \]
+
+\pause
+
+$\:$ \\
+
+\threecol{0.25}{0.375}{0.375}
+{
+\hl{One mean:} \\
+{\small $df = n - 1$} \\
+$\:$ \\
+\textbf{HT:} \\
+$H_0: \mu = \mu_0$ \\
+$T_{df} = \frac{\bar{x} - \mu}{\frac{s}{\sqrt{n}}}$ \\
+$\:$ \\
+\textbf{CI:} \\
+$\bar{x} \pm t^\star_{df} \frac{s}{\sqrt{n}}$
 }
-%
-\includegraphics[width=0.9\textwidth]{figures/acs/sal_gen_box}
-\end{center}
-
-\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\begin{frame}
-
-\vfill
-
-ACS: Surge of media attention in spring 2012 when the House of Representatives voted to eliminate the survey. Daniel Webster, Republican congressman from Florida: ``in the end this is not a scientific survey. It's a random survey."
-
-\vfill
-
-\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\begin{frame}
-
-\vfill
-
-\disc{How are the two examples different from each other? How are they similar to each other?}
-
-\vfill
+{\pause
+\hl{Paired means:} \\
+{\small $df = n_{diff} - 1$}
+$\:$ \\$\:$ \\
+\textbf{HT:} \\
+$H_0: \mu_{diff} = 0$ \\
+$T_{df} = \frac{\bar{x}_{diff} -0}{\frac{s_{diff}}{\sqrt{n_{diff}}}}$ \\
+$\:$ \\
+\textbf{CI:} \\
+$\bar{x}_{diff} \pm t^\star_{df} \frac{s_{diff}}{\sqrt{n_{diff}}}$
+}
+{\pause
+\hl{Independent means:} \\
+{\small $df = min(n_1 - 1, n_2 - 1)$}
+$\:$ \\$\:$ \\
+\textbf{HT:} \\
+$H_0: \mu_1 - \mu_2 = 0$ \\
+$T_{df} = \frac{\bar{x}_1 - \bar{x}_2}{\sqrt{ \frac{s_1^2}{n_1} + \frac{s_2^2}{n_2} }}$ \\
+$\:$ \\
+\textbf{CI:} \\
+$\bar{x}_1 - \bar{x}_2 \pm t^\star_{df} \sqrt{ \frac{s_1^2}{n_1} + \frac{s_2^2}{n_2} }$
+}
 
 \end{frame}
 
