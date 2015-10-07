@@ -1,0 +1,389 @@
+ % -*- TeX-engine: xetex; eval: (auto-fill-mode 0); eval: (visual-line-mode 1); -*-
+% Compile with XeLaTeX
+
+%%%%%%%%%%%%%%%%%%%%%%%
+% To do before class
+%%%%%%%%%%%%%%%%%%%%%%%
+
+% Print off Readiness Assessment 1.
+% Send email about registering clicker.
+% Test run readiness assessment on iClicker.
+
+%%%%%%%%%%%%%%%%%%%%%%%
+% Option 1: Slides: (comment for handouts)   %
+%%%%%%%%%%%%%%%%%%%%%%%
+
+%\documentclass[slidestop,compress,mathserif,12pt,t,professionalfonts,xcolor=table]{beamer}
+%
+%% solution stuff
+%\newcommand{\solnMult}[1]{
+%\only<1>{#1}
+%\only<2->{\red{\textbf{#1}}}
+%}
+%\newcommand{\soln}[1]{\textit{#1}}
+
+%%%%%%%%%%%%%%%%%%%%%%%
+% Option 2: Slides: (to post)                          %
+%%%%%%%%%%%%%%%%%%%%%%%
+
+%\documentclass[slidestop,compress,mathserif,12pt,t,professionalfonts,xcolor=table]{beamer}
+%
+% % solution stuff
+% \newcommand{\solnMult}[1]{#1}
+% \newcommand{\soln}[1]{}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Option 3: Handouts, without solutions (post before class)    %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+ \documentclass[11pt,containsverbatim,handout,xcolor=xelatex,dvipsnames,table]{beamer}
+
+ % handout layout
+ \usepackage{pgfpages}
+ \pgfpagesuselayout{4 on 1}[letterpaper,landscape,border shrink=5mm]
+
+ % solution stuff
+ \newcommand{\solnMult}[1]{#1}
+ \newcommand{\soln}[1]{}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Option 4: Handouts, with solutions (may post after class if need be)    %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% \documentclass[11pt,containsverbatim,handout,xcolor=xelatex,dvipsnames,table]{beamer}
+
+% % handout layout
+% \usepackage{pgfpages}
+% \pgfpagesuselayout{4 on 1}[letterpaper,landscape,border shrink=5mm]
+
+% % solution stuff
+% \newcommand{\solnMult}[1]{\red{\textbf{#1}}}
+% \newcommand{\soln}[1]{\textit{#1}}
+
+
+%%%%%%%%%%
+% Load style file, defaults  %
+%%%%%%%%%%
+
+\input{../../lec_style.tex}
+\input{../../definitions_default.tex}
+% ALT ALT
+% \input{../../definitions_custom.tex}
+
+%%%%%%%%%%%
+% Cover slide info    %
+%%%%%%%%%%%
+
+\title{Unit 4: Inference for numerical data}
+\subtitle{1. Inference using the $t$-distribution}
+\author{\CourseName}
+\date{}
+\institute{\InstituteName}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+% Begin document and set Helvetica Neue font   %
+%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+\fontspec[Ligatures=TeX]{Helvetica Neue Light}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Title Page
+
+\begin{frame}[plain]
+
+\titlepage
+
+\vfill
+
+{\scriptsize \webLink{\PersonalSite}{Dr. \LastName{}} \hfill Slides posted at  \webURL{\CourseSite}}
+
+\addtocounter{framenumber}{-1} 
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Housekeeping}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Announcements}
+
+\begin{itemize}
+
+\item 
+
+\end{itemize}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Main ideas}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{T corrects for uncertainty introduced by plugging in $s$ for $\sigma$}
+\label{mi1}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{2. T corrects for uncertainty introduced by plugging in $s$ for $\sigma$}
+
+\begin{itemize}
+
+\item CLT says $\bar{x} \sim N(mean = \mu, SE = \frac{\sigma}{\sqrt{n}}$, but, in practice, 
+we use $s$ instead of $\sigma$.
+\begin{itemize}
+\item Plugging in an estimate introduces additional uncertainty.
+\item We make up for this by using a more ``conservative" distribution than the normal distribution.
+\end{itemize}
+
+\pause
+
+\item Also has a bell shape, but its tails are \hl{thicker} than the normal model's
+\begin{itemize}
+\item Observations are more likely to fall beyond two SDs from the mean than under the normal distribution.
+\end{itemize}
+
+\pause
+
+\item Extra thick tails are helpful for mitigating the effect of a less reliable estimate for the standard 
+error of the sampling distribution.
+
+\end{itemize}
+
+\begin{center}
+\includegraphics[width=0.5\textwidth]{figures/tDistCompareToNormalDist/tDistCompareToNormalDist}
+\end{center}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{T distribution}
+
+\begin{itemize}
+
+\item Always centered at zero, like the standard normal ($z$) distribution
+
+\pause
+
+\item Has a single parameter: \hl{degrees of freedom} (\mathhl{df})
+\begin{itemize}
+\item one sample: $df = n - 1$
+\item two (independent) samples: $df = min(n_1 - 1, n_2 - 1)$
+\end{itemize}
+
+\end{itemize}
+
+\begin{center}
+\includegraphics[width=0.8\textwidth]{figures/tDistConvergeToNormalDist/tDistConvergeToNormalDist}
+\end{center}
+
+\pause
+
+\disc{What happens to shape of the T distribution as $df$ increases?}
+
+\soln{\pause Approaches normal.}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{When comparing means of two groups, ask if paired or independent}
+\label{mi2}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{2. When comparing means of two groups, ask if paired or independent}
+
+\begin{itemize}
+
+\item dependent (paired) groups (e.g. pre/post weights of subjects in a weight loss study, twin studies, etc.)
+\[ SE_{\bar{x}_{diff}} = \frac{s_{diff}}{\sqrt{n_{diff}}} \]
+
+\item independent groups (e.g. grades of students across two sections)
+\[ SE_{\bar{x}_1 - \bar{x}_2} = \sqrt{ \frac{s_1^2}{n_1} + \frac{s_2^2}{n_2} } \]
+
+\end{itemize}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Example 1: Zinc in water}
+
+\disc{Trace metals in drinking water affect the flavor and an unusually high concentration can pose a health hazard. Ten pairs of data were taken measuring zinc concentration in bottom water and surface water at 10 randomly sampled locations.}
+
+\twocol{0.5}{0.5}{
+\begin{center}
+{\footnotesize
+\begin{tabular}{l | c | c}
+Location	& bottom	& surface \\
+\hline
+1&0.43&0.415\\
+2&0.266&0.238\\
+3&0.567&0.39\\
+4&0.531&0.41\\
+5&0.707&0.605\\
+6&0.716&0.609\\
+7&0.651&0.632\\
+8&0.589&0.523\\
+9&0.469&0.411\\
+10&0.723&0.612\\
+\end{tabular}
+}
+\end{center}
+}
+{
+\pause
+Water samples collected at the same location, on the surface and in the bottom, cannot be assumed to be independent of each other, hence we need to use a \hl{paired} analysis.
+}
+
+\vfill
+
+\ct{Source: \webURL{https://onlinecourses.science.psu.edu/stat500/node/51}}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Analyzing paired data}
+
+Suppose we want to compare the average zinc concentration levels in the bottom and surface:
+
+\pause
+
+\begin{itemize}
+
+\item When two sets of observations have this special correspondence (not independent), they are said to be \hl{paired}.
+
+\pause
+
+\item To analyze paired data, it is often useful to look at the difference in outcomes of each pair of observations. 
+
+\pause
+
+\item It is important that we always subtract using a consistent order.
+
+\end{itemize}
+
+\pause
+
+\vspace{-0.5cm}
+
+\twocol{0.5}{0.5}{
+\begin{center}
+{\scriptsize
+\begin{tabular}{l | c | c | >{\columncolor[gray]{0.8}} c}
+Location	& bottom	& surface & difference\\
+\hline
+1&0.43&0.415&0.015\\
+2&0.266&0.238&0.028\\
+3&0.567&0.39&0.177\\
+4&0.531&0.41&0.121\\
+5&0.707&0.605&0.102\\
+6&0.716&0.609&0.107\\
+7&0.651&0.632&0.019\\
+8&0.589&0.523&0.066\\
+9&0.469&0.411&0.058\\
+10&0.723&0.612&0.111\\
+\end{tabular}
+}
+\end{center}
+}
+{
+\begin{center}
+\includegraphics[width=\textwidth]{figures/zinc/zinc_diff_hist}
+\end{center}
+}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Parameter and point estimate for paired data}
+
+For comparing average zinc concentration levels in the bottom and surface when the data are paired:
+
+\pause
+
+\begin{itemize}
+
+\item \hl{Parameter of interest:} Average difference between the bottom and surface zinc measurements of \red{all} drinking water.
+\[ \mu_{diff} \]
+
+$\:$ \\
+
+\pause
+
+\item \hl{Point estimate:} Average difference between the bottom and surface zinc measurements of drinking water from the \red{sampled} locations.
+\[ \bar{x}_{diff} \]
+
+\end{itemize}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Example 2: Gender gap in salaries}
+
+\disc{{\small Since 2005, the American Community Survey polls $\sim$3.5 million households yearly. The following summarizes distribution of salaries of males and females from a random sample of individuals who responded to the 2012 ACS:}}
+
+\begin{center}
+%
+{\small
+\begin{tabular}{lccc}
+\hline
+			& $\bar{x}$ 	& $s$	& $n$ \\
+\hline
+male			& 55,890		& 68,767.88	& 470 \\
+female		& 29,240		& 32,025.98	& 373 \\
+\hline
+\end{tabular}
+}
+%
+\includegraphics[width=0.9\textwidth]{figures/acs/sal_gen_box}
+\end{center}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+
+\vfill
+
+ACS: Surge of media attention in spring 2012 when the House of Representatives voted to eliminate the survey. Daniel Webster, Republican congressman from Florida: ``in the end this is not a scientific survey. It's a random survey."
+
+\vfill
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+
+\vfill
+
+\disc{How are the two examples different from each other? How are they similar to each other?}
+
+\vfill
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\end{document}
