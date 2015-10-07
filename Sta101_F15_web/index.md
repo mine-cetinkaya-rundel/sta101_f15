@@ -143,7 +143,8 @@ title: Schedule
 
 ##### In class / lab
 
-| Oct 7, Wed  | [Lesson 4.1](post/slides/u4_deck1.pdf) &nbsp;&nbsp;&nbsp;[<i class="fa fa-print"></i>](post/slides/u4_deck1H.pdf) |
+| Oct 7, Wed  | [Lesson 4.1: Inference with t](post/slides/u4_deck1.pdf) &nbsp;&nbsp;&nbsp;[<i class="fa fa-print"></i>](post/slides/u4_deck1H.pdf) |
+|              | [App Ex 4.1: Comparing means](post/app/app_Compare_means.pdf) |
 | Oct 8, Thu  | [Lab 6: Inference for numerical data](post/labs/inf_for_numerical_data.html)        |
 | Oct 12, Mon | *Fall Break - no class*                |     
 | Oct 14, Wed | **RA 4** in class |
