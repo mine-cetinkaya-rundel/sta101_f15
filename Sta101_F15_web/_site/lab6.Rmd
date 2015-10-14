@@ -1,8 +1,19 @@
+---
+title: "Lab 6 - Inference for numerical data"
+author: "Enter team name here"
+date: "Enter date here"
+output: 
+  html_document: 
+    highlight: pygments
+---
+
 ```{r setup, include=FALSE}
 # DO NOT ALTER CODE IN THIS CHUNK
 knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(cache = TRUE)
 library(dplyr)
 library(ggplot2)
+library(mosaic)
 ```
 
 **Author:** Enter author name here
@@ -11,10 +22,16 @@ library(ggplot2)
 
 * * *
 
-**Load Arbuthnot's data:**
+**Load NC dataset:**
 ```{r}
-load(url("https://stat.duke.edu/~mc301/data/cdc.RData"))
+load(url("https://stat.duke.edu/~mc301/data/nc.RData"))
 ```
+
+**Load inference function:**
+```{r}
+load(url("https://stat.duke.edu/~mc301/R/fun/inference.RData"))
+```
+
 
 ## Exercises:
 
@@ -30,13 +47,8 @@ load(url("https://stat.duke.edu/~mc301/data/cdc.RData"))
 #### Exercise 4: 
 
 
-#### Exercise 5: 
+#### Exercise 5:
 
-
-#### Exercise 6:
-
-
-#### Exercise 7:
 
 
 * * *
@@ -49,14 +61,13 @@ load(url("https://stat.duke.edu/~mc301/data/cdc.RData"))
 #### 2: 
 
 
-#### 3: 
+#### 3:
 
 
-#### 4: 
+#### 4:
 
 
 #### 5: 
 
 
-#### 6:
 

@@ -1,10 +1,17 @@
+---
+title: "Lab 2 - Intro to data"
+author: "Enter team name here"
+date: "Enter date here"
+output: 
+  html_document: 
+    highlight: pygments
+---
+
 ```{r setup, include=FALSE}
 # DO NOT ALTER CODE IN THIS CHUNK
 knitr::opts_chunk$set(echo = TRUE)
-knitr::opts_chunk$set(cache = TRUE)
 library(dplyr)
 library(ggplot2)
-library(mosaic)
 ```
 
 **Author:** Enter author name here
@@ -13,17 +20,10 @@ library(mosaic)
 
 * * *
 
-**Load Ames dataset:**
+**Load Arbuthnot's data:**
 ```{r}
-load(url("https://stat.duke.edu/~mc301/data/ames.RData"))
+load(url("https://stat.duke.edu/~mc301/data/cdc.RData"))
 ```
-
-**Set a seed:**
-```{r}
-set.seed()
-```
-
-
 
 ## Exercises:
 
@@ -39,7 +39,7 @@ set.seed()
 #### Exercise 4: 
 
 
-#### Exercise 5:
+#### Exercise 5: 
 
 
 #### Exercise 6:
@@ -58,4 +58,14 @@ set.seed()
 #### 2: 
 
 
+#### 3: 
+
+
+#### 4: 
+
+
+#### 5: 
+
+
+#### 6:
 

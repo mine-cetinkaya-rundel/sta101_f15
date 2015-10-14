@@ -164,7 +164,8 @@ title: Schedule
   graded questions, use the back of the book to check your work on the practice questions.
   Must show **all** work to get credit. Click [here]({{ site.sakai_ps }}) to submit the 
   problem set.
-  * **Graded questions:** TBA
+  * **Graded questions:** Chp 5: 5.4, 5.6, 5.12, 5.16, 5.20, 5.28, 5.30, 5.34, 5.36, 
+  5.38, 5.44, 5.46, 5.48, 5.50
   * Practice questions: 
       + Part 1 – t-inference: 5.1, 5.3, 5.5, 5.13, 5.17, 5.19, 5.21, 5.23, 
       5.27, 5.31, 5.35, 5.37

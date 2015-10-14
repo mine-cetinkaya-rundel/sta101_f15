@@ -29,7 +29,7 @@ load(url("https://stat.duke.edu/~mc301/data/nc.RData"))
 
 **Load inference function:**
 ```{r}
-load(url("https://stat.duke.edu/~mc301/R/inference.RData"))
+load(url("https://stat.duke.edu/~mc301/R/fun/inference.RData"))
 ```
 
 
