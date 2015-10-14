@@ -1,20 +1,21 @@
-ci_two_mean_sim <- function(y, x, conf_level = 0.95, 
-                            boot_method = c("perc", "se"), nsim = 10000, seed = NULL){
+ci_two_mean_sim <- function(y, x, conf_level, boot_method, nsim, seed,
+                             y_name, show_eda_plot, show_inf_plot){
+  
   # set seed
-  if(!is.null(seed)){set.seed(seed)}
+  if(!is.null(seed)){ set.seed(seed) }
   
   # calculate n1 and n2
   ns <- by(y, x, length)
   n1 <- as.numeric(ns[1])
-  n2 <- as.numeric(ns[1])
+  n2 <- as.numeric(ns[2])
   
-  # calculate x-bar1 and x-bar2
-  x_bars <- by(y, x, mean)
-  x_bar1 <- as.numeric(x_bars[1])
-  x_bar2 <- as.numeric(x_bars[2])
+  # calculate y-bar1 and y-bar2
+  y_bars <- by(y, x, mean)
+  y_bar1 <- as.numeric(y_bars[1])
+  y_bar2 <- as.numeric(y_bars[2])
   
-  # calculate difference in x-bars
-  x_bar_diff <- x_bar1 - x_bar2
+  # calculate difference in y-bars
+  y_bar_diff <- y_bar1 - y_bar2
   
   # create bootstrap distribution
   y1 <- y[x == levels(x)[1]]
@@ -39,9 +40,6 @@ ci_two_mean_sim <- function(y, x, conf_level = 0.95,
     
     # put CI together
     ci <- c(ci_lower, ci_upper)
-    
-    # return
-    return(list(x_bar_diff = round(x_bar_diff, 4), CI = round(ci, 4)))
   }
   
   # for standard error method
@@ -62,9 +60,48 @@ ci_two_mean_sim <- function(y, x, conf_level = 0.95,
     me <- t_star * se
     
     # calculate CI
-    ci <- x_bar_diff + c(-1, 1) * me
-    
-    # return
-    return(list(x_bar_diff = round(x_bar_diff, 4), SE = round(se, 4), ME = round(me, 4), CI = round(ci, 4)))
-  }  
+    ci <- y_bar_diff + c(-1, 1) * me
+  }
+  
+  # eda_plot
+  d_eda <- data.frame(y = y, x = x)
+  d_means <- data.frame(y_bars = as.numeric(y_bars), x = levels(x))
+  
+  eda_plot <- ggplot(data = d_eda, aes(x = y), environment = environment()) +
+    geom_histogram(fill = "#8FDEE1", binwidth = diff(range(y)) / 20) +
+    xlab(y_name) +
+    ylab("") +
+    ggtitle("Sample Distributions") +
+    geom_vline(data = d_means, aes(xintercept = y_bars), col = "#1FBEC3", lwd = 1.5) +
+    facet_grid(x ~ .)
+  
+  # inf_plot
+  d_inf <- data.frame(sim_dist = sim_dist)
+  inf_plot <- ggplot(data = d_inf, aes(x = sim_dist), environment = environment()) +
+    geom_histogram(fill = "#CCCCCC", binwidth = diff(range(sim_dist)) / 20) +
+    annotate("rect", xmin = ci[1], xmax = ci[2], ymin = 0, ymax = Inf, 
+             alpha = 0.3, fill = "#FABAB8") +
+    xlab("bootstrap differences in means") +
+    ylab("") +
+    ggtitle("Bootstrap Distribution") +
+    geom_vline(xintercept = ci, color = "#F57670", lwd = 1.5)
+  
+  # print plots
+  if(show_eda_plot & !show_inf_plot){ 
+    print(eda_plot)
+  }
+  if(!show_eda_plot & show_inf_plot){ 
+    print(inf_plot)
+  }
+  if(show_eda_plot & show_inf_plot){
+    grid.arrange(eda_plot, inf_plot, ncol = 2)
+  }
+  
+  # return
+  if(boot_method == "perc"){
+    return(list(y_bar_diff = round(y_bar_diff, 4), CI = round(ci, 4)))
+  } else {
+    return(list(y_bar_diff = round(y_bar_diff, 4), SE = round(se, 4), 
+                ME = round(me, 4), CI = round(ci, 4)))
+  }
 }

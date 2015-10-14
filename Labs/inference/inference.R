@@ -1,18 +1,18 @@
-inference <-
-  function(y, x = NULL, 
-           statistic = c("mean", "median", "proportion"), 
-           success = NULL, order = NULL, 
-           method = c("theoretical","simulation"),
-           type = c("ci","ht"), 
-           alternative = c("less","greater","twosided"), 
-           null = NULL, 
-           boot_method = c("perc", "se"),
-           conf_level = 0.95, sig_level = 0.05,
-           nsim = 10000, simdist = FALSE, seed = NULL,
-           sum_stats = TRUE, eda_plot = TRUE, inf_plot = TRUE, inf_lines = TRUE) {
+inference <- function(y, x = NULL, data,
+                      type = c("ci", "ht"),
+                      statistic = c("mean", "median", "proportion"), 
+                      success = NULL, order = NULL, 
+                      method = c("theoretical", "simulation"),
+                      null = NULL, alternative = c("less","greater","twosided"),
+                      sig_level = 0.05, 
+                      boot_method = c("perc", "se"),
+                      conf_level = 0.95, 
+                      nsim = 10000, seed = NULL,
+                      show_sum_stats = TRUE, return_sim_dist = FALSE,
+                      show_eda_plot = TRUE, show_inf_plot = TRUE){
     # y: response variable, can be numerical or categorical
     # x: explanatory variable, categorical (optional)
-    # est: parameter to estimate: mean, median, or proportion
+    # statistic: parameter to estimate: mean, median, or proportion
     # success: which level of the categorical variable to call "success", i.e. do inference on
     # order: when x is given, order of levels of x in which to subtract parameters
     # method: CLT based (theoretical) or simulation based (randomization/bootstrapping)
@@ -23,51 +23,31 @@ inference <-
     # conf_level: confidence level, value between 0 and 1
     # sig_level: significance level, value between 0 and 1 (used only for ANOVA to determine if posttests are necessary)
     # nsim: number of simulations
-    # simdist: TRUE/FALSE - return the simulation distribution
+    # return_sim_dist: TRUE/FALSE - return the simulation distribution
     # seed: NULL - set.seed()
-    # sum_stats: TRUE/FALSE - print summary stats
-    # eda_plot: TRUE/FALSE - print EDA plot 
-    # inf_plot: TRUE/FALSE - print inference plot 
-    # inf_lines: TRUE/FALSE - print lines on the inference plot for ci bounds or p-value
-    
+    # show_sum_stats: TRUE/FALSE - print summary stats
+    # show_eda_plot: TRUE/FALSE - print EDA plot 
+    # show_inf_plot: TRUE/FALSE - print inference plot 
+
     # set mirror
     options(repos=structure(c(CRAN="http://cran.rstudio.com")))
     
-    if (!("openintro" %in% names(installed.packages()[,"Package"]))) {install.packages("openintro")}
-    suppressMessages(library(openintro, quietly = TRUE))
+    if (!("ggplot2" %in% names(installed.packages()[,"Package"]))) {install.packages("ggplot2")}
+    suppressMessages(library(ggplot2, quietly = TRUE))
     
-    if (!("BHH2" %in% names(installed.packages()[,"Package"]))) {install.packages("BHH2")}
-    suppressMessages(library(BHH2, quietly = TRUE))
+    if (!("gridExtra" %in% names(installed.packages()[,"Package"]))) {install.packages("gridExtra")}
+    suppressMessages(library(gridExtra, quietly = TRUE))
     
-    # source helper functions
-    source("http://d396qusza40orc.cloudfront.net/statistics/lab_resources/chiTail.R")
-    source("http://d396qusza40orc.cloudfront.net/statistics/lab_resources/FTail.R")
-    source("http://d396qusza40orc.cloudfront.net/statistics/lab_resources/normTail.R")
+    # axis label
+    y_name <- paste(substitute(y))
+    x_name <- paste(substitute(x))
     
-    # names for plot labels
-    y_name = deparse(substitute(y))
-    x_name = deparse(substitute(x))
-    
-    # set seed
-    if(!is.null(seed)){set.seed(seed)}
-    
-    # plotting settings
-    if(eda_plot == TRUE & inf_plot == TRUE) {par(mfrow=c(1,2), mar = c(4,4,0.5,0.5))}
-    if(any(c(inf_plot,eda_plot) == FALSE)) {par(mfrow=c(1,1), mar = c(4,4,0.5,0.5))}
+    # assign x and y
+    x <- eval(substitute(x), data, parent.frame())
+    y <- eval(substitute(y), data, parent.frame())
     
     # error: weird y
     if (length(y) == 1) {stop("Sample size of y is 1.", call. = FALSE)}
-    
-    # handling of NAs: drop NAs, and if x is given, use pairwise complete
-    if (is.null(x)) {if (sum(is.na(y)) > 0) {y = y[!is.na(y)]}}
-    if (!is.null(x)) {
-      if (sum(is.na(y)) > 0 | sum(is.na(x)) > 0) {
-        y.temp = y[!is.na(y) & !is.na(x)]
-        x.temp = x[!is.na(y) & !is.na(x)]
-        y = y.temp
-        x = x.temp
-      }
-    }
     
     # error: y or x is character, make factor
     if (is.character(y)) {y = as.factor(y)}
@@ -75,10 +55,9 @@ inference <-
     if (is.logical(y)) {y = as.factor(y)}
     if (is.logical(x)) {x = as.factor(x)}
     
-    # error: variables not of same length
-    if (!is.null(x)) {
-      if (length(y) != length(x)) {stop("The two variables must be of same length.", call. = FALSE)}
-    }
+    # set variable type for y: numerical or categorical
+    y_type = "categorical"
+    if (is.numeric(y)) {y_type = "numerical"}
     
     # set variable type for y: numerical or categorical
     y_type = "categorical"
@@ -112,20 +91,16 @@ inference <-
       }
     }
     
-    # print variable types
-    if (x_type == "only1Var") {cat(paste("One", y_type, "variable", "\n"))}
-    if (x_type == "categorical") {cat(paste("Response variable: ", y_type, ", Explanatory variable: ", x_type, "\n", sep = ""))}
-    
     # set number of levels
     x_levels = 0  # numerical variable
     y_levels = 0  # numerical variable
     if (x_type == "categorical") {x_levels = length(levels(x))}
     if (y_type == "categorical") {y_levels = length(levels(y))}
     
-    # error: missing type, method, est
+    # error: missing type, method, statistic
     if (length(type) > 1) {stop("Missing type: ci (confidence interval) or ht (hypothesis test).", call. = FALSE)}
     if (length(method) > 1) {stop("Missing method: theoretical or simulation.", call. = FALSE)}
-    if (length(est) > 1) {stop("Missing estimate: mean, median, or proportion.", call. = FALSE)}
+    if (length(statistic) > 1) {stop("Missing statistic: mean, median, or proportion.", call. = FALSE)}
     
     # error: method isn't theoretical or simulation
     method_list = c("theoretical", "simulation")
@@ -212,12 +187,12 @@ inference <-
       }
     }
     
-    # error: estimate isn't mean, median, or proportion
-    if (est %in% c("mean", "median", "proportion") == FALSE) {
-      stop("Estimate should be 'mean', 'median', or 'proportion'.", call. = FALSE)
+    # error: statistic isn't mean, median, or proportion
+    if (statistic %in% c("mean", "median", "proportion") == FALSE) {
+      stop("Statistic should be 'mean', 'median', or 'proportion'.", call. = FALSE)
     }
     
-    # error: wrong estimate
+    # error: wrong statistic
     if (y_type == "numerical" & statistic == "proportion") {
       stop("Response variable is numerical, sample statistic cannot be a proportion, choose either mean or median.", call. = FALSE)
     }  
@@ -260,801 +235,294 @@ inference <-
       warning(paste("Significance level converted to ", sig_level, ".", sep = ""), call. = FALSE)    
     }
     
-    # define sample size
-    n = length(y)
-    
-    # define sign of hypothesis test, for one and two means, medians, and proportions
-    if (type == "ht") {
-      if (alternative == "less") {sign = "<"}
-      if (alternative == "greater") {sign = ">"}
-      if (alternative == "twosided") {sign = "!="}		
-    }
-    
-    # one variable
-    if (x_type == "only1var") {
-      # print what's going on 
-      if(y_type == "numerical"){cat("Single", est, "\n")}
-      if(y_type == "categorical"){cat("Single", est, "-- success:", success, "\n")}    
+    # ci
+    if(type == "ci"){
+      # source helper functions
+      #source("ci_single_mean_theo.R")
+      #source("ci_single_mean_sim.R")
+      #source("ci_single_median_sim.R")
+      #source("ci_single_prop_theo.R")
+      #source("ci_single_prop_sim.R")
+      #source("ci_two_mean_theo.R")
+      #source("ci_two_mean_sim.R")
+      #source("ci_two_median_sim.R")
+      #source("ci_two_prop_theo.R")
+      #source("ci_two_prop_sim.R")
       
-      # set statistic: mean, median, or proportion
-      if (y_type == "numerical") {statistic = match.fun(est)}
-      if (y_type == "categorical") {statistic = function(x) {sum(x == success)/length(x)}}
-      
-      actual = statistic(y)
-      
-      if(sum_stats == TRUE){cat("Summary statistics: ")}
-      if(statistic == "mean"){
-        if(eda_plot == TRUE){hist(y, main = "", cex.main = 0.75, xlab = y_name, col = COL[3,4], ylab = "")}
-        if(sum_stats == TRUE){cat(paste("mean =", round(actual,4), "; ","sd =", round(sd(y), 4), "; ", "n =", n), "\n")}
-      }
-      if(statistic == "median"){
-        if(eda_plot == TRUE){
-          boxplot(y, main = "", main = "", xlab = y_name, col = COL[3,4], axes = FALSE)
-          axis(2)
-        }
-        if(sum_stats == TRUE){cat(paste("median =", round(actual,4), "; ", "n =", n), "\n")}
-      }
-      if(statistic == "proportion"){
-        if(eda_plot == TRUE){barplot(table(y), main = "", xlab = y_name, col = COL[3,4])}
-        if(sum_stats == TRUE){cat(paste("p_hat =", round(actual,4), "; ", "n =", n), "\n")}
-      }
-      
-      # simulation
-      if (method == "simulation") {
-        sim = matrix(NA, nrow = n, ncol = nsim)
+      # single
+      if(is.null(x)){
         
-        # bootstrap ci
-        if (type == "ci") {
-          for(i in 1:nsim) {sim[,i] = sample(y, n, replace = TRUE)}
-          if (y_type == "categorical") {
-            statistic = function(x) {
-              which_success = which(levels(y) == success)
-              sum(x == which_success)/length(x)
-            }
-          }
-          sim_dist = apply(sim, 2, statistic)
-          
-          if(boot_method == "perc"){
-            ci = quantile(sim_dist, c( (1 - conf_level)/2 , ((1 - conf_level)/2)+conf_level ))
-          }
-          
-          if(boot_method == "se"){
-            critvalue = qnorm((1 - conf_level)/2 + conf_level )
-            boot_se = sd(sim_dist)
-            me = critvalue * boot_se
-            ci = actual + c(-1,1) * me
-          }
-          
-          if(inf_plot == TRUE){
-            #if(y_type == "categorical"){xlim = c(min(sim_dist)-sd(sim_dist), max(sim_dist)+sd(sim_dist))}
-            #if(y_type == "numerical"){xlim = c(min(sim_dist)*0.8, max(sim_dist)*1.2)}
-            xlim = c(min(sim_dist)-0.8*sd(sim_dist), max(sim_dist)+0.8*sd(sim_dist))
-            
-            if (nsim > 500) {            
-              counts = hist(sim_dist, plot = FALSE)$counts
-              hist(sim_dist, xlab = "Bootstrap distribution", main = "", ylab = "", xlim = xlim, col = COL[1,2])
-              if (inf_lines == TRUE  & inf_plot == TRUE) {
-                for (i in 1:2) {
-                  segments(ci[i], 0, ci[i], 0.8 * max(counts), col=COL[4], lwd=2)
-                  text(round(ci[i],4), max(counts), pos=1, col=COL[4], round(ci[i],4))
-                }
-              }
-            }
-            if (nsim <= 500) {
-              BHH2::dotPlot(sim_dist, xlim = xlim, pch=19, col=COL[1,2], cex = 0.8, axes = FALSE, xlab="Bootstrap distribution")
-              axis(1)
-              if(inf_lines == TRUE  & inf_plot == TRUE){
-                for (i in 1:2) {
-                  segments(ci[i], 0, ci[i], 0.6, col=COL[4], lwd=2)
-                  text(round(ci[i],4), 0.7, pos=1, col=COL[4], round(ci[i],4))
-                }
-              }
-            }          
-          }
-          cat(c("Bootstrap method:", ifelse(boot_method == "se", "Standard error; ", "Percentile\n")))
-          if(boot_method == "se") {cat(c("Boot. SE =", round(boot_se, 4),"\n"))}
-          cat(c(conf_level*100, "% Bootstrap interval = (", round(ci[1],4), ",", round(ci[2],4), ")\n"))		
-        }
+        # variable assignment
+        y <- eval(substitute(y), data, parent.frame())
         
-        # randomization test
-        if (type == "ht") {
-          if (y_type == "numerical") {
-            for(i in 1:nsim) {sim[,i] = sample(y, n, replace = TRUE)}
-            sim_dist_temp = apply(sim, 2, statistic)
-            if (statistic == "mean") {
-              # hypotheses
-              cat(paste("H0: mu =", null, "\n"))
-              cat(paste("HA: mu", sign, null, "\n"))
-              sim_dist = sim_dist_temp - (mean(sim_dist_temp) - null)
-            }
-            
-            if (statistic == "median") {
-              cat(paste("H0: median =", null, "\n"))
-              cat(paste("HA: median", sign, null, "\n"))
-              sim_dist = sim_dist_temp - (median(sim_dist_temp) - null)
-            }					
-          }
-          if (y_type == "categorical") {
-            cat(paste("H0: p =", null, "\n"))
-            cat(paste("HA: p", sign, null, "\n"))
-            sim_dist = rbinom(nsim, n, prob = null) / n
-          }
-          
-          smaller_tail = round(min(c(mean(sim_dist <= actual), mean(sim_dist >= actual))), 4)	
-          
-          if(inf_plot == TRUE){
-            #if(y_type == "categorical"){xlim = c(min(sim_dist)-sd(sim_dist), max(sim_dist)+sd(sim_dist))}
-            #if(y_type == "numerical"){xlim = c(min(sim_dist)*0.8, max(sim_dist)*1.2)}
-            xlim = c(min(sim_dist)-0.8*sd(sim_dist), max(sim_dist)+0.8*sd(sim_dist))
-            
-            if (nsim > 500) {
-              counts = hist(sim_dist, plot = FALSE)$counts
-              hist(sim_dist, xlab = "Randomization distribution", main = "", ylab = "", xlim = xlim, col = COL[1,2])
-            }
-            if (nsim <= 500) {
-              BHH2::dotPlot(sim_dist, xlim = xlim, pch=19, col=COL[1,2], cex = 0.8, axes = FALSE, xlab="Randomization distribution")
-              axis(1)
-            }
-          }          
-          
-          #alternative = match.arg(alternative)
-          
-          if (alternative == "less") {
-            #            counts = hist(sim_dist, plot = FALSE)$counts
-            if (actual < null) {cat(paste("p-value = ", smaller_tail,"\n"))}  			
-            if (actual > null) {cat(paste("p-value = ", 1 - smaller_tail,"\n"))}
-            if (inf_lines == TRUE & inf_plot == TRUE) {
-              if(nsim > 500) {lines(x = c(actual,actual), y = c(0,1.1*max(counts)), col=COL[4], lwd=2)}
-              if(nsim <= 500) {lines(x = c(actual,actual), y = c(0,0.8), col=COL[4], lwd=2)}
-            }
-          }
-          if (alternative == "greater") {
-            #            counts = hist(sim_dist, plot = FALSE)$counts
-            if (actual < null) {cat(paste("p-value = ", 1 - smaller_tail,"\n"))}				
-            if (actual > null) {cat(paste("p-value = ", smaller_tail,"\n"))}
-            if (inf_lines == TRUE & inf_plot == TRUE) {
-              if(nsim > 500) {lines(x = c(actual,actual), y = c(0,1.1*max(counts)), col=COL[4], lwd=2)}
-              if(nsim <= 500) {lines(x = c(actual,actual), y = c(0,0.8), col=COL[4], lwd=2)}
-            }
-          }
-          if (alternative == "twosided") {
-            #             counts = hist(sim_dist, plot = FALSE)$counts
-            cat(paste("p-value = ", smaller_tail * 2,"\n"))
-            lines(x = c(actual,actual), y = c(0,1.1*max(counts)), col=COL[4], lwd=2)
-            if (actual >= null) {
-              temp = actual - null
-              if (inf_lines == TRUE & inf_plot == TRUE) {
-                if(nsim > 500) {lines(x = c(null - temp,null - temp), y = c(0,1.1*max(counts)), col=COL[4], lwd=2)}
-                if(nsim <= 500) {lines(x = c(null - temp,null - temp), y = c(0,0.8), col=COL[4], lwd=2)}
-              }						
-            }
-            if (actual < null) {
-              temp = null - actual
-              if (inf_lines == TRUE & inf_plot == TRUE) {
-                if(nsim > 500) {lines(x = c(null + temp,null + temp), y = c(0,1.1*max(counts)), col=COL[4], lwd=2)}
-                if(nsim <= 500) {lines(x = c(null + temp,null + temp), y = c(0,0.8), col=COL[4], lwd=2)}
-              }						
-            }		
-          }
-          if (inf_lines == TRUE & inf_plot == TRUE) {
-            if(nsim > 500) {text(x = actual, y = 1.2*max(counts), paste("observed\n", round(actual,4)), col=COL[4], cex = 0.8)}
-            if(nsim <= 500) {text(x = actual, y = 0.9, paste("observed\n", round(actual,4)), col=COL[4], cex = 0.8)}          
-          }	
-        }
+        # remova NAs
+        y <- y[!is.na(y)]
         
-      }		
-      
-      
-      # theoretical
-      if (method == "theoretical") {
-        
-        # confidence interval
-        if (type == "ci") {
-          if (y_type == "numerical") {
-            if (statistic == "median") {stop("Use simulation methods for inference for the median.", call. = FALSE)}
-            if (statistic == "mean") {
-              # calculate me and se
-              se = sd(y) / sqrt(n)
-              cat(paste("Standard error =", round(se, 4), "\n"))
-              if (n >= 30) {critvalue = qnorm( (1 - conf_level)/2 + conf_level )}
-              if (n < 30) {critvalue = qt( (1 - conf_level)/2 + conf_level , df = n - 1)}					
-            }
+        # single mean
+        if(statistic == "mean"){
+          if(method == "theoretical"){ 
+            res <- ci_single_mean_theo(y, conf_level, y_name, show_eda_plot, show_inf_plot = FALSE)
+            return(list(y_bar = res$y_bar, df = res$df, SE = res$SE, 
+                        ME = res$ME, CI = res$CI))
           }
-          if (y_type == "categorical") {
-            # check conditions
-            suc = round(n * actual, 2)
-            fail = round(n * (1 - actual), 2)
-            cat(paste("Check conditions: number of successes =", round(suc), ";", "number of failures =", round(fail)), "\n")	
-            if (suc < 10 | fail < 10) {
-              stop("There aren't at least 10 successes and 10 failures, use simulation methods instead.", call. = FALSE)
-            }
-            # calculate me and se
-            se = sqrt(actual * (1-actual) / n)
-            cat(paste("Standard error =", round(se, 4), "\n"))
-            critvalue = qnorm( (1 - conf_level)/2 + conf_level )					
-          }
-          me = critvalue * se
-          ci = c(actual - me , actual + me)
-          cat(c(conf_level*100, "% Confidence interval = (", round(ci[1],4), ",", round(ci[2],4), ")\n"))	
-        }
-        
-        # hypothesis test
-        if (type == "ht") {
-          if (y_type == "numerical") {
-            if (statistic == "median") {stop("Use simulation methods for inference for the median.", call. = FALSE)}
-            if (statistic == "mean") {
-              # hypotheses
-              cat(paste("H0: mu =", null, "\n"))
-              cat(paste("HA: mu", sign, null, "\n"))
-              
-              # calculate test statistic and p-value component
-              se = sd(y) / sqrt(n)
-              cat("Standard error =", round(se,4), "\n")
-              teststat = (actual - null)/se
-              if (n >= 30) {
-                cat(paste("Test statistic: Z =", round(teststat, 3),"\n"))
-                smaller_tail = round(min(pnorm(teststat), pnorm(teststat, lower.tail = FALSE)), 4)
-              }
-              if (n < 30) {
-                cat(paste("Test statistic: T =", round(teststat, 3),"\n"))
-                cat(paste("Degrees of freedom: ", n - 1, "\n"))
-                smaller_tail = round(min(pt(teststat, df = n - 1), pt(teststat, df = n - 1, lower.tail = FALSE)), 4)
-              }		
-            }
-          }
-          if (y_type == "categorical") {
-            if (null < 0 | null > 1) {
-              stop("Null value should be a proportion between 0 and 1.", call. = FALSE)
-            }
-            # hypotheses
-            cat(paste("H0: p =", null, "\n"))
-            cat(paste("HA: p", sign, null, "\n"))
-            
-            # check conditions
-            exp_suc = round(n * null, 2)
-            exp_fail = round(n * (1 - null), 2)
-            cat(paste("Check conditions: number of expected successes =", round(exp_suc), ";", "number of expected failures =", round(exp_fail)), "\n")
-            if (exp_suc < 10 | exp_fail < 10) {
-              stop("There aren't at least 10 expected successes and 10 expected failures, use simulation methods instead.", call. = FALSE)
-            }
-            # calculate test statistic and p-value
-            se = sqrt(null * (1 - null) / n)
-            cat("Standard error =", round(se,4), "\n")
-            teststat = (actual - null)/se
-            cat(paste("Test statistic: Z = ", round(teststat, 3),"\n"))
-            smaller_tail = round(min(pnorm(teststat), pnorm(teststat, lower.tail = FALSE)), 4)					
-          }
-          
-          # alternative = less
-          if (alternative == "less") {
-            if (actual < null) {cat(paste("p-value = ", smaller_tail,"\n"))}				
-            if (actual > null) {cat(paste("p-value = ", 1 - smaller_tail,"\n"))}
-            normTail(L = teststat, axes = FALSE, col = COL[1,2])
-            axis(1, at = c(-3, teststat, 0, 3), labels = c(NA, paste(round(actual,2)), paste(null), NA))
-          }
-          
-          # alternative = greater
-          if (alternative == "greater") {
-            if (actual < null) {cat(paste("p-value = ", 1 - smaller_tail,"\n"))}				
-            if (actual > null) {cat(paste("p-value = ", smaller_tail,"\n"))}
-            if(inf_plot == TRUE){
-              normTail(U = teststat, axes = FALSE, col = COL[1,2])
-              axis(1, at = c(-3, 0, teststat, 3), labels = c(NA, paste(null), paste(round(actual,2)), NA))
-            }
-          }
-          
-          # alternative = twosided	
-          if (alternative == "twosided") {
-            cat(paste("p-value = ", smaller_tail * 2,"\n"))
-            if (inf_plot == TRUE){
-              if (actual < null) {
-                normTail(L = teststat, U = -1*teststat, axes = FALSE, col = COL[1,2])
-                axis(1, at = c(-3, teststat, 0, -1*teststat, 3), labels = c(NA, paste(round(actual,2)), paste(null), paste(round(null + (null - actual), 2)), NA))
-              }
-              if (actual > null) {
-                normTail(L = -1*teststat, U = teststat, axes = FALSE, col = COL[1,2])
-                axis(1, at = c(-3, -1*teststat, 0, teststat, 3), labels = c(NA, paste(round(null - (actual - null), 2)), paste(null), paste(round(actual,2)), NA))
-              }
-            }
-          }
-        }
-      }	
-    }
-    
-    # two variables
-    if (x_type == "categorical") {
-      
-      # print what's going on
-      if (y_type == "numerical") {
-        if (x_levels == 2) {cat("Difference between two ", est, "s", "\n", sep = "")}
-        if (x_levels > 2) {cat("ANOVA\n")}      
-      }
-      
-      if (y_type == "categorical") {
-        if (x_levels == 2 & y_levels == 2) {cat("Difference between two ", est, "s -- success: ", success, "\n", sep = "")}
-        if (x_levels > 2 | y_levels > 2) {cat("Chi-square test of independence\n")}
-      }
-      
-      # x variable with 2 levels
-      if (x_levels == 2 & (y_type == "numerical" | (y_type == "categorical" & y_levels == 2))) {
-        # order
-        if (is.null(order)) {order = levels(x)}
-        if (length(order) == 1 & !is.na(order[1])) {
-          stop("Order cannot be of length 1, list the order in which two levels of the xing variable should be subtracted.", call. = FALSE)
-        }
-        if (length(order) == 2) {
-          if ( all(order %in% levels(x)) == FALSE) {
-            str = paste(order[which(!(order %in% levels(x)))], collapse=" ")
-            stop(paste(str,"is not a level of the explanatory variable.",sep = " "), call. = FALSE)
-          }
-          if ((sum(levels(x) == order) == 0) == TRUE) {
-            x = relevel(x, ref = levels(as.factor(x))[2])
-          }  
-          if ((sum(levels(x) == order) == 0) == FALSE) {
-            x = x
-          }		
-        }
-        
-        # calculate sample sizes
-        n1 = sum(x==levels(as.factor(x))[1])
-        n2 = sum(x==levels(as.factor(x))[2])
-        
-        # summary statistics and eda plots
-        if(sum_stats == TRUE){cat("Summary statistics:\n")}
-        if (statistic == "mean") {
-          if(sum_stats == TRUE){
-            for(i in 1:x_levels) {
-              cat("n_", names(by(y, x, length))[i], " = ", by(y, x, length)[i], ", ", sep="")
-              cat("mean_", names(by(y, x, mean))[i], " = ", round(by(y, x, mean)[i],4), ", ", sep="")
-              cat("sd_", names(by(y, x, sd))[i], " = ", round(by(y, x, sd)[i],4), "\n", sep="")
-            }
-          }
-          if(eda_plot == TRUE){boxplot(y ~ x, xlab = x_name, ylab = y_name, main = "", col = COL[3,4])}
-        }
-        if (statistic == "median") {
-          if(sum_stats == TRUE){
-            for(i in 1:x_levels) {
-              cat("n_", names(by(y, x, length))[i], " = ", by(y, x, length)[i], ", ", sep="")
-              cat("median_", names(by(y, x, median))[i], " = ", round(by(y, x, median)[i],4), ", ", sep="")
-            }          
-          }
-          if(eda_plot == TRUE){boxplot(y ~ x, xlab = x_name, ylab = y_name, main = "", col = COL[3,4])}
-        }   
-        if (statistic == "proportion") {
-          y_table = table(y, x)
-          if(sum_stats == TRUE){print(addmargins(y_table))}
-          if(eda_plot == TRUE){mosaicplot(table(x, y), xlab = x_name, ylab = y_name, main = "", col = COL[3,4])}
-        }
-        
-        # set statistic: difference between means, medians, or proportions
-        if (y_type == "numerical") {
-          statistic <- function(y, x) {	
-            if (statistic == "mean") {
-              stat = mean(y[x == levels(as.factor(x))[1]]) - mean(y[x == levels(as.factor(x))[2]])
-            }
-            if (statistic == "median") {
-              stat = median(y[x == levels(as.factor(x))[1]]) - median(y[x == levels(as.factor(x))[2]])	
-            }
-            return(stat)
-          }
-        }
-        if (y_type == "categorical") {
-          statistic <- function(y, x) {	
-            sum(y == success & x == levels(as.factor(x))[1])/n1 - sum(y == success & x == levels(as.factor(x))[2])/n2 
-          }
-        }
-        
-        # calculate and print actual
-        actual = statistic(y, x)
-        cat("Observed difference between ", est, "s (", levels(x)[1], "-", levels(x)[2] ,") = ", round(actual,4), "\n", sep = "")
-        
-        # save label
-        label = paste("Difference in sample ", est, "s", ", ", levels(as.factor(x))[1],"-",levels(as.factor(x))[2], sep = "")
-        
-        # simulation
-        if (method == "simulation") {
-          n = length(y)
-          sim = matrix(NA, nrow = n, ncol = nsim)
-          
-          # bootstrap ci
-          if (type == "ci") {
-            
-            if (y_type == "numerical") {statistic = match.fun(est)}
-            if (y_type == "categorical") {
-              statistic = function(x) {
-                which_success = which(levels(y) == success)
-                sum(x == which_success)/length(x)
-              }
-            }
-            
-            sim1 = matrix(NA, nrow = n1, ncol = nsim)
-            sim2 = matrix(NA, nrow = n2, ncol = nsim)
-            
-            for(i in 1:nsim) {sim1[,i] = sample(y[x == order[1]], n1, replace = TRUE)}
-            for(i in 1:nsim) {sim2[,i] = sample(y[x == order[2]], n2, replace = TRUE)}
-            
-            sim_dist1 = apply(sim1, 2, statistic)
-            sim_dist2 = apply(sim2, 2, statistic)
-            
-            sim_dist = sim_dist1 - sim_dist2
-            
+          if(method == "simulation"){ 
+            res <- ci_single_mean_sim(y, conf_level, boot_method, nsim, seed, 
+                                      y_name, show_eda_plot, show_inf_plot)
             if(boot_method == "perc"){
-              ci = quantile(sim_dist, c( (1 - conf_level)/2 , ((1 - conf_level)/2)+conf_level ))
+              return(list(y_bar = res$y_bar, CI = res$CI))
+            } else {
+              return(list(y_bar = res$y_bar, SE = res$SE, ME = res$ME, CI = res$CI))
             }
-            
-            if(boot_method == "se"){
-              critvalue = qnorm( (1 - conf_level)/2 + conf_level )
-              boot_se = sd(sim_dist)
-              me = critvalue * boot_se
-              ci = actual + c(-1,1) * me
-            }
-            
-            counts = table(sim_dist)
-            
-            if(inf_plot == TRUE){
-              #if(y_type == "categorical"){xlim = c(min(sim_dist)-sd(sim_dist), max(sim_dist)+sd(sim_dist))}
-              #if(y_type == "numerical"){xlim = c(min(sim_dist)*0.8, max(sim_dist)*1.2)}
-              xlim = c(min(sim_dist)-0.8*sd(sim_dist), max(sim_dist)+0.8*sd(sim_dist))
-              
-              if (nsim > 500) {
-                counts = hist(sim_dist, plot = FALSE)$counts  
-                hist(sim_dist, xlab = "Bootstrap distribution", main = "", ylab = "", xlim = xlim, col = COL[1,2])
-                if (inf_lines == TRUE & inf_plot == TRUE) {
-                  for (i in 1:2) {
-                    segments(ci[i], 0, ci[i], 0.8 * max(counts), col=COL[4], lwd=2)
-                    text(round(ci[i],4), max(counts), pos=1, col=COL[4], round(ci[i],4))
-                  }
-                }
-              }
-              if (nsim <= 500) {
-                BHH2::dotPlot(sim_dist, xlim = xlim, pch=19, col=COL[1,2], cex = 0.8, axes = FALSE, xlab="Bootstrap distribution")
-                axis(1)
-                if(inf_lines == TRUE & inf_plot == TRUE){
-                  for (i in 1:2) {
-                    segments(ci[i], 0, ci[i], 0.6, col=COL[4], lwd=2)
-                    text(round(ci[i],4), 0.7, pos=1, col=COL[4], round(ci[i],4))
-                  }
-                }
-              }            
-            }
-            cat(c("Bootstrap method:", ifelse(boot_method == "se", "Standard error; ", "Percentile\n")))
-            if(boot_method == "se") {cat(c("Boot. SE =", round(boot_se, 4),"\n"))}
-            cat(c(conf_level*100, "% Bootstrap interval = (", round(ci[1],4), ",", round(ci[2],4), ")\n"))
-          }
-          
-          # randomization test			
-          if (type == "ht") {
-            # hypotheses
-            if (statistic == "mean") {
-              mu1 = paste("mu_", order[1], sep = "")		
-              mu2 = paste("mu_", order[2], sep = "")		
-              cat(paste("H0:", mu1 , "-", mu2, "=", null, "\n"))
-              cat(paste("HA:", mu1 , "-", mu2, sign, null, "\n"))
-            }
-            
-            if (statistic == "median") {
-              med1 = paste("median_", order[1], sep = "")		
-              med2 = paste("median_", order[2], sep = "")		
-              cat(paste("H0:", med1 , "-", med2, "=", null, "\n"))
-              cat(paste("HA:", med1 , "-", med2, sign, null, "\n"))
-            }
-            
-            if (statistic == "proportion") {
-              p1 = paste("p_", order[1], sep = "")		
-              p2 = paste("p_", order[2], sep = "")		
-              cat(paste("H0:", p1 , "-", p2, "=", null, "\n"))
-              cat(paste("HA:", p1 , "-", p2, sign, null, "\n"))
-            }
-            
-            for(i in 1:nsim) {sim[,i] = sample(x, n, replace = FALSE)}
-            sim_dist = apply(sim, 2, statistic, y = y)
-            
-            smaller_tail = round(min(c(mean(sim_dist <= actual), mean(sim_dist >= actual))), 4)
-            
-            xmin = min(c(-1.1*abs(actual), sim_dist))
-            xmax = max(c(1.1*actual, sim_dist))
-            
-            if (inf_plot == TRUE){	
-              if (nsim > 500) {
-                counts = hist(sim_dist, plot = FALSE)$counts  
-                hist(sim_dist, main = "Randomization distribution", xlab = "", ylim = c(0, 1.3 * max(counts)), xlim = c(xmin,xmax), cex.main = 0.75, col = COL[1,2])  
-              }
-              if (nsim <= 500) {
-                if (y_type == "numerical") {
-                  counts = BHH2::dotPlot(sim_dist, main = "Randomization distribution", xlab = "", pch = 20, cex = 0.8, xlim = c(xmin,xmax), cex.main = 0.75)$y							
-                }					
-                if (y_type == "categorical") {
-                  counts = table(sim_dist)
-                  plot(sim_dist, type = "n", ylim = c(0,max(counts)*1.3), axes = FALSE, xlim = c(0.9*min(sim_dist),1.1*max(sim_dist)),  main = "Randomization distribution", xlab = "", ylab = "", cex.main = 0.75)
-                  axis(1)
-                  axis(2)
-                  for(i in 1:length(sim_dist)) {
-                    x   <- sim_dist[i]
-                    rec <- sum(sim_dist == x)
-                    points(rep(x, rec), 1:rec, pch=20, cex=0.8)					
-                  }							
-                }
-              }
-            }
-            
-            #alternative = match.arg(alternative)
-            
-            if (alternative == "less") {
-              if (actual < null) {cat(paste("p-value = ", smaller_tail,"\n"))}				
-              if (actual > null) {cat(paste("p-value = ", 1 - smaller_tail,"\n"))}
-              if (inf_lines == TRUE & inf_plot == TRUE) {lines(x = c(actual,actual), y = c(0,1.1*max(counts)), col="#569BBD", lwd=2)}
-            }
-            if (alternative == "greater") {
-              if (actual < null) {cat(paste("p-value = ", 1 - smaller_tail,"\n"))}				
-              if (actual > null) {cat(paste("p-value = ", smaller_tail,"\n"))}
-              if (inf_lines == TRUE & inf_plot == TRUE) {lines(x = c(actual,actual), y = c(0,1.1*max(counts)), col="#569BBD", lwd=2)}
-            }
-            if (alternative == "twosided") {
-              cat(paste("p-value = ", smaller_tail * 2,"\n"))
-              if (inf_lines == TRUE & inf_plot == TRUE) {lines(x = c(actual,actual), y = c(0,1.1*max(counts)), col="#569BBD", lwd=2)}
-              if (actual >= null) {
-                temp = actual - null
-                if (inf_lines == TRUE & inf_plot == TRUE) {lines(x = c(null - temp,null - temp), y = c(0,1.1*max(counts)), col = COL[1,2], lwd=2)}						
-              }
-              if (actual < null) {
-                temp = null - actual
-                if (inf_lines == TRUE & inf_plot == TRUE) {lines(x = c(null + temp,null + temp), y = c(0,1.1*max(counts)), col = COL[1,2], lwd=2)}						
-              }		
-            }
-            
-            if (inf_lines == TRUE & inf_plot == TRUE) {text(x = actual, y = 1.25*max(counts), paste("observed\n", round(actual,4)), col = COL[1,2], cex = 0.8)}								
-          }
-          
-        }
-        
-        # theoretical
-        if (method == "theoretical") {
-          
-          # confidence interval
-          if (type == "ci") {
-            if (y_type == "numerical") {
-              if (statistic == "median") {stop("Use simulation methods for inference for the median.", call. = FALSE)
-              }
-              if (statistic == "mean") {
-                # calculate se and critvalue
-                s1 = sd(y[x == levels(x)[1]])
-                s2 = sd(y[x == levels(x)[2]])
-                se = sqrt(s1^2/n1 + s2^2/n2)
-                cat("Standard error =", round(se,4), "\n")
-                if (n1 >= 30 & n2 >= 30) {critvalue = qnorm( (1 - conf_level)/2 + conf_level )}
-                if (n1 < 30 | n2 < 30) {critvalue = qt( (1 - conf_level)/2 + conf_level , df = min(n1 - 1, n2 - 1))}						
-              }
-              
-            }
-            
-            if (y_type == "categorical") {
-              # check conditions
-              cat("Check conditions:\n")
-              suc1 = sum(y[x == levels(x)[1]] == success)
-              fail1 = sum(y[x == levels(x)[1]] != success)
-              cat(paste("  ", levels(x)[1], ": number of successes =", round(suc1), ";", "number of failures =", round(fail1)), "\n")	
-              
-              suc2 = sum(y[x == levels(x)[2]] == success)
-              fail2 = sum(y[x == levels(x)[2]] != success)
-              cat(paste("  ", levels(x)[2], ": number of successes =", round(suc2), ";", "number of failures =", round(fail2)), "\n")
-              
-              if (suc1 < 10 | fail1 < 10 | suc2 < 10 | fail2 < 10) {
-                stop("There aren't at least 10 successes and 10 failures, use simulation methods instead.", call. = FALSE)
-              }
-              # calculate se and critvalue
-              p1 = suc1 / n1
-              p2 = suc2 / n2
-              se = sqrt(p1 * (1-p1)/n1 + p2 * (1-p2)/n2)
-              cat("Standard error =", round(se,4), "\n")
-              critvalue = qnorm( (1 - conf_level)/2 + conf_level )					
-              
-            }
-            
-            # calculate ci
-            me = critvalue * se
-            ci = c(actual - me , actual + me)
-            cat(c(conf_level*100, "% Confidence interval = (", round(ci[1],4), ",", round(ci[2],4), ")\n"))
-          }
-          
-          # hypothesis test
-          if (type == "ht") {
-            if (y_type == "numerical") {
-              if (statistic == "median") {stop("Use simulation methods for inference for the median.", call. = FALSE)
-              }
-              if (statistic == "mean") {
-                # hypotheses
-                mu1 = paste("mu_", order[1], sep = "")		
-                mu2 = paste("mu_", order[2], sep = "")		
-                cat(paste("H0:", mu1 , "-", mu2, "=", null, "\n"))
-                cat(paste("HA:", mu1 , "-", mu2, sign, null, "\n"))
-                # calculate test statistic and p-value component
-                s1 = sd(y[x == levels(x)[1]])
-                s2 = sd(y[x == levels(x)[2]])
-                se = sqrt(s1^2/n1 + s2^2/n2)
-                cat("Standard error =", round(se,3), "\n")
-                teststat = (actual - null)/se
-                if (n1 >= 30 & n2 >= 30) {
-                  cat(paste("Test statistic: Z = ", round(teststat, 3),"\n"))
-                  smaller_tail = round(min(pnorm(teststat), pnorm(teststat, lower.tail = FALSE)), 4)
-                }
-                if (n1 < 30 | n2 < 30) {
-                  cat(paste("Test statistic: T = ", round(teststat, 3),"\n"))
-                  cat(paste("Degrees of freedom: ", min(n1 - 1, n2 - 1), "\n"))
-                  smaller_tail = round(min(pt(teststat, df = min(n1 - 1, n2 - 1)), pt(teststat, df = min(n1 - 1, n2 - 1), lower.tail = FALSE)), 4)
-                }						
-              }	
-            }
-            if (y_type == "categorical") {
-              if (null <= -1 | null >= 1) {
-                stop("Null value should be a proportion between 0 and 1.", call. = FALSE)
-              }
-              # hypotheses
-              p1 = paste("p_", order[1], sep = "")		
-              p2 = paste("p_", order[2], sep = "")		
-              cat(paste("H0:", p1 , "-", p2, "=", null, "\n"))
-              cat(paste("HA:", p1 , "-", p2, sign, null, "\n"))
-              
-              # calculate p_pool
-              suc1 = sum(y[x == levels(x)[1]] == success)
-              fail1 = sum(y[x == levels(x)[1]] != success)
-              suc2 = sum(y[x == levels(x)[2]] == success)
-              fail2 = sum(y[x == levels(x)[2]] != success)
-              p_pool =  (suc1 + suc2)/(n1 + n2)
-              cat(paste("Pooled proportion =", round(p_pool, 4), "\n"))	
-              
-              # check conditions
-              cat("Check conditions:\n")
-              exp_suc1 = n1 * p_pool
-              exp_fail1 = n1 * (1 - p_pool)
-              cat(paste("  ", levels(x)[1], ": number of expected successes =", round(exp_suc1), ";", "number of expected failures =", round(exp_fail1)), "\n")
-              exp_suc2 = n2 * p_pool
-              exp_fail2 = n2 * (1 - p_pool)
-              cat(paste("  ", levels(x)[2], ": number of expected successes =", round(exp_suc2), ";", "number of expected failures =", round(exp_fail2)), "\n")
-              if (exp_suc1 < 10 | exp_fail1 < 10 | exp_suc2 < 10 | exp_fail2 < 10) {
-                stop("There aren't at least 10 expected successes and 10 expected failures, use simulation methods instead.", call. = FALSE)
-              }
-              # calculate test statistic and p-value
-              se = sqrt( p_pool * (1 - p_pool) / n1 + p_pool * (1 - p_pool) / n2 )
-              cat("Standard error =", round(se,3), "\n")
-              teststat = (actual - null) / se
-              cat(paste("Test statistic: Z = ", round(teststat, 3),"\n"))
-              smaller_tail = round(min(pnorm(teststat), pnorm(teststat, lower.tail = FALSE)), 4)								
-            }
-            # alternative = less
-            if (alternative == "less") {
-              if (actual < null) {cat(paste("p-value = ", smaller_tail,"\n"))}				
-              if (actual > null) {cat(paste("p-value = ", 1 - smaller_tail,"\n"))}
-              if (inf_plot == TRUE){
-                normTail(L = teststat, axes = FALSE, col = COL[1,2])
-                axis(1, at = c(-3, teststat, 0, 3), labels = c(NA, paste(round(actual,2)), paste(null), NA))
-              }
-            }
-            # alternative = greater
-            if (alternative == "greater") {
-              if (actual < null) {cat(paste("p-value = ", 1 - smaller_tail,"\n"))}				
-              if (actual > null) {cat(paste("p-value = ", smaller_tail,"\n"))}
-              if (inf_plot == TRUE){
-                normTail(U = teststat, axes = FALSE, col = COL[1,2])
-                axis(1, at = c(-3, 0, teststat, 3), labels = c(NA, paste(null), paste(round(actual,2)), NA))
-              }
-            }				
-            # alternative = twosided	
-            if (alternative == "twosided") {
-              cat(paste("p-value = ", smaller_tail * 2,"\n"))
-              if (inf_plot == TRUE){
-                if (actual < null) {
-                  normTail(L = teststat, U = -1*teststat, axes = FALSE, col = COL[1,2])
-                  axis(1, at = c(-3, teststat, 0, -1*teststat, 3), labels = c(NA, paste(round(actual,2)), paste(null), paste(round(null + (null - actual), 2)), NA))
-                }
-                if (actual > null) {
-                  normTail(L = -1*teststat, U = teststat, axes = FALSE, col = COL[1,2])
-                  axis(1, at = c(-3, -1*teststat, 0, teststat, 3), labels = c(NA, paste(round(null - (actual - null), 2)), paste(null), paste(round(actual,2)), NA))
-                }
-              }
-            }
-          }
-          
-          
-        }
-        
-      } 
-      
-      # x variable with >2 levels, ANOVA
-      if (x_levels > 2 & y_type == "numerical") {
-        
-        # summary statistics
-        if(sum_stats == TRUE){cat("Summary statistics:\n")}
-        if(sum_stats == TRUE){
-          for(i in 1:x_levels) {
-            cat("n_", names(by(y, x, length))[i], " = ", by(y, x, length)[i], ", ", sep="")
-            cat("mean_", names(by(y, x, mean))[i], " = ", round(by(y, x, mean)[i],4), ", ", sep="")
-            cat("sd_", names(by(y, x, sd))[i], " = ", round(by(y, x, sd)[i],4), "\n", sep="")
-          }        
-        }
-        if(eda_plot == TRUE){boxplot(y ~ x, xlab = x_name, ylab = y_name, main = "", col = COL[3,4])}
-        
-        # hypotheses
-        cat("H_0: All means are equal.\n")
-        cat("H_A: At least one mean is different.\n")
-        
-        if(method == "theoretical"){        
-          # anova output
-          anova_output = anova(lm(y~x))
-          print(anova_output, signif.stars=F)
-          
-          # post-hoc pairwise tests, if ANOVA is significant
-          if (anova_output$"Pr(>F)"[1] < sig_level) {
-            cat("\nPairwise tests: ")
-            pairwise = pairwise.t.test(y, x, p.adj = "none")
-            cat(pairwise$method, "\n")
-            print(round(pairwise$p.value,4))
           }      
-          
-          # plot
-          F = anova_output[["F value"]][1]
-          df_n = anova_output$Df[1]
-          df_d = anova_output$Df[2]
-          if(inf_plot == TRUE) {FTail(F,df_n,df_d, col = COL[1])}
         }
         
-        if(method == "simulation"){
-          # anova output
-          #anova_output = anova(lmp(y~x))
-          #print(anova_output, signif.stars=F)
-          stop("Simulation based ANOVA is not implemented in this function. If conditions are met, try ANOVA based on theoretical methods.", call. = FALSE)
-          
-        }
-      }
-      
-      # x variable with >2 levels, chi-square
-      if ((x_levels > 2 | y_levels > 2) & y_type == "categorical") {
-        
-        # summary statistics
-        y_table = table(y, x)
-        if(sum_stats == TRUE){
-          cat("\nSummary statistics:\n")
-          print(addmargins(y_table))
-          cat("\n")
-        }
-        if(eda_plot == TRUE){mosaicplot(table(x, y), main = "", col = COL[3,4])}
-        
-        # hypotheses
-        cat("H_0: Response and explanatory variable are independent.\n")
-        cat("H_A: Response and explanatory variable are dependent.\n")
-        
-        if (method == "theoretical") {
-          chisquare_output = chisq.test(y_table, correct = FALSE)
-          
-          # check conditions
-          cat("Check conditions: expected counts\n")
-          expected = round(chisquare_output$expected, 2)
-          print(expected)
-          if (any(expected < 5)) {
-            stop("Expected count for at least one cell is less than 5, use method = 'simulation'.", call. = FALSE)
+        # single median
+        if(statistic == "median"){
+          if(method == "theoretical"){ 
+            stop("Use simulation methods for inference for the median.", call. = FALSE)
           }
-          
-          # chi-square output
-          print(chisquare_output)
-          
-          # plot
-          chi = chisquare_output$statistic
-          df = chisquare_output$parameter
-          if (inf_plot == TRUE){chiTail(chi,df)}       
+          if(method == "simulation"){ 
+            res <- ci_single_median_sim(y, conf_level, boot_method, nsim, seed, 
+                                        y_name, show_eda_plot, show_inf_plot)
+            if(boot_method == "perc"){
+              return(list(med = res$med, CI = res$CI))
+            } else {
+              return(list(med = res$med, SE = res$SE, ME = res$ME, CI = res$CI))
+            }
+          }      
         }
         
-        if(method == "simulation"){
-          # chi-square output
-          chisquare_output = chisq.test(y_table, correct = FALSE, simulate.p.value = TRUE, B = nsim)
-          print(chisquare_output)
+        # single proportion
+        if(statistic == "proportion"){
+          if(method == "theoretical"){ 
+            res <- ci_single_prop_theo(y, success, conf_level,
+                                       y_name, show_eda_plot, show_inf_plot = FALSE) 
+            return(list(p_hat = res$p_hat, SE = res$SE, 
+                        ME = res$ME, CI = res$CI))
+            
+          }
+          if(method == "simulation"){ 
+            res <- ci_single_prop_sim(y, success, conf_level, boot_method, nsim, seed, 
+                                      y_name, show_eda_plot, show_inf_plot)
+            if(boot_method == "perc"){
+              return(list(p_hat = res$p_hat, CI = res$CI))
+            } else {
+              return(list(p_hat = res$p_hat, SE = res$SE, ME = res$ME, CI = res$CI))
+            }
+          }
         }
-        
       }
       
+      
+      # compare two
+      if(!is.null(x)){
+        
+        # remove NAs
+        d <- na.omit(data.frame(y = y, x = x))
+        x <- d$x
+        y <- d$y
+        
+        # fix order, if needed
+        if(!is.null(order)){
+          if(order[1] != levels(x)[1]){
+            x <- relevel(x, ref = levels(x)[2])
+          }
+        }
+        
+        # compare two means
+        if(statistic == "mean"){
+          
+          if(method == "theoretical"){ 
+            res <- ci_two_mean_theo(y, x, conf_level, y_name, show_eda_plot, show_inf_plot = FALSE)
+            return(list(y_bar_diff = res$y_bar_diff, df = res$df,
+                        SE = res$SE, ME = res$ME, CI = res$CI))
+          }
+          if(method == "simulation"){ 
+            res <- ci_two_mean_sim(y, x, conf_level, boot_method, nsim, seed, 
+                                   y_name, show_eda_plot, show_inf_plot)
+            if(boot_method == "perc"){
+              return(list(y_bar_diff = res$y_bar_diff, CI = res$CI))
+            } else {
+              return(list(y_bar_diff = res$y_bar_diff, SE = res$SE, ME = res$ME, CI = res$CI))
+            }
+          }  
+        }
+        
+        # compare two medians
+        if(statistic == "median"){
+          if(method == "theoretical"){ 
+            stop("Use simulation methods for inference for the median.", call. = FALSE)
+          }
+          if(method == "simulation"){ 
+            res <- ci_two_median_sim(y, x, conf_level, boot_method, nsim, seed, 
+                                     y_name, show_eda_plot, show_inf_plot)
+            if(boot_method == "perc"){
+              return(list(y_med_diff = res$y_med_diff, CI = res$CI))
+            } else {
+              return(list(y_med_diff = res$y_med_diff, SE = res$SE, ME = res$ME, CI = res$CI))
+            }
+          }      
+        }
+        
+        # compare two proportions
+        if(statistic == "proportion"){
+          if(method == "theoretical"){ 
+            res <- ci_two_prop_theo(y, x, success, conf_level,
+                                    x_name, y_name, show_eda_plot, show_inf_plot = FALSE) 
+            return(list(p_hat_diff = res$p_hat_diff, SE = res$SE, ME = res$ME, CI = res$CI))
+          }
+          if(method == "simulation"){ 
+            res <- ci_two_prop_sim(y, x, success, conf_level, boot_method, nsim, seed, 
+                                   x_name, y_name, show_eda_plot, show_inf_plot)
+            if(boot_method == "perc"){
+              return(list(p_hat_diff = res$p_hat_diff, CI = res$CI))
+            } else {
+              return(list(p_hat_diff = res$p_hat_diff, SE = res$SE, ME = res$ME, CI = res$CI))
+            }
+          }  
+        }
+      }
+    }
+
+    
+    # ht
+    if(type == "ht"){
+      # source helper functions
+      #source("ht_single_mean_theo.R")
+      #source("ht_single_mean_sim.R")
+      #source("ht_single_median_sim.R")
+      #source("ht_single_prop_theo.R")
+      #source("ht_single_prop_sim.R")
+      #source("ht_two_mean_theo.R")
+      #source("ht_two_mean_sim.R")
+      #source("ht_two_median_sim.R")
+      #source("ht_two_prop_theo.R")
+      #source("ht_two_prop_sim.R")  
+      
+      # single
+      if(is.null(x)){
+        
+        # remova NAs
+        y <- y[!is.na(y)]
+        
+        # single mean
+        if(statistic == "mean"){
+          if(method == "theoretical"){ 
+            res <- ht_single_mean_theo(y, null, alternative,
+                                       y_name, show_eda_plot, show_inf_plot)
+            return(list(y_bar = res$y_bar, SE = res$SE, t_score = res$t_score, 
+                        df = res$df, p_value = res$p_value))
+          }
+          if(method == "simulation"){ 
+            res <- ht_single_mean_sim(y, null, alternative, nsim, seed, 
+                                      y_name, show_eda_plot, show_inf_plot)
+            return(list(y_bar = res$y_bar, p_value = res$p_value))
+          }      
+        }
+        
+        # single median
+        if(statistic == "median"){
+          if(method == "theoretical"){ 
+            stop("Use simulation methods for inference for the median.", call. = FALSE)
+          }
+          if(method == "simulation"){ 
+            res <- ht_single_median_sim(y, null, alternative, nsim, seed,
+                                        y_name, show_eda_plot, show_inf_plot)
+            return(list(y_med = res$y_med, p_value = res$p_value))
+          }      
+        }
+        
+        # single proportion
+        #  if(statistic == "proportion"){
+        #    if(method == "theoretical"){ 
+        #      res <- ht_single_prop_theo(y, success, conf_level,
+        #                                 y_name, show_eda_plot, show_inf_plot = FALSE) 
+        #      return(list(p_hat = res$p_hat, SE = res$SE, 
+        #                  ME = res$ME, CI = res$CI))
+        #      
+        #    }
+        #    if(method == "simulation"){ 
+        #      res <- ht_single_prop_sim(y, success, conf_level, boot_method, nsim, seed, 
+        #                                y_name, show_eda_plot, show_inf_plot)
+        #      if(boot_method == "perc"){
+        #        return(list(p_hat = res$p_hat, CI = res$CI))
+        #      } else {
+        #        return(list(p_hat = res$p_hat, SE = res$SE, ME = res$ME, CI = res$CI))
+        #      }
+        #    }
+        #  }
+      }
+      #
+      #
+      # compare two
+      if(!is.null(x)){
+        
+        # remove NAs
+        d <- na.omit(data.frame(y = y, x = x))
+        x <- d$x
+        y <- d$y
+        
+        # fix order, if needed
+        if(!is.null(order)){
+          if(order[1] != levels(x)[1]){
+            x <- relevel(x, ref = levels(x)[2])
+          }
+        }
+        
+        # compare two means
+        if(statistic == "mean"){
+          
+          if(method == "theoretical"){ 
+            res <- ht_two_mean_theo(y, x, null, alternative, 
+                                    y_name, show_eda_plot, show_inf_plot)
+            return(list(y_bar_diff = res$y_bar_diff, df = res$df, SE = res$SE, 
+                        t = res$t, p_value = res$p_value))
+          }
+          #    if(method == "simulation"){ 
+          #      res <- ht_two_mean_sim(y, x, conf_level, boot_method, nsim, seed, 
+          #                      y_name, show_eda_plot, show_inf_plot)
+          #      if(boot_method == "perc"){
+          #        return(list(y_bar_diff = res$y_bar_diff, CI = res$CI))
+          #      } else {
+          #        return(list(y_bar_diff = res$y_bar_diff, SE = res$SE, ME = res$ME, CI = res$CI))
+          #      }
+          #    }  
+        }
+        #  
+        #  # compare two medians
+        #  if(statistic == "median"){
+        #    if(method == "theoretical"){ 
+        #      stop("Use simulation methods for inference for the median.", call. = FALSE)
+        #    }
+        #    if(method == "simulation"){ 
+        #      res <- ht_two_median_sim(y, x, conf_level, boot_method, nsim, seed, 
+        #                                  y_name, show_eda_plot, show_inf_plot)
+        #      if(boot_method == "perc"){
+        #        return(list(y_med_diff = res$y_med_diff, CI = res$CI))
+        #      } else {
+        #        return(list(y_med_diff = res$y_med_diff, SE = res$SE, ME = res$ME, CI = res$CI))
+        #      }
+        #    }      
+        #  }
+        #  
+        #  # compare two proportions
+        #  if(statistic == "proportion"){
+        #    if(method == "theoretical"){ 
+        #      res <- ht_two_prop_theo(y, x, success, conf_level,
+        #                              x_name, y_name, show_eda_plot, show_inf_plot = FALSE) 
+        #      return(list(p_hat_diff = res$p_hat_diff, SE = res$SE, ME = res$ME, CI = res$CI))
+        #    }
+        #    if(method == "simulation"){ 
+        #      res <- ht_two_prop_sim(y, x, success, conf_level, boot_method, nsim, seed, 
+        #                             x_name, y_name, show_eda_plot, show_inf_plot)
+        #      if(boot_method == "perc"){
+        #        return(list(p_hat_diff = res$p_hat_diff, CI = res$CI))
+        #      } else {
+        #        return(list(p_hat_diff = res$p_hat_diff, SE = res$SE, ME = res$ME, CI = res$CI))
+        #      }
+        #    }  
+        #  }
+      }
     }
     
-    # return simdist
-    if (simdist == TRUE) {return(sim_dist)}
-    
-    # reset plotting window
-    par(mfrow = c(1,1), mar = c(5,4,4,2)+0.1)
-  }
+}

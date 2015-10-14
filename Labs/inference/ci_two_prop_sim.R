@@ -1,12 +1,13 @@
-ci_single_prop_sim <- function(y, x, success, conf_level = 0.95,
-                               boot_method = c("perc", "se"), nsim = 10000, seed = NULL){
+ci_two_prop_sim <- function(y, x, success, conf_level, boot_method, nsim, seed,
+                            x_name, y_name, show_eda_plot, show_inf_plot){
+  
   # set seed
-  if(!is.null(seed)){set.seed(seed)}
+  if(!is.null(seed)){ set.seed(seed) }
   
   # calculate n1 and n2
   ns <- by(y, x, length)
   n1 <- as.numeric(ns[1])
-  n2 <- as.numeric(ns[1]) 
+  n2 <- as.numeric(ns[2]) 
   
   # calculate p-hat1 and p-hat2
   p_hat1 <- sum(y[x == levels(x)[1]] == success) / n1
@@ -40,9 +41,6 @@ ci_single_prop_sim <- function(y, x, success, conf_level = 0.95,
     
     # put CI together
     ci <- c(ci_lower, ci_upper)
-    
-    # return
-    return(list(p_hat = round(p_hat, 4), CI = round(ci, 4)))
   }
   
   # for standard error method
@@ -62,8 +60,53 @@ ci_single_prop_sim <- function(y, x, success, conf_level = 0.95,
     
     # calculate CI
     ci <- p_hat_diff + c(-1, 1) * me
-    
-    # return
-    return(list(p_hat_diff = round(p_hat_diff, 4), SE = round(se, 4), ME = round(me, 4), CI = round(ci, 4)))
   }  
+  
+  # eda_plot
+  d_eda <- data.frame(y = y, x = x)
+  
+  if(which(levels(y) == success) == 1){ 
+    fill_values = c("#1FBEC3", "#8FDEE1") 
+  } else {
+    fill_values = c("#8FDEE1", "#1FBEC3") 
+  }
+  
+  eda_plot <- ggplot(data = d_eda, aes(x = x, fill = y), environment = environment()) +
+    geom_bar() +
+    scale_fill_manual(values = fill_values) +
+    xlab(x_name) +
+    ylab("") +
+    ggtitle("Sample Distribution") +
+    guides(fill = guide_legend(title = y_name))
+  
+  # inf_plot
+  d_inf <- data.frame(sim_dist = sim_dist)
+  inf_plot <- ggplot(data = d_inf, aes(x = sim_dist), environment = environment()) +
+    geom_histogram(fill = "#CCCCCC", binwidth = diff(range(sim_dist)) / 20) +
+    annotate("rect", xmin = ci[1], xmax = ci[2], ymin = 0, ymax = Inf, 
+             alpha = 0.3, fill = "#FABAB8") +
+    xlab("bootstrap differences in proportions") +
+    ylab("") +
+    ggtitle("Bootstrap Distribution") +
+    geom_vline(xintercept = ci, color = "#F57670", lwd = 1.5)
+  
+  # print plots
+  if(show_eda_plot & !show_inf_plot){ 
+    print(eda_plot)
+  }
+  if(!show_eda_plot & show_inf_plot){ 
+    print(inf_plot)
+  }
+  if(show_eda_plot & show_inf_plot){
+    grid.arrange(eda_plot, inf_plot, ncol = 2)
+  }
+  
+  # return
+  if(boot_method == "perc"){
+    return(list(p_hat_diff = round(p_hat_diff, 4), CI = round(ci, 4)))
+  } else {
+    return(list(p_hat_diff = round(p_hat_diff, 4), SE = round(se, 4), 
+                ME = round(me, 4), CI = round(ci, 4)))
+  }
+  
 }

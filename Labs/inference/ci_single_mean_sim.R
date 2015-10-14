@@ -1,13 +1,14 @@
-ci_single_mean_sim <- function(y, conf_level = 0.95, 
-                               boot_method = c("perc", "se"), nsim = 10000, seed = NULL){
+ci_single_mean_sim <- function(y, conf_level, boot_method, nsim, seed, 
+                               y_name, show_eda_plot, show_inf_plot){
+
   # set seed
-  if(!is.null(seed)){set.seed(seed)}
+  if(!is.null(seed)){ set.seed(seed) }
   
   # calculate sample size
   n <- length(y) 
   
   # calculate x-bar
-  x_bar <- mean(y)
+  y_bar <- mean(y)
   
   # create bootstrap distribution
   sim_dist <- rep(NA, nsim)
@@ -28,9 +29,6 @@ ci_single_mean_sim <- function(y, conf_level = 0.95,
     
     # put CI together
     ci <- c(ci_lower, ci_upper)
-    
-    # return
-    return(list(x_bar = round(x_bar, 4), CI = round(ci, 4)))
   }
   
   # for standard error method
@@ -51,12 +49,46 @@ ci_single_mean_sim <- function(y, conf_level = 0.95,
     me <- t_star * se
     
     # calculate CI
-    ci <- x_bar + c(-1, 1)* me
-    
-    # return
-    return(list(x_bar = round(x_bar, 4), SE = round(se, 4), ME = round(me, 4), CI = round(ci, 4)))
-    
-    # plot
-    p <- 
-  }  
+    ci <- y_bar + c(-1, 1)* me
+  }
+  
+  # eda_plot
+  d_eda <- data.frame(y = y)
+  eda_plot <- ggplot(data = d_eda, aes(x = y), environment = environment()) +
+    geom_histogram(fill = "#8FDEE1", binwidth = diff(range(y)) / 20) +
+    xlab(y_name) +
+    ylab("") +
+    ggtitle("Sample Distribution") +
+    geom_vline(xintercept = y_bar, col = "#1FBEC3", lwd = 1.5)
+  
+  # inf_plot
+  d_inf <- data.frame(sim_dist = sim_dist)
+  inf_plot <- ggplot(data = d_inf, aes(x = sim_dist), environment = environment()) +
+    geom_histogram(fill = "#CCCCCC", binwidth = diff(range(sim_dist)) / 20) +
+    annotate("rect", xmin = ci[1], xmax = ci[2], ymin = 0, ymax = Inf, 
+             alpha = 0.3, fill = "#FABAB8") +
+    xlab("bootstrap means") +
+    ylab("") +
+    ggtitle("Bootstrap Distribution") +
+    geom_vline(xintercept = ci, color = "#F57670", lwd = 1.5)
+  
+  # print plots
+  if(show_eda_plot & !show_inf_plot){ 
+    print(eda_plot)
+  }
+  if(!show_eda_plot & show_inf_plot){ 
+    print(inf_plot)
+  }
+  if(show_eda_plot & show_inf_plot){
+    grid.arrange(eda_plot, inf_plot, ncol = 2)
+  }
+  
+  # return
+  if(boot_method == "perc"){
+    return(list(y_bar = round(y_bar, 4), CI = round(ci, 4)))
+  } else {
+    return(list(y_bar = round(y_bar, 4), SE = round(se, 4), 
+                ME = round(me, 4), CI = round(ci, 4)))
+  }
+  
 }

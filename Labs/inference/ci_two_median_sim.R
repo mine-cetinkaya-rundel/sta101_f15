@@ -1,20 +1,21 @@
-ci_two_median_sim <- function(y, x, conf_level = 0.95, 
-                            boot_method = c("perc", "se"), nsim = 10000, seed = NULL){
+ci_two_median_sim <- function(y, x, conf_level, boot_method, nsim, seed,
+                              y_name, show_eda_plot, show_inf_plot){
+  
   # set seed
-  if(!is.null(seed)){set.seed(seed)}
+  if(!is.null(seed)){ set.seed(seed) }
   
   # calculate n1 and n2
   ns <- by(y, x, length)
   n1 <- as.numeric(ns[1])
-  n2 <- as.numeric(ns[1])
+  n2 <- as.numeric(ns[2])
   
-  # calculate x-bar1 and x-bar2
-  medians <- by(y, x, median)
-  median1 <- as.numeric(medians[1])
-  median2 <- as.numeric(medians[2])
+  # calculate y-bar1 and y-bar2
+  y_meds <- by(y, x, median)
+  y_med1 <- as.numeric(y_meds[1])
+  y_med2 <- as.numeric(y_meds[2])
   
-  # calculate difference in x-bars
-  median_diff <- median1 - median2
+  # calculate difference in y-bars
+  y_med_diff <- y_med1 - y_med2
   
   # create bootstrap distribution
   y1 <- y[x == levels(x)[1]]
@@ -39,9 +40,6 @@ ci_two_median_sim <- function(y, x, conf_level = 0.95,
     
     # put CI together
     ci <- c(ci_lower, ci_upper)
-    
-    # return
-    return(list(median_diff = round(median_diff, 4), CI = round(ci, 4)))
   }
   
   # for standard error method
@@ -62,9 +60,45 @@ ci_two_median_sim <- function(y, x, conf_level = 0.95,
     me <- t_star * se
     
     # calculate CI
-    ci <- median_diff + c(-1, 1) * me
-    
-    # return
-    return(list(median_diff = round(median_diff, 4), SE = round(se, 4), ME = round(me, 4), CI = round(ci, 4)))
-  }  
+    ci <- y_med_diff + c(-1, 1) * me
+  }
+  
+  # eda_plot
+  d_eda <- data.frame(y = y, x = x)
+
+  eda_plot <- ggplot(data = d_eda, aes(x = x, y = y), environment = environment()) +
+    geom_boxplot(color = "#1FBEC3", fill = "#8FDEE1", outlier.colour = "#1FBEC3") +
+    xlab("") +
+    ylab(y_name) +
+    ggtitle("Sample Distributions")
+
+  # inf_plot
+  d_inf <- data.frame(sim_dist = sim_dist)
+  inf_plot <- ggplot(data = d_inf, aes(x = sim_dist), environment = environment()) +
+    geom_histogram(fill = "#CCCCCC", binwidth = diff(range(sim_dist)) / 20) +
+    annotate("rect", xmin = ci[1], xmax = ci[2], ymin = 0, ymax = Inf, 
+             alpha = 0.3, fill = "#FABAB8") +
+    xlab("bootstrap differences in medians") +
+    ylab("") +
+    ggtitle("Bootstrap Distribution") +
+    geom_vline(xintercept = ci, color = "#F57670", lwd = 1.5)
+  
+  # print plots
+  if(show_eda_plot & !show_inf_plot){ 
+    print(eda_plot)
+  }
+  if(!show_eda_plot & show_inf_plot){ 
+    print(inf_plot)
+  }
+  if(show_eda_plot & show_inf_plot){
+    grid.arrange(eda_plot, inf_plot, ncol = 2)
+  }
+  
+  # return
+  if(boot_method == "perc"){
+    return(list(y_med_diff = round(y_med_diff, 4), CI = round(ci, 4)))
+  } else {
+    return(list(y_med_diff = round(y_med_diff, 4), SE = round(se, 4), 
+                ME = round(me, 4), CI = round(ci, 4)))
+  }
 }

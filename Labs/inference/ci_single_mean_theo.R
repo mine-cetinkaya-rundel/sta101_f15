@@ -1,16 +1,11 @@
-ci_single_mean_theo <- function(y, data = NULL, conf_level = 0.95){
-  
-  # define x_lab, to be used in plotting
-  x_lab <- paste(substitute(y))
-  
-  # assign y
-  y <- eval(substitute(y), data, parent.frame())
+ci_single_mean_theo <- function(y, conf_level, 
+                                y_name, show_eda_plot, show_inf_plot){
 
   # calculate sample size
   n <- length(y) 
 
   # calculate x-bar
-  x_bar <- mean(y)
+  y_bar <- mean(y)
 
   # define degrees of freedom
   df <- n - 1
@@ -28,17 +23,23 @@ ci_single_mean_theo <- function(y, data = NULL, conf_level = 0.95){
   me <- t_star * se
   
   # calculate CI
-  ci <- x_bar + c(-1, 1)* me
+  ci <- y_bar + c(-1, 1)* me
 
-    # plot
-  p <-  ggplot(data = data, aes(x = y), environment = environment()) +
-    geom_histogram() +
-    xlab(x_lab) +
+  # eda_plot
+  d_eda <- data.frame(y = y)
+  eda_plot <- ggplot(data = d_eda, aes(x = y), environment = environment()) +
+    geom_histogram(fill = "#8FDEE1", binwidth = diff(range(y)) / 20) +
+    xlab(y_name) +
     ylab("") +
-    geom_vline(xintercept = mean(y), col = "#649EFC")
-  suppressMessages(print(p))
+    ggtitle("Sample Distribution") +
+    geom_vline(xintercept = y_bar, col = "#1FBEC3", lwd = 1.5)
   
+  # print plots
+  if(show_eda_plot){ print(eda_plot) }
+  if(show_inf_plot){ warning("No inference plot available.") }
+
   # return
-  return(list(x_bar = round(x_bar, 4), SE = round(se, 4), ME = round(me, 4), CI = round(ci, 4)))
+  return(list(y_bar = round(y_bar, 4), df = df, SE = round(se, 4), 
+              ME = round(me, 4), CI = round(ci, 4)))
   
 }
