@@ -148,7 +148,8 @@ title: Schedule
 | Oct 8, Thu  | [Lab 6: Inference for numerical data](post/labs/inf_for_numerical_data.html)        |
 | Oct 12, Mon | *Fall Break - no class*                |     
 | Oct 14, Wed | **RA 4** in class |
-|             | [Lesson 4.2](post/slides/u4_deck2.pdf) &nbsp;&nbsp;&nbsp;[<i class="fa fa-print"></i>](post/slides/u4_deck2H.pdf) |
+|             | [Lesson 4.2: Bootstrap intervals](post/slides/u4_deck2.pdf) &nbsp;&nbsp;&nbsp;[<i class="fa fa-print"></i>](post/slides/u4_deck2H.pdf) |
+|              | [App Ex 4.2: Bootstrap intervals](post/app/app_Bootstrap_intervals.pdf) |
 | Oct 15, Thu | Work on [Project 1](post/projects/project1.html) proposal               |
 | Oct 19, Mon | [Lesson 4.3](post/slides/u4_deck3.pdf) &nbsp;&nbsp;&nbsp;[<i class="fa fa-print"></i>](post/slides/u4_deck3H.pdf) |
 | Oct 21, Wed | [Lesson 4.4](post/slides/u4_deck4.pdf) &nbsp;&nbsp;&nbsp;[<i class="fa fa-print"></i>](post/slides/u4_deck4H.pdf) |
