@@ -9,7 +9,7 @@ output:
 ---
 
 ```{r global_options, include=FALSE}
-knitr::opts_chunk$set(eval = TRUE)
+knitr::opts_chunk$set(eval = FALSE)
 library(dplyr)
 library(ggplot2)
 ```
@@ -35,7 +35,7 @@ observations from this data set.
 
 Load the `nc` data set into our workspace.
 
-```{r load-data, eval=FALSE}
+```{r load-data}
 load(url("https://stat.duke.edu/~mc301/data/nc.RData"))
 ```
 
@@ -63,7 +63,7 @@ variable         | description
 Remember that you can answer this question by viewing the data in the data viewer or
 by using the following command:
 
-```{r summary, eval=FALSE}
+```{r summary}
 str(nc)
 ```
 
@@ -84,7 +84,7 @@ also compare the means of the distributions using the following to
 first group the data by the `habit` variable, and then calculate the mean
 `weight` in these groups using the `mean` function.
 
-```{r by-means, eval=FALSE}
+```{r by-means}
 nc %>%
   group_by(habit) %>%
   summarise(mean_weight = mean(weight))
@@ -109,40 +109,44 @@ hypothesis tests and constructing confidence intervals.
 First, load the function:
 
 ```{r load-inference}
-load(url("https://stat.duke.edu/~mc301/R/inference.RData"))
+load(url("https://stat.duke.edu/~mc301/R/fun/inference.RData"))
 ```
 
 Then, run the following:
 
-```{r inf-weight-habit-ht, eval=FALSE, tidy=FALSE}
-inference(y = nc$weight, x = nc$habit, est = "mean", type = "ht", null = 0, 
+```{r inf-weight-habit-ht, tidy=FALSE}
+inference(y = weight, x = habit, data = nc, statistic = "mean", type = "ht", null = 0, 
           alternative = "twosided", method = "theoretical")
 ```
 
 Let's pause for a moment to go through the arguments of this custom function. 
 The first argument is `y`, which is the response variable that we are 
-interested in: `nc$weight`. The second argument is the explanatory variable, 
+interested in: `weight`. The second argument is the explanatory variable, 
 `x`, which is the variable that splits the data into two groups, smokers and 
-non-smokers: `nc$habit`. The third argument, `est`, is the parameter we're 
-interested in: `"mean"` (other options are `"median"`, or `"proportion"`.) Next
-we decide on the `type` of inference we want: a hypothesis test (`"ht"`) or a 
-confidence interval (`"ci"`). When performing a hypothesis test, we also need 
-to supply the `null` value, which in this case is `0`, since the null 
-hypothesis sets the two population means equal to each other. The `alternative`
-hypothesis can be `"less"`, `"greater"`, or `"twosided"`. Lastly, the `method` 
-of inference can be `"theoretical"` or `"simulation"` based.
+non-smokers: `habit`. The third argument, `data`, is the data frame these
+variables are stored in. Next is `statistic`, which is the sample statistic
+we're using, or similarly, the population parameter we're estimating. In future labs
+we'll also work with "median" and "proportion". Next we decide on the `type` of inference 
+we want: a hypothesis test (`"ht"`) or a confidence interval (`"ci"`). When performing a 
+hypothesis test, we also need to supply the `null` value, which in this case is `0`, 
+since the null hypothesis sets the two population means equal to each other. 
+The `alternative` hypothesis can be `"less"`, `"greater"`, or `"twosided"`. 
+Lastly, the `method` of inference can be `"theoretical"` or `"simulation"` based.
 
 5.  Change the `type` argument to `"ci"` to construct and record a confidence 
 interval for the difference between the weights of babies born to nonsmoking and 
-smoking mothers, and interpret this interval in context of the data.
+smoking mothers, and interpret this interval in context of the data. Note that by 
+default you'll get a 95% confidence interval. If you want to change the
+confidence level, add a new argument (`conf_level`) which takes on a value
+between 0 and 1. Also note that when doing a confidence interval arguments like
+`null` and `alternative` are not useful, so make sure to remove them.
 
 By default the function reports an interval for ($\mu_{nonsmoker} - \mu_{smoker}$)
 . We can easily change this order by using the `order` argument:
 
-```{r inf-weight-habit-ci, eval=FALSE, tidy=FALSE}
-inference(y = nc$weight, x = nc$habit, est = "mean", type = "ci", null = 0, 
-          alternative = "twosided", method = "theoretical", 
-          order = c("smoker","nonsmoker"))
+```{r inf-weight-habit-ci, tidy=FALSE}
+inference(y = weight, x = habit, data = nc, statistic = "mean", type = "ci", 
+          method = "theoretical", order = c("smoker","nonsmoker"))
 ```
 
 * * *
@@ -157,7 +161,7 @@ omit the `x` variable from the function.
 
 -   Calculate a new confidence interval for the same parameter at the 90% 
 confidence level. You can change the confidence level by adding a new argument 
-to the function: `conflevel = 0.90`. Comment on the width of this interval versus 
+to the function: `conf_level = 0.90`. Comment on the width of this interval versus 
 the one obtained in the the previous exercise.
 
 -   Conduct a hypothesis test evaluating whether the average weight gained by 
