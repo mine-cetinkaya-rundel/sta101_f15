@@ -44,3 +44,27 @@ only stating reject/not reject, 2 pts for in context discussion of results"
 * Exam proctoring and grading schedule
     - MT 1: Mine on Tuesday starting at 4:30pm, Anthea on Wednesday evening
 * Lab late policy
+
+###    
+
+    + Lab 7: Mine - via email
+    + Lab 8: Ilan
+    + Lab 9: Anna
+    + Lab 10: Megan
+
+- Proposals: Grading due Oct 26 midnight
+  - Instructions for grading:
+    - Download all files they submitted
+    - Knit the HTML document (by Wednesday midnight)
+      - If it doesn't knit due to lack of data, send them an email with a screen shot to fix it in 48 hours (-3)
+      - If it doesn't knit due to other errors, and you want to fix them, dock points accordingly, -3 for any errors
+      - If it doesn't knit due to other errors, and you can't tell what the issue is, email and screen shot and -3
+  - Out of 10 points
+    - 0 - no submission
+    - 10 - absolutely perfect (rare)
+  - 10 points:
+    - 1 pt for each question between 1-6
+    - 3 pts for question 7 (1 for summary stats, 1 for plots, 1 for interpretation)
+    - 1 pt for overall writing quality
+ 
+

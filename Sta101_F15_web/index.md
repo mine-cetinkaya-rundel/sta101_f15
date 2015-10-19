@@ -151,7 +151,8 @@ title: Schedule
 |             | [Lesson 4.2: Bootstrap intervals](post/slides/u4_deck2.pdf) &nbsp;&nbsp;&nbsp;[<i class="fa fa-print"></i>](post/slides/u4_deck2H.pdf) |
 |              | [App Ex 4.2: Bootstrap intervals](post/app/app_Bootstrap_intervals.pdf) |
 | Oct 15, Thu | Work on [Project 1](post/projects/project1.html) proposal               |
-| Oct 19, Mon | [Lesson 4.3](post/slides/u4_deck3.pdf) &nbsp;&nbsp;&nbsp;[<i class="fa fa-print"></i>](post/slides/u4_deck3H.pdf) |
+| Oct 19, Mon | [Lesson 4.3: Power](post/slides/u4_deck3.pdf) &nbsp;&nbsp;&nbsp;[<i class="fa fa-print"></i>](post/slides/u4_deck3H.pdf) |
+|              | [App Ex 4.3: Power](post/app/app_Power.pdf) |
 | Oct 21, Wed | [Lesson 4.4](post/slides/u4_deck4.pdf) &nbsp;&nbsp;&nbsp;[<i class="fa fa-print"></i>](post/slides/u4_deck4H.pdf) |
 | Oct 22, Thu | [Lab 7: (More) inference for numerical data](post/labs/lab7.html) |
 
