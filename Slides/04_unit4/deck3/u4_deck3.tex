@@ -13,24 +13,24 @@
 % Option 1: Slides: (comment for handouts)   %
 %%%%%%%%%%%%%%%%%%%%%%%
 
-\documentclass[slidestop,compress,mathserif,12pt,t,professionalfonts,xcolor=table]{beamer}
-
-% solution stuff
-\newcommand{\solnMult}[1]{
-\only<1>{#1}
-\only<2->{\red{\textbf{#1}}}
-}
-\newcommand{\soln}[1]{\textit{#1}}
+%\documentclass[slidestop,compress,mathserif,12pt,t,professionalfonts,xcolor=table]{beamer}
+%
+%% solution stuff
+%\newcommand{\solnMult}[1]{
+%\only<1>{#1}
+%\only<2->{\red{\textbf{#1}}}
+%}
+%\newcommand{\soln}[1]{\textit{#1}}
 
 %%%%%%%%%%%%%%%%%%%%%%%
 % Option 2: Slides: (to post)                          %
 %%%%%%%%%%%%%%%%%%%%%%%
 
-%\documentclass[slidestop,compress,mathserif,12pt,t,professionalfonts,xcolor=table]{beamer}
-%
-% % solution stuff
-% \newcommand{\solnMult}[1]{#1}
-% \newcommand{\soln}[1]{}
+\documentclass[slidestop,compress,mathserif,12pt,t,professionalfonts,xcolor=table]{beamer}
+
+ % solution stuff
+ \newcommand{\solnMult}[1]{#1}
+ \newcommand{\soln}[1]{}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Option 3: Handouts, without solutions (post before class)    %
@@ -319,7 +319,7 @@ survey asks about what topics were discussed during the person's last visit to a
 people complete an average of 4 surveys, with the standard deviation of 2.2 surveys. The research group 
 wants to try a new interface that they think will encourage new enrollees to complete more surveys, where 
 they will randomize a total of 300 enrollees to either get the new interface or the current interface (equally
-distributed between the two groups). What is the power of the test that can detect an increase of 1 survey 
+distributed between the two groups). What is the power of the test that can detect an increase of 0.5 surveys 
 per enrollee for the new interface compared to the old interface? Assume that the new interface does not
 affect the standard deviation of completed surveys, and $\alpha = 0.05$.}
 
