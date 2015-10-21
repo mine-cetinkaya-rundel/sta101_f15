@@ -153,7 +153,8 @@ title: Schedule
 | Oct 15, Thu | Work on [Project 1](post/projects/project1.html) proposal               |
 | Oct 19, Mon | [Lesson 4.3: Power](post/slides/u4_deck3.pdf) &nbsp;&nbsp;&nbsp;[<i class="fa fa-print"></i>](post/slides/u4_deck3H.pdf) |
 |              | [App Ex 4.3: Power](post/app/app_Power.pdf) |
-| Oct 21, Wed | [Lesson 4.4](post/slides/u4_deck4.pdf) &nbsp;&nbsp;&nbsp;[<i class="fa fa-print"></i>](post/slides/u4_deck4H.pdf) |
+| Oct 21, Wed | [Lesson 4.4: ANOVA](post/slides/u4_deck4.pdf) &nbsp;&nbsp;&nbsp;[<i class="fa fa-print"></i>](post/slides/u4_deck4H.pdf) |
+|              | [App Ex 4.4: ANOVA](post/app/app_ANOVA.pdf) |
 | Oct 22, Thu | [Lab 7: (More) inference for numerical data](post/labs/lab7.html) |
 
 ##### Due dates
