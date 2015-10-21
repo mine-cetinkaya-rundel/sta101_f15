@@ -45,7 +45,6 @@ ht_two_mean_theo(y = nc$weight, x = nc$habit, null = 0, alternative = "twosided"
 
 
 
-save(ci_single_mean_sim, ci_single_mean_theo, ci_single_median_sim, ci_single_prop_sim, ci_single_prop_theo, ci_two_mean_sim, ci_two_mean_theo, ci_two_median_sim, ci_two_prop_sim, ci_two_prop_theo, ht_single_mean_sim, ht_single_mean_theo, ht_single_median_sim, ht_two_mean_theo, inference, file = "inference.RData")
 
 
 inference_ht(y = weeks, data = nc, statistic = "median", method = "simulation", 
@@ -58,4 +57,35 @@ inference_ht(y = weeks, data = nc, statistic = "median", method = "simulation",
              null = 38.5, alternative = "less") # some error
 
 
-
+source("ht_many_mean.R")
+source("ci_single_mean_sim.R")
+source("ci_single_mean_theo.R")
+source("ci_single_median_sim.R")
+source("ci_single_prop_sim.R")
+source("ci_single_prop_theo.R")
+source("ci_two_mean_sim.R")
+source("ci_two_mean_theo.R")
+source("ci_two_median_sim.R")
+source("ci_two_prop_sim.R")
+source("ci_two_prop_theo.R")
+source("ht_single_mean_sim.R")
+source("ht_single_mean_theo.R")
+source("ht_single_median_sim.R")
+source("ht_two_mean_theo.R")
+source("inference.R")
+save(ci_single_mean_sim, 
+     ci_single_mean_theo, 
+     ci_single_median_sim, 
+     ci_single_prop_sim, 
+     ci_single_prop_theo, 
+     ci_two_mean_sim, 
+     ci_two_mean_theo, 
+     ci_two_median_sim, 
+     ci_two_prop_sim, 
+     ci_two_prop_theo, 
+     ht_single_mean_sim, 
+     ht_single_mean_theo, 
+     ht_single_median_sim, 
+     ht_two_mean_theo, 
+     ht_many_mean_theo, 
+     inference, file = "inference.RData")

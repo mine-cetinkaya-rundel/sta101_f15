@@ -30,15 +30,16 @@ inference <- function(y, x = NULL, data,
     # show_inf_plot: TRUE/FALSE - print inference plot 
 
     # set mirror
-    options(repos=structure(c(CRAN="http://cran.rstudio.com")))
+    options(repos = structure(c(CRAN="http://cran.rstudio.com")))
     
+    # load packages if needed
     if (!("ggplot2" %in% names(installed.packages()[,"Package"]))) {install.packages("ggplot2")}
     suppressMessages(library(ggplot2, quietly = TRUE))
     
     if (!("gridExtra" %in% names(installed.packages()[,"Package"]))) {install.packages("gridExtra")}
     suppressMessages(library(gridExtra, quietly = TRUE))
     
-    # axis label
+    # save axis labels for use later
     y_name <- paste(substitute(y))
     x_name <- paste(substitute(x))
     
@@ -47,7 +48,7 @@ inference <- function(y, x = NULL, data,
     y <- eval(substitute(y), data, parent.frame())
     
     # error: weird y
-    if (length(y) == 1) {stop("Sample size of y is 1.", call. = FALSE)}
+    if (length(y) == 1) {stop("Sample size of y is 1", call. = FALSE)}
     
     # error: y or x is character, make factor
     if (is.character(y)) {y = as.factor(y)}
@@ -74,20 +75,25 @@ inference <- function(y, x = NULL, data,
     if(x_type == "numerical"){
       x = as.factor(x)
       x_type = "categorical"		
-      warning("Explanatory variable was numerical, it has been converted to categorical. In order to avoid this warning, first convert your explanatory variable to a categorical variable using the as.factor() function.", call. = FALSE)
+      warning("Explanatory variable was numerical, it has been converted 
+              to categorical. In order to avoid this warning, first convert 
+              your explanatory variable to a categorical variable using the 
+              as.factor() function", call. = FALSE)
     }
     
     # error: explanatory variable only has one level
     if(x_type == "categorical"){
       if(length(levels(x)) == 1){
-        stop("Explanatory variable has only one level, should have at least two levels.", call. = FALSE)
+        stop("Explanatory variable has only one level, it should have at least two 
+             levels", call. = FALSE)
       }
     }
     
     # error: response variable is categorical, but only has one level
     if(y_type == "categorical"){
       if(length(levels(y)) == 1){
-        stop("Response variable has only one level, should have at least two levels.", call. = FALSE)
+        stop("Response variable has only one level, it should have at least two 
+             levels", call. = FALSE)
       }
     }
     
@@ -98,27 +104,35 @@ inference <- function(y, x = NULL, data,
     if (y_type == "categorical") {y_levels = length(levels(y))}
     
     # error: missing type, method, statistic
-    if (length(type) > 1) {stop("Missing type: ci (confidence interval) or ht (hypothesis test).", call. = FALSE)}
-    if (length(method) > 1) {stop("Missing method: theoretical or simulation.", call. = FALSE)}
-    if (length(statistic) > 1) {stop("Missing statistic: mean, median, or proportion.", call. = FALSE)}
+    if (length(type) > 1) {
+      stop("Missing type: ci (confidence interval) or ht (hypothesis test)", call. = FALSE)
+      }
+    if (length(method) > 1) {
+      stop("Missing method: theoretical or simulation", call. = FALSE)
+      }
+    if (length(statistic) > 1) {
+      stop("Missing statistic: mean, median, or proportion", call. = FALSE)
+      }
     
     # error: method isn't theoretical or simulation
     method_list = c("theoretical", "simulation")
     method = tolower(gsub("\\s","", method))
     which_method = pmatch(method, method_list)
-    if(is.na(which_method)){stop("Method should be 'theoretical' or 'simulation'.", call. = FALSE)}
+    if(is.na(which_method)){
+      stop("Method should be theoretical or simulation", call. = FALSE)
+      }
     method = method_list[which_method]
     
     # error: type isn't ci or ht
     type_list = c("ci", "ht")
     type = tolower(gsub("\\s","", type))
     which_type = pmatch(type, type_list)
-    if(is.na(which_type)){stop("Type should be 'ci' or 'ht'.", call. = FALSE)}
+    if(is.na(which_type)){stop("Type should be ci or ht", call. = FALSE)}
     type = type_list[which_type]
     
     # error: missing boot_method
     if (method == "simulation" & type == "ci" & length(boot_method) > 1){
-      stop("Missing boot_method: perc (percentile method) or se (standard error method).", call. = FALSE)
+      stop("Missing boot_method: perc (percentile method) or se (standard error method)", call. = FALSE)
     }
     
     # error: boot_method isn't perc or se
@@ -126,7 +140,7 @@ inference <- function(y, x = NULL, data,
       boot_method_list = c("perc", "se")
       boot_method = tolower(gsub("\\s","", boot_method))
       which_boot_method = pmatch(boot_method, boot_method_list)
-      if(is.na(which_boot_method)){stop("Bootstrap type should be 'perc' or 'se'.", call. = FALSE)}
+      if(is.na(which_boot_method)){stop("boot_method should be perc or se", call. = FALSE)}
       boot_method = boot_method_list[which_boot_method]
     }
     
@@ -136,38 +150,38 @@ inference <- function(y, x = NULL, data,
       alternative = tolower(gsub("\\s","", alternative))
       which_alternative = pmatch(alternative, alternative_list)
       if((length(which_alternative) == 1) & any(is.na(which_alternative))){
-        stop("Alternative should be 'less', 'greater' or 'twosided'.", call. = FALSE)      
+        stop("alternative should be less, greater or twosided", call. = FALSE)      
       }
       if(any(which_alternative == 4)) {which_alternative = 3}
       alternative = alternative_list[which_alternative] 
     }
     
     # error / warning: issues with null values
-    if (type == "ht" & x_type == "only1Var" & is.null(null)) {stop("Missing null value.", call. = FALSE)}
+    if (type == "ht" & x_type == "only1Var" & is.null(null)) {stop("Missing null value", call. = FALSE)}
     if (type == "ht" & (x_levels == 2 & y_levels <= 2) & is.null(null)) {
       null = 0
-      warning("Missing null value, set to 0.", call. = FALSE)
+      warning("Missing null value, set to 0", call. = FALSE)
     }
     if (type == "ht" & (x_levels > 2 | y_levels > 2) & !is.null(null)) {
       if(y_type == "numerical"){
-        warning("Ignoring null value since it's undefined for ANOVA.", call. = FALSE)      
+        warning("Ignoring null value since it's undefined for ANOVA", call. = FALSE)      
       }
       if(y_type == "categorical"){
-        warning("Ignoring null value since it's undefined for chi-square test.", call. = FALSE)      
+        warning("Ignoring null value since it's undefined for chi-square test of independence", call. = FALSE)      
       }
     }
     
     # error / warning: issues with alternative  
     if (type == "ht" & length(alternative) > 1) {
-      if(x_levels <= 2 & y_levels <= 2) {stop("Missing alternative: less, greater, twosided.", call. = FALSE)}
+      if(x_levels <= 2 & y_levels <= 2) {stop("Missing alternative: less, greater, or twosided", call. = FALSE)}
       if(x_levels > 2 | y_levels > 2) {
         if(y_type == "numerical") {
           alternative = "greater"
-          warning("Use alternative = 'greater' for ANOVA.", call. = FALSE)
+          warning('Use alternative = "greater" for ANOVA', call. = FALSE)
         }
         if(y_type == "categorical") {
           alternative = "greater"
-          warning("Use alternative = 'greater' for chi-square test.", call. = FALSE)
+          warning('Use alternative = "greater" for chi-square test', call. = FALSE)
         }
       }
     }
@@ -175,34 +189,41 @@ inference <- function(y, x = NULL, data,
     # error: categorical variables have more than two levels, but type is ci
     if ((x_levels > 2 | y_levels > 2) & type == "ci") {
       if(y_type == "numerical"){
-        stop("Categorical variable has more than 2 levels, confidence interval is undefined, use ANOVA to test for a difference between means.", call. = FALSE)
+        stop("Categorical variable has more than 2 levels, confidence interval is undefined, 
+             use ANOVA to test for a difference between means", call. = FALSE)
       }
       if(y_type == "categorical"){
-        stop("Categorical variable has more than 2 levels, confidence interval is not defined, use chi-square test of independence.", call. = FALSE)
+        stop("Categorical variable has more than 2 levels, confidence interval is not defined, 
+             use chi-square test of independence", call. = FALSE)
       }
     } 
     if ((x_levels > 2 | y_levels > 2) & statistic == "median") {
       if(y_type == "numerical"){
-        stop("This function cannot be used to compare medians across more than 2 xs, use statistic = 'mean' for ANOVA.", call. = FALSE)
+        stop('This function cannot be used to compare medians across more than 2 groups, 
+             use statistic = "mean" to compare means across many groups using ANOVA', call. = FALSE)
       }
     }
     
     # error: statistic isn't mean, median, or proportion
     if (statistic %in% c("mean", "median", "proportion") == FALSE) {
-      stop("Statistic should be 'mean', 'median', or 'proportion'.", call. = FALSE)
+      stop("Statistic should be mean, median, or proportion", call. = FALSE)
     }
     
     # error: wrong statistic
     if (y_type == "numerical" & statistic == "proportion") {
-      stop("Response variable is numerical, sample statistic cannot be a proportion, choose either mean or median.", call. = FALSE)
+      stop("Response variable is numerical, sample statistic cannot be a proportion, 
+           use either mean or median", call. = FALSE)
     }  
     if (y_type == "categorical" & (statistic == "mean" | statistic == "median")) {
-      stop("Response variable is categorical, sample statistic cannot be a mean or a median, use proportion.", call. = FALSE)
+      stop("Response variable is categorical, sample statistic cannot be a mean or 
+           a median, use proportion", call. = FALSE)
     } 
     
     # error: x variable has more than two levels, but alternative is not defined properly (chi-square and ANOVA)
     if (x_type == "categorical" & x_levels > 2 & length(alternative) == 1) {
-      if(alternative != "greater"){stop("Use alternative = 'greater' for ANOVA or chi-square test.", call. = FALSE)}
+      if(alternative != "greater"){
+        stop('Use alternative = "greater" for ANOVA or chi-square test', call. = FALSE)
+        }
     }
     
     # errors about success
@@ -210,44 +231,45 @@ inference <- function(y, x = NULL, data,
       # error: success not provided for categorical variable for 1 or 2 proportion ci or ht
       if (is.null(success)) {
         y_level_names = levels(y)
-        stop(paste("Response variable is categorical, specify which level to call success: ", y_level_names[1], " or ", y_level_names[2]), call. = FALSE)
+        stop(paste("Response variable is categorical, specify which level to call success: ", 
+                   y_level_names[1], " or ", y_level_names[2]), call. = FALSE)
       }
       # error: success provided is not a level of the categorical variable
       if (success %in% levels(y) == FALSE) {
-        stop(paste(success,"is not a level of the success variable."), call. = FALSE)
+        stop(paste(success,"is not a level of the success variable"), call. = FALSE)
       }
     }
     
     # warning: success provided for numerical variable
     if (y_type == "numerical" & !is.null(success)) {
-      warning("Ignoring success since y are numerical.\n", call. = FALSE)
+      warning("Ignoring success since y is numerical", call. = FALSE)
     }
     
     # warning: confidence level greater than 1
     if (conf_level > 1) {
       conf_level = conf_level / 100
-      warning(paste("Confidence level converted to ", conf_level, ".", sep = ""), call. = FALSE)    
+      warning(paste("Confidence level converted to ", conf_level, sep = ""), call. = FALSE)    
     }
     
     # warning: significance level greater than 1
     if (sig_level > 1) {
       sig_level = sig_level / 100
-      warning(paste("Significance level converted to ", sig_level, ".", sep = ""), call. = FALSE)    
+      warning(paste("Significance level converted to ", sig_level, sep = ""), call. = FALSE)    
     }
     
     # ci
     if(type == "ci"){
       # source helper functions
-      #source("ci_single_mean_theo.R")
-      #source("ci_single_mean_sim.R")
-      #source("ci_single_median_sim.R")
-      #source("ci_single_prop_theo.R")
-      #source("ci_single_prop_sim.R")
-      #source("ci_two_mean_theo.R")
-      #source("ci_two_mean_sim.R")
-      #source("ci_two_median_sim.R")
-      #source("ci_two_prop_theo.R")
-      #source("ci_two_prop_sim.R")
+      source("ci_single_mean_sim.R")
+      source("ci_single_mean_theo.R")
+      source("ci_single_median_sim.R")
+      source("ci_single_prop_sim.R")
+      source("ci_single_prop_theo.R")
+      source("ci_two_mean_theo.R")
+      source("ci_two_mean_sim.R")
+      source("ci_two_median_sim.R")
+      source("ci_two_prop_sim.R")
+      source("ci_two_prop_theo.R")
       
       # single
       if(is.null(x)){
@@ -279,7 +301,7 @@ inference <- function(y, x = NULL, data,
         # single median
         if(statistic == "median"){
           if(method == "theoretical"){ 
-            stop("Use simulation methods for inference for the median.", call. = FALSE)
+            stop("Use simulation methods for inference for the median", call. = FALSE)
           }
           if(method == "simulation"){ 
             res <- ci_single_median_sim(y, conf_level, boot_method, nsim, seed, 
@@ -317,92 +339,100 @@ inference <- function(y, x = NULL, data,
       # compare two
       if(!is.null(x)){
         
-        # remove NAs
-        d <- na.omit(data.frame(y = y, x = x))
-        x <- d$x
-        y <- d$y
-        
-        # fix order, if needed
-        if(!is.null(order)){
-          if(order[1] != levels(x)[1]){
-            x <- relevel(x, ref = levels(x)[2])
-          }
-        }
-        
-        # compare two means
-        if(statistic == "mean"){
+        if(length(levels(x)) == 2){
           
-          if(method == "theoretical"){ 
-            res <- ci_two_mean_theo(y, x, conf_level, y_name, show_eda_plot, show_inf_plot = FALSE)
-            return(list(y_bar_diff = res$y_bar_diff, df = res$df,
-                        SE = res$SE, ME = res$ME, CI = res$CI))
-          }
-          if(method == "simulation"){ 
-            res <- ci_two_mean_sim(y, x, conf_level, boot_method, nsim, seed, 
-                                   y_name, show_eda_plot, show_inf_plot)
-            if(boot_method == "perc"){
-              return(list(y_bar_diff = res$y_bar_diff, CI = res$CI))
-            } else {
-              return(list(y_bar_diff = res$y_bar_diff, SE = res$SE, ME = res$ME, CI = res$CI))
+          # remove NAs
+          d <- na.omit(data.frame(y = y, x = x))
+          x <- d$x
+          y <- d$y
+          
+          # fix order, if needed
+          if(!is.null(order)){
+            if(order[1] != levels(x)[1]){
+              x <- relevel(x, ref = levels(x)[2])
             }
-          }  
-        }
-        
-        # compare two medians
-        if(statistic == "median"){
-          if(method == "theoretical"){ 
-            stop("Use simulation methods for inference for the median.", call. = FALSE)
           }
-          if(method == "simulation"){ 
-            res <- ci_two_median_sim(y, x, conf_level, boot_method, nsim, seed, 
+          
+          # compare two means
+          if(statistic == "mean"){
+            
+            if(method == "theoretical"){ 
+              res <- ci_two_mean_theo(y, x, conf_level, y_name, show_eda_plot, show_inf_plot = FALSE)
+              return(list(y_bar_diff = res$y_bar_diff, df = res$df,
+                          SE = res$SE, ME = res$ME, CI = res$CI))
+            }
+            if(method == "simulation"){ 
+              res <- ci_two_mean_sim(y, x, conf_level, boot_method, nsim, seed, 
                                      y_name, show_eda_plot, show_inf_plot)
-            if(boot_method == "perc"){
-              return(list(y_med_diff = res$y_med_diff, CI = res$CI))
-            } else {
-              return(list(y_med_diff = res$y_med_diff, SE = res$SE, ME = res$ME, CI = res$CI))
-            }
-          }      
-        }
-        
-        # compare two proportions
-        if(statistic == "proportion"){
-          if(method == "theoretical"){ 
-            res <- ci_two_prop_theo(y, x, success, conf_level,
-                                    x_name, y_name, show_eda_plot, show_inf_plot = FALSE) 
-            return(list(p_hat_diff = res$p_hat_diff, SE = res$SE, ME = res$ME, CI = res$CI))
+              if(boot_method == "perc"){
+                return(list(y_bar_diff = res$y_bar_diff, CI = res$CI))
+              } else {
+                return(list(y_bar_diff = res$y_bar_diff, SE = res$SE, ME = res$ME, CI = res$CI))
+              }
+            }  
           }
-          if(method == "simulation"){ 
-            res <- ci_two_prop_sim(y, x, success, conf_level, boot_method, nsim, seed, 
-                                   x_name, y_name, show_eda_plot, show_inf_plot)
-            if(boot_method == "perc"){
-              return(list(p_hat_diff = res$p_hat_diff, CI = res$CI))
-            } else {
+          
+          # compare two medians
+          if(statistic == "median"){
+            if(method == "theoretical"){ 
+              stop("Use simulation methods for inference for the median", call. = FALSE)
+            }
+            if(method == "simulation"){ 
+              res <- ci_two_median_sim(y, x, conf_level, boot_method, nsim, seed, 
+                                       y_name, show_eda_plot, show_inf_plot)
+              if(boot_method == "perc"){
+                return(list(y_med_diff = res$y_med_diff, CI = res$CI))
+              } else {
+                return(list(y_med_diff = res$y_med_diff, SE = res$SE, ME = res$ME, CI = res$CI))
+              }
+            }      
+          }
+          
+          # compare two proportions
+          if(statistic == "proportion"){
+            if(method == "theoretical"){ 
+              res <- ci_two_prop_theo(y, x, success, conf_level,
+                                      x_name, y_name, show_eda_plot, show_inf_plot = FALSE) 
               return(list(p_hat_diff = res$p_hat_diff, SE = res$SE, ME = res$ME, CI = res$CI))
             }
-          }  
+            if(method == "simulation"){ 
+              res <- ci_two_prop_sim(y, x, success, conf_level, boot_method, nsim, seed, 
+                                     x_name, y_name, show_eda_plot, show_inf_plot)
+              if(boot_method == "perc"){
+                return(list(p_hat_diff = res$p_hat_diff, CI = res$CI))
+              } else {
+                return(list(p_hat_diff = res$p_hat_diff, SE = res$SE, ME = res$ME, CI = res$CI))
+              }
+            }  
+          }
+          
         }
+
       }
+      
     }
 
     
     # ht
     if(type == "ht"){
       # source helper functions
-      #source("ht_single_mean_theo.R")
-      #source("ht_single_mean_sim.R")
-      #source("ht_single_median_sim.R")
+      source("ht_single_mean_theo.R")
+      source("ht_single_mean_sim.R")
+      source("ht_single_median_sim.R")
       #source("ht_single_prop_theo.R")
       #source("ht_single_prop_sim.R")
-      #source("ht_two_mean_theo.R")
+      source("ht_two_mean_theo.R")
       #source("ht_two_mean_sim.R")
-      #source("ht_two_median_sim.R")
+      source("ht_two_median_sim.R")
       #source("ht_two_prop_theo.R")
-      #source("ht_two_prop_sim.R")  
+      #source("ht_two_prop_sim.R")
+      source("ht_many_mean_theo.R")
+      #source("ht_many_props.R")
       
       # single
       if(is.null(x)){
         
-        # remova NAs
+        # remove NAs
         y <- y[!is.na(y)]
         
         # single mean
@@ -423,7 +453,7 @@ inference <- function(y, x = NULL, data,
         # single median
         if(statistic == "median"){
           if(method == "theoretical"){ 
-            stop("Use simulation methods for inference for the median.", call. = FALSE)
+            stop("Use simulation methods for inference for the median", call. = FALSE)
           }
           if(method == "simulation"){ 
             res <- ht_single_median_sim(y, null, alternative, nsim, seed,
@@ -452,76 +482,92 @@ inference <- function(y, x = NULL, data,
         #    }
         #  }
       }
-      #
-      #
+      
+      
       # compare two
       if(!is.null(x)){
         
-        # remove NAs
-        d <- na.omit(data.frame(y = y, x = x))
-        x <- d$x
-        y <- d$y
-        
-        # fix order, if needed
-        if(!is.null(order)){
-          if(order[1] != levels(x)[1]){
-            x <- relevel(x, ref = levels(x)[2])
-          }
-        }
-        
-        # compare two means
-        if(statistic == "mean"){
+        if(length(levels(x)) == 2){
           
-          if(method == "theoretical"){ 
-            res <- ht_two_mean_theo(y, x, null, alternative, 
-                                    y_name, show_eda_plot, show_inf_plot)
-            return(list(y_bar_diff = res$y_bar_diff, df = res$df, SE = res$SE, 
-                        t = res$t, p_value = res$p_value))
+          # remove NAs
+          d <- na.omit(data.frame(y = y, x = x))
+          x <- d$x
+          y <- d$y
+          
+          # fix order, if needed
+          if(!is.null(order)){
+            if(order[1] != levels(x)[1]){
+              x <- relevel(x, ref = levels(x)[2])
+            }
           }
+          
+          # compare two means
+          if(statistic == "mean"){
+            
+            if(method == "theoretical"){ 
+              res <- ht_two_mean_theo(y, x, null, alternative, 
+                                      y_name, show_eda_plot, show_inf_plot)
+              return(list(y_bar_diff = res$y_bar_diff, df = res$df, SE = res$SE, 
+                          t = res$t, p_value = res$p_value))
+            }
+            #    if(method == "simulation"){ 
+            #      res <- ht_two_mean_sim(y, x, conf_level, boot_method, nsim, seed, 
+            #                      y_name, show_eda_plot, show_inf_plot)
+            #      if(boot_method == "perc"){
+            #        return(list(y_bar_diff = res$y_bar_diff, CI = res$CI))
+            #      } else {
+            #        return(list(y_bar_diff = res$y_bar_diff, SE = res$SE, ME = res$ME, CI = res$CI))
+            #      }
+            #    }  
+          }
+          #  
+          #  # compare two medians
+          #  if(statistic == "median"){
+          #    if(method == "theoretical"){ 
+          #      stop("Use simulation methods for inference for the median", call. = FALSE)
+          #    }
           #    if(method == "simulation"){ 
-          #      res <- ht_two_mean_sim(y, x, conf_level, boot_method, nsim, seed, 
-          #                      y_name, show_eda_plot, show_inf_plot)
+          #      res <- ht_two_median_sim(y, x, conf_level, boot_method, nsim, seed, 
+          #                                  y_name, show_eda_plot, show_inf_plot)
           #      if(boot_method == "perc"){
-          #        return(list(y_bar_diff = res$y_bar_diff, CI = res$CI))
+          #        return(list(y_med_diff = res$y_med_diff, CI = res$CI))
           #      } else {
-          #        return(list(y_bar_diff = res$y_bar_diff, SE = res$SE, ME = res$ME, CI = res$CI))
+          #        return(list(y_med_diff = res$y_med_diff, SE = res$SE, ME = res$ME, CI = res$CI))
+          #      }
+          #    }      
+          #  }
+          #  
+          #  # compare two proportions
+          #  if(statistic == "proportion"){
+          #    if(method == "theoretical"){ 
+          #      res <- ht_two_prop_theo(y, x, success, conf_level,
+          #                              x_name, y_name, show_eda_plot, show_inf_plot = FALSE) 
+          #      return(list(p_hat_diff = res$p_hat_diff, SE = res$SE, ME = res$ME, CI = res$CI))
+          #    }
+          #    if(method == "simulation"){ 
+          #      res <- ht_two_prop_sim(y, x, success, conf_level, boot_method, nsim, seed, 
+          #                             x_name, y_name, show_eda_plot, show_inf_plot)
+          #      if(boot_method == "perc"){
+          #        return(list(p_hat_diff = res$p_hat_diff, CI = res$CI))
+          #      } else {
+          #        return(list(p_hat_diff = res$p_hat_diff, SE = res$SE, ME = res$ME, CI = res$CI))
           #      }
           #    }  
+          #  }
+          
         }
-        #  
-        #  # compare two medians
-        #  if(statistic == "median"){
-        #    if(method == "theoretical"){ 
-        #      stop("Use simulation methods for inference for the median.", call. = FALSE)
-        #    }
-        #    if(method == "simulation"){ 
-        #      res <- ht_two_median_sim(y, x, conf_level, boot_method, nsim, seed, 
-        #                                  y_name, show_eda_plot, show_inf_plot)
-        #      if(boot_method == "perc"){
-        #        return(list(y_med_diff = res$y_med_diff, CI = res$CI))
-        #      } else {
-        #        return(list(y_med_diff = res$y_med_diff, SE = res$SE, ME = res$ME, CI = res$CI))
-        #      }
-        #    }      
-        #  }
-        #  
-        #  # compare two proportions
-        #  if(statistic == "proportion"){
-        #    if(method == "theoretical"){ 
-        #      res <- ht_two_prop_theo(y, x, success, conf_level,
-        #                              x_name, y_name, show_eda_plot, show_inf_plot = FALSE) 
-        #      return(list(p_hat_diff = res$p_hat_diff, SE = res$SE, ME = res$ME, CI = res$CI))
-        #    }
-        #    if(method == "simulation"){ 
-        #      res <- ht_two_prop_sim(y, x, success, conf_level, boot_method, nsim, seed, 
-        #                             x_name, y_name, show_eda_plot, show_inf_plot)
-        #      if(boot_method == "perc"){
-        #        return(list(p_hat_diff = res$p_hat_diff, CI = res$CI))
-        #      } else {
-        #        return(list(p_hat_diff = res$p_hat_diff, SE = res$SE, ME = res$ME, CI = res$CI))
-        #      }
-        #    }  
-        #  }
+        
+        if(length(levels(x)) > 2){
+          
+          # compare many means
+          if(statistic == "mean"){
+            ht_many_mean_theo(y, x, sig_level)
+          }
+          
+          # compare many proportions
+          
+        }
+
       }
     }
     
