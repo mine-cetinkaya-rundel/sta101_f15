@@ -155,7 +155,7 @@ title: Schedule
 |              | [App Ex 4.3: Power](post/app/app_Power.pdf) |
 | Oct 21, Wed | [Lesson 4.4: ANOVA](post/slides/u4_deck4.pdf) &nbsp;&nbsp;&nbsp;[<i class="fa fa-print"></i>](post/slides/u4_deck4H.pdf) |
 |              | [App Ex 4.4: ANOVA](post/app/app_ANOVA.pdf) |
-| Oct 22, Thu | [Lab 7: (More) inference for numerical data](post/labs/lab7.html) |
+| Oct 22, Thu | [Lab 7: (More) inference for numerical data](post/labs/more_inf_for_numerical_data.html) |
 
 ##### Due dates
 
@@ -192,7 +192,7 @@ title: Schedule
 | Oct 26, Mon | **RA 5** in class |
 |             | [Lesson 5.1](post/slides/u5_deck1.pdf) &nbsp;&nbsp;&nbsp;[<i class="fa fa-print"></i>](post/slides/u5_deck1H.pdf) |
 | Oct 28, Wed | [Lesson 5.2](post/slides/u5_deck2.pdf) &nbsp;&nbsp;&nbsp;[<i class="fa fa-print"></i>](post/slides/u5_deck2H.pdf)                  |
-| Oct 29, Thu | [Lab 8: Inference for categorical data](post/labs/lab8.html) |
+| Oct 29, Thu | [Lab 8: Inference for categorical data](post/labs/inf_for_categorical_data.html) |
 | Nov 2, Mon  | [Lesson 5.3](post/slides/u5_deck3.pdf) &nbsp;&nbsp;&nbsp;[<i class="fa fa-print"></i>](post/slides/u5_deck3H.pdf)                  |
 | Nov 4, Wed  | [Lesson 5.4](post/slides/u5_deck4.pdf) &nbsp;&nbsp;&nbsp;[<i class="fa fa-print"></i>](post/slides/u5_deck4H.pdf)                  |
 | Nov 5, Thu  | Work on [Project 1](post/projects/project1.html)                     |
