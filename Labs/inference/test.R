@@ -57,7 +57,6 @@ inference_ht(y = weeks, data = nc, statistic = "median", method = "simulation",
              null = 38.5, alternative = "less") # some error
 
 
-source("ht_many_mean.R")
 source("ci_single_mean_sim.R")
 source("ci_single_mean_theo.R")
 source("ci_single_median_sim.R")
@@ -72,6 +71,7 @@ source("ht_single_mean_sim.R")
 source("ht_single_mean_theo.R")
 source("ht_single_median_sim.R")
 source("ht_two_mean_theo.R")
+source("ht_many_mean_theo.R")
 source("inference.R")
 save(ci_single_mean_sim, 
      ci_single_mean_theo, 

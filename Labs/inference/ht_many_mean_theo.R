@@ -1,4 +1,5 @@
-ht_many_mean_theo <- function(y, x, sig_level){
+ht_many_mean_theo <- function(y, x, sig_level,
+                              x_name, y_name, show_eda_plot, show_inf_plot){
   # summary stats
   ns <- by(y, x, length)
   y_bars <- by(y, x, mean)
@@ -9,7 +10,7 @@ ht_many_mean_theo <- function(y, x, sig_level){
   
   # anova pieces
   terms <- c(x_name, "Residuals", "Total")
-  df <- res$Df
+  dfs <- res$Df
   ss <- res$`Sum Sq`
   ms <- res$`Mean Sq`
   stat <- res$`F value`[1]
@@ -18,8 +19,8 @@ ht_many_mean_theo <- function(y, x, sig_level){
   # calculate totals
   ss_tot <- sum(ss)
   ss <- c(ss, ss_tot)
-  df_tot <- sum(df)
-  df <- c(df, df_tot)
+  df_tot <- sum(dfs)
+  dfs <- c(dfs, df_tot)
   
   # ss format
   ss_format <- if(max(ss) < 100000){
@@ -51,7 +52,7 @@ ht_many_mean_theo <- function(y, x, sig_level){
   
   # format output
   anova_output <- data.frame(
-    df = df,
+    df = dfs,
     Sum_Sq = ss_format,
     Mean_Sq = ms_format,
     F = stat_format,
@@ -83,16 +84,15 @@ ht_many_mean_theo <- function(y, x, sig_level){
     geom_vline(data = d_means, aes(xintercept = y_bars), col = "#1FBEC3", lwd = 1.5) +
     facet_grid(x ~ .)
   
-  
   # inf_plot
-  inf_plot <- ggplot(data.frame(x = 0:stat+1), aes(x)) + 
-    stat_function(fun = df, args = list(df1 = df[1], df2 = df[2]), color = "#999999") +
-    annotate("rect", xmin = x_min, xmax = x_max, ymin = 0, ymax = Inf, 
+  inf_plot <- ggplot(data.frame(x = c(0, stat * 1.2)), aes(x)) +
+    stat_function(fun = df, args = list(df1 = dfs[1], df2 = dfs[2]), color = "#999999") +
+    annotate("rect", xmin = stat, xmax = stat+Inf, ymin = 0, ymax = Inf, 
              alpha = 0.3, fill = "#FABAB8") +
-    ggtitle("Sampling Distribution") +
+    ggtitle(paste0("F Distribution\n(df_G = ", dfs[1], ", df_E = ", dfs[2], ")")) +
     xlab("") +
     ylab("") +
-    geom_vline(xintercept = y_bar_diff, color = "#F57670", lwd = 1.5)
+    geom_vline(xintercept = stat, color = "#F57670", lwd = 1.5)
   
   # print plots
   if(show_eda_plot & !show_inf_plot){ 

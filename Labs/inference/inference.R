@@ -39,6 +39,9 @@ inference <- function(y, x = NULL, data,
     if (!("gridExtra" %in% names(installed.packages()[,"Package"]))) {install.packages("gridExtra")}
     suppressMessages(library(gridExtra, quietly = TRUE))
     
+    if (!("broom" %in% names(installed.packages()[,"Package"]))) {install.packages("broom")}
+    suppressMessages(library(broom, quietly = TRUE))
+    
     # save axis labels for use later
     y_name <- paste(substitute(y))
     x_name <- paste(substitute(x))
@@ -260,16 +263,16 @@ inference <- function(y, x = NULL, data,
     # ci
     if(type == "ci"){
       # source helper functions
-      source("ci_single_mean_sim.R")
-      source("ci_single_mean_theo.R")
-      source("ci_single_median_sim.R")
-      source("ci_single_prop_sim.R")
-      source("ci_single_prop_theo.R")
-      source("ci_two_mean_theo.R")
-      source("ci_two_mean_sim.R")
-      source("ci_two_median_sim.R")
-      source("ci_two_prop_sim.R")
-      source("ci_two_prop_theo.R")
+      #source("ci_single_mean_sim.R")
+      #source("ci_single_mean_theo.R")
+      #source("ci_single_median_sim.R")
+      #source("ci_single_prop_sim.R")
+      #source("ci_single_prop_theo.R")
+      #source("ci_two_mean_theo.R")
+      #source("ci_two_mean_sim.R")
+      #source("ci_two_median_sim.R")
+      #source("ci_two_prop_sim.R")
+      #source("ci_two_prop_theo.R")
       
       # single
       if(is.null(x)){
@@ -416,17 +419,17 @@ inference <- function(y, x = NULL, data,
     # ht
     if(type == "ht"){
       # source helper functions
-      source("ht_single_mean_theo.R")
-      source("ht_single_mean_sim.R")
-      source("ht_single_median_sim.R")
+      #source("ht_single_mean_theo.R")
+      #source("ht_single_mean_sim.R")
+      #source("ht_single_median_sim.R")
       #source("ht_single_prop_theo.R")
       #source("ht_single_prop_sim.R")
-      source("ht_two_mean_theo.R")
+      #source("ht_two_mean_theo.R")
       #source("ht_two_mean_sim.R")
-      source("ht_two_median_sim.R")
+      #source("ht_two_median_sim.R")
       #source("ht_two_prop_theo.R")
       #source("ht_two_prop_sim.R")
-      source("ht_many_mean_theo.R")
+      #source("ht_many_mean_theo.R")
       #source("ht_many_props.R")
       
       # single
@@ -561,7 +564,7 @@ inference <- function(y, x = NULL, data,
           
           # compare many means
           if(statistic == "mean"){
-            ht_many_mean_theo(y, x, sig_level)
+            ht_many_mean_theo(y, x, sig_level, x_name, y_name, show_eda_plot, show_inf_plot)
           }
           
           # compare many proportions
