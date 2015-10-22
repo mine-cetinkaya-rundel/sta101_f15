@@ -133,7 +133,7 @@ img {
 <ol style="list-style-type: decimal">
 <li>Write out the conditions for inference to construct a 95% confidence interval for the proportion of atheists in the United States in 2012. Are you confident all conditions are met?</li>
 </ol>
-<p>Before you proceed, make sure to load the <code>inference</code> function. You might have this function already loaded in your console’s enviromment from last time, but not that in order to create a fully reproducible lab report you need to load it in your markdown document as well.</p>
+<p>Before you proceed, make sure to load the <code>inference</code> function. You might have this function already loaded in your console’s enviromment from last time, but note that in order to create a fully reproducible lab report you need to load it in your markdown document as well.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">load</span>(<span class="kw">url</span>(<span class="st">&quot;https://stat.duke.edu/~mc301/R/fun/inference.RData&quot;</span>))</code></pre></div>
 <p>If the conditions for inference are reasonable, we can either calculate the standard error and construct the interval by hand, or allow the <code>inference</code> function to do it for us.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">inference</span>(<span class="dt">y =</span> response, <span class="dt">data =</span> us12, <span class="dt">statistic =</span> <span class="st">&quot;proportion&quot;</span>,
