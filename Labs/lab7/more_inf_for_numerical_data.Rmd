@@ -9,7 +9,7 @@ output:
 ---
 
 ```{r global_options, include=FALSE}
-knitr::opts_chunk$set(eval = TRUE)
+knitr::opts_chunk$set(eval = FALSE)
 library(dplyr)
 library(ggplot2)
 ```
@@ -71,16 +71,9 @@ qplot(y = income, x = gender, data = acs_emp, geom = "boxplot")
 We can also obtain summary statistics such as means and standard deviations and sample sizes.
 
 ```{r gender-income-summary}
-gen_inc_stats <- acs_emp %>%
+acs_emp %>%
   group_by(gender) %>%
   summarise(xbar = mean(income), s = sd(income), n = n())
-```
-
-In this code chunk we not only calculated these summary statistics, but we also saved them in
-a new data frame called `gen_inc_stats`. Let's view this data frame:
-
-```{r gender-income-summary-view}
-gen_inc_stats
 ```
 
 1.  At a first glance how do the average incomes of males and females compare? Make sure
@@ -95,14 +88,9 @@ fully reproducible lab report you need to load it in your markdown document as w
 load(url("https://stat.duke.edu/~mc301/R/fun/inference.RData"))
 ```
     
-1.  Construct a 95\% confidence interval for the difference between the average incomes of 
+1.  Construct a 95% confidence interval for the difference between the average incomes of 
     males and females using the `inference` function, and interpret this
     interval. 
-    
-```{r}
-inference(data = acs, x = gender, y = income, type = "ci",
-          method = "theoretical", statistic = "mean")
-```
     
 1.  Based on this interval is there a statistically significant difference between the 
     averege incomes of men and women? Why, or why not?
@@ -113,11 +101,6 @@ inference(data = acs, x = gender, y = income, type = "ci",
 1.  Conduct this hypothesis test using the `inference` function, and interpret your results 
     in context of the data and the research question. Do your results from the
     confidence interval and the hypothesis test agree?
-    
-```{r}
-inference(data = acs, x = gender, y = income, type = "ht", null = 0,
-          method = "theoretical", statistic = "mean", alternative = "twosided")
-```
 
 ### Confounding variables
 
@@ -161,11 +144,6 @@ proportions of full and part time employees by first counting how many there are
 1.  Create a bar plot of the distribution of the `emp_type` variable, and also include the
     summary statistics you calculated above in your answer. What percent of the sample
     are full time and what percent are part time employees?
-    
-```{r}
-qplot(data = acs_emp, x = emp_type, geom = "bar")
-```
-
 
 1.  Are females more heavily represented among full time employees or part time employees?
     Answer this question using summary statistics (code provided below) and a visualization.
@@ -176,11 +154,6 @@ acs_emp %>%
   summarise(n())
 ```
 
-```{r key}
-qplot(data = acs_emp, x = emp_type, fill = gender, position = "fill")
-```
-
-
 * * *
 
 ## On your own
@@ -189,34 +162,16 @@ qplot(data = acs_emp, x = emp_type, fill = gender, position = "fill")
 -   Create two subsets of the `acs_emp` dataset: one for full time employees and one 
     for part time employees. No interpretation is needed for this question, 
     just the code is sufficient.
-    
-```{r}
-acs_emp_ft <- acs_emp %>%
-  filter(emp_type == "full time")
-
-acs_emp_pt <- acs_emp %>%
-  filter(emp_type == "part time")
-```
-
+  
 -   Use a hypothesis test to evaluate whether there is a difference in average 
     incomes of **full time** male and female employees. If the difference is 
     significant, also include a confidence interval (at the equivalent confidence 
     level) estimating the magnitude of the average income difference.
     
-```{r}
-inference(data = acs_emp_ft, x = gender, y = income, type = "ht", null = 0,
-          method = "theoretical", statistic = "mean", alternative = "twosided")
-```
-    
 -   Use a hypothesis test to evaluate whether there is a difference in average incomes
     of **part time** male and female employees. If the difference is significant,
     also include a confidence interval (at the equivalent confidence level) estimating
     the magnitude of the average income difference.
-    
-```{r}
-inference(data = acs_emp_pt, x = gender, y = income, type = "ht", null = 0,
-          method = "theoretical", statistic = "mean", alternative = "twosided")
-```
     
 -   What do your findings from these hypothesis test suggest about whether or not working
     full or part time might be a confounding variable in the relationship between
@@ -224,23 +179,22 @@ inference(data = acs_emp_pt, x = gender, y = income, type = "ht", null = 0,
     
 -   What type of a test would we use to compare the average salaries across the various 
     race / ethnicity groups in this dataset? Explain your reasoning.
-    
-```{r}
-inference(data = acs_emp, x = race, y = income, type = "ht", null = 0,
-          method = "theoretical", statistic = "mean", alternative = "greater")
-```
-    
 
--   Conduct this hypothesis test using the `inference` function. Note that the response
-    variable is `income` and the explanatory variable is `race`. You will need to figure out 
-    the remaining arguments for the function. Use a trial-and-error approach, and let the 
-    errors inform you as to what else needs to be specified, and how. (Note: Use the dataset
-    containing records from all employes participants: `acs_emp`)
+-   Conduct this hypothesis test using the `inference` function. Note that the response variable 
+    is `income` and the explanatory variable is `race`. You will need to figure out the remaining
+    arguments for the function. Use a trial-and-error approach, and let the errors inform you as
+    to what else needs to be specified, and how. (Note: Use the dataset containing records from
+    all employes participants: `acs_emp`) Write your hypotheses, and interpret your conclusion in
+    context of the data and the research question. Note that the `inference` function by default
+    uses a significance level of 0.05 for the ANOVA, and will run pairwise t-tests and report
+    p-values for them if the ANOVA is significant. (Note also that you can change the significance
+    level by setting `sig_level` equal to some other value.)
 
 -   Pick **another** numerical variable from the dataset to be your response variable, and 
     also pick a categorical explanatory variable (can be one we used before). Conduct the
     appropriate hypothesis test, using the `inference` function, to compare means of the
     response variable across levels of the explanatory variable. Make sure to state your 
-    research question, and interpret your conclusion in context of the dataset. Note that you c
-    can use the complete `acs` dataset, the subsetted `acs_emp` dataset, or another subset that     you create.
+    research question, and interpret your conclusion in context of the dataset. Note that you
+    can use the complete `acs` dataset, the subsetted `acs_emp` dataset, or another subset 
+    that you create.
 </div>

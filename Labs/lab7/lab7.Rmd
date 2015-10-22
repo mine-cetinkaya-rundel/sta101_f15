@@ -22,9 +22,9 @@ library(mosaic)
 
 * * *
 
-**Load NC dataset:**
+**Load ACS dataset:**
 ```{r}
-load(url("https://stat.duke.edu/~mc301/data/nc.RData"))
+load(url("https://stat.duke.edu/~mc301/data/acs.RData"))
 ```
 
 **Load inference function:**
@@ -50,6 +50,13 @@ load(url("https://stat.duke.edu/~mc301/R/fun/inference.RData"))
 #### Exercise 5:
 
 
+#### Exercise 6:
+
+
+#### Exercise 7:
+
+
+#### Exercise 8:
 
 * * *
 
@@ -68,6 +75,12 @@ load(url("https://stat.duke.edu/~mc301/R/fun/inference.RData"))
 
 
 #### 5: 
+
+
+#### 6: 
+
+
+#### 7: 
 
 
 
