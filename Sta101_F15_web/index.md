@@ -207,8 +207,13 @@ title: Schedule
   graded questions, use the back of the book to check your work on the practice questions.
   Must show **all** work to get credit. Click [here]({{ site.sakai_ps }}) to submit the 
   problem set.
-  * **Graded questions:** TBA
-  * Practice questions: TBA
+  * **Graded questions:** 6.2, 6.4, 6.8, 6.12, 6.16, 6.20, 6.26, 6.28, 6.30, 6.36, 6.44, 
+  6.48, 6.52, 6.54, 6.56
+  * Practice questions: 
+    + Part 1 – Single proportion: 6.1, 6.3, 6.5, 6.9, 6.11, 6.13, 6.15, 6.19, 6.21
+    + Part 2 – Comparing two proportions: 6.23, 6.25, 6.27, 6.29, 6.31, 6.33, 6.35
+    + Part 3 – Inference for proportions via simulation: 6.51, 6.53, 6.55
+    + Part 4 – Comparing three or more proportions (Chi-square): 6.39, 6.41, 6.43, 6.45, 6.47
 * [PA 5]({{ site.sakai_pa }}): Nov 7, Sat (Note day change to allow for reviewing answers before the midterm)
   * Take between Nov 4, Wed and Nov 7, Sat. 
   * You have 30 minutes to complete. Only one attempt allowed. Click [here]({{ site.sakai_pa }}) to take the performance assessment.
@@ -244,7 +249,10 @@ title: Schedule
   Must show **all** work to get credit. Click [here]({{ site.sakai_ps }}) to submit the 
   problem set.
   * **Graded questions:** TBA
-  * Practice questions: TBA
+  * Practice questions:
+    + Part 1 – Relationship between two numerical variables: 7.1, 7.3, 7.7, 7.9, 7.11, 7.13, 7.15
+    + Part 2 – Linear regression with a single predictor: 7.17, 7.19, 7.25, 7.27, 7.29, 7.31, 7.33
+    + Part 3 – Inference for linear regression: 7.25, 7.37, 7.39, 7.41, 7.43
 * [PA 6]({{ site.sakai_pa }}): Nov 22, Sun
   * Take between Nov 16, Mon and Nov 22, Sun. 
   * You have 30 minutes to complete. Only one attempt allowed. Click [here]({{ site.sakai_pa }}) to take the performance assessment.
@@ -277,7 +285,11 @@ title: Schedule
   Must show **all** work to get credit. Click [here]({{ site.sakai_ps }}) to submit the 
   problem set.
   * **Graded questions:** TBA
-  * Practice questions: TBA
+  * Practice questions:
+    + Part 1 – Regression with multiple predictors: 8.1, 8.3
+    + Part 2 – Inference for MLR: 8.5
+    + Part 3 – Model selection: 8.7, 8.9, 8.11
+    + Part 4 – Model diagnostics: 8.13
 * [PA 7]({{ site.sakai_pa }}): Dec 6, Sun
   * Take between Nov 30, Mon and Dec 6, Sun. 
   * You have 30 minutes to complete. Only one attempt allowed. Click [here]({{ site.sakai_pa }}) to take the performance assessment.
