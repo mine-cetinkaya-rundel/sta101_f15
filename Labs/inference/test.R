@@ -71,7 +71,9 @@ source("ht_single_mean_sim.R")
 source("ht_single_mean_theo.R")
 source("ht_single_median_sim.R")
 source("ht_two_mean_theo.R")
+source("ht_two_prop_theo.R")
 source("ht_many_mean_theo.R")
+source("ht_single_prop_theo.R")
 source("inference.R")
 save(ci_single_mean_sim, 
      ci_single_mean_theo, 
@@ -87,5 +89,7 @@ save(ci_single_mean_sim,
      ht_single_mean_theo, 
      ht_single_median_sim, 
      ht_two_mean_theo, 
+     ht_two_prop_theo,
      ht_many_mean_theo, 
+     ht_single_prop_theo,
      inference, file = "inference.RData")

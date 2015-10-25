@@ -73,7 +73,7 @@ ht_two_mean_theo <- function(y, x, null, alternative,
     stat_function(fun = dnorm, args = list(mean = null, sd = se), color = "#999999") +
     annotate("rect", xmin = x_min, xmax = x_max, ymin = 0, ymax = Inf, 
              alpha = 0.3, fill = "#FABAB8") +
-    ggtitle("Sampling Distribution") +
+    ggtitle("Null Distribution") +
     xlab("") +
     ylab("") +
     geom_vline(xintercept = y_bar_diff, color = "#F57670", lwd = 1.5)

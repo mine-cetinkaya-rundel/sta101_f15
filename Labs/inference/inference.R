@@ -149,7 +149,7 @@ inference <- function(y, x = NULL, data,
     
     # error: alternative isn't less, greater, or twosided
     if(type == "ht"){
-      alternative_list = c("less","greater","twosided","notequal")
+      alternative_list = c("less", "greater", "twosided")
       alternative = tolower(gsub("\\s","", alternative))
       which_alternative = pmatch(alternative, alternative_list)
       if((length(which_alternative) == 1) & any(is.na(which_alternative))){
@@ -262,17 +262,6 @@ inference <- function(y, x = NULL, data,
     
     # ci
     if(type == "ci"){
-      # source helper functions
-      #source("ci_single_mean_sim.R")
-      #source("ci_single_mean_theo.R")
-      #source("ci_single_median_sim.R")
-      #source("ci_single_prop_sim.R")
-      #source("ci_single_prop_theo.R")
-      #source("ci_two_mean_theo.R")
-      #source("ci_two_mean_sim.R")
-      #source("ci_two_median_sim.R")
-      #source("ci_two_prop_sim.R")
-      #source("ci_two_prop_theo.R")
       
       # single
       if(is.null(x)){
@@ -419,9 +408,6 @@ inference <- function(y, x = NULL, data,
     # ht
     if(type == "ht"){
       # source helper functions
-      #source("ht_single_mean_theo.R")
-      #source("ht_single_mean_sim.R")
-      #source("ht_single_median_sim.R")
       #source("ht_single_prop_theo.R")
       #source("ht_single_prop_sim.R")
       #source("ht_two_mean_theo.R")
@@ -466,24 +452,24 @@ inference <- function(y, x = NULL, data,
         }
         
         # single proportion
-        #  if(statistic == "proportion"){
-        #    if(method == "theoretical"){ 
-        #      res <- ht_single_prop_theo(y, success, conf_level,
-        #                                 y_name, show_eda_plot, show_inf_plot = FALSE) 
-        #      return(list(p_hat = res$p_hat, SE = res$SE, 
-        #                  ME = res$ME, CI = res$CI))
-        #      
-        #    }
-        #    if(method == "simulation"){ 
-        #      res <- ht_single_prop_sim(y, success, conf_level, boot_method, nsim, seed, 
-        #                                y_name, show_eda_plot, show_inf_plot)
-        #      if(boot_method == "perc"){
-        #        return(list(p_hat = res$p_hat, CI = res$CI))
-        #      } else {
-        #        return(list(p_hat = res$p_hat, SE = res$SE, ME = res$ME, CI = res$CI))
-        #      }
-        #    }
-        #  }
+         if(statistic == "proportion"){
+           if(method == "theoretical"){ 
+             res <- ht_single_prop_theo(y, success, null, alternative,
+                                        y_name, show_eda_plot, show_inf_plot) 
+             return(list(p_hat = res$p_hat, SE = res$SE, 
+                         z_score = res$z_score, p_value = res$p_value))
+             
+           }
+           #if(method == "simulation"){ 
+           #  res <- ht_single_prop_sim(y, success, conf_level, boot_method, nsim, seed, 
+           #                            y_name, show_eda_plot, show_inf_plot)
+           #  if(boot_method == "perc"){
+           #    return(list(p_hat = res$p_hat, CI = res$CI))
+           #  } else {
+           #    return(list(p_hat = res$p_hat, SE = res$SE, ME = res$ME, CI = res$CI))
+           #  }
+           #}
+         }
       }
       
       
@@ -540,13 +526,14 @@ inference <- function(y, x = NULL, data,
           #    }      
           #  }
           #  
-          #  # compare two proportions
-          #  if(statistic == "proportion"){
-          #    if(method == "theoretical"){ 
-          #      res <- ht_two_prop_theo(y, x, success, conf_level,
-          #                              x_name, y_name, show_eda_plot, show_inf_plot = FALSE) 
-          #      return(list(p_hat_diff = res$p_hat_diff, SE = res$SE, ME = res$ME, CI = res$CI))
-          #    }
+          # compare two proportions
+          if(statistic == "proportion"){
+            if(method == "theoretical"){ 
+              res <- ht_two_prop_theo(y, x, success, null, alternative,
+                                      x_name, y_name, show_eda_plot, show_inf_plot) 
+              return(list(p_hat_diff = res$p_hat_diff, 
+                          z_score = res$z_score, p_value = res$p_value))
+              }
           #    if(method == "simulation"){ 
           #      res <- ht_two_prop_sim(y, x, success, conf_level, boot_method, nsim, seed, 
           #                             x_name, y_name, show_eda_plot, show_inf_plot)
@@ -556,7 +543,7 @@ inference <- function(y, x = NULL, data,
           #        return(list(p_hat_diff = res$p_hat_diff, SE = res$SE, ME = res$ME, CI = res$CI))
           #      }
           #    }  
-          #  }
+          }
           
         }
         
@@ -568,7 +555,10 @@ inference <- function(y, x = NULL, data,
           }
           
           # compare many proportions
-          
+          if(statistic == "proportion"){
+            
+          }
+
         }
 
       }
