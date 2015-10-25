@@ -108,14 +108,14 @@ img {
 <p><em><a href="http://www.wingia.com/web/files/richeditor/filemanager/Global_INDEX_of_Religiosity_and_Atheism_PR__6.pdf" class="uri">http://www.wingia.com/web/files/richeditor/filemanager/Global_INDEX_of_Religiosity_and_Atheism_PR__6.pdf</a></em></p>
 <p>Take a moment to review the report then address the following questions.</p>
 <ol style="list-style-type: decimal">
-<li><p>In the first paragraph, several key findings are reported. Do these percentages appear to be <em>sample statistics</em> (derived from the data sample) or <em>population parameters</em>?</p></li>
+<li><p>In the first paragraph, several key findings are reported. Do these percentages appear to be <em>sample statistics</em> (derived from the data sample) or <em>population parameters</em>? Explain your reasoning.</p></li>
 <li><p>The title of the report is “Global Index of Religiosity and Atheism”. To generalize the report’s findings to the global human population, what must we assume about the sampling method? Does that seem like a reasonable assumption?</p></li>
 </ol>
 </div>
 <div id="the-data" class="section level2">
 <h2>The data</h2>
 <p>Turn your attention to Table 6 (pages 15 and 16), which reports the sample size and response percentages for all 57 countries. While this is a useful format to summarize the data, we will base our analysis on the original data set of individual responses to the survey. Load this data set into R with the following command.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">load</span>(<span class="kw">url</span>(<span class="st">&quot;http://www.openintro.org/stat/data/atheism.RData&quot;</span>))</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">load</span>(<span class="kw">url</span>(<span class="st">&quot;https://stat.duke.edu/~mc301/data/atheism.RData&quot;</span>))</code></pre></div>
 <ol style="list-style-type: decimal">
 <li>What does each row of Table 6 correspond to? What does each row of <code>atheism</code> correspond to?</li>
 </ol>
@@ -142,7 +142,7 @@ img {
 <p>Although formal confidence intervals and hypothesis tests don’t show up in the report, suggestions of inference appear at the bottom of page 7: “In general, the error margin for surveys of this kind is <span class="math inline">\(\pm\)</span> 3-5% at 95% confidence”.</p>
 <ol style="list-style-type: decimal">
 <li><p>Based on the R output, what is the margin of error for the estimate of the proportion of the proportion of atheists in US in 2012?</p></li>
-<li><p>Using the <code>inference</code> function, calculate confidence intervals for the proportion of atheists in 2012 in two other countries of your choice, and report the associated margins of error. Be sure to note whether the conditions for inference are met. It may be helpful to create new data sets for each of the two countries first, and then use these data sets in the <code>inference</code> function to construct the confidence intervals.</p></li>
+<li><p>Using the <code>inference</code> function, calculate confidence intervals for the proportion of atheists in 2012 in two other countries of your choice, and report the associated margins of error. Be sure to note whether the conditions for inference are met, and interpet the interval in context of the data. It may be helpful to create new data sets for each of the two countries first, and then use these data sets in the <code>inference</code> function to construct the confidence intervals.</p></li>
 </ol>
 </div>
 <div id="how-does-the-proportion-affect-the-margin-of-error" class="section level2">
@@ -179,11 +179,8 @@ for(i in <span class="dv">1</span>:<span class="dv">5000</span>){
 <ol style="list-style-type: decimal">
 <li><p>Describe the sampling distribution of sample proportions at <span class="math inline">\(n = 1040\)</span> and <span class="math inline">\(p = 0.1\)</span>. Be sure to note the center, spread, and shape.<br />
 <em>Hint:</em> Remember that R has functions such as <code>mean</code> to calculate summary statistics.</p></li>
-<li><p>Repeat the above simulation three more times but with modified sample sizes and proportions: for <span class="math inline">\(n = 400\)</span> and <span class="math inline">\(p = 0.1\)</span>, <span class="math inline">\(n = 1040\)</span> and <span class="math inline">\(p = 0.02\)</span>, and <span class="math inline">\(n = 400\)</span> and <span class="math inline">\(p = 0.02\)</span>. Plot all four histograms together by running the <code>par(mfrow = c(2, 2))</code> command before creating the histograms. You may need to expand the plot window to accommodate the larger two-by-two plot. Describe the three new sampling distributions. Based on these limited plots, how does <span class="math inline">\(n\)</span> appear to affect the distribution of <span class="math inline">\(\hat{p}\)</span>? How does <span class="math inline">\(p\)</span> affect the sampling distribution?</p></li>
-</ol>
-<p>Once you’re done, you can reset the layout of the plotting window by using the command <code>par(mfrow = c(1, 1))</code> command or clicking on “Clear All” above the plotting window (if using RStudio). Note that the latter will get rid of all your previous plots.</p>
-<ol style="list-style-type: decimal">
-<li>If you refer to Table 6, you’ll find that Australia has a sample proportion of 0.1 on a sample size of 1040, and that Ecuador has a sample proportion of 0.02 on 400 subjects. Let’s suppose for this exercise that these point estimates are actually the truth. Then given the shape of their respective sampling distributions, do you think it is sensible to proceed with inference and report margin of errors, as the reports does?</li>
+<li><p>Repeat the above simulation three more times but with modified sample sizes and proportions: for <span class="math inline">\(n = 400\)</span> and <span class="math inline">\(p = 0.1\)</span>, <span class="math inline">\(n = 1040\)</span> and <span class="math inline">\(p = 0.02\)</span>, and <span class="math inline">\(n = 400\)</span> and <span class="math inline">\(p = 0.02\)</span>. Describe the three new sampling distributions. Based on these limited plots, how does <span class="math inline">\(n\)</span> appear to affect the distribution of <span class="math inline">\(\hat{p}\)</span>? How does <span class="math inline">\(p\)</span> affect the sampling distribution?</p></li>
+<li><p>If you refer to Table 6, you’ll find that Australia has a sample proportion of 0.1 on a sample size of 1040, and that Ecuador has a sample proportion of 0.02 on 400 subjects. Let’s suppose for this exercise that these point estimates are actually the truth. Then given the shape of their respective sampling distributions, do you think it is sensible to proceed with inference and report margin of errors, as the reports does?</p></li>
 </ol>
 <hr />
 </div>
@@ -192,14 +189,14 @@ for(i in <span class="dv">1</span>:<span class="dv">5000</span>){
 <div class="oyo">
 <p>The question of atheism was asked by WIN-Gallup International in a similar survey that was conducted in 2005. (We assume here that sample sizes have remained the same.) Table 4 on page 13 of the report summarizes survey results from 2005 and 2012 for 39 countries.</p>
 <ul>
-<li><p>Answer the following two questions using the <code>inference</code> function. As always, write out the hypotheses for any tests you conduct and outline the status of the conditions for inference.</p>
-<p><strong>a.</strong> Is there convincing evidence that Spain has seen a change in its atheism index between 2005 and 2012? If you find a significant difference, also quantify this difference with a condfidence interval.<br />
-<em>Hint:</em> Create a new data set for respondents from Spain. Form confidence intervals for the true proportion of athiests in both years, and determine whether they overlap.</p>
-<p><strong>b.</strong> Is there convincing evidence that the United States has seen a change in its atheism index between 2005 and 2012? If you find a significant difference, also quantify this difference with a condfidence interval.</p></li>
+<li><p>Is there convincing evidence that Spain has seen a change in its atheism index between 2005 and 2012? As always, write out the hypotheses for any tests you conduct and outline the status of the conditions for inference. If you find a significant difference, also quantify this difference with a condfidence interval.<br />
+<em>Hint:</em> First a new data set for respondents from Spain.</p></li>
+<li><p>Is there convincing evidence that the US has seen a change in its atheism index between 2005 and 2012? As always, write out the hypotheses for any tests you conduct and outline the status of the conditions for inference. If you find a significant difference, also quantify this difference with a condfidence interval.<br />
+<em>Hint:</em> First a new data set for respondents from Spain.</p></li>
 <li><p>If in fact there has been no change in the atheism index in the countries listed in Table 4, in how many of those countries would you expect to detect a change (at a significance level of 0.05) simply by chance?<br />
-<em>Hint:</em> Look in the textbook index under Type 1 error.</p></li>
+<em>Hint:</em> Review the definition of the Type 1 error.</p></li>
 <li>Suppose you’re hired by the local government to estimate the proportion of residents that attend a religious service on a weekly basis. According to the guidelines, the estimate must have a margin of error no greater than 1% with 95% confidence. You have no idea what to expect for <span class="math inline">\(p\)</span>. How many people would you have to sample to ensure that you are within the guidelines?<br />
-<em>Hint:</em> Refer to your plot of the relationship between <span class="math inline">\(p\)</span> and margin of error. Do not use the data set to answer this question.</li>
+<em>Hint:</em> Refer to your plot of the relationship between <span class="math inline">\(p\)</span> and margin of error. This question does not require using the dataset.</li>
 </ul>
 </div>
 <div id="license">

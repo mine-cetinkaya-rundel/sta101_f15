@@ -47,7 +47,7 @@ Take a moment to review the report then address the following questions.
 
 1.  In the first paragraph, several key findings are reported. Do these 
     percentages appear to be *sample statistics* (derived from the data 
-    sample) or *population parameters*?
+    sample) or *population parameters*? Explain your reasoning.
 
 1.  The title of the report is "Global Index of Religiosity and Atheism". To
     generalize the report's findings to the global human population, what must 
@@ -63,7 +63,7 @@ original data set of individual responses to the survey. Load this data
 set into R with the following command.
 
 ```{r head-data}
-load(url("http://www.openintro.org/stat/data/atheism.RData"))
+load(url("https://stat.duke.edu/~mc301/data/atheism.RData"))
 ```
 
 1.  What does each row of Table 6 correspond to? What does each row of 
@@ -101,9 +101,10 @@ hypothesis test.
     interval for the proportion of atheists in the United States in 2012.
     Are you confident all conditions are met?
 
-Before you proceed, make sure to load the `inference` function. You might have this function
-already loaded in your console's enviromment from last time, but note that in order to create a 
-fully reproducible lab report you need to load it in your markdown document as well.
+Before you proceed, make sure to load the `inference` function. You might have this 
+function already loaded in your console's enviromment from last time, but note that in 
+order to create a fully reproducible lab report you need to load it in your markdown 
+document as well.
 
 ```{r load-inference}
 load(url("https://stat.duke.edu/~mc301/R/fun/inference.RData"))
@@ -132,9 +133,10 @@ the error margin for surveys of this kind is $\pm$ 3-5% at 95% confidence".
 1.  Using the `inference` function, calculate confidence intervals for the 
     proportion of atheists in 2012 in two other countries of your choice, and 
     report the associated margins of error. Be sure to note whether the 
-    conditions for inference are met. It may be helpful to create new data 
-    sets for each of the two countries first, and then use these data sets in 
-    the `inference` function to construct the confidence intervals.
+    conditions for inference are met, and interpet the interval in context of the data.
+    It may be helpful to create new data sets for each of the two countries first, and 
+    then use these data sets in the `inference` function to construct the confidence 
+    intervals.
 
 ## How does the proportion affect the margin of error?
 
@@ -222,17 +224,9 @@ distribution.
 
 1.  Repeat the above simulation three more times but with modified sample
     sizes and proportions: for $n = 400$ and $p = 0.1$, $n = 1040$ and 
-    $p = 0.02$, and $n = 400$ and $p = 0.02$. Plot all four histograms
-    together by running the `par(mfrow = c(2, 2))` command before creating the 
-    histograms. You may need to expand the plot window to accommodate the 
-    larger two-by-two plot. Describe the three new sampling distributions. 
-    Based on these limited plots, how does $n$ appear to affect the 
+    $p = 0.02$, and $n = 400$ and $p = 0.02$. Describe the three new sampling
+    distributions. Based on these limited plots, how does $n$ appear to affect the 
     distribution of $\hat{p}$? How does $p$ affect the sampling distribution?
-
-Once you're done, you can reset the layout of the plotting window by using the 
-command `par(mfrow = c(1, 1))` command or clicking on "Clear All" above the 
-plotting window (if using RStudio). Note that the latter will get rid of all 
-your previous plots.
 
 1.  If you refer to Table 6, you'll find that Australia has a sample 
     proportion of 0.1 on a sample size of 1040, and that Ecuador has a sample 
@@ -251,25 +245,22 @@ survey that was conducted in 2005. (We assume here that sample sizes have
 remained the same.) Table 4 on page 13 of the report summarizes survey results 
 from 2005 and 2012 for 39 countries.
 
--   Answer the following two questions using the `inference` function. As 
-    always, write out the hypotheses for any tests you conduct and outline the
-    status of the conditions for inference.
+-   Is there convincing evidence that Spain has seen a change in its atheism index 
+    between 2005 and 2012? As always, write out the hypotheses for any tests you 
+    conduct and outline the status of the conditions for inference. If you find a 
+    significant difference, also quantify this difference with a condfidence interval. \
+    *Hint:* First a new data set for respondents from Spain.
 
-    **a.** Is there convincing evidence that Spain has seen a change in its 
-    atheism index between 2005 and 2012? If you find a significant difference,
-    also quantify this difference with a condfidence interval.\
-    *Hint:* Create a new data set for respondents from Spain. Form
-    confidence intervals for the true proportion of athiests in both
-    years, and determine whether they overlap.
-
-    **b.** Is there convincing evidence that the United States has seen a
-    change in its atheism index between 2005 and 2012? If you find a significant 
-    difference, also quantify this difference with a condfidence interval.
+-   Is there convincing evidence that the US has seen a change in its atheism index 
+    between 2005 and 2012? As always, write out the hypotheses for any tests you 
+    conduct and outline the status of the conditions for inference. If you find a 
+    significant difference, also quantify this difference with a condfidence interval. \
+    *Hint:* First a new data set for respondents from Spain.
 
 -   If in fact there has been no change in the atheism index in the countries 
     listed in Table 4, in how many of those countries would you expect to 
     detect a change (at a significance level of 0.05) simply by chance?\
-    *Hint:* Look in the textbook index under Type 1 error.
+    *Hint:* Review the definition of the Type 1 error.
 
 -   Suppose you're hired by the local government to estimate the proportion of 
     residents that attend a religious service on a weekly basis. According to 
@@ -278,7 +269,7 @@ from 2005 and 2012 for 39 countries.
     people would you have to sample to ensure that you are within the 
     guidelines?\
     *Hint:* Refer to your plot of the relationship between $p$ and margin of 
-    error. Do not use the data set to answer this question.
+    error. This question does not require using the dataset.
 </div>
 
 <div id="license">
