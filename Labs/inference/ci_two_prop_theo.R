@@ -38,7 +38,7 @@ ci_two_prop_theo <- function(y, x, success, conf_level,
       }
   
   eda_plot <- ggplot(data = d_eda, aes(x = x, fill = y), environment = environment()) +
-    geom_bar() +
+    geom_bar(position = "fill") +
     scale_fill_manual(values = fill_values) +
     xlab(x_name) +
     ylab("") +

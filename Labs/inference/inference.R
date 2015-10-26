@@ -456,19 +456,14 @@ inference <- function(y, x = NULL, data,
            if(method == "theoretical"){ 
              res <- ht_single_prop_theo(y, success, null, alternative,
                                         y_name, show_eda_plot, show_inf_plot) 
-             return(list(p_hat = res$p_hat, SE = res$SE, 
-                         z_score = res$z_score, p_value = res$p_value))
-             
+            return(list(p_hat = res$p_hat, SE = res$SE,
+                   z_score = res$z_score, p_value = res$p_value))          
            }
-           #if(method == "simulation"){ 
-           #  res <- ht_single_prop_sim(y, success, conf_level, boot_method, nsim, seed, 
-           #                            y_name, show_eda_plot, show_inf_plot)
-           #  if(boot_method == "perc"){
-           #    return(list(p_hat = res$p_hat, CI = res$CI))
-           #  } else {
-           #    return(list(p_hat = res$p_hat, SE = res$SE, ME = res$ME, CI = res$CI))
-           #  }
-           #}
+           if(method == "simulation"){ 
+             res <- ht_single_prop_sim(y, success, null, alternative, seed,
+                                y_name, show_eda_plot, show_inf_plot, nsim)
+            return(list(p_hat = res$p_hat, p_value = res$p_value))
+           }
          }
       }
       
@@ -494,38 +489,30 @@ inference <- function(y, x = NULL, data,
           if(statistic == "mean"){
             
             if(method == "theoretical"){ 
-              res <- ht_two_mean_theo(y, x, null, alternative, 
-                                      y_name, show_eda_plot, show_inf_plot)
+              res <- ht_two_mean_theo(y, x, null, alternative,
+                                      y_name, x_name, show_eda_plot, show_inf_plot)
               return(list(y_bar_diff = res$y_bar_diff, df = res$df, SE = res$SE, 
                           t = res$t, p_value = res$p_value))
-            }
-            #    if(method == "simulation"){ 
-            #      res <- ht_two_mean_sim(y, x, conf_level, boot_method, nsim, seed, 
-            #                      y_name, show_eda_plot, show_inf_plot)
-            #      if(boot_method == "perc"){
-            #        return(list(y_bar_diff = res$y_bar_diff, CI = res$CI))
-            #      } else {
-            #        return(list(y_bar_diff = res$y_bar_diff, SE = res$SE, ME = res$ME, CI = res$CI))
-            #      }
-            #    }  
+              }
+            if(method == "simulation"){ 
+              res <- ht_two_mean_sim(y, x, null, alternative, nsim, seed,
+                                     y_name, x_name, show_eda_plot, show_inf_plot)
+              return(list(y_bar_diff = res$y_bar_diff, p_value = res$p_value))
+              }  
           }
-          #  
-          #  # compare two medians
-          #  if(statistic == "median"){
-          #    if(method == "theoretical"){ 
-          #      stop("Use simulation methods for inference for the median", call. = FALSE)
-          #    }
-          #    if(method == "simulation"){ 
-          #      res <- ht_two_median_sim(y, x, conf_level, boot_method, nsim, seed, 
-          #                                  y_name, show_eda_plot, show_inf_plot)
-          #      if(boot_method == "perc"){
-          #        return(list(y_med_diff = res$y_med_diff, CI = res$CI))
-          #      } else {
-          #        return(list(y_med_diff = res$y_med_diff, SE = res$SE, ME = res$ME, CI = res$CI))
-          #      }
-          #    }      
-          #  }
-          #  
+          
+          # compare two medians
+          if(statistic == "median"){
+            if(method == "theoretical"){ 
+              stop("Use simulation methods for inference for the median", call. = FALSE)
+              }
+            if(method == "simulation"){ 
+              res <- ht_two_median_sim(y, x, null, alternative, nsim, seed,
+                                       y_name, x_name, show_eda_plot, show_inf_plot)
+              return(list(y_med_diff = res$y_med_diff, p_value = res$p_value))
+              }      
+            }
+            
           # compare two proportions
           if(statistic == "proportion"){
             if(method == "theoretical"){ 
@@ -534,15 +521,11 @@ inference <- function(y, x = NULL, data,
               return(list(p_hat_diff = res$p_hat_diff, 
                           z_score = res$z_score, p_value = res$p_value))
               }
-          #    if(method == "simulation"){ 
-          #      res <- ht_two_prop_sim(y, x, success, conf_level, boot_method, nsim, seed, 
-          #                             x_name, y_name, show_eda_plot, show_inf_plot)
-          #      if(boot_method == "perc"){
-          #        return(list(p_hat_diff = res$p_hat_diff, CI = res$CI))
-          #      } else {
-          #        return(list(p_hat_diff = res$p_hat_diff, SE = res$SE, ME = res$ME, CI = res$CI))
-          #      }
-          #    }  
+            if(method == "simulation"){
+              res <- ht_two_prop_sim(y, x, success, null, alternative, nsim, seed,
+                                     x_name, y_name, show_eda_plot, show_inf_plot)
+              return(list(p_hat_diff = res$p_hat_diff, p_value = res$p_value))
+            }
           }
           
         }
@@ -556,12 +539,9 @@ inference <- function(y, x = NULL, data,
           
           # compare many proportions
           if(statistic == "proportion"){
-            
+            stop("Chi-square testing is not yet implemented, check back soon", call. = FALSE)
           }
-
         }
-
       }
     }
-    
 }

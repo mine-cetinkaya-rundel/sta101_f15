@@ -64,9 +64,9 @@ ht_single_mean_sim <- function(y, null, alternative, nsim, seed,
     geom_histogram(fill = "#CCCCCC", binwidth = diff(range(sim_dist)) / 20) +
     annotate("rect", xmin = x_min, xmax = x_max, ymin = 0, ymax = Inf, 
              alpha = 0.3, fill = "#FABAB8") +
-    xlab("randomization means") +
+    xlab("simulated means") +
     ylab("") +
-    ggtitle("Randomization Distribution") +
+    ggtitle("Null Distribution") +
     geom_vline(xintercept = y_bar, color = "#F57670", lwd = 1.5)
   
   # print plots

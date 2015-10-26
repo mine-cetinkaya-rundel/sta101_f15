@@ -1,6 +1,9 @@
-ht_two_prop_theo <- function(y, x, success, null, alternative,
-                             x_name, y_name, show_eda_plot, show_inf_plot){
-  
+ht_two_prop_sim <- function(y, x, success, null, alternative, nsim, seed,
+                            x_name, y_name, show_eda_plot, show_inf_plot){
+
+  # set seed
+  if(!is.null(seed)){ set.seed(seed) }
+    
   # calculate n1 and n2
   ns <- by(y, x, length)
   n1 <- as.numeric(ns[1])
@@ -14,17 +17,17 @@ ht_two_prop_theo <- function(y, x, success, null, alternative,
   
   # calculate difference in p-hats
   p_hat_diff <- p_hat1 - p_hat2
-  
-  # calculate pooled proportion
-  suc_tot <- suc1 + suc2
-  n_tot <- n1 + n2
-  p_pool <- suc_tot / n_tot
 
-  # calculate SE
-  se <- sqrt((p_pool * (1 - p_pool) / n1) + (p_pool * (1 - p_pool) / n2))
-  
-  # calculate z
-  z <- (p_hat_diff - null) / se
+  # create null distribution
+  sim_dist <- rep(NA, nsim)
+  for(i in 1:nsim){
+    y_sim <- sample(y, size = (n1+n2), replace = FALSE)
+    suc1_sim <- sum(y_sim[x == levels(x)[1]] == success)
+    suc2_sim <- sum(y_sim[x == levels(x)[2]] == success)
+    p_hat1_sim <- suc1_sim / n1
+    p_hat2_sim <- suc2_sim / n2
+    sim_dist[i] <- p_hat1_sim - p_hat2_sim
+  }
   
   # shading cutoffs
   if(alternative == "greater"){ 
@@ -47,12 +50,12 @@ ht_two_prop_theo <- function(y, x, success, null, alternative,
   }
   
   # calculate p-value
-  if(alternative == "greater"){ p_value <- pnorm(z, lower.tail = FALSE) }
-  if(alternative == "less"){ p_value <- pnorm(z, lower.tail = TRUE) }
+  if(alternative == "greater"){ p_value <- sum(sim_dist >= p_hat_diff) / nsim }
+  if(alternative == "less"){ p_value <- sum(sim_dist <= p_hat_diff) / nsim }
   if(alternative == "twosided"){
-    p_value <- pnorm(abs(z), lower.tail = FALSE) * 2
+    p_value <- sum(sim_dist >= p_hat_diff) / nsim
   }
-
+  
   # eda_plot
   d_eda <- data.frame(y = y, x = x)
   
@@ -69,14 +72,17 @@ ht_two_prop_theo <- function(y, x, success, null, alternative,
     ylab("") +
     ggtitle("Sample Distribution") +
     guides(fill = guide_legend(title = y_name))
-  
+
   # inf_plot
-  inf_plot <- ggplot(data.frame(x = c(null - 4*se, null + 4*se)), aes(x)) + 
-    stat_function(fun = dnorm, args = list(mean = null, sd = se), color = "#999999") +
+  d_inf <- data.frame(sim_dist = sim_dist)
+  
+  inf_plot <- ggplot(data = d_inf, aes(x = sim_dist), environment = environment()) +
+    geom_histogram(fill = "#CCCCCC", binwidth = diff(range(sim_dist)) / 20) +
     annotate("rect", xmin = x_min, xmax = x_max, ymin = 0, ymax = Inf, 
              alpha = 0.3, fill = "#FABAB8") +
+    xlab("simulated difference in means") +
+    ylab("") +
     ggtitle("Null Distribution") +
-    xlab("") +
     geom_vline(xintercept = p_hat_diff, color = "#F57670", lwd = 1.5)
   
   # print plots
@@ -91,6 +97,5 @@ ht_two_prop_theo <- function(y, x, success, null, alternative,
   }
   
   # return
-  return(list(p_hat_diff = round(p_hat_diff, 4), SE = round(se, 4), 
-              z_score = round(z, 4), p_value = round(p_value, 4)))
+  return(list(p_hat_diff = round(p_hat_diff, 4), p_value = round(p_value, 4)))
 }
