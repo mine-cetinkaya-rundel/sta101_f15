@@ -190,11 +190,12 @@ title: Schedule
 ##### In class / lab
 
 | Oct 26, Mon | **RA 5** in class |
-|             | [Lesson 5.1](post/slides/u5_deck1.pdf) &nbsp;&nbsp;&nbsp;[<i class="fa fa-print"></i>](post/slides/u5_deck1H.pdf) |
-| Oct 28, Wed | [Lesson 5.2](post/slides/u5_deck2.pdf) &nbsp;&nbsp;&nbsp;[<i class="fa fa-print"></i>](post/slides/u5_deck2H.pdf)                  |
+|             | [Lesson 5.1: Inference for a single proportion](post/slides/u5_deck1.pdf) &nbsp;&nbsp;&nbsp;[<i class="fa fa-print"></i>](post/slides/u5_deck1H.pdf) |
+|              | [App Ex 5.1: Inference for a single proportion](post/app/app_Single_prop.pdf) |
+| Oct 28, Wed | [Lesson 5.2: Inference for comparing two proportions](post/slides/u5_deck2.pdf) &nbsp;&nbsp;&nbsp;[<i class="fa fa-print"></i>](post/slides/u5_deck2H.pdf)                  |
 | Oct 29, Thu | [Lab 8: Inference for categorical data](post/labs/inf_for_categorical_data.html) |
-| Nov 2, Mon  | [Lesson 5.3](post/slides/u5_deck3.pdf) &nbsp;&nbsp;&nbsp;[<i class="fa fa-print"></i>](post/slides/u5_deck3H.pdf)                  |
-| Nov 4, Wed  | [Lesson 5.4](post/slides/u5_deck4.pdf) &nbsp;&nbsp;&nbsp;[<i class="fa fa-print"></i>](post/slides/u5_deck4H.pdf)                  |
+| Nov 2, Mon  | [Lesson 5.3: Chi-square testing](post/slides/u5_deck3.pdf) &nbsp;&nbsp;&nbsp;[<i class="fa fa-print"></i>](post/slides/u5_deck3H.pdf)                  |
+| Nov 4, Wed  | [Lesson 5.4: Review/synthesis](post/slides/u5_deck4.pdf) &nbsp;&nbsp;&nbsp;[<i class="fa fa-print"></i>](post/slides/u5_deck4H.pdf)                  |
 | Nov 5, Thu  | Work on [Project 1](post/projects/project1.html)                     |
 
 ##### Due dates
@@ -236,9 +237,9 @@ title: Schedule
 ##### In class / lab
 
 | Nov 11, Wed | **RA 6** in class |
-|             | [Lesson 6.1](post/slides/u6_deck1.pdf) &nbsp;&nbsp;&nbsp;[<i class="fa fa-print"></i>](post/slides/u6_deck1H.pdf)     |
+|             | [Lesson 6.1: Introduction to regression](post/slides/u6_deck1.pdf) &nbsp;&nbsp;&nbsp;[<i class="fa fa-print"></i>](post/slides/u6_deck1H.pdf)     |
 | Nov 12, Thu | [Lab 9: Introduction to linear regression](post/labs/lab9.html) |
-| Nov 16, Mon | [Lesson 6.2](post/slides/u6_deck2.pdf) &nbsp;&nbsp;&nbsp;[<i class="fa fa-print"></i>](post/slides/u6_deck2H.pdf)                     |
+| Nov 16, Mon | [Lesson 6.2: Outliers and inference for regression](post/slides/u6_deck2.pdf) &nbsp;&nbsp;&nbsp;[<i class="fa fa-print"></i>](post/slides/u6_deck2H.pdf)                     |
 
 
 ##### Due dates
@@ -268,9 +269,9 @@ title: Schedule
 ##### In class / lab
 
 | Nov 18, Wed | **RA 7** in class |
-|             | [Lesson 7.1](post/slides/u7_deck1.pdf) &nbsp;&nbsp;&nbsp;[<i class="fa fa-print"></i>](post/slides/u7_deck1H.pdf) |
+|             | [Lesson 7.1: Introduction to multiple linear regression ](post/slides/u7_deck1.pdf) &nbsp;&nbsp;&nbsp;[<i class="fa fa-print"></i>](post/slides/u7_deck1H.pdf) |
 | Nov 19, Thu | [Lab 10: Multiple linear regression](post/labs/lab10.html)   |
-| Nov 23, Mon | [Lesson 7.2](post/slides/u7_deck2.pdf) &nbsp;&nbsp;&nbsp;[<i class="fa fa-print"></i>](post/slides/u7_deck2H.pdf)                 |
+| Nov 23, Mon | [Lesson 7.2: Model selection & diagnostics for MLR](post/slides/u7_deck2.pdf) &nbsp;&nbsp;&nbsp;[<i class="fa fa-print"></i>](post/slides/u7_deck2H.pdf)                 |
 | Nov 25, Wed | *Thanksgiving break - no class*      |
 | Nov 26, Thu | *Thanksgiving break - no lab*        |
 | Nov 30, Mon | [Lesson 7.3](post/slides/u7_deck3.pdf) &nbsp;&nbsp;&nbsp;[<i class="fa fa-print"></i>](post/slides/u7_deck3H.pdf)                 |
