@@ -1,0 +1,15 @@
+load(url("https://stat.duke.edu/~mc301/R/fun/inference.RData"))
+
+n_veg = 10
+n_nonveg = 124
+
+sta101 = data.frame(veg = c(rep("yes", n_veg), rep("no", n_nonveg)))
+
+inference(y = veg, data = sta101, success = "yes", 
+          statistic = "proportion", type = "ht", 
+          null = 0.08, alternative = "twosided", 
+          method = "simulation")
+
+inference(y = veg, data = sta101, success = "yes", 
+          statistic = "proportion", type = "ci", 
+          method = "simulation", boot_method = "se")
