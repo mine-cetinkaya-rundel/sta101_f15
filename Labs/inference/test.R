@@ -25,6 +25,8 @@ inference(y = mature, data = nc, success = "mature mom", statistic = "proportion
 inference(y = habit, x = mature, data = nc, success = "smoker", statistic = "proportion", 
           method = "simulation", type = "ht", null = 0, alternative = "twosided", nsim = 200)
 
+
+####
 inference(y = weight, x = mature, data = nc, statistic = "mean", 
           method = "simulation", type = "ht", null = 0, alternative = "twosided", nsim = 200)
 
