@@ -1,7 +1,7 @@
 load(url("https://stat.duke.edu/~mc301/R/fun/inference.RData"))
 
 n_veg = 10
-n_nonveg = 124
+n_nonveg = 100 
 
 sta101 = data.frame(veg = c(rep("yes", n_veg), rep("no", n_nonveg)))
 
