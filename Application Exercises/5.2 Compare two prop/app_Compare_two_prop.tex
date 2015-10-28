@@ -69,6 +69,33 @@ conditions. \\
 \includegraphics[width=0.6\textwidth]{figures/welsh_table3_females}
 \end{center}
 
+\pagebreak
+
+\soln{10cm}{
+Hypothesis test: \\ $\:$ \\
+Conditions: \\
+1. Independence: same discussion as for the males from slides \\
+2. S/F: All greater than 10 \\
+$\hat{p}_{pool} = \frac{11 + 39}{83 + 139} = 0.225$ \\
+present: $83 * 0.225 = 18.675$ and $83 * (1 - 0.225) = 64.325$ \\
+absent: $139 * 0.225 = 31.275$ and $139 * (1 - 0.225) = 107.725$ \\
+Hence we can assume that the sampling distribution of the difference in two proportions is nearly normal. \\
+$H_0: p_{present} = p_{absent}$ \\ 
+$H_A: p_{present} \ne p_{absent}$ \\
+$Z = \frac{0.133 - 0.281}{\sqrt{\frac{0.225 * (1 - 0.225)}{139} + \frac{0.225 * (1 - 0.225)}{139}}} = -2.95$ \\
+$p-value = 0.0016 * 2 = 0.0032$ \\
+Reject $H_0$, the data provide convincing evidence of a difference in rates of survival of female characters in
+slasher movies who are and are not involved in sexual activity. \\
+Confidence interval: \\ $\:$ \\
+Conditions: \\
+1. Independence: same as before\
+2. S/F: All observed counts are greater than 10 \\
+$(0.133 - 0.281) \pm 1.96 \sqrt{\frac{0.133 * (1 - 0.133)}{139} + \frac{0.281 * (1 - 0.281)}{139}}$ \\
+$= -0.148 \pm 1.96 * 0.0478 =  -0.148 \pm 0.094 = (-0.242, -0.054)$ \\
+We are 95\% confident that in slasher movies, 5.4\% to 24.2\% fewer female characters in who are involved in
+sexual activity are expected to survive, compared to females character who are not involved in sexual activity.
+}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \end{document}
