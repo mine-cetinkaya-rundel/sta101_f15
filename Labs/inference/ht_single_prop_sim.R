@@ -1,5 +1,6 @@
-ht_single_prop_sim <- function(y, success, null, alternative, seed,
-                                y_name, show_eda_plot, show_inf_plot, nsim){
+ht_single_prop_sim <- function(y, success, null, alternative, seed, nsim,
+                              y_name, show_var_types, show_summ_stats, show_res,
+                              show_eda_plot, show_inf_plot){
   
   # set seed
   if(!is.null(seed)){ set.seed(seed) }
@@ -42,6 +43,31 @@ ht_single_prop_sim <- function(y, success, null, alternative, seed,
       p_value <- 2 * (sum(sim_dist <= p_hat) / nsim)
     }
   }
+
+  # print variable types
+  if(show_var_types == TRUE){
+    cat("Single categorical variable\n")
+  }
+  
+  # print summary statistics
+  if(show_summ_stats == TRUE){
+    cat(paste0("n = ", n, ", p-hat = ", round(p_hat, 4), "\n"))
+  }
+  
+  # print results
+  if(show_res == TRUE){
+    if(alternative == "greater"){
+      alt_sign <- ">"
+    } else if(alternative == "less"){
+      alt_sign <- "<"
+    } else {
+      alt_sign <- "!="
+    }
+    cat(paste0("H0: p = ", null, "\n"))
+    cat(paste0("HA: p ", alt_sign, " ", null, "\n"))
+    p_val_to_print <- ifelse(round(p_value, 4) == 0, "< 0.0001", round(p_value, 4))
+    cat(paste0("p_value = ", p_val_to_print))
+  }
   
   # eda_plot
   d_eda <- data.frame(y = y)
@@ -76,5 +102,5 @@ ht_single_prop_sim <- function(y, success, null, alternative, seed,
   }
   
   # return
-  return(list(p_hat = round(p_hat, 4), p_value = round(p_value, 4))) 
+  return(list(sim_dist = sim_dist, p_value = p_value)) 
 }

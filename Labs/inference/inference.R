@@ -475,9 +475,10 @@ inference <- function(y, x = NULL, data,
                       z_score = res$z_score, p_value = res$p_value))          
         }
         if(method == "simulation"){ 
-          res <- ht_single_prop_sim(y, success, null, alternative, seed,
-                                    y_name, show_eda_plot, show_inf_plot, nsim)
-          return(list(p_hat = res$p_hat, p_value = res$p_value))
+          res <- ht_single_prop_sim(y, success, null, alternative, seed, nsim,
+                              y_name, show_var_types, show_summ_stats, show_res,
+                              show_eda_plot, show_inf_plot)
+          return(invisible(list(sim_dist = res$sim_dist, p_value = res$p_value)))
         }
       }
     }
