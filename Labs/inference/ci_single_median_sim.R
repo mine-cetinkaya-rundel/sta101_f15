@@ -1,5 +1,7 @@
-ci_single_median_sim <- function(y, conf_level, boot_method, nsim, seed, 
-                                 y_name, show_eda_plot, show_inf_plot){
+ci_single_median_sim <- function(y, conf_level, y_name,
+                                 boot_method, nsim, seed, 
+                                 show_var_types, show_summ_stats, show_res,
+                                 show_eda_plot, show_inf_plot){
 
   # set seed
   if(!is.null(seed)){ set.seed(seed) }
@@ -52,6 +54,25 @@ ci_single_median_sim <- function(y, conf_level, boot_method, nsim, seed,
     ci <- med + c(-1, 1)* me
   }  
   
+  # print variable types
+  if(show_var_types == TRUE){
+    cat("Single numerical variable\n")
+  }
+  
+  # print summary statistics
+  if(show_summ_stats == TRUE){
+    q_25 <- quantile(y, 0.25)
+    q_75 <- quantile(y, 0.75)
+    cat(paste0("n = ", n, ", med = ", round(med, 4), 
+               ", Q1 = ", round(q_25, 4), ", Q3 = ", round(q_75, 4), "\n"))
+  }
+  
+  # print results
+  if(show_res == TRUE){
+    conf_level_perc = conf_level * 100
+    cat(paste0(conf_level_perc, "% CI: (", round(ci[1], 4), " , ", round(ci[2], 4), ")\n"))
+  }
+  
   # eda_plot
   d_eda <- data.frame(y = y)
   eda_plot <- ggplot(data = d_eda, aes(x = y), environment = environment()) +
@@ -85,10 +106,9 @@ ci_single_median_sim <- function(y, conf_level, boot_method, nsim, seed,
   
   # return
   if(boot_method == "perc"){
-    return(list(med = round(med, 4), CI = round(ci, 4)))
+    return(list(sim_dist = sim_dist, CI = ci))
   } else {
-    return(list(med = round(med, 4), SE = round(se, 4), 
-                ME = round(me, 4), CI = round(ci, 4)))
+    return(list(sim_dist = sim_dist, SE = se, ME = me, CI = ci))
   }
   
 }

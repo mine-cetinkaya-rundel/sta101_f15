@@ -1,5 +1,7 @@
 ht_two_prop_sim <- function(y, x, success, null, alternative, nsim, seed,
-                            x_name, y_name, show_eda_plot, show_inf_plot){
+                            x_name, y_name, 
+                            show_var_types, show_summ_stats, show_res,
+                            show_eda_plot, show_inf_plot){
 
   # set seed
   if(!is.null(seed)){ set.seed(seed) }
@@ -53,7 +55,43 @@ ht_two_prop_sim <- function(y, x, success, null, alternative, nsim, seed,
   if(alternative == "greater"){ p_value <- sum(sim_dist >= p_hat_diff) / nsim }
   if(alternative == "less"){ p_value <- sum(sim_dist <= p_hat_diff) / nsim }
   if(alternative == "twosided"){
-    p_value <- sum(sim_dist >= p_hat_diff) / nsim
+    if(p_hat_diff > null){
+      p_value <- 2 * (sum(sim_dist >= p_hat_diff) / nsim)
+    }
+    if(p_hat_diff < null){
+      p_value <- 2 * (sum(sim_dist <= p_hat_diff) / nsim)
+    }
+  }
+
+  # print variable types
+  if(show_var_types == TRUE){
+    n_x_levels <- length(levels(x))
+    n_y_levels <- length(levels(y))
+    cat(paste0("Response variable: categorical (", n_x_levels, " levels), ", 
+        "Explanatory variable: categorical (", n_y_levels, " levels) \n"))
+  }
+  
+  # print summary statistics
+  if(show_summ_stats == TRUE){
+    gr1 <- levels(x)[1]
+    gr2 <- levels(x)[1]
+    cat(paste0("n_", gr1, " = ", n1, ", p_hat_", gr1, " = ", round(p_hat1, 4), "\n"))
+    cat(paste0("n_", gr2, " = ", n2, ", p_hat_", gr2, " = ", round(p_hat2, 4), "\n"))
+  }
+  
+  # print results
+  if(show_res == TRUE){
+    if(alternative == "greater"){
+      alt_sign <- ">"
+    } else if(alternative == "less"){
+      alt_sign <- "<"
+    } else {
+      alt_sign <- "!="
+    }
+    cat(paste0("H0: p_", gr1, " =  p_", gr2, "\n"))
+    cat(paste0("HA: p_", gr1, " ", alt_sign, " p_", gr2, "\n"))
+    p_val_to_print <- ifelse(round(p_value, 4) == 0, "< 0.0001", round(p_value, 4))
+    cat(paste0("p_value = ", p_val_to_print))
   }
   
   # eda_plot
@@ -97,5 +135,5 @@ ht_two_prop_sim <- function(y, x, success, null, alternative, nsim, seed,
   }
   
   # return
-  return(list(p_hat_diff = round(p_hat_diff, 4), p_value = round(p_value, 4)))
+  return(list(sim_dist = sim_dist, p_value = p_value))
 }

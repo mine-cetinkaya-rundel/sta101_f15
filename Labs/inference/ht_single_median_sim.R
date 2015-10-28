@@ -39,11 +39,11 @@ ht_single_median_sim <- function(y, null, alternative, nsim, seed,
   if(alternative == "greater"){ p_value <- sum(sim_dist >= y_med) / nsim }
   if(alternative == "less"){ p_value <- sum(sim_dist <= y_med) / nsim }
   if(alternative == "twosided"){
-    if(y_med >= null){
-      p_value <- (sum(sim_dist >= y_med) + sum(sim_dist <= (null - abs(y_med - null)))) / nsim
+    if(y_med > null){
+      p_value <- 2 * (sum(sim_dist >= y_med) / nsim)
     }
-    if(y_med <= null){
-      p_value <- (sum(sim_dist <= y_med) + sum(sim_dist >= (null + abs(y_med - null)))) / nsim
+    if(y_med < null){
+      p_value <- 2 * (sum(sim_dist <= y_med) / nsim)
     }    
   }
 

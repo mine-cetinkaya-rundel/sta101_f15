@@ -79,13 +79,14 @@ ht_many_mean_theo <- function(y, x, sig_level,
   eda_plot <- ggplot(data = d_eda, aes(x = y), environment = environment()) +
     geom_histogram(fill = "#8FDEE1", binwidth = diff(range(y)) / 20) +
     xlab(y_name) +
-    ylab("") +
+    ylab(x_name) +
     ggtitle("Sample Distributions") +
     geom_vline(data = d_means, aes(xintercept = y_bars), col = "#1FBEC3", lwd = 1.5) +
     facet_grid(x ~ .)
   
   # inf_plot
-  inf_plot <- ggplot(data.frame(x = c(0, stat * 1.2)), aes(x)) +
+  x_max <- max(qf(0.99, df1 = dfs[1], df2 = dfs[2]), stat*1.1)
+  inf_plot <- ggplot(data.frame(x = c(0, x_max)), aes(x)) +
     stat_function(fun = df, args = list(df1 = dfs[1], df2 = dfs[2]), color = "#999999") +
     annotate("rect", xmin = stat, xmax = stat+Inf, ymin = 0, ymax = Inf, 
              alpha = 0.3, fill = "#FABAB8") +

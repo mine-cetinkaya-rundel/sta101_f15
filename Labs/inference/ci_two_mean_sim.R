@@ -1,5 +1,5 @@
 ci_two_mean_sim <- function(y, x, conf_level, boot_method, nsim, seed,
-                             y_name, show_eda_plot, show_inf_plot){
+                             y_name, x_name, show_eda_plot, show_inf_plot){
   
   # set seed
   if(!is.null(seed)){ set.seed(seed) }
@@ -70,7 +70,7 @@ ci_two_mean_sim <- function(y, x, conf_level, boot_method, nsim, seed,
   eda_plot <- ggplot(data = d_eda, aes(x = y), environment = environment()) +
     geom_histogram(fill = "#8FDEE1", binwidth = diff(range(y)) / 20) +
     xlab(y_name) +
-    ylab("") +
+    ylab(x_name) +
     ggtitle("Sample Distributions") +
     geom_vline(data = d_means, aes(xintercept = y_bars), col = "#1FBEC3", lwd = 1.5) +
     facet_grid(x ~ .)

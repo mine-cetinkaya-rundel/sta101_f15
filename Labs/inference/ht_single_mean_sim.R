@@ -39,12 +39,12 @@ ht_single_mean_sim <- function(y, null, alternative, nsim, seed,
   if(alternative == "greater"){ p_value <- sum(sim_dist >= y_bar) / nsim }
   if(alternative == "less"){ p_value <- sum(sim_dist <= y_bar) / nsim }
   if(alternative == "twosided"){
-    if(y_bar >= null){
-      p_value <- (sum(sim_dist >= y_bar) + sum(sim_dist <= (null - abs(y_bar - null)))) / nsim
+    if(y_bar > null){
+      p_value <- 2 * (sum(sim_dist >= y_bar) / nsim)
     }
-    if(y_bar <= null){
-      p_value <- (sum(sim_dist <= y_bar) + sum(sim_dist >= (null + abs(y_bar - null)))) / nsim
-    }    
+    if(y_bar < null){
+      p_value <- 2 * (sum(sim_dist <= y_bar) / nsim)
+    }     
   }
 
   # eda_plot

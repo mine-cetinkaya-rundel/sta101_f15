@@ -1,5 +1,5 @@
 ci_two_median_sim <- function(y, x, conf_level, boot_method, nsim, seed,
-                              y_name, show_eda_plot, show_inf_plot){
+                              y_name, x_name, show_eda_plot, show_inf_plot){
   
   # set seed
   if(!is.null(seed)){ set.seed(seed) }
@@ -68,7 +68,7 @@ ci_two_median_sim <- function(y, x, conf_level, boot_method, nsim, seed,
 
   eda_plot <- ggplot(data = d_eda, aes(x = x, y = y), environment = environment()) +
     geom_boxplot(color = "#1FBEC3", fill = "#8FDEE1", outlier.colour = "#1FBEC3") +
-    xlab("") +
+    xlab(x_name) +
     ylab(y_name) +
     ggtitle("Sample Distributions")
 

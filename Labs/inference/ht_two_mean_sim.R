@@ -51,7 +51,12 @@ ht_two_mean_sim <- function(y, x, null, alternative, nsim, seed,
   if(alternative == "greater"){ p_value <- sum(sim_dist >= y_bar_diff) / nsim }
   if(alternative == "less"){ p_value <- sum(sim_dist <= y_bar_diff) / nsim }
   if(alternative == "twosided"){
-    p_value <- sum(sim_dist >= y_bar_diff) / nsim
+    if(y_bar_diff > null){
+      p_value <- 2 * (sum(sim_dist >= y_bar_diff) / nsim)
+    }
+    if(y_bar_diff < null){
+      p_value <- 2 * (sum(sim_dist <= y_bar_diff) / nsim)
+    }
   }
   
   # eda_plot
@@ -61,7 +66,7 @@ ht_two_mean_sim <- function(y, x, null, alternative, nsim, seed,
   eda_plot <- ggplot(data = d_eda, aes(x = y), environment = environment()) +
     geom_histogram(fill = "#8FDEE1", binwidth = diff(range(y)) / 20) +
     xlab(y_name) +
-    ylab("") +
+    ylab(x_name) +
     ggtitle("Sample Distributions") +
     geom_vline(data = d_means, aes(xintercept = y_bars), col = "#1FBEC3", lwd = 1.5) +
     facet_grid(x ~ .) 

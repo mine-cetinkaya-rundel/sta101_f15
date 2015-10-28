@@ -1,7 +1,30 @@
-source("inference_ci.R")
+load(url("https://stat.duke.edu/~mc301/data/nc.RData"))
 
-inference_ci(y = weight, data = nc, statistic = "mean", 
-             method = "theoretical")
+# ci_single_mean_theo
+inference(y = weight, data = nc, statistic = "mean", method = "theoretical", type = "ci")
+
+# ci_single_mean_sim
+inference(y = weight, data = nc, statistic = "mean", method = "simulation", type = "ci", 
+          boot_method = "se")
+
+inference(y = weight, data = nc, statistic = "mean", method = "simulation", type = "ci", 
+          boot_method = "perc")
+
+# ci_single_median_sim
+inference(y = weight, data = nc, statistic = "median", method = "simulation", type = "ci", 
+          boot_method = "se")
+
+inference(y = weight, data = nc, statistic = "median", method = "simulation", type = "ci", 
+          boot_method = "perc")
+
+# ci_single_prop_sim
+inference(y = mature, data = nc, success = "mature mom", statistic = "proportion", 
+          method = "simulation", type = "ci", boot_method = "perc")
+
+# ht_two_prop_sim
+inference(y = habit, x = mature, data = nc, success = "smoker", statistic = "proportion", 
+          method = "simulation", type = "ht", null = 0, alternative = "twosided", nsim = 200)
+
 
 inference_ci(y = weight, data = nc, statistic = "mean", 
              method = "simulation", boot_method = "se")
@@ -76,6 +99,7 @@ source("ht_many_mean_theo.R")
 source("ht_single_prop_theo.R")
 source("ht_single_prop_sim.R")
 source("ht_two_prop_sim.R")
+source("ht_many_prop_theo.R")
 source("inference.R")
 save(ci_single_mean_sim, 
      ci_single_mean_theo, 
@@ -92,7 +116,8 @@ save(ci_single_mean_sim,
      ht_single_median_sim, 
      ht_two_mean_theo, 
      ht_two_prop_theo,
-     ht_many_mean_theo, 
+     ht_many_mean_theo,
+     ht_many_prop_theo,
      ht_single_prop_theo,
      ht_single_prop_sim,
      ht_two_prop_sim,

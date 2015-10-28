@@ -51,20 +51,22 @@ ht_two_median_sim <- function(y, x, null, alternative, nsim, seed,
   if(alternative == "greater"){ p_value <- sum(sim_dist >= y_med_diff) / nsim }
   if(alternative == "less"){ p_value <- sum(sim_dist <= y_med_diff) / nsim }
   if(alternative == "twosided"){
-    p_value <- sum(sim_dist >= y_med_diff) / nsim
+    if(p_hat_diff > null){
+      p_value <- 2 * (sum(sim_dist >= y_med_diff) / nsim)
+    }
+    if(p_hat_diff < null){
+      p_value <- 2 * (sum(sim_dist <= y_med_diff) / nsim)
+    }
   }
   
   # eda_plot
   d_eda <- data.frame(y = y, x = x)
-  d_means <- data.frame(y_meds = as.numeric(y_meds), x = levels(x))
-  
-  eda_plot <- ggplot(data = d_eda, aes(x = y), environment = environment()) +
-    geom_histogram(fill = "#8FDEE1", binwidth = diff(range(y)) / 20) +
-    xlab(y_name) +
-    ylab("") +
-    ggtitle("Sample Distributions") +
-    geom_vline(data = d_means, aes(xintercept = y_meds), col = "#1FBEC3", lwd = 1.5) +
-    facet_grid(x ~ .)
+
+  eda_plot <- ggplot(data = d_eda, aes(x = x, y = y), environment = environment()) +
+    geom_boxplot(color = "#1FBEC3", fill = "#8FDEE1", outlier.colour = "#1FBEC3") +
+    xlab(x_name) +
+    ylab(y_name) +
+    ggtitle("Sample Distributions")
     
   # inf_plot
   d_inf <- data.frame(sim_dist = sim_dist)

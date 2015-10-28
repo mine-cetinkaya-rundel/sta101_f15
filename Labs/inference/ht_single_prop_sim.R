@@ -35,12 +35,12 @@ ht_single_prop_sim <- function(y, success, null, alternative, seed,
   if(alternative == "greater"){ p_value <- sum(sim_dist >= p_hat) / nsim }
   if(alternative == "less"){ p_value <- sum(sim_dist <= p_hat) / nsim }
   if(alternative == "twosided"){
-    if(p_hat >= null){
-      p_value <- (sum(sim_dist >= p_hat) + sum(sim_dist <= (null - abs(p_hat - null)))) / nsim
+    if(p_hat > null){
+      p_value <- 2 * (sum(sim_dist >= p_hat) / nsim)
     }
-    if(p_hat <= null){
-      p_value <- (sum(sim_dist <= p_hat) + sum(sim_dist >= (null + abs(p_hat - null)))) / nsim
-    }    
+    if(p_hat < null){
+      p_value <- 2 * (sum(sim_dist <= p_hat) / nsim)
+    }
   }
   
   # eda_plot
