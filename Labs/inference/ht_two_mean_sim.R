@@ -8,11 +8,12 @@ ht_two_mean_sim <- function(y, x, null, alternative, nsim, seed,
   ns <- by(y, x, length)
   n1 <- as.numeric(ns[1])
   n2 <- as.numeric(ns[2])
+  n <- n1 + n2
   
   # calculate y-bar1 and y-bar2
   y_bars <- by(y, x, mean)
-  y_bar1 <- as.numeric(y_meds[1])
-  y_bar2 <- as.numeric(y_meds[2])
+  y_bar1 <- as.numeric(y_bars[1])
+  y_bar2 <- as.numeric(y_bars[2])
   
   # calculate difference in y-bars
   y_bar_diff <- y_bar1 - y_bar2

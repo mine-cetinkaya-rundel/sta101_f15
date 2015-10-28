@@ -8,7 +8,8 @@ ht_two_median_sim <- function(y, x, null, alternative, nsim, seed,
   ns <- by(y, x, length)
   n1 <- as.numeric(ns[1])
   n2 <- as.numeric(ns[2])
-  
+  n <- n1 + n2
+
   # calculate y-med1 and y-med2
   y_meds <- by(y, x, median)
   y_med1 <- as.numeric(y_meds[1])

@@ -25,6 +25,10 @@ inference(y = mature, data = nc, success = "mature mom", statistic = "proportion
 inference(y = habit, x = mature, data = nc, success = "smoker", statistic = "proportion", 
           method = "simulation", type = "ht", null = 0, alternative = "twosided", nsim = 200)
 
+inference(y = weight, x = mature, data = nc, statistic = "mean", 
+          method = "simulation", type = "ht", null = 0, alternative = "twosided", nsim = 200)
+
+
 
 inference_ci(y = weight, data = nc, statistic = "mean", 
              method = "simulation", boot_method = "se")
@@ -94,6 +98,7 @@ source("ht_single_mean_sim.R")
 source("ht_single_mean_theo.R")
 source("ht_single_median_sim.R")
 source("ht_two_mean_theo.R")
+source("ht_two_mean_sim.R")
 source("ht_two_prop_theo.R")
 source("ht_many_mean_theo.R")
 source("ht_single_prop_theo.R")
@@ -102,6 +107,7 @@ source("ht_two_prop_sim.R")
 source("ht_many_prop_theo.R")
 source("inference.R")
 save(ci_single_mean_sim, 
+     ht_two_mean_sim,
      ci_single_mean_theo, 
      ci_single_median_sim, 
      ci_single_prop_sim, 
