@@ -10,10 +10,8 @@ output:
 ```{r setup, include=FALSE}
 # DO NOT ALTER CODE IN THIS CHUNK
 knitr::opts_chunk$set(echo = TRUE)
-knitr::opts_chunk$set(cache = TRUE)
 library(dplyr)
 library(ggplot2)
-library(mosaic)
 ```
 
 **Author:** Enter author name here
@@ -66,6 +64,9 @@ load(url("https://stat.duke.edu/~mc301/R/fun/inference.RData"))
 
 
 #### Exercise 11:
+
+
+#### Exercise 12:
 
 * * *
 
