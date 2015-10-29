@@ -57,8 +57,10 @@ ht_single_median_sim <- function(y, null, alternative, y_name,
   
   # print summary statistics
   if(show_summ_stats == TRUE){
-    iqr <- IQR(y)
-    cat(paste0("n = ", n, ", y-med = ", round(y_med, 4), ", IQR = ", round(iqr, 4), "\n"))
+    q_25 <- quantile(y, 0.25)
+    q_75 <- quantile(y, 0.75)
+    cat(paste0("n = ", n, ", y_med = ", round(y_med, 4), 
+               ", Q1 = ", round(q_25, 4), ", Q3 = ", round(q_75, 4), "\n"))
   }
   
   # print results

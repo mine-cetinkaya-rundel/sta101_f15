@@ -1,5 +1,5 @@
 load(url("https://stat.duke.edu/~mc301/data/nc.RData"))
-#load(url("https://stat.duke.edu/~mc301/R/fun/inference.RData"))
+load(url("https://stat.duke.edu/~mc301/R/fun/inference.RData"))
 
 # ci_single_mean_theo
 inference(y = weight, data = nc, statistic = "mean", method = "theoretical", type = "ci")
@@ -113,7 +113,3 @@ inference(y = fake_group2, x = fake_group, data = nc, statistic = "proportion",
 # ht_many_prop_sim
 inference(y = fake_group2, x = fake_group, data = nc, statistic = "proportion", 
           method = "simulation", type = "ht", alternative = "greater")
-
-
-
-

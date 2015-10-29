@@ -63,7 +63,7 @@ ci_single_median_sim <- function(y, conf_level, y_name,
   if(show_summ_stats == TRUE){
     q_25 <- quantile(y, 0.25)
     q_75 <- quantile(y, 0.75)
-    cat(paste0("n = ", n, ", med = ", round(med, 4), 
+    cat(paste0("n = ", n, ", y_med = ", round(med, 4), 
                ", Q1 = ", round(q_25, 4), ", Q3 = ", round(q_75, 4), "\n"))
   }
   
