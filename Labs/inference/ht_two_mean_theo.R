@@ -1,5 +1,7 @@
 ht_two_mean_theo <- function(y, x, null, alternative, 
-                             y_name, x_name, show_eda_plot, show_inf_plot){
+                             y_name, x_name, 
+                             show_var_types, show_summ_stats, show_res,
+                             show_eda_plot, show_inf_plot){
   
   # calculate n1 and n2
   ns <- by(y, x, length)
@@ -23,7 +25,7 @@ ht_two_mean_theo <- function(y, x, null, alternative,
   se <- sqrt((s1^2 / n1) + (s2^2 / n2))
 
   # define degrees of freedom
-  df <- min(n1 - 1, n2 - 1)
+  deg_fr <- min(n1 - 1, n2 - 1)
   
   # calculate t
   t <- (y_bar_diff - null) / se
@@ -49,10 +51,41 @@ ht_two_mean_theo <- function(y, x, null, alternative,
   }
   
   # calculate p-value
-  if(alternative == "greater"){ p_value <- pt(t, df, lower.tail = FALSE) }
-  if(alternative == "less"){ p_value <- pt(t, df, lower.tail = TRUE) }
+  if(alternative == "greater"){ p_value <- pt(t, deg_fr, lower.tail = FALSE) }
+  if(alternative == "less"){ p_value <- pt(t, deg_fr, lower.tail = TRUE) }
   if(alternative == "twosided"){
-    p_value <- pt(abs(t), df, lower.tail = FALSE) * 2
+    p_value <- pt(abs(t), deg_fr, lower.tail = FALSE) * 2
+  }
+  
+  # print variable types
+  if(show_var_types == TRUE){
+    n_x_levels <- length(levels(x))
+    cat(paste0("Response variable: numerical\n"))
+    cat(paste0("Explanatory variable: categorical (", n_x_levels, " levels) \n"))
+  }
+  
+  # print summary statistics
+  if(show_summ_stats == TRUE){
+    gr1 <- levels(x)[1]
+    gr2 <- levels(x)[2]
+    cat(paste0("n_", gr1, " = ", n1, ", y_bar_", gr1, " = ", round(y_bar1, 4), ", s_", gr1, " = ", round(s1, 4), "\n"))
+    cat(paste0("n_", gr2, " = ", n2, ", y_bar_", gr2, " = ", round(y_bar2, 4), ", s_", gr2, " = ", round(s2, 4), "\n"))
+  }
+  
+  # print results
+  if(show_res == TRUE){
+    if(alternative == "greater"){
+      alt_sign <- ">"
+    } else if(alternative == "less"){
+      alt_sign <- "<"
+    } else {
+      alt_sign <- "!="
+    }
+    cat(paste0("H0: mu_", gr1, " =  mu_", gr2, "\n"))
+    cat(paste0("HA: mu_", gr1, " ", alt_sign, " mu_", gr2, "\n"))
+    cat(paste0("t = ", round(t, 4), ", df = ", deg_fr, "\n"))
+    p_val_to_print <- ifelse(round(p_value, 4) == 0, "< 0.0001", round(p_value, 4))
+    cat(paste0("p_value = ", p_val_to_print))
   }
   
   # eda_plot
@@ -90,6 +123,5 @@ ht_two_mean_theo <- function(y, x, null, alternative,
   }
   
   # return
-  return(list(y_bar_diff = round(y_bar_diff, 4), df = df, 
-              SE = round(se, 4), t = round(t, 4), p_value = round(p_value, 4)))
+  return(list(SE = se, t = t, df = deg_fr, p_value = p_value))
 }

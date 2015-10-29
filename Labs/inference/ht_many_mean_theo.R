@@ -1,5 +1,7 @@
-ht_many_mean_theo <- function(y, x, sig_level,
-                              x_name, y_name, show_eda_plot, show_inf_plot){
+ht_many_mean_theo <- function(y, x, null, alternative, sig_level,
+                              y_name, x_name, 
+                              show_var_types, show_summ_stats, show_res,
+                              show_eda_plot, show_inf_plot){
   # summary stats
   ns <- by(y, x, length)
   y_bars <- by(y, x, mean)
@@ -10,66 +12,72 @@ ht_many_mean_theo <- function(y, x, sig_level,
   
   # anova pieces
   terms <- c(x_name, "Residuals", "Total")
-  dfs <- res$Df
+  deg_frs <- res$Df
   ss <- res$`Sum Sq`
   ms <- res$`Mean Sq`
   stat <- res$`F value`[1]
-  pval <- res$`Pr(>F)`[1]
+  p_value <- res$`Pr(>F)`[1]
   
   # calculate totals
   ss_tot <- sum(ss)
   ss <- c(ss, ss_tot)
-  df_tot <- sum(dfs)
-  dfs <- c(dfs, df_tot)
+  df_tot <- sum(deg_frs)
+  deg_frs <- c(deg_frs, df_tot)
   
   # ss format
-  ss_format <- if(max(ss) < 100000){
-    as.character(ss)
-  } else{
-    format(ss, scientific = TRUE, digits = 4)
-  }
+  ss_format <- as.character(round(ss, 4))
   
   # ms format
-  ms_format <- if(max(ss) < 100000){
-    as.character(c(ms, NA))
-  } else{
-    c(format(ms, scientific = TRUE, digits = 4), NA)
-  }
+  ms_format <- as.character(c(round(ms, 4), NA))
   
   # stat format
-  stat_format <- if(stat < 100000){
-    as.character(c(round(stat, 4), NA, NA))
-  } else{
-    c(format(stat, scientific = FALSE, digits = 4), NA, NA)
-  }
+  stat_format <- as.character(c(round(stat, 4), NA, NA))
   
   # p-value format
-  pval_format <- if(pval > 0.0001){
-    as.character(c(round(pval, 4), NA, NA))
-  } else{
-    c(format(pval, scientific = TRUE, digits = 4), NA, NA)
-  }
+  p_value_format <- as.character(c(ifelse(round(p_value, 4) == 0, "< 0.0001", round(p_value, 4)), NA, NA))
   
   # format output
   anova_output <- data.frame(
-    df = dfs,
+    df = deg_frs,
     Sum_Sq = ss_format,
     Mean_Sq = ms_format,
     F = stat_format,
-    p_value = pval_format, 
+    p_value = p_value_format, 
     row.names = terms
   )
-
-  # return
-  cat("ANOVA:\n")
-  print(anova_output, na.print = "")
   
-  # post-hoc tests (if ANOVA is significant)
-  if(pval < sig_level){
-    cat("\nPairwise tests: ")
-    pairwise <- pairwise.t.test(y, x, p.adj = "none", pool.sd = TRUE)
-    cat(pairwise$method, "\n")
-    print(tidy(pairwise), digits = 4)
+  # print variable types
+  if(show_var_types == TRUE){
+    n_x_levels <- length(levels(x))
+    cat(paste0("Response variable: numerical\n"))
+    cat(paste0("Explanatory variable: categorical (", n_x_levels, " levels) \n"))
+  }
+  
+  # print summary statistics
+  if(show_summ_stats == TRUE){
+    grs <- levels(x)
+    ns <- by(y, x, length)
+    ybars <- round(by(y, x, mean), 4)
+    sds <- round(by(y, x, sd), 4)
+    for(i in 1:n_x_levels){
+      cat(paste0("n_", grs[i], " = ", ns[i], ", y_bar_", grs[i], " = ", round(ybars[i], 4),
+                 ", s_", grs[i], " = ", sds[i] , "\n"))
+    }
+    cat("\n")
+  }
+
+  # print results
+  if(show_res == TRUE){
+    cat("ANOVA:\n")
+    print(anova_output, na.print = "", digits = 4)
+    
+    # post-hoc tests (if ANOVA is significant)
+    if(p_value < sig_level){
+      cat("\nPairwise tests - ")
+      pairwise <- pairwise.t.test(y, x, p.adj = "none", pool.sd = TRUE)
+      cat(paste0(pairwise$method, ":\n"))
+      print(tidy(pairwise), digits = 4)
+    }
   }
   
   # eda_plot
@@ -85,12 +93,12 @@ ht_many_mean_theo <- function(y, x, sig_level,
     facet_grid(x ~ .)
   
   # inf_plot
-  x_max <- max(qf(0.99, df1 = dfs[1], df2 = dfs[2]), stat*1.1)
+  x_max <- max(qf(0.99, df1 = deg_frs[1], df2 = deg_frs[2]), stat*1.1)
   inf_plot <- ggplot(data.frame(x = c(0, x_max)), aes(x)) +
-    stat_function(fun = df, args = list(df1 = dfs[1], df2 = dfs[2]), color = "#999999") +
+    stat_function(fun = df, args = list(df1 = deg_frs[1], df2 = deg_frs[2]), color = "#999999") +
     annotate("rect", xmin = stat, xmax = stat+Inf, ymin = 0, ymax = Inf, 
              alpha = 0.3, fill = "#FABAB8") +
-    ggtitle(paste0("F Distribution\n(df_G = ", dfs[1], ", df_E = ", dfs[2], ")")) +
+    ggtitle(paste0("F Distribution\n(df_G = ", deg_frs[1], ", df_E = ", deg_frs[2], ")")) +
     xlab("") +
     ylab("") +
     geom_vline(xintercept = stat, color = "#F57670", lwd = 1.5)
@@ -105,4 +113,7 @@ ht_many_mean_theo <- function(y, x, sig_level,
   if(show_eda_plot & show_inf_plot){
     grid.arrange(eda_plot, inf_plot, ncol = 2)
   }
+  
+  # return
+  return(list(F = stat, df1 = deg_frs[1], df2 = deg_frs[2], p_value = p_value))
 }

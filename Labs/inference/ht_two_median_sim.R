@@ -1,5 +1,7 @@
 ht_two_median_sim <- function(y, x, null, alternative, nsim, seed,
-                              y_name, x_name, show_eda_plot, show_inf_plot){
+                              y_name, x_name, 
+                              show_var_types, show_summ_stats, show_res,
+                              show_eda_plot, show_inf_plot){
 
   # set seed
   if(!is.null(seed)){ set.seed(seed) }
@@ -52,12 +54,48 @@ ht_two_median_sim <- function(y, x, null, alternative, nsim, seed,
   if(alternative == "greater"){ p_value <- sum(sim_dist >= y_med_diff) / nsim }
   if(alternative == "less"){ p_value <- sum(sim_dist <= y_med_diff) / nsim }
   if(alternative == "twosided"){
-    if(p_hat_diff > null){
+    if(y_med_diff > null){
       p_value <- 2 * (sum(sim_dist >= y_med_diff) / nsim)
     }
-    if(p_hat_diff < null){
+    if(y_med_diff < null){
       p_value <- 2 * (sum(sim_dist <= y_med_diff) / nsim)
     }
+    if(y_med_diff == null){ p_value <- 1 }
+  }
+  
+  # print variable types
+  if(show_var_types == TRUE){
+    n_x_levels <- length(levels(x))
+    cat(paste0("Response variable: numerical\n"))
+    cat(paste0("Explanatory variable: categorical (", n_x_levels, " levels) \n"))
+  }
+  
+  # print summary statistics
+  if(show_summ_stats == TRUE){
+    gr1 <- levels(x)[1]
+    gr2 <- levels(x)[2]
+    iqrs <- by(y, x, IQR)
+    iqr1 <- iqrs[1]
+    iqr2 <- iqrs[2]
+    cat(paste0("n_", gr1, " = ", n1, ", y_med_", gr1, " = ", round(y_med1, 4), 
+               ", IQR_", gr1, " = ", iqr1, "\n"))
+    cat(paste0("n_", gr2, " = ", n2, ", y_med_", gr2, " = ", round(y_med2, 4), 
+               ", IQR_", gr2, " = ", iqr2, "\n"))
+  }
+  
+  # print results
+  if(show_res == TRUE){
+    if(alternative == "greater"){
+      alt_sign <- ">"
+    } else if(alternative == "less"){
+      alt_sign <- "<"
+    } else {
+      alt_sign <- "!="
+    }
+    cat(paste0("H0: mu_", gr1, " =  mu_", gr2, "\n"))
+    cat(paste0("HA: mu_", gr1, " ", alt_sign, " mu_", gr2, "\n"))
+    p_val_to_print <- ifelse(round(p_value, 4) == 0, "< 0.0001", round(p_value, 4))
+    cat(paste0("p_value = ", p_val_to_print))
   }
   
   # eda_plot
@@ -79,7 +117,7 @@ ht_two_median_sim <- function(y, x, null, alternative, nsim, seed,
     xlab("simulated difference in medians") +
     ylab("") +
     ggtitle("Null Distribution") +
-    geom_vline(xintercept = y_bar_diff, color = "#F57670", lwd = 1.5)
+    geom_vline(xintercept = y_med_diff, color = "#F57670", lwd = 1.5)
   
   # print plots
   if(show_eda_plot & !show_inf_plot){ 
@@ -93,5 +131,5 @@ ht_two_median_sim <- function(y, x, null, alternative, nsim, seed,
   }
   
   # return
-  return(list(y_med_diff = round(y_med_diff, 4), p_value = round(p_value, 4)))
+  return(list(sim_dist = sim_dist, p_value = p_value))
 }

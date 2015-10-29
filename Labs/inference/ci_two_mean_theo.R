@@ -1,5 +1,6 @@
-ci_two_mean_theo <- function(y, x, conf_level, 
-                             y_name, x_name, show_eda_plot, show_inf_plot){
+ci_two_mean_theo <- function(y, x, conf_level, y_name, x_name,
+                             show_var_types, show_summ_stats, show_res,
+                             show_eda_plot, show_inf_plot){
   
   # calculate n1 and n2
   ns <- by(y, x, length)
@@ -37,6 +38,27 @@ ci_two_mean_theo <- function(y, x, conf_level,
   # calculate CI
   ci <- y_bar_diff + c(-1, 1) * me
   
+  # print variable types
+  if(show_var_types == TRUE){
+    n_x_levels <- length(levels(x))
+    cat(paste0("Response variable: numerical, Explanatory variable: categorical (", n_x_levels," levels)\n"))
+  }
+  
+  # print summary statistics
+  gr1 <- levels(x)[1]
+  gr2 <- levels(x)[2]
+  
+  if(show_summ_stats == TRUE){
+    cat(paste0("n_", gr1, " = ", n1, ", y_bar_", gr1, " = ", round(y_bar1, 4), ", s_", gr1, " = ", round(s1, 4), "\n"))
+    cat(paste0("n_", gr2, " = ", n2, ", y_bar_", gr2, " = ", round(y_bar2, 4), ", s_", gr2, " = ", round(s2, 4), "\n"))
+  }
+  
+  # print results
+  if(show_res == TRUE){
+    conf_level_perc = conf_level * 100
+    cat(paste0(conf_level_perc, "% CI (", gr1 ," - ", gr2,"): (", round(ci[1], 4), " , ", round(ci[2], 4), ")\n"))
+  }
+  
   # eda_plot
   d_eda <- data.frame(y = y, x = x)
   d_means <- data.frame(y_bars = as.numeric(y_bars), x = levels(x))
@@ -55,6 +77,5 @@ ci_two_mean_theo <- function(y, x, conf_level,
   if(show_inf_plot){ warning("No inference plot available.") }
   
   # return
-  return(list(y_bar_diff = round(y_bar_diff, 4), df = df, SE = round(se, 4), 
-              ME = round(me, 4), CI = round(ci, 4)))
+  return(list(df = df, SE = se, ME = me, CI = ci))
 }

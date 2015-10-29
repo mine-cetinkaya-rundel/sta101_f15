@@ -1,5 +1,7 @@
 ht_two_mean_sim <- function(y, x, null, alternative, nsim, seed,
-                              y_name, x_name, show_eda_plot, show_inf_plot){
+                            y_name, x_name, 
+                            show_var_types, show_summ_stats, show_res,
+                            show_eda_plot, show_inf_plot){
 
   # set seed
   if(!is.null(seed)){ set.seed(seed) }
@@ -58,6 +60,42 @@ ht_two_mean_sim <- function(y, x, null, alternative, nsim, seed,
     if(y_bar_diff < null){
       p_value <- 2 * (sum(sim_dist <= y_bar_diff) / nsim)
     }
+    if(y_bar_diff == null){ p_value <- 1 }
+  }
+  
+  # print variable types
+  if(show_var_types == TRUE){
+    n_x_levels <- length(levels(x))
+    cat(paste0("Response variable: numerical\n"))
+    cat(paste0("Explanatory variable: categorical (", n_x_levels, " levels) \n"))
+  }
+  
+  # print summary statistics
+  if(show_summ_stats == TRUE){
+    gr1 <- levels(x)[1]
+    gr2 <- levels(x)[2]
+    sds <- by(y, x, IQR)
+    s1 <- sds[1]
+    s2 <- sds[2]
+    cat(paste0("n_", gr1, " = ", n1, ", y_bar_", gr1, " = ", round(y_bar1, 4), 
+               ", s_", gr1, " = ", s1, "\n"))
+    cat(paste0("n_", gr2, " = ", n2, ", y_bar_", gr2, " = ", round(y_bar2, 4),
+               ", s_", gr2, " = ", s2, "\n"))
+  }
+  
+  # print results
+  if(show_res == TRUE){
+    if(alternative == "greater"){
+      alt_sign <- ">"
+    } else if(alternative == "less"){
+      alt_sign <- "<"
+    } else {
+      alt_sign <- "!="
+    }
+    cat(paste0("H0: mu_", gr1, " =  mu_", gr2, "\n"))
+    cat(paste0("HA: mu_", gr1, " ", alt_sign, " mu_", gr2, "\n"))
+    p_val_to_print <- ifelse(round(p_value, 4) == 0, "< 0.0001", round(p_value, 4))
+    cat(paste0("p_value = ", p_val_to_print))
   }
   
   # eda_plot
@@ -96,5 +134,5 @@ ht_two_mean_sim <- function(y, x, null, alternative, nsim, seed,
   }
   
   # return
-  return(list(y_bar_diff = round(y_bar_diff, 4), p_value = round(p_value, 4)))
+  return(list(sim_dist = sim_dist, p_value = p_value))
 }

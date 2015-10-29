@@ -1,5 +1,7 @@
-ci_two_median_sim <- function(y, x, conf_level, boot_method, nsim, seed,
-                              y_name, x_name, show_eda_plot, show_inf_plot){
+ci_two_median_sim <- function(y, x, conf_level, y_name, x_name,
+                              boot_method, nsim, seed, 
+                              show_var_types, show_summ_stats, show_res,
+                              show_eda_plot, show_inf_plot){
   
   # set seed
   if(!is.null(seed)){ set.seed(seed) }
@@ -63,6 +65,30 @@ ci_two_median_sim <- function(y, x, conf_level, boot_method, nsim, seed,
     ci <- y_med_diff + c(-1, 1) * me
   }
   
+  # print variable types
+  if(show_var_types == TRUE){
+    n_x_levels <- length(levels(x))
+    cat(paste0("Response variable: numerical, Explanatory variable: categorical (", n_x_levels," levels)\n"))
+  }
+  
+  # print summary statistics
+  gr1 <- levels(x)[1]
+  gr2 <- levels(x)[2]
+  
+  if(show_summ_stats == TRUE){
+    iqrs <- by(y, x, IQR)
+    iqr1 <- as.numeric(iqrs[1])
+    iqr2 <- as.numeric(iqrs[2])
+    cat(paste0("n_", gr1, " = ", n1, ", y_med_", gr1, " = ", round(y_med1, 4), ", IQR_", gr1, " = ", round(iqr1, 4), "\n"))
+    cat(paste0("n_", gr2, " = ", n2, ", y_med_", gr2, " = ", round(y_med2, 4), ", IQR_", gr2, " = ", round(iqr2, 4), "\n"))
+  }
+  
+  # print results
+  if(show_res == TRUE){
+    conf_level_perc = conf_level * 100
+    cat(paste0(conf_level_perc, "% CI (", gr1 ," - ", gr2,"): (", round(ci[1], 4), " , ", round(ci[2], 4), ")\n"))
+  }
+  
   # eda_plot
   d_eda <- data.frame(y = y, x = x)
 
@@ -96,9 +122,8 @@ ci_two_median_sim <- function(y, x, conf_level, boot_method, nsim, seed,
   
   # return
   if(boot_method == "perc"){
-    return(list(y_med_diff = round(y_med_diff, 4), CI = round(ci, 4)))
+    return(list(sim_dist = sim_dist, CI = ci))
   } else {
-    return(list(y_med_diff = round(y_med_diff, 4), SE = round(se, 4), 
-                ME = round(me, 4), CI = round(ci, 4)))
+    return(list(sim_dist = sim_dist, SE = se, ME = me, CI = ci))
   }
 }

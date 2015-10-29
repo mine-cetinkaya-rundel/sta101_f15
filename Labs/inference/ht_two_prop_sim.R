@@ -67,14 +67,14 @@ ht_two_prop_sim <- function(y, x, success, null, alternative, nsim, seed,
   if(show_var_types == TRUE){
     n_x_levels <- length(levels(x))
     n_y_levels <- length(levels(y))
-    cat(paste0("Response variable: categorical (", n_x_levels, " levels), ", 
-        "Explanatory variable: categorical (", n_y_levels, " levels) \n"))
+    cat(paste0("Response variable: categorical (", n_x_levels, " levels, success: ", success, ")\n"))
+    cat(paste0("Explanatory variable: categorical (", n_y_levels, " levels) \n"))
   }
   
   # print summary statistics
   if(show_summ_stats == TRUE){
     gr1 <- levels(x)[1]
-    gr2 <- levels(x)[1]
+    gr2 <- levels(x)[2]
     cat(paste0("n_", gr1, " = ", n1, ", p_hat_", gr1, " = ", round(p_hat1, 4), "\n"))
     cat(paste0("n_", gr2, " = ", n2, ", p_hat_", gr2, " = ", round(p_hat2, 4), "\n"))
   }

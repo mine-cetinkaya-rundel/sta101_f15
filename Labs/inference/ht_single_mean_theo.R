@@ -1,5 +1,6 @@
-ht_single_mean_theo <- function(y, null, alternative,
-                                y_name, show_eda_plot, show_inf_plot){
+ht_single_mean_theo <- function(y, null, alternative, y_name,
+                                show_var_types, show_summ_stats, show_res,
+                                show_eda_plot, show_inf_plot){
 
   # calculate sample size
   n <- length(y) 
@@ -7,14 +8,17 @@ ht_single_mean_theo <- function(y, null, alternative,
   # calculate x-bar
   y_bar <- mean(y)
   
+  # calculate s
+  s <- sd(y)
+  
   # calculate SE
-  se <- sd(y) / sqrt(n)
+  se <- s / sqrt(n)
   
   # calculate test statistic
   t <- (y_bar - null) / se
   
   # define degrees of freedom
-  df <- n - 1
+  deg_fr <- n - 1
 
   # shading cutoffs
   if(alternative == "greater"){ x_min = y_bar; x_max = Inf }
@@ -31,12 +35,38 @@ ht_single_mean_theo <- function(y, null, alternative,
   }
   
   # calculate p-value
-  if(alternative == "greater"){ p_value <- pt(t, df, lower.tail = FALSE) }
-  if(alternative == "less"){ p_value <- pt(t, df, lower.tail = TRUE) }
+  if(alternative == "greater"){ p_value <- pt(t, deg_fr, lower.tail = FALSE) }
+  if(alternative == "less"){ p_value <- pt(t, deg_fr, lower.tail = TRUE) }
   if(alternative == "twosided"){
-    p_value <- pt(abs(t), df, lower.tail = FALSE) * 2
+    p_value <- pt(abs(t), deg_fr, lower.tail = FALSE) * 2
   }
 
+  # print variable types
+  if(show_var_types == TRUE){
+    cat("Single numerical variable\n")
+  }
+  
+  # print summary statistics
+  if(show_summ_stats == TRUE){
+    cat(paste0("n = ", n, ", y-bar = ", round(y_bar, 4), ", s = ", round(s, 4), "\n"))
+  }
+  
+  # print results
+  if(show_res == TRUE){
+    if(alternative == "greater"){
+      alt_sign <- ">"
+    } else if(alternative == "less"){
+      alt_sign <- "<"
+    } else {
+      alt_sign <- "!="
+    }
+    cat(paste0("H0: mu = ", null, "\n"))
+    cat(paste0("HA: mu ", alt_sign, " ", null, "\n"))
+    cat(paste0("t = ", round(t, 4), ", df = ", deg_fr, "\n"))
+    p_val_to_print <- ifelse(round(p_value, 4) == 0, "< 0.0001", round(p_value, 4))
+    cat(paste0("p_value = ", p_val_to_print))
+  }
+  
   # eda_plot
   d_eda <- data.frame(y = y)
   
@@ -47,13 +77,14 @@ ht_single_mean_theo <- function(y, null, alternative,
     ggtitle("Sample Distribution") +
     geom_vline(xintercept = y_bar, col = "#1FBEC3", lwd = 1.5)
   
-  # inf_plot
+  # inf_plot ### TO DO: remove y axis ticks
   inf_plot <- ggplot(data.frame(x = c(null - 4*se, null + 4*se)), aes(x)) + 
     stat_function(fun = dnorm, args = list(mean = null, sd = se), color = "#999999") +
     annotate("rect", xmin = x_min, xmax = x_max, ymin = 0, ymax = Inf, 
              alpha = 0.3, fill = "#FABAB8") +
     ggtitle("Null Distribution") +
     xlab("") +
+    ylab("") +
     geom_vline(xintercept = y_bar, color = "#F57670", lwd = 1.5)
   
   # print plots
@@ -68,6 +99,5 @@ ht_single_mean_theo <- function(y, null, alternative,
   }
 
   # return
-  return(list(y_bar = round(y_bar, 4), SE = round(se, 4), 
-              t_score = round(t, 4), df = df, p_value = round(p_value, 4)))  
+  return(list(SE = se, t = t, df = deg_fr, p_value = p_value))  
 }

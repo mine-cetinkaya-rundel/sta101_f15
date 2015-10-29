@@ -1,11 +1,16 @@
-ht_many_prop_theo <- function(y, x, x_name, y_name, 
+ht_many_prop_sim <- function(y, x, x_name, y_name, seed, nsim,
                               show_var_types, show_summ_stats, show_res,
                               show_eda_plot, show_inf_plot){
+
+  length(x)
+  length(y)
+  
+  # set seed
+  if(!is.null(seed)){ set.seed(seed) }
   
   # chi-sq test of independence
-  res <- chisq.test(x, y, correct = FALSE)
+  res <- chisq.test(x, y, correct = FALSE, simulate.p.value = TRUE, B = min(2000, nsim))
   stat <- res$statistic
-  deg_fr <- res$parameter
 
   # print variable types
   if(show_var_types == TRUE){
@@ -28,8 +33,8 @@ ht_many_prop_theo <- function(y, x, x_name, y_name,
   if(show_res == TRUE){
     cat(paste0("H0: ", x_name, " and ", y_name, " are independent\n"))
     cat(paste0("HA: ", x_name, " and ", y_name, " are dependent\n"))
-    cat(paste0("chi_sq = ", round(as.numeric(stat), 4), ", df = ", as.numeric(deg_fr),
-              ", p_value = ", round(res$p.value, 4), "\n"))
+    cat(paste0("chi_sq = ", round(as.numeric(stat), 4), 
+               ", p_value = ", round(res$p.value, 4), "\n"))
   }
   
   # eda_plot
@@ -46,28 +51,10 @@ ht_many_prop_theo <- function(y, x, x_name, y_name,
     ggtitle("Sample Distribution") +
     guides(fill = guide_legend(title = y_name))
   
-  # inf_plot
-  x_max <- max(qchisq(0.99, df = deg_fr), stat*1.1)
-  inf_plot <- ggplot(data.frame(x = c(0, x_max)), aes(x)) +
-    stat_function(fun = dchisq, args = list(df = deg_fr), color = "#999999") +
-    annotate("rect", xmin = stat, xmax = stat+Inf, ymin = 0, ymax = Inf, 
-             alpha = 0.3, fill = "#FABAB8") +
-    ggtitle(paste0("Chi-sq Distribution\n(df = ", deg_fr, ")")) +
-    xlab("") +
-    ylab("") +
-    geom_vline(xintercept = stat, color = "#F57670", lwd = 1.5)
-  
   # print plots
-  if(show_eda_plot & !show_inf_plot){ 
-    print(eda_plot)
-  }
-  if(!show_eda_plot & show_inf_plot){ 
-    print(inf_plot)
-  }
-  if(show_eda_plot & show_inf_plot){
-    grid.arrange(eda_plot, inf_plot, ncol = 2)
-  }
-
+  if(show_eda_plot){ print(eda_plot) }
+  if(show_inf_plot){ warning("No inference plot available.") }
+  
   # return
-  return(list(chi_sq = as.numeric(stat), df = as.numeric(deg_fr), p_value = res$p.value))
+  return(list(chi_sq = as.numeric(stat), p_value = res$p.value))
 }

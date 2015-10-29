@@ -1,5 +1,7 @@
 ht_two_prop_theo <- function(y, x, success, null, alternative,
-                             x_name, y_name, show_eda_plot, show_inf_plot){
+                             x_name, y_name, 
+                             show_var_types, show_summ_stats, show_res,
+                             show_eda_plot, show_inf_plot){
   
   # calculate n1 and n2
   ns <- by(y, x, length)
@@ -50,7 +52,39 @@ ht_two_prop_theo <- function(y, x, success, null, alternative,
   if(alternative == "greater"){ p_value <- pnorm(z, lower.tail = FALSE) }
   if(alternative == "less"){ p_value <- pnorm(z, lower.tail = TRUE) }
   if(alternative == "twosided"){
-    p_value <- pnorm(abs(z), lower.tail = FALSE) * 2
+    p_value <- 2 * pnorm(abs(z), lower.tail = FALSE)
+  }
+  
+  # print variable types
+  if(show_var_types == TRUE){
+    n_x_levels <- length(levels(x))
+    n_y_levels <- length(levels(y))
+    cat(paste0("Response variable: categorical (", n_x_levels, " levels, success: ", success, ")\n"))
+    cat(paste0("Explanatory variable: categorical (", n_y_levels, " levels) \n"))
+  }
+  
+  # print summary statistics
+  if(show_summ_stats == TRUE){
+    gr1 <- levels(x)[1]
+    gr2 <- levels(x)[2]
+    cat(paste0("n_", gr1, " = ", n1, ", p_hat_", gr1, " = ", round(p_hat1, 4), "\n"))
+    cat(paste0("n_", gr2, " = ", n2, ", p_hat_", gr2, " = ", round(p_hat2, 4), "\n"))
+  }
+  
+  # print results
+  if(show_res == TRUE){
+    if(alternative == "greater"){
+      alt_sign <- ">"
+    } else if(alternative == "less"){
+      alt_sign <- "<"
+    } else {
+      alt_sign <- "!="
+    }
+    cat(paste0("H0: p_", gr1, " =  p_", gr2, "\n"))
+    cat(paste0("HA: p_", gr1, " ", alt_sign, " p_", gr2, "\n"))
+    cat(paste0("z = ", round(z, 4), "\n"))
+    p_val_to_print <- ifelse(round(p_value, 4) == 0, "< 0.0001", round(p_value, 4))
+    cat(paste0("p_value = ", p_val_to_print))
   }
 
   # eda_plot
@@ -77,6 +111,7 @@ ht_two_prop_theo <- function(y, x, success, null, alternative,
              alpha = 0.3, fill = "#FABAB8") +
     ggtitle("Null Distribution") +
     xlab("") +
+    ylab("") +
     geom_vline(xintercept = p_hat_diff, color = "#F57670", lwd = 1.5)
   
   # print plots
@@ -91,6 +126,5 @@ ht_two_prop_theo <- function(y, x, success, null, alternative,
   }
   
   # return
-  return(list(p_hat_diff = round(p_hat_diff, 4), SE = round(se, 4), 
-              z_score = round(z, 4), p_value = round(p_value, 4)))
+  return(list(SE = se, z = z, p_value = p_value))
 }

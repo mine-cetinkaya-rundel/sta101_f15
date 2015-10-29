@@ -1,6 +1,7 @@
-ht_single_prop_sim <- function(y, success, null, alternative, seed, nsim,
-                              y_name, show_var_types, show_summ_stats, show_res,
-                              show_eda_plot, show_inf_plot){
+ht_single_prop_sim <- function(y, success, null, alternative,
+                               nsim, seed, y_name,
+                               show_var_types, show_summ_stats,
+                               show_eda_plot, show_inf_plot, show_res){
   
   # set seed
   if(!is.null(seed)){ set.seed(seed) }
@@ -10,7 +11,7 @@ ht_single_prop_sim <- function(y, success, null, alternative, seed, nsim,
   
   # calculate p-hat
   p_hat <- sum(y == success) / n
-  
+
   # create null distribution
   sim_dist <- rep(NA, nsim)
   for(i in 1:nsim){
@@ -42,11 +43,12 @@ ht_single_prop_sim <- function(y, success, null, alternative, seed, nsim,
     if(p_hat < null){
       p_value <- 2 * (sum(sim_dist <= p_hat) / nsim)
     }
+    if(p_hat == null){ p_value <- 1 }
   }
 
   # print variable types
   if(show_var_types == TRUE){
-    cat("Single categorical variable\n")
+    cat(paste0("Single categorical variable, success: ", success,"\n"))
   }
   
   # print summary statistics

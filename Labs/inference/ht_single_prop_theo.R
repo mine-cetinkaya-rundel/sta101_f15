@@ -1,5 +1,6 @@
-ht_single_prop_theo <- function(y, success, null, alternative, 
-                                y_name, show_eda_plot, show_inf_plot){
+ht_single_prop_theo <- function(y, success, null, alternative, y_name,
+                                show_var_types, show_summ_stats, show_res,
+                                show_eda_plot, show_inf_plot){
   
   # calculate sample size
   n <- length(y) 
@@ -31,7 +32,33 @@ ht_single_prop_theo <- function(y, success, null, alternative,
   if(alternative == "greater"){ p_value <- pnorm(z, lower.tail = FALSE) }
   if(alternative == "less"){ p_value <- pnorm(z, lower.tail = TRUE) }
   if(alternative == "twosided"){
-    p_value <- pnorm(abs(z), lower.tail = FALSE) * 2
+    p_value <- 2 * pnorm(abs(z), lower.tail = FALSE)
+  }
+  
+  # print variable types
+  if(show_var_types == TRUE){
+    cat(paste0("Single categorical variable, success: ", success,"\n"))
+  }
+  
+  # print summary statistics
+  if(show_summ_stats == TRUE){
+    cat(paste0("n = ", n, ", p-hat = ", round(p_hat, 4), "\n"))
+  }
+  
+  # print results
+  if(show_res == TRUE){
+    if(alternative == "greater"){
+      alt_sign <- ">"
+    } else if(alternative == "less"){
+      alt_sign <- "<"
+    } else {
+      alt_sign <- "!="
+    }
+    cat(paste0("H0: p = ", null, "\n"))
+    cat(paste0("HA: p ", alt_sign, " ", null, "\n"))
+    p_val_to_print <- ifelse(round(p_value, 4) == 0, "< 0.0001", round(p_value, 4))
+    cat(paste0("z = ", round(z, 4), "\n"))
+    cat(paste0("p_value = ", p_val_to_print))
   }
   
   # eda_plot
@@ -50,6 +77,7 @@ ht_single_prop_theo <- function(y, success, null, alternative,
              alpha = 0.3, fill = "#FABAB8") +
     ggtitle("Null Distribution") +
     xlab("") +
+    ylab("") +
     geom_vline(xintercept = p_hat, color = "#F57670", lwd = 1.5)
   
   # print plots
@@ -64,6 +92,5 @@ ht_single_prop_theo <- function(y, success, null, alternative,
   }
   
   # return
-  return(list(p_hat = round(p_hat, 4), SE = round(se, 4), 
-              z_score = round(z, 4), p_value = round(p_value, 4))) 
+  return(list(SE = se, z = z, p_value = p_value)) 
 }

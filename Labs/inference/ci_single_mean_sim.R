@@ -73,6 +73,7 @@ ci_single_mean_sim <- function(y, conf_level, y_name,
   
   # eda_plot
   d_eda <- data.frame(y = y)
+  
   eda_plot <- ggplot(data = d_eda, aes(x = y), environment = environment()) +
     geom_histogram(fill = "#8FDEE1", binwidth = diff(range(y)) / 20) +
     xlab(y_name) +
@@ -82,6 +83,7 @@ ci_single_mean_sim <- function(y, conf_level, y_name,
   
   # inf_plot
   d_inf <- data.frame(sim_dist = sim_dist)
+  
   inf_plot <- ggplot(data = d_inf, aes(x = sim_dist), environment = environment()) +
     geom_histogram(fill = "#CCCCCC", binwidth = diff(range(sim_dist)) / 20) +
     annotate("rect", xmin = ci[1], xmax = ci[2], ymin = 0, ymax = Inf, 

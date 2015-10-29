@@ -54,7 +54,7 @@ ci_single_prop_sim <- function(y, success, conf_level, y_name,
   
   # print variable types
   if(show_var_types == TRUE){
-    cat("Single categorical variable\n")
+    cat(paste0("Single categorical variable, success: ", success,"\n"))
   }
   
   # print summary statistics

@@ -85,7 +85,7 @@ ci_single_median_sim <- function(y, conf_level, y_name,
   # inf_plot
   d_inf <- data.frame(sim_dist = sim_dist)
   inf_plot <- ggplot(data = d_inf, aes(x = sim_dist), environment = environment()) +
-    geom_histogram(fill = "#CCCCCC", binwidth = diff(range(sim_dist)) / 20) +
+    geom_histogram(fill = "#CCCCCC", binwidth = max(diff(range(sim_dist)) / 20, 1)) +
     annotate("rect", xmin = ci[1], xmax = ci[2], ymin = 0, ymax = Inf, 
              alpha = 0.3, fill = "#FABAB8") +
     xlab("bootstrap medians") +
