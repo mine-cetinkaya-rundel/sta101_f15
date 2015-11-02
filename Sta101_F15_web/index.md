@@ -226,7 +226,7 @@ title: Schedule
 ### <a name="mt2"></a> Midterm 2 - Nov 9, Mon (in class)
 
 * Covers Units 4 and 5 + fundamentals from Units 1 - 3
-* Practice problems for Midterm 2: [handout] + [solutions]
+* Sample Midterm 2: [handout](https://sakai.duke.edu/access/content/group/22299c5a-2e30-49a7-b46d-289ae3e0d739/Sample_MT2.pdf) + [solutions](https://sakai.duke.edu/access/content/group/22299c5a-2e30-49a7-b46d-289ae3e0d739/Sample_MT2_Key.pdf)
 
 * * *
 
