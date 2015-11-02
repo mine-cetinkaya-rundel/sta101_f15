@@ -56,10 +56,10 @@ ht_two_prop_sim <- function(y, x, success, null, alternative, nsim, seed,
   if(alternative == "less"){ p_value <- sum(sim_dist <= p_hat_diff) / nsim }
   if(alternative == "twosided"){
     if(p_hat_diff > null){
-      p_value <- 2 * (sum(sim_dist >= p_hat_diff) / nsim)
+      p_value <- min(2 * (sum(sim_dist >= p_hat_diff) / nsim), 1)
     }
     if(p_hat_diff < null){
-      p_value <- 2 * (sum(sim_dist <= p_hat_diff) / nsim)
+      p_value <- min(2 * (sum(sim_dist <= p_hat_diff) / nsim), 1)
     }
   }
 

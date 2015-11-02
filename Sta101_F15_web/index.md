@@ -195,7 +195,8 @@ title: Schedule
 | Oct 28, Wed | [Lesson 5.2: Inference for comparing two proportions](post/slides/u5_deck2.pdf) &nbsp;&nbsp;&nbsp;[<i class="fa fa-print"></i>](post/slides/u5_deck2H.pdf)                  |
 |              | [App Ex 5.2: Inference for comparing two proportions](post/app/app_Compare_two_prop.pdf) |
 | Oct 29, Thu | [Lab 8: Inference for categorical data](https://mine.shinyapps.io/inf_for_categorical_data) |
-| Nov 2, Mon  | [Lesson 5.3: Chi-square testing](post/slides/u5_deck3.pdf) &nbsp;&nbsp;&nbsp;[<i class="fa fa-print"></i>](post/slides/u5_deck3H.pdf)                  |
+| Nov 2, Mon  | [Lesson 5.3: Chi-square tests](post/slides/u5_deck3.pdf) &nbsp;&nbsp;&nbsp;[<i class="fa fa-print"></i>](post/slides/u5_deck3H.pdf)                  |
+|              | [App Ex 5.3: Chi-square tests](post/app/app_Chisq_tests.pdf) |
 | Nov 4, Wed  | [Lesson 5.4: Review/synthesis](post/slides/u5_deck4.pdf) &nbsp;&nbsp;&nbsp;[<i class="fa fa-print"></i>](post/slides/u5_deck4H.pdf)                  |
 | Nov 5, Thu  | Work on [Project 1](post/projects/project1.html)                     |
 

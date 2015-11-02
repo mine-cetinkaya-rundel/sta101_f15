@@ -55,10 +55,10 @@ ht_two_median_sim <- function(y, x, null, alternative, nsim, seed,
   if(alternative == "less"){ p_value <- sum(sim_dist <= y_med_diff) / nsim }
   if(alternative == "twosided"){
     if(y_med_diff > null){
-      p_value <- 2 * (sum(sim_dist >= y_med_diff) / nsim)
+      p_value <- min(2 * (sum(sim_dist >= y_med_diff) / nsim), 1)
     }
     if(y_med_diff < null){
-      p_value <- 2 * (sum(sim_dist <= y_med_diff) / nsim)
+      p_value <- min(2 * (sum(sim_dist <= y_med_diff) / nsim), 1)
     }
     if(y_med_diff == null){ p_value <- 1 }
   }

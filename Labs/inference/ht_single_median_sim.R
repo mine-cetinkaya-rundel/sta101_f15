@@ -42,10 +42,10 @@ ht_single_median_sim <- function(y, null, alternative, y_name,
   if(alternative == "less"){ p_value <- sum(sim_dist <= y_med) / nsim }
   if(alternative == "twosided"){
     if(y_med > null){
-      p_value <- 2 * (sum(sim_dist >= y_med) / nsim)
+      p_value <- min(2 * (sum(sim_dist >= y_med) / nsim), 1)
     }
     if(y_med < null){
-      p_value <- 2 * (sum(sim_dist <= y_med) / nsim)
+      p_value <- min(2 * (sum(sim_dist <= y_med) / nsim), 1)
     }
     if(y_med == null){ p_value <- 1 }
   }

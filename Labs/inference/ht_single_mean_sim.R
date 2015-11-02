@@ -42,10 +42,10 @@ ht_single_mean_sim <- function(y, null, alternative, y_name,
   if(alternative == "less"){ p_value <- sum(sim_dist <= y_bar) / nsim }
   if(alternative == "twosided"){
     if(y_bar > null){
-      p_value <- 2 * (sum(sim_dist >= y_bar) / nsim)
+      p_value <- min(2 * (sum(sim_dist >= y_bar) / nsim), 1)
     }
     if(y_bar < null){
-      p_value <- 2 * (sum(sim_dist <= y_bar) / nsim)
+      p_value <- min(2 * (sum(sim_dist <= y_bar) / nsim), 1)
     }     
     if(y_bar == null){ p_value <- 1 }
   }

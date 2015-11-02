@@ -38,10 +38,10 @@ ht_single_prop_sim <- function(y, success, null, alternative,
   if(alternative == "less"){ p_value <- sum(sim_dist <= p_hat) / nsim }
   if(alternative == "twosided"){
     if(p_hat > null){
-      p_value <- 2 * (sum(sim_dist >= p_hat) / nsim)
+      p_value <- min(2 * (sum(sim_dist >= p_hat) / nsim), 1)
     }
     if(p_hat < null){
-      p_value <- 2 * (sum(sim_dist <= p_hat) / nsim)
+      p_value <- min(2 * (sum(sim_dist <= p_hat) / nsim), 1)
     }
     if(p_hat == null){ p_value <- 1 }
   }
