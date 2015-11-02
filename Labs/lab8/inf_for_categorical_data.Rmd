@@ -161,7 +161,7 @@ some value ($n = 1000$) and use this value in the following calculations:
 n <- 1000
 ```
 
-The first step is to make a varianle `p` that is a sequence from 0 to 1 with 
+The first step is to make a variable `p` that is a sequence from 0 to 1 with 
 each number incremented by 0.01. We can then create a vector of the margin of 
 error (`me`) associated with each of these values of `p` using the familiar 
 approximate formula ($ME = 2 \times SE$).
@@ -265,13 +265,12 @@ from 2005 and 2012 for 39 countries.
     between 2005 and 2012? As always, write out the hypotheses for any tests you 
     conduct and outline the status of the conditions for inference. If you find a 
     significant difference, also quantify this difference with a condfidence interval. \
-    *Hint:* First a new data set for respondents from Spain.
+    *Hint:* First create a new data set for respondents from Spain.
 
 -   Is there convincing evidence that the US has seen a change in its atheism index 
     between 2005 and 2012? As always, write out the hypotheses for any tests you 
     conduct and outline the status of the conditions for inference. If you find a 
-    significant difference, also quantify this difference with a condfidence interval. \
-    *Hint:* First a new data set for respondents from Spain.
+    significant difference, also quantify this difference with a condfidence interval.
 
 -   If in fact there has been no change in the atheism index in the countries 
     listed in Table 4, in how many of those countries would you expect to 

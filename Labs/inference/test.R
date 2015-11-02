@@ -113,3 +113,27 @@ inference(y = fake_group2, x = fake_group, data = nc, statistic = "proportion",
 # ht_many_prop_sim
 inference(y = fake_group2, x = fake_group, data = nc, statistic = "proportion", 
           method = "simulation", type = "ht", alternative = "greater")
+
+
+
+
+
+inference(y = fake_group2xxx
+          
+          inference(y = fake_group2xxx
+                    
+                    inference(y = fake_group2xxx
+                              
+                              inference(y = fake_group2xxx
+                                        
+                                        inference(y = fake_group2xxx
+                                                  
+                                                  inference(y = fake_group2xxx
+                                                            
+                                                            inference(y = fake_group2xxx
+                                                                      
+                                                                      
+
+
+
+
