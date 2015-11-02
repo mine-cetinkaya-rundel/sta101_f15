@@ -20,8 +20,8 @@ anes <- anes %>%
 # take a random sample ----------------------------------------------
 
 set.seed(12345)
-anes_samp = anes[sample(1:nrow(anes), size = 500, replace = FALSE),]
-tab <- table(anes_samp$sample_region, aa$presapp_track)
+anes_samp <- anes[sample(1:nrow(anes), size = 500, replace = FALSE),]
+tab <- table(anes_samp$sample_region, anes_samp$presapp_track)
 xtable(addmargins(tab), digits = 0)
 
 # segmented bar plot -------------------------------------------------
@@ -42,6 +42,14 @@ census_dist = c(0.18, 0.22, 0.37, 0.23)
 
 anes_gof <- chisq.test(table(anes_samp$sample_region), p = census_dist)
 
-# indep test --------------------------------------------------------
+# indep chisq test --------------------------------------------------
 
-chisq.test(table(anes$presapp_track, anes$sample_region))
+chisq.test(table(anes_samp$presapp_track, anes_samp$sample_region))
+
+# using inference function
+
+load(url("https://stat.duke.edu/~mc301/R/fun/inference.RData"))
+
+inference(x = sample_region, y = presapp_track, data = anes_samp,
+          statistic = "proportion", alternative = "greater",
+          type = "ht", method = "theoretical")
