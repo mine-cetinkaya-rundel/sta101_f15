@@ -62,7 +62,7 @@ If you would like to purchase a used clicker from a former student, see the list
 | David Clancy        | Sunday 7 - 9 pm                 | Old Chem 211A |
 | Anne Driscoll       | Tuesday 5:30 - 7:30 pm          | Old Chem 211A |
 | Ilan Man            | Thursday 3 - 5 pm               | Old Chem 211A |
-| Jialiang Mao        | Monday 7-9 pm                   | Old Chem 211A |
+| Jialiang Mao        | Monday 7-9 pm                   | Old Chem 025 |
 | Reuben McCreanor    | Wednesday 6 - 8 pm              | Old Chem 123 |
 | Megan Robertson     | Thursday 11 am - 1 pm              | Old Chem 211A |
 | Nicole Solomon      | Tuesday 11:30 am - 12:30 pm & Thursday 5 - 6 pm | Old Chem 211A |
