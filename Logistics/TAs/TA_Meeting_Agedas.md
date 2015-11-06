@@ -22,6 +22,9 @@ Sta 101 TA Meeting Agendas
     penalty might be appropriate
     + decide on a reasonable (for TAs and for students to receive
     feedback and improve before project 2) deadline for grading
+    + each ta grades 6 projects, grade at least one project before
+    the midterm grading session so that we can quickly go over
+    any questions at that time
 - Lab 9
     + David to point to the video clip to be played in class
     at the beginning of lab
