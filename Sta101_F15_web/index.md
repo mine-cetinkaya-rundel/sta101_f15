@@ -240,7 +240,7 @@ title: Schedule
 
 | Nov 11, Wed | **RA 6** in class |
 |             | [Lesson 6.1: Introduction to regression](post/slides/u6_deck1.pdf) &nbsp;&nbsp;&nbsp;[<i class="fa fa-print"></i>](post/slides/u6_deck1H.pdf)     |
-| Nov 12, Thu | [Lab 9: Introduction to linear regression](post/labs/lab9.html) |
+| Nov 12, Thu | [Lab 9: Introduction to linear regression](post/labs/simple_regression.html) |
 | Nov 16, Mon | [Lesson 6.2: Outliers and inference for regression](post/slides/u6_deck2.pdf) &nbsp;&nbsp;&nbsp;[<i class="fa fa-print"></i>](post/slides/u6_deck2H.pdf)                     |
 
 
