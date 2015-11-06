@@ -106,7 +106,7 @@ ht_two_mean_sim <- function(y, x, null, alternative, nsim, seed,
     geom_histogram(fill = "#8FDEE1", binwidth = diff(range(y)) / 20) +
     xlab(y_name) +
     ylab(x_name) +
-    ggtitle("Sample Distributions") +
+    ggtitle("Sample Distribution") +
     geom_vline(data = d_means, aes(xintercept = y_bars), col = "#1FBEC3", lwd = 1.5) +
     facet_grid(x ~ .) 
 

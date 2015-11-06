@@ -105,7 +105,7 @@ ht_two_median_sim <- function(y, x, null, alternative, nsim, seed,
     geom_boxplot(color = "#1FBEC3", fill = "#8FDEE1", outlier.colour = "#1FBEC3") +
     xlab(x_name) +
     ylab(y_name) +
-    ggtitle("Sample Distributions")
+    ggtitle("Sample Distribution")
     
   # inf_plot
   d_inf <- data.frame(sim_dist = sim_dist)

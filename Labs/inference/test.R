@@ -6,7 +6,7 @@ inference(y = weight, data = nc, statistic = "mean", method = "theoretical", typ
 
 # ci_single_mean_sim
 inference(y = weight, data = nc, statistic = "mean", method = "simulation", type = "ci", 
-          boot_method = "se")
+          boot_methoprop,d = "se")
 
 inference(y = weight, data = nc, statistic = "mean", method = "simulation", type = "ci", 
           boot_method = "perc")
@@ -113,27 +113,3 @@ inference(y = fake_group2, x = fake_group, data = nc, statistic = "proportion",
 # ht_many_prop_sim
 inference(y = fake_group2, x = fake_group, data = nc, statistic = "proportion", 
           method = "simulation", type = "ht", alternative = "greater")
-
-
-
-
-
-inference(y = fake_group2xxx
-          
-          inference(y = fake_group2xxx
-                    
-                    inference(y = fake_group2xxx
-                              
-                              inference(y = fake_group2xxx
-                                        
-                                        inference(y = fake_group2xxx
-                                                  
-                                                  inference(y = fake_group2xxx
-                                                            
-                                                            inference(y = fake_group2xxx
-                                                                      
-                                                                      
-
-
-
-

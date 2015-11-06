@@ -164,6 +164,7 @@ inference <- function(y, x = NULL, data,
   }
   
   # error / warning: issues with null values
+  if (!is.null(null) & !is.numeric(null)) {stop("Null value must be numeric", call. = FALSE)}
   if (type == "ht" & x_type == "only1Var" & is.null(null)) {stop("Missing null value", call. = FALSE)}
   if (type == "ht" & (x_levels == 2 & y_levels <= 2) & is.null(null)) {
     null = 0

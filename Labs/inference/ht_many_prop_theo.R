@@ -10,7 +10,8 @@ ht_many_prop_theo <- function(y, x, x_name, y_name,
   # print variable types
   if(show_var_types == TRUE){
     n_x_levels <- length(levels(x))
-    cat(paste0("Response variable: numerical\n"))
+    n_y_levels <- length(levels(y))
+    cat(paste0("Response variable: categorical (", n_y_levels, " levels) \n"))
     cat(paste0("Explanatory variable: categorical (", n_x_levels, " levels) \n"))
   }
   
