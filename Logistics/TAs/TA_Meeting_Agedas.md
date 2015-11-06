@@ -6,6 +6,33 @@ Sta 101 TA Meeting Agendas
 
 * * *
 
+### Nov 6, 2015
+
+- Recap of the week + looking forward
+- Project 1 grading
+    + review the rubric
+    + make sure points add up
+    + experienced TAs show others easiest way to work with rubric 
+    (copy all into the comments box in Sakai, and remove the pts
+    not applicable, add up everything remaining)
+    + make any changes to the rubric as deemed necessary
+    + note on project length penalty: TAs can decide if the project
+    goes over by a bit due to long code that they may not need to
+    penalize, vs. if the students are being over-verbose then 
+    penalty might be appropriate
+    + decide on a reasonable (for TAs and for students to receive
+    feedback and improve before project 2) deadline for grading
+- Lab 9
+    + David to point to the video clip to be played in class
+    at the beginning of lab
+    + Tip: Ask the students to describe the variables at the beginning,
+    there will be at least one person who knows what each variable represents
+- New PS grading assignment
+    + Key will be ready before Saturday morning
+    + Grading due following Monday
+
+* * *
+
 ### Week 3: Sep 11, 2015
 
 * Discuss why not to discuss R packages in detail
