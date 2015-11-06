@@ -36,6 +36,20 @@
 % Option 3: Handouts, without solutions (post before class)    %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+% \documentclass[11pt,containsverbatim,handout,xcolor=xelatex,dvipsnames,table]{beamer}
+%
+% % handout layout
+% \usepackage{pgfpages}
+% \pgfpagesuselayout{4 on 1}[letterpaper,landscape,border shrink=5mm]
+%
+% % solution stuff
+% \newcommand{\solnMult}[1]{#1}
+% \newcommand{\soln}[1]{}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Option 4: Handouts, with solutions (may post after class if need be)    %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
  \documentclass[11pt,containsverbatim,handout,xcolor=xelatex,dvipsnames,table]{beamer}
 
  % handout layout
@@ -43,22 +57,8 @@
  \pgfpagesuselayout{4 on 1}[letterpaper,landscape,border shrink=5mm]
 
  % solution stuff
- \newcommand{\solnMult}[1]{#1}
- \newcommand{\soln}[1]{}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Option 4: Handouts, with solutions (may post after class if need be)    %
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-% \documentclass[11pt,containsverbatim,handout,xcolor=xelatex,dvipsnames,table]{beamer}
-
-% % handout layout
-% \usepackage{pgfpages}
-% \pgfpagesuselayout{4 on 1}[letterpaper,landscape,border shrink=5mm]
-
-% % solution stuff
-% \newcommand{\solnMult}[1]{\red{\textbf{#1}}}
-% \newcommand{\soln}[1]{\textit{#1}}
+ \newcommand{\solnMult}[1]{\red{\textbf{#1}}}
+ \newcommand{\soln}[1]{\textit{#1}}
 
 
 %%%%%%%%%%

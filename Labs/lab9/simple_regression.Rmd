@@ -8,7 +8,7 @@ output:
 ---
 
 ```{r global_options, include=FALSE}
-knitr::opts_chunk$set(eval = TRUE)
+knitr::opts_chunk$set(eval = FALSE)
 library(dplyr)
 library(ggplot2)
 ```
@@ -196,7 +196,7 @@ linearity, (2) nearly normal residuals, and (3) constant variability.
 
 **Linearity**: You already checked if the relationship between runs and at-bats
 is linear using a scatterplot. We should also verify this condition with a plot 
-of the residuals vs. at-bats.
+of the residuals vs. fitted (predicted) values.
 
 ```{r residuals}
 qplot(x = .fitted, y = .resid, data = m1) +
