@@ -306,7 +306,7 @@ title: Schedule
 ##### In class / lab
 
 | Dec 2, Wed | Review / synthesis                                  |
-| Dec 3, Thu | Project 2 poster session (@ The Edge Workshop Room) |
+| Dec 3, Thu | [Project 2](post/projects/project2.html) poster session (@ The Edge Workshop Room) |
 
 * * *
 
