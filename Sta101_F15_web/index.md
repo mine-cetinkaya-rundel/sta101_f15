@@ -252,7 +252,8 @@ title: Schedule
   graded questions, use the back of the book to check your work on the practice questions.
   Must show **all** work to get credit. Click [here]({{ site.sakai_ps }}) to submit the 
   problem set.
-  * **Graded questions:** TBA
+  * **Graded questions:** 7.2, 7.6, 7.8, 7.10, 7.12, 7.14, 7.16, 7.18, 
+  7.20, 7.26, 7.28, 7.30, 7.34, 7.36, 7.42, 7.44
   * Practice questions:
     + Part 1 – Relationship between two numerical variables: 7.1, 7.3, 7.7, 7.9, 7.11, 7.13, 7.15
     + Part 2 – Linear regression with a single predictor: 7.17, 7.19, 7.25, 7.27, 7.29, 7.31, 7.33
@@ -273,7 +274,7 @@ title: Schedule
 
 | Nov 18, Wed | **RA 7** in class |
 |             | [Lesson 7.1: Introduction to multiple linear regression ](post/slides/u7_deck1.pdf) &nbsp;&nbsp;&nbsp;[<i class="fa fa-print"></i>](post/slides/u7_deck1H.pdf) |
-| Nov 19, Thu | [Lab 10: Multiple linear regression](post/labs/lab10.html)   |
+| Nov 19, Thu | [Lab 10: Multiple linear regression](post/labs/multiple_regression.html)   |
 | Nov 23, Mon | [Lesson 7.2: Model selection & diagnostics for MLR](post/slides/u7_deck2.pdf) &nbsp;&nbsp;&nbsp;[<i class="fa fa-print"></i>](post/slides/u7_deck2H.pdf)                 |
 | Nov 25, Wed | *Thanksgiving break - no class*      |
 | Nov 26, Thu | *Thanksgiving break - no lab*        |
@@ -288,7 +289,7 @@ title: Schedule
   graded questions, use the back of the book to check your work on the practice questions.
   Must show **all** work to get credit. Click [here]({{ site.sakai_ps }}) to submit the 
   problem set.
-  * **Graded questions:** TBA
+  * **Graded questions:** 8.2, 8.4, 8.6, 8.8, 8.10, 8.12, 8.14
   * Practice questions:
     + Part 1 – Regression with multiple predictors: 8.1, 8.3
     + Part 2 – Inference for MLR: 8.5
