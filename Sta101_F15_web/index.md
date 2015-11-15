@@ -243,6 +243,7 @@ title: Schedule
 |              | [App Ex 6.1: Linear models](post/app/app_Lin_mod.pdf) |
 | Nov 12, Thu | [Lab 9: Introduction to linear regression](post/labs/simple_regression.html) |
 | Nov 16, Mon | [Lesson 6.2: Outliers and inference for regression](post/slides/u6_deck2.pdf) &nbsp;&nbsp;&nbsp;[<i class="fa fa-print"></i>](post/slides/u6_deck2H.pdf)                     |
+|              | [App Ex 6.2: Linear regression](post/app/app_Lin_reg.pdf) |
 
 
 ##### Due dates
