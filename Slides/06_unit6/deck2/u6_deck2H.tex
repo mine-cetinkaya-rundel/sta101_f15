@@ -226,49 +226,6 @@ predict(m_mur_pov, newdata)
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{frame}[fragile]
-\frametitle{Calculating predicted values}
-
-\hl{By hand:} $\widehat{murder} = -29.91 + 2.56~poverty$
-
-The predicted number of murders per million per year for a county with 20\% poverty rate is: 
-
-\pause
-
-\[ \widehat{murder} = -29.91 + 2.56 \times 20 = 21.29 \]
-
-\vfill
-
-\pause
-
-\hl{In R:}
-
-{\scriptsize
-\begin{Verbatim}[frame=single, formatcom=\color{blue}]
-# load data
-murder <- read.csv("https://stat.duke.edu/~mc301/data/murder.csv")
-# fit model
-m_mur_pov <- lm(annual_murders_per_mil ~ perc_pov, data = murder)
-# create new data
-newdata <- data.frame(perc_pov = 20)
-# predict
-predict(m_mur_pov, newdata)
-\end{Verbatim}
-}
-
-\pause
-
-{\scriptsize
-\begin{Verbatim}[frame=single, formatcom=\color{gray}]
-       1 
-21.28663 
-\end{Verbatim}
-}
-
-\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 \subsection{Predicted values also have uncertainty around them}
 \label{mi2}
 
@@ -311,7 +268,7 @@ where $s$ is the standard deviation of the residuals, and $x^\star$ is a new obs
 
 \pause
 
-\item The width of the confidence interval for $\hat{y}$ increases as
+\item The width of the prediction interval for $\hat{y}$ increases as
 \begin{itemize}
 \item $x^\star$ moves away from the center
 \item $s$ (the variability of residuals), i.e. the scatter, increases
@@ -467,15 +424,15 @@ $\:$ \\
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{frame}
+\begin{frame}[fragile]
 \frametitle{Inference for regression uses the $t$-distribution}
 
 \begin{itemize}
 
 \item Use a T distribution for inference on the slope, with degrees of freedom $n - 2$
 \begin{itemize}
-\item Degrees of freedom for the slope(s) in regression is $df = n - p - 1$ where $p $ is the number of 
-predictors (explanatory variables) in the model.
+\item Degrees of freedom for the slope(s) in regression is $df = n - k - 1$ where $k$~is the number of 
+slopes being estimated in the model.
 \end{itemize}
 
 \pause
@@ -492,9 +449,24 @@ relationship between $x$ and $y$
 \item Confidence intervals for a slope: 
 \begin{itemize}
 \item $b_1 \pm T^\star_{n-2} SE_{b_1}$
+\item In R:
 \end{itemize}
 
 \end{itemize}
+
+{\scriptsize
+\begin{Verbatim}[frame=single, formatcom=\color{blue}]
+confint(m_mur_pov, level = 0.95)
+\end{Verbatim}
+}
+
+{\scriptsize
+\begin{Verbatim}[frame=single, formatcom=\color{gray}]
+                 2.5 %     97.5 %
+(Intercept) -46.265631 -13.536694
+perc_pov      1.740003   3.378776
+\end{Verbatim}
+}
 
 \end{frame}
 
