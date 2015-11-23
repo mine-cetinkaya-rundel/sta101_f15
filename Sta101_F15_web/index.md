@@ -277,6 +277,7 @@ title: Schedule
 |             | [Lesson 7.1: Introduction to multiple linear regression ](post/slides/u7_deck1.pdf) &nbsp;&nbsp;&nbsp;[<i class="fa fa-print"></i>](post/slides/u7_deck1H.pdf) |
 | Nov 19, Thu | [Lab 10: Multiple linear regression](post/labs/multiple_regression.html)   |
 | Nov 23, Mon | [Lesson 7.2: Model selection & diagnostics for MLR](post/slides/u7_deck2.pdf) &nbsp;&nbsp;&nbsp;[<i class="fa fa-print"></i>](post/slides/u7_deck2H.pdf)                 |
+|              | [App Ex 7.1: Multiple linear regression](post/app/app_MLR.pdf) |
 | Nov 25, Wed | *Thanksgiving break - no class*      |
 | Nov 26, Thu | *Thanksgiving break - no lab*        |
 | Nov 30, Mon | [Lesson 7.3](post/slides/u7_deck3.pdf) &nbsp;&nbsp;&nbsp;[<i class="fa fa-print"></i>](post/slides/u7_deck3H.pdf)                 |
@@ -284,7 +285,7 @@ title: Schedule
 ##### Due dates
 
 * Lab 8: Nov 19, Thu
-* Lab 10: Nov 26, Thu
+* Lab 10: Nov 30, Mon (by class, 10:05am)
 * [PS 7]({{ site.sakai_ps }}): Dec 4, Fri
   * End of chapter exercises from **Chp 8**. Only turn in answers to 
   graded questions, use the back of the book to check your work on the practice questions.
