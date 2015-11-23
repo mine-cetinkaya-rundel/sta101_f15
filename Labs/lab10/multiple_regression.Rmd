@@ -46,6 +46,7 @@ references:
 knitr::opts_chunk$set(eval = FALSE)
 library(dplyr)
 library(ggplot2)
+library(GGally)
 ```
 
 <div id="template">
@@ -232,13 +233,13 @@ the intercept and slope form familiar from simple regression.
 &= \hat{\beta}_0 + \hat{\beta}_1 \times bty\_avg\end{aligned}
 \]
 
-We can plot this line and the line corresponding to males with the following 
-custom function.
+<!-- We can plot this line and the line corresponding to males with the following  -->
+<!-- custom function. -->
 
-```{r twoLines}
-qplot(data = evals, x = bty_avg, y = score, color = gender) +
-  geom_smooth(method = "lm", se = FALSE)
-```
+<!-- ```{r twoLines} -->
+<!-- qplot(data = evals, x = bty_avg, y = score, color = gender) + -->
+<!--   geom_smooth(method = "lm", formula = y ~ x, se = FALSE) -->
+<!-- ``` -->
 
 9.  What is the equation of the line corresponding to males? (*Hint:* For
     males, the parameter estimate is multiplied by 1.) For two professors

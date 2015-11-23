@@ -256,9 +256,12 @@ evals %&gt;%<span class="st"> </span>
 \widehat{score} &amp;= \hat{\beta}_0 + \hat{\beta}_1 \times bty\_avg + \hat{\beta}_2 \times (0) \\
 &amp;= \hat{\beta}_0 + \hat{\beta}_1 \times bty\_avg\end{aligned}
 \]</span></p>
-<p>We can plot this line and the line corresponding to males with the following custom function.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">qplot</span>(<span class="dt">data =</span> evals, <span class="dt">x =</span> bty_avg, <span class="dt">y =</span> score, <span class="dt">color =</span> gender) +
-<span class="st">  </span><span class="kw">geom_smooth</span>(<span class="dt">method =</span> <span class="st">&quot;lm&quot;</span>, <span class="dt">se =</span> <span class="ot">FALSE</span>)</code></pre></div>
+<!-- We can plot this line and the line corresponding to males with the following  -->
+<!-- custom function. -->
+<!-- ```{r twoLines} -->
+<!-- qplot(data = evals, x = bty_avg, y = score, color = gender) + -->
+<!--   geom_smooth(method = "lm", formula = y ~ x, se = FALSE) -->
+<!-- ``` -->
 <ol start="9" style="list-style-type: decimal">
 <li>What is the equation of the line corresponding to males? (<em>Hint:</em> For males, the parameter estimate is multiplied by 1.) For two professors who received the same beauty rating, which gender tends to have the higher course evaluation score?</li>
 </ol>
