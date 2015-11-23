@@ -1,0 +1,168 @@
+ % -*- TeX-engine: xetex; eval: (auto-fill-mode 0); eval: (visual-line-mode 1); -*-
+% Compile with XeLaTeX
+
+%%%%%%%%%%%%%%%%%%%%%%%
+% To do before class
+%%%%%%%%%%%%%%%%%%%%%%%
+
+% Print off Readiness Assessment 1.
+% Send email about registering clicker.
+% Test run readiness assessment on iClicker.
+
+%%%%%%%%%%%%%%%%%%%%%%%
+% Option 1: Slides: (comment for handouts)   %
+%%%%%%%%%%%%%%%%%%%%%%%
+
+%\documentclass[slidestop,compress,mathserif,12pt,t,professionalfonts,xcolor=table]{beamer}
+%
+%% solution stuff
+%\newcommand{\solnMult}[1]{
+%\only<1>{#1}
+%\only<2->{\red{\textbf{#1}}}
+%}
+%\newcommand{\soln}[1]{\textit{#1}}
+
+%%%%%%%%%%%%%%%%%%%%%%%
+% Option 2: Slides: (to post)                          %
+%%%%%%%%%%%%%%%%%%%%%%%
+
+%\documentclass[slidestop,compress,mathserif,12pt,t,professionalfonts,xcolor=table]{beamer}
+%
+% % solution stuff
+% \newcommand{\solnMult}[1]{#1}
+% \newcommand{\soln}[1]{}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Option 3: Handouts, without solutions (post before class)    %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+ \documentclass[11pt,containsverbatim,handout,xcolor=xelatex,dvipsnames,table]{beamer}
+
+ % handout layout
+ \usepackage{pgfpages}
+ \pgfpagesuselayout{4 on 1}[letterpaper,landscape,border shrink=5mm]
+
+ % solution stuff
+ \newcommand{\solnMult}[1]{#1}
+ \newcommand{\soln}[1]{}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Option 4: Handouts, with solutions (may post after class if need be)    %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% \documentclass[11pt,containsverbatim,handout,xcolor=xelatex,dvipsnames,table]{beamer}
+
+% % handout layout
+% \usepackage{pgfpages}
+% \pgfpagesuselayout{4 on 1}[letterpaper,landscape,border shrink=5mm]
+
+% % solution stuff
+% \newcommand{\solnMult}[1]{\red{\textbf{#1}}}
+% \newcommand{\soln}[1]{\textit{#1}}
+
+
+%%%%%%%%%%
+% Load style file, defaults  %
+%%%%%%%%%%
+
+\input{../../lec_style.tex}
+\input{../../definitions_default.tex}
+% ALT ALT
+% \input{../../definitions_custom.tex}
+
+%%%%%%%%%%%
+% Cover slide info    %
+%%%%%%%%%%%
+
+\title{Unit 7: Multiple linear regression}
+\subtitle{2. Model selection \& diagnostics for MLR}
+\author{\CourseName}
+\date{}
+\institute{\InstituteName}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+% Begin document and set Helvetica Neue font   %
+%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+\fontspec[Ligatures=TeX]{Helvetica Neue Light}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Title Page
+
+\begin{frame}[plain]
+
+\titlepage
+
+\vfill
+
+{\scriptsize \webLink{\PersonalSite}{Dr. \LastName{}} \hfill Slides posted at  \webURL{\CourseSite}}
+
+\addtocounter{framenumber}{-1} 
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Housekeeping}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Announcements}
+
+\begin{itemize}
+
+\item PS 7: due Dec 4, Fri
+
+\item PA 7: due Dec 6, Sun
+
+\end{itemize}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Tips for the project}
+
+\begin{itemize}
+
+\item Pick a main focus and use that to tell a cohesive story throughout the various parts of the assignment.
+
+\item You do not have to have audience score as the response variable for each analysis, only for the MLR part.
+
+\item Do not mix-and-match model selection methods.
+
+\item Your full model does not have to include all potential variables, though you should have (and state) a reason for why you chose to exclude any that you do.
+
+\item You do not need to have a printed poster, and you can come look at examples in my office.
+
+\item Other questions?
+
+\end{itemize}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Application exercise}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[fragile]
+\frametitle{}
+
+\vfill
+
+\app{7.1 MLR}{See the course website for more details}
+
+\vfill
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\end{document}
