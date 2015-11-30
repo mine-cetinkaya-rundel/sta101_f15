@@ -280,7 +280,8 @@ title: Schedule
 |              | [App Ex 7.1: Multiple linear regression](post/app/app_MLR.pdf) |
 | Nov 25, Wed | *Thanksgiving break - no class*      |
 | Nov 26, Thu | *Thanksgiving break - no lab*        |
-| Nov 30, Mon | [Lesson 7.3](post/slides/u7_deck3.pdf) &nbsp;&nbsp;&nbsp;[<i class="fa fa-print"></i>](post/slides/u7_deck3H.pdf)                 |
+| Nov 30, Mon | [Lesson 7.3: Transformations and case study](post/slides/u7_deck3.pdf) &nbsp;&nbsp;&nbsp;[<i class="fa fa-print"></i>](post/slides/u7_deck3H.pdf)                 |
+|              | [App Ex 7.2: Interpreting models with a transformed response](post/app/app_Trans_MLR.pdf) |
 
 ##### Due dates
 
