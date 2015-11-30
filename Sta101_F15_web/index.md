@@ -315,4 +315,4 @@ title: Schedule
 ### <a name="final"></a> Final Exam - Dec 10, Thu (2-5pm)
 
 * Cumulative, covers Units 1 - 7
-* Practice problems for Final: [handout] + [solutions]
+* Practice problems for Final: [handout](https://sakai.duke.edu/access/content/group/22299c5a-2e30-49a7-b46d-289ae3e0d739/FR.pdf) + [solutions](https://sakai.duke.edu/access/content/group/22299c5a-2e30-49a7-b46d-289ae3e0d739/FR_Key.pdf)
