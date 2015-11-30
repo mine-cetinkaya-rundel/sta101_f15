@@ -308,7 +308,7 @@ title: Schedule
 
 ##### In class / lab
 
-| Dec 2, Wed | Review / synthesis                                  |
+| Dec 2, Wed | [Review / synthesis](post/slides/u8_final_review.pdf) &nbsp;&nbsp;&nbsp;[<i class="fa fa-print"></i>](post/slides/u8_final_reviewH.pdf)                 |
 | Dec 3, Thu | [Project 2](post/projects/project2.html) poster session (@ The Edge Workshop Room) |
 
 * * *
