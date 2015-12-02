@@ -204,20 +204,26 @@ img {
 </div>
 <div id="submitting-code" class="section level2">
 <h2>Submitting code</h2>
-<p>Each team needs to submit code that can successfully be pasted into the following R code block. I should be able to run the code you submit and then print the summary of the multiple linear regression using the variable named <code>mlr</code>.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">load</span>(<span class="st">&quot;movies.RData&quot;</span>)
+<p>Each team needs to submit code that can successfully be pasted into the following <code>R</code> code block. I should be able to run the code you submit and then print the summary of the multiple linear regression using the variable named <code>mlr</code>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># BEGIN YOUR CODE</span>
 
-<span class="co"># BEGIN YOUR CODE</span>
+<span class="co"># load data</span>
+<span class="kw">load</span>(<span class="kw">url</span>(<span class="st">&quot;https://stat.duke.edu/~mc301/data/movies.Rdata&quot;</span>))
 
-<span class="co"># ... if you do anything prior to running the regression ...</span>
+<span class="co"># load the inference function if needed</span>
+<span class="kw">load</span>(<span class="kw">url</span>(<span class="st">&quot;https://stat.duke.edu/~mc301/R/fun/inference.RData&quot;</span>))
 
-mlr =<span class="st"> </span><span class="kw">lm</span>(..., <span class="dt">data=</span>movies)
+<span class="co"># ... anything you do prior to running the regression ...</span>
 
-<span class="co"># END YOUR CODE</span>
+mlr =<span class="st"> </span><span class="kw">lm</span>(..., <span class="dt">data =</span> movies)
 
-<span class="kw">summary</span>(mlr)</code></pre></div>
+<span class="kw">summary</span>(mlr)
+
+<span class="co"># ... anything you do after running the regression ...</span>
+
+<span class="co"># END YOUR CODE</span></code></pre></div>
 <p>To submit your team’s code, create an R Script called “teamname.R” where “teamname” is replaced with your team’s name.</p>
-<p>If you are using in RStudio in the cloud, follow the instructions <a href="https://stat.duke.edu/courses/Spring15/sta101.001/faq/#r5">here</a> to download the “teamname.R” file to your computer.</p>
+<p>If you are using in RStudio in the cloud, follow the instructions <a href="https://stat.duke.edu/courses/Fall15/sta101.002/faq/#r5">here</a> to download the “teamname.R” file to your computer.</p>
 <p>Upload that file to Sakai under the assignment “Project 2”.</p>
 <p>Your code must run with no errors on my computer with only the data file as the input. This means you must make sure any variables you define, and model you fit, etc. are all included in the code. Instructions for checking the reproducibility of your code are given below.</p>
 <p>Your final model <strong>MUST</strong> be called <code>mlr</code>, as the output of this model is what will be used for the prediction competition.</p>

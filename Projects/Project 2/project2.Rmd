@@ -187,29 +187,35 @@ And besides, you want to win the competition, right?
 ## Submitting code
 
 Each team needs to submit code that can successfully be pasted into the
-following R code block.  I should be able to run the code you submit and then
+following `R` code block.  I should be able to run the code you submit and then
 print the summary of the multiple linear regression using the variable named
 `mlr`.
 
 ```{r, eval=FALSE}
-load("movies.RData")
-
 # BEGIN YOUR CODE
 
-# ... if you do anything prior to running the regression ...
+# load data
+load(url("https://stat.duke.edu/~mc301/data/movies.Rdata"))
 
-mlr = lm(..., data=movies)
+# load the inference function if needed
+load(url("https://stat.duke.edu/~mc301/R/fun/inference.RData"))
 
-# END YOUR CODE
+# ... anything you do prior to running the regression ...
+
+mlr = lm(..., data = movies)
 
 summary(mlr)
+
+# ... anything you do after running the regression ...
+
+# END YOUR CODE
 ```
 
 To submit your team's code, create an R Script called "teamname.R" where
 "teamname" is replaced with your team's name.
 
 If you are using in RStudio in the cloud, follow the instructions
-[here](https://stat.duke.edu/courses/Spring15/sta101.001/faq/#r5) to download the
+[here](https://stat.duke.edu/courses/Fall15/sta101.002/faq/#r5) to download the
 "teamname.R" file to your computer.
 
 Upload that file to Sakai under the assignment "Project 2".
