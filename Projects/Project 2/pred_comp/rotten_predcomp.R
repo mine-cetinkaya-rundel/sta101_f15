@@ -1,17 +1,20 @@
 library(rjson)
 library(stringr)
+library(dplyr)
 
 # population to sample
+
 all = read.csv("../data/all.csv", stringsAsFactors = FALSE)
-pre_2014 = all[all$Year < 2014,]
-set.seed(421)
-rows_to_samp = sample(1:nrow(pre_2014), size = 600)
-samp = pre_2014[rows_to_samp,]
+pre_2015 = all[all$Year < 2015,]
+set.seed(12022015)
+rows_to_samp = sample(1:nrow(pre_2015), size = 600)
+samp = pre_2015[rows_to_samp,]
 samp$id = str_replace(samp$const,"^tt","")
 write.csv(samp, file = "movies_raw.csv", row.names = FALSE)
 
-# download json files
-# setwd("json")
+# download json files -----------------------------------------------
+
+setwd("json")
 # key = "asd25qrhyrw7a3zf7kgwhpfq"
 # for(i in 1:nrow(samp)){
 #   url1 = "http://api.rottentomatoes.com/api/public/v1.0/movie_alias.json?id="
@@ -23,7 +26,8 @@ write.csv(samp, file = "movies_raw.csv", row.names = FALSE)
 #   Sys.sleep(1)
 # }
 
-d = subset(samp, select = c(Title,Title.type,Directors,IMDb.Rating,Runtime..mins.,Year,Genres,Num..Votes,Release.Date..month.day.year.,URL,id))
+d = subset(samp, select = c(Title, Title.type, Directors, IMDb.Rating, Runtime..mins.,
+                            Year, Genres, Num..Votes, Release.Date..month.day.year., URL, id))
 
 names(d) = c("title","title_type","directors","imdb_rating","runtime","year","genres","num_votes","rel_date","url","id")
 
@@ -47,9 +51,12 @@ d$studio = NA
 d$link = NA
 dim(d)
 
+# fill in new columns
+setwd("json")
+
 for(i in 1:nrow(d)){
   print(i)
-  filename = paste("json/",i,"_",d$id[i],".json", sep="")
+  filename = paste(i,"_",d$id[i],".json", sep="")
   file = fromJSON(file = filename)
   if(is.null(file$title[i])){
     d[i,12:26] = NA
@@ -76,29 +83,48 @@ for(i in 1:nrow(d)){
   }  
 }
 
+d = d[ ,-which(names(d) == "genres")]
+
 # save
 write.csv(d, file = "../d_imdb_rt_raw.csv", row.names = FALSE)
 
+# change wd
+setwd("..")
+
 # get rid of rows where there is no audience or critic score
 d = read.csv("d_imdb_rt_raw.csv", stringsAsFactors = FALSE)
-d = d[which(!is.na(d$critics_score)),]
-d = d[which(d$critics_score > 0),]
+d = d[-which(is.na(d$critics_score)),]
+d = d[-which(d$critics_score < 0),]
 
 
 # title check - mismatch?
-title_check1 = d[which(d$title != d$title_rt),c(1,12)]
-# there are too many, leave for now, may not be important
+title_check1 <- d %>% # mostly ok, different by punctuation, etc.
+  mutate(title_rt = str_replace(title_rt, "(\\(.*?\\) ?)+", "")) %>%
+  mutate(title_rt = str_trim(title_rt)) %>%
+  filter(title != title_rt) %>%
+  select(title, title_rt)
 
 # runtime check - 
 # use IMDB data as truth
-runtime_check1 = d[which(d$runtime != d$runtime_rt),c(1,5,16)] # many mismatch, but by few mins
+runtime_check1 <- d %>% # many mismatch, but by few mins
+  filter(runtime != runtime_rt) %>%
+  select(runtime, runtime_rt)
+runtime_check1$diff = runtime_check1$runtime - runtime_check1$runtime_rt
+hist(runtime_check1$diff)
 
-runtime_check2 = d[which(abs(as.numeric(d$runtime) - as.numeric(d$runtime_rt)) > 20),c(1,5,16)] # some with large differences, but use IMDB as truth
+runtime_check2 <- d %>% # only a few
+  filter(abs(runtime - runtime_rt) > 20) %>%
+  select(runtime, runtime_rt)
+
 
 # year check - 
 # use IMDB data as truth
-year_check = d[which(abs(as.numeric(d$year) - as.numeric(d$year_rt)) > 1),c(1,6,13)]
-
+d %>% # yay, none!
+  mutate(year = as.numeric(year)) %>%
+  mutate(year_rt = as.numeric(year)) %>%
+  filter(abs(year - year_rt) > 1) %>%
+  select(year, year_rt) %>%
+  nrow()
 
 # oscar match // best pic nom
 best_pic_noms = read.csv("../data/best_pic_noms.csv", stringsAsFactors = FALSE)
@@ -122,10 +148,10 @@ best_actor_wins = read.csv("../data/best_actor_wins.csv", stringsAsFactors = FAL
 d$best_actor_win = "no"
 for(i in 1:nrow(d)){
   if(d$actor1[i] %in% best_actor_wins$name |
-       d$actor2[i] %in% best_actor_wins$name |
-       d$actor3[i] %in% best_actor_wins$name |
-       d$actor4[i] %in% best_actor_wins$name |
-       d$actor5[i] %in% best_actor_wins$name){d$best_actor_win[i] = "yes"}
+     d$actor2[i] %in% best_actor_wins$name |
+     d$actor3[i] %in% best_actor_wins$name |
+     d$actor4[i] %in% best_actor_wins$name |
+     d$actor5[i] %in% best_actor_wins$name){d$best_actor_win[i] = "yes"}
 }
 
 # oscar match // best actress win
@@ -134,10 +160,10 @@ best_actress_wins = read.csv("../data/best_actress_wins.csv", stringsAsFactors =
 d$best_actress_win = "no"
 for(i in 1:nrow(d)){
   if(d$actor1[i] %in% best_actress_wins$name |
-       d$actor2[i] %in% best_actress_wins$name |
-       d$actor3[i] %in% best_actress_wins$name |
-       d$actor4[i] %in% best_actress_wins$name |
-       d$actor5[i] %in% best_actress_wins$name){d$best_actress_win[i] = "yes"}
+     d$actor2[i] %in% best_actress_wins$name |
+     d$actor3[i] %in% best_actress_wins$name |
+     d$actor4[i] %in% best_actress_wins$name |
+     d$actor5[i] %in% best_actress_wins$name){d$best_actress_win[i] = "yes"}
 }
 
 # oscar match // best dir win
@@ -153,17 +179,29 @@ for(i in 1:nrow(d)){
 # http://boxofficemojo.com/alltime/adjusted.htm
 inf_ad_bo_top200 = read.csv("../data/inf_ad_bo_top200.csv", stringsAsFactors = FALSE)
 
-which(d$title %in% inf_ad_bo_top200$title)
-
 d$top200_box = "no"
+
 for(i in 1:nrow(d)){
   if(d$title[i] %in% inf_ad_bo_top200$title){d$top200_box[i] = "yes"}
 }
 
 # final dataset
-d_fin = subset(d, select = c(1,20, 2,14,5,6,15,8,18,17,29:34,19,26,21:25,28,10,11))
+cols_to_keep = c("title", "audience_score", "title_type", "genre_rt", "runtime",
+                 "year", "mpaa_rating", "studio", "num_votes", "critics_score",
+                 "critics_rating", "best_pic_nom",
+                 "best_pic_win", "best_actor_win" , "best_actress_win",
+                 "best_dir_win", "top200_box", "audience_rating", "director_rt",
+                 "actor1", "actor2", "actor3", "actor4", "actor5" ,
+                 "url", "link", "id")
 
-names(d_fin) = c("title", "audience_score", "type", "genre", "runtime", "year", "mpaa_rating", "imdb_num_votes" , "critics_score", "critics_rating", "best_pic_nom", "best_pic_win", "best_actor_win", "best_actress_win", "best_dir_win", "top200_box", "audience_rating", "director", "actor1", "actor2", "actor3", "actor4", "actor5", "rt_url", "imdb_url", "imdb_id")
+d_fin = subset(d, select = cols_to_keep)
+
+names(d_fin) = c("title", "audience_score", "type", "genre", "runtime",
+                 "year", "mpaa_rating", "studio", "imdb_num_votes", "critics_score", "critics_rating", 
+                 "best_pic_nom", "best_pic_win", "best_actor_win" , "best_actress_win",
+                 "best_dir_win", "top200_box", "audience_rating", "director",
+                 "actor1", "actor2", "actor3", "actor4", "actor5" ,
+                 "imdb_url", "rt_url", "imdb_id")
 
 d_fin$title = as.character(d_fin$title)
 d_fin$audience_score = as.numeric(d_fin$audience_score)
@@ -172,6 +210,7 @@ d_fin$genre = as.factor(d_fin$genre)
 d_fin$runtime = as.numeric(d_fin$runtime)
 d_fin$year = as.numeric(d_fin$year)
 d_fin$mpaa_rating = as.factor(d_fin$mpaa_rating)
+d_fin$studio = as.factor(d$studio)
 d_fin$imdb_num_votes = as.numeric(d_fin$imdb_num_votes)
 d_fin$critics_score = as.numeric(d_fin$critics_score)
 d_fin$critics_rating = as.factor(d_fin$critics_rating)
@@ -182,7 +221,7 @@ d_fin$best_actress_win = as.factor(d_fin$best_actress_win)
 d_fin$best_dir_win = as.factor(d_fin$best_dir_win)
 d_fin$top200_box = as.factor(d_fin$top200_box)
 d_fin$audience_rating = as.factor(d_fin$audience_rating)
-d_fin$director = as.factor(d_fin$director)
+d_fin$director = as.character(d_fin$director)
 d_fin$actor1 = as.character(d_fin$actor1)
 d_fin$actor2 = as.character(d_fin$actor2)
 d_fin$actor3 = as.character(d_fin$actor3)
@@ -190,22 +229,23 @@ d_fin$actor4 = as.character(d_fin$actor4)
 d_fin$actor5 = as.character(d_fin$actor5)
 d_fin$rt_url = as.character(d_fin$rt_url)
 d_fin$imdb_url = as.character(d_fin$imdb_url)
+d_fin$rt_url = as.character(d_fin$rt_url)
 d_fin$imdb_id = as.character(d_fin$imdb_id)
 
 d_fin$genre2 = "Other"
+d_fin$genre2[d_fin$genre == "Drama"] = "Drama"
 d_fin$genre2[d_fin$genre == "Action & Adventure"] = "Action & Adventure"
 d_fin$genre2[d_fin$genre == "Comedy"] = "Comedy"
-d_fin$genre2[d_fin$genre == "Drama"] = "Drama"
-d_fin$genre2[d_fin$genre == "Horror"] = "Horror"
 d_fin$genre2[d_fin$genre == "Mystery & Suspense"] = "Mystery & Suspense"
+d_fin$genre2[d_fin$genre == "Horror"] = "Horror"
+d_fin$genre2[d_fin$genre == "Documentary"] = "Documentary"
+d_fin$genre2[d_fin$genre == "Art House & International"] = "Art House & International"
+d_fin$genre2[d_fin$genre == "Science Fiction & Fantasy"] = "Science Fiction & Fantasy"
 
 d_fin2 = d_fin
 d_fin2$genre = as.factor(d_fin$genre2)
 dim(d_fin2)
-d_fin2 = d_fin
-d_fin2$genre = as.factor(d_fin$genre2)
-dim(d_fin2)
-d_fin2 = d_fin2[,-27]
+d_fin2 = d_fin2[,-dim(d_fin2)]
 
 # final save
 movies_pred = d_fin2
