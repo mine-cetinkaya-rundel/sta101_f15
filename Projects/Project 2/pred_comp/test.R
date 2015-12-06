@@ -3,14 +3,15 @@
 library(stringr)
 library(downloader)
 library(dplyr)
+library(ggplot2)
 
 # course setup ------------------------------------------------------
 
-team_dirs <- dir("project2_submissions/anthea/", full.names = TRUE)
+team_dirs <- dir("project2_submissions/mine", full.names = TRUE)
 
 n_team <- length(team_dirs)
 
-teams <- dir("project2_submissions/anthea/") %>%
+teams <- dir("project2_submissions/mine") %>%
         str_extract(".*\\(") %>%
         str_replace(" \\(", "")
 
