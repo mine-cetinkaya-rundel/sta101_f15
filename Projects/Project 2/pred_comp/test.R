@@ -1,9 +1,9 @@
 # load packages -----------------------------------------------------
 
 library(stringr)
-library(downloader)
 library(dplyr)
 library(ggplot2)
+library(GGally)
 
 # course setup ------------------------------------------------------
 
@@ -25,7 +25,7 @@ movies_pred = droplevels(movies_pred[movies_pred$mpaa_rating != "NC-17",])
 
 #movies_pred$log_imdb_num_votes = log(movies_pred$imdb_num_votes)
 
-for(i in 1:n_team){
+for(i in 30:n_team){
   print(i)
   cur_dir = file.path(team_dirs[i], "Submission attachment(s)")
   print(cur_dir)
